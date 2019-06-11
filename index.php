@@ -2,6 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+require_once $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 
 ?>
 <html>
@@ -14,9 +15,10 @@ error_reporting(E_ALL);
     </center>
     <p>&nbsp;</p>
     <p>Search for breeder pairs older than (months):</p>
- <form action="showAgingBreeders.php" method="get"> 
+ <form action="lib/getAgingBreeders.php" method="get"> 
  <input type="text" name="months" placeholder="6" /> 
  <input type="submit" name="submit" /> </form> 
     </p>
+    <?php getDropDown("generation_name", "generations"); ?>
   </body>
 </html>
