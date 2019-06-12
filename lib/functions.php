@@ -113,10 +113,11 @@ error_reporting(E_ALL);
 			}
 			
 			$result = $pdo->query($query);
-
+		}
 		else {
 			echo "Error - Duplicate Litter ID";
 		}
+	}
 }
 ?>
 
