@@ -85,8 +85,8 @@ error_reporting(E_ALL);
 				$litterExists = FALSE;
 				}
 	return $litterExists;
+	}
 }
-
 
 function addPups ($litterID, $numberPups, $species, $strain, $birthDate) {
 ini_set('display_errors', 1);
