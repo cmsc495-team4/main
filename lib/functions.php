@@ -85,7 +85,10 @@ error_reporting(E_ALL);
 				$litterExists = FALSE;
 				}
 	return $litterExists;
-	}
+		} catch (PDOException $e) {
+            $returnArray=array("Error accessing database");
+        }
+
 }
 
 function addPups ($litterID, $numberPups, $species, $strain, $birthDate) {
@@ -117,7 +120,10 @@ error_reporting(E_ALL);
 		else {
 			echo "Error - Duplicate Litter ID";
 		}
-	}
+	} catch (PDOException $e) {
+        	$returnArray=array("Error accessing database");
+    	}
+
 }
 ?>
 
