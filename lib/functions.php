@@ -54,11 +54,6 @@ function getDropDown ($fieldName, $tableName) {
 
                     if ($key == $fieldName) {
                         echo "<option value=\"$val\">$val</option>\n";
-//echo "<pre><p>diag info:</p>";
-//var_dump($returnArray);
-//var_dump($val);
-//echo "</pre>";
-
                     }
                     else {
                         echo "<option value=\"none\">No records avail</option>\n";
@@ -71,8 +66,60 @@ function getDropDown ($fieldName, $tableName) {
             $returnArray=array("Error accessing database");
         }
 }
-//echo "<pre><p>diag info:</p>";
-//var_dump($finalData);
-//echo "</pre>";
 
+
+function checkLitterExists ($litterID) {
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+    $litterExists = TRUE;
+    
+    	try {
+	        $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+			$query = "SELECT id FROM litters WHERE litterID = " . $litterID;
+			$result = $pdo->query($query);
+
+			if ($result->num_rows == 0) {
+				$litterExists = FALSE;
+				}
+	return $litterExists;
+}
+
+
+function addPups ($litterID, $numberPups, $species, $strain, $birthDate) {
+
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+    
+	try {
+		if (checkLitterExists($litterID)) {
+			$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+			$query = "INSERT INTO \'animals\' (\'litterID\', \'species\', \'strain\', \]'birth_date\') VALUES ";
+
+			for ($i=0; $i < $numberPups; $i++) {
+				$query = $query . "(" . $litterID . ", " . $species . ", " . $strain . ", " . $birthdate . ")";
+
+				if ($i < $numberPups-1) {
+					$query = $query . ",";
+				}
+				else {
+					$query = $query . ";";
+				}
+			}
+			
+			$result = $pdo->query($query);
+
+		else {
+			echo "Error - Duplicate Litter ID";
+		}
+}
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
