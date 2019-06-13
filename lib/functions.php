@@ -92,7 +92,7 @@ error_reporting(E_ALL);
 
 }
 
-function addPups ($litterID, $numberPups, $species, $strain, $birthDate) {
+function addPups($litterID, $numberPups, $species, $strain, $birthDate) {
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -100,8 +100,10 @@ error_reporting(E_ALL);
 
     require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
     
+    $litterExists = checkLitterExists($litterID);
+    
 	try {
-		if (checkLitterExists($litterID)) {
+		if ($litterExists) {
 			$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 			$query = "INSERT INTO \'animals\' (\'litterID\', \'species\', \'strain\', \'birth_date\') VALUES ";
 
