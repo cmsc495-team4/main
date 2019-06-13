@@ -27,44 +27,40 @@ function getDropDown ($fieldName, $tableName) {
     $returnArray=null;
     require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
     
-    	try {
-	        $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-			$query = "SELECT " . $fieldName . " FROM " . $tableName . "";
-			$result = $pdo->query($query);
-			$result->setFetchMode(PDO::FETCH_ASSOC);
+		$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+		$query = "SELECT " . $fieldName . " FROM " . $tableName . "";
+		$result = $pdo->query($query);
+		$result->setFetchMode(PDO::FETCH_ASSOC);
 
-			$i=0;
-			
-			while ( $row = $result->fetch(PDO::FETCH_ASSOC) ) {
-				if (!empty($row)) {
-			
-					$returnArray[$i] = $row;
-					$i++;
-					$skipRest = "false";
+		$i=0;
+		
+		while ( $row = $result->fetch(PDO::FETCH_ASSOC) ) {
+			if (!empty($row)) {
+		
+				$returnArray[$i] = $row;
+				$i++;
+				$skipRest = "false";
+			}
+			else {
+				echo "<option value=\"none\">No records avail</option>\n";
+				$skipRest="true";
+			}
+		}
+		
+		if ($skipRest != "true"){
+			foreach ($returnArray as $row) {
+				foreach ($row as $key=>$val) {
+
+				if ($key == $fieldName) {
+					echo "<option value=\"$val\">$val</option>\n";
 				}
 				else {
-				    echo "<option value=\"none\">No records avail</option>\n";
-				    $skipRest="true";
+					echo "<option value=\"none\">No records avail</option>\n";
+				}
 				}
 			}
+		}
 			
-			if ($skipRest != "true"){
-                foreach ($returnArray as $row) {
-                    foreach ($row as $key=>$val) {
-
-                    if ($key == $fieldName) {
-                        echo "<option value=\"$val\">$val</option>\n";
-                    }
-                    else {
-                        echo "<option value=\"none\">No records avail</option>\n";
-                    }
-                    }
-                }
-			}
-			
-		} catch (PDOException $e) {
-            $returnArray=array("Error accessing database");
-        }
 }
 
 
