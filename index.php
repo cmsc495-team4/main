@@ -20,7 +20,10 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
     </p>
 </form>
     <hr>
+    <form>
+    <select>
         <?php getDropDown("generation_name", "generations"); ?>
+        </select>
 <hr>
     <?php
 		$testvar = checkLitterExists(2); 
