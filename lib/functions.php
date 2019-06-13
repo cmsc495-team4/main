@@ -107,11 +107,10 @@ error_reporting(E_ALL);
 			$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 			//$query = "INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES ";
 			$query = $pdo->prepare("INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES (:litterID, ':species', ':strain', ':birthDate')");
-			$query->bindParam(':litterID', $litterID, PDO::PARAM_INT);
-			$query->bindParam(':species', $species, PDO::PARAM_STR, 12);
-			$query->bindParam(':strain', $strain, PDO::PARAM_STR, 18);
-			$query->bindParam(':birthDate', $birthDate, PDO::PARAM_STR, 18);
-				$query->execute();
+			$query->bindParam('litterID', $litterID, PDO::PARAM_INT);
+			$query->bindParam('species', $species, PDO::PARAM_STR, 12);
+			$query->bindParam('strain', $strain, PDO::PARAM_STR, 18);
+			$query->bindParam('birthDate', $birthDate, PDO::PARAM_STR, 18);
 
 			for ($i=0; $i < $numberPups; $i++) {
 				//$query = $query . "(" . $litterID . ", '" . $species . "', '" . $strain . "', '" . $birthDate . "')";
