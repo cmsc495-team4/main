@@ -80,9 +80,9 @@ error_reporting(E_ALL);
 	        $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 			$query = "SELECT id FROM litters WHERE litterID = " . $litterID;
 			$result = $pdo->query($query);
-			//$result->setFetchMode(PDO::FETCH_ASSOC);
+			$result->fetch(PDO::FETCH_ASSOC);
 
-			if ($result->num_rows == 0) {
+			if (!$result) {
 				$litterExists = FALSE;
 				}
 	return $litterExists;
@@ -117,6 +117,7 @@ error_reporting(E_ALL);
 			}
 			
 			$result = $pdo->query($query);
+			$result->fetch(PDO::FETCH_ASSOC);
 
 		}
 		else {
