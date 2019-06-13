@@ -26,19 +26,19 @@ error_reporting(E_ALL);
 
     $returndata=array();
     $returnArray=null;
+    
     require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
     
 		$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 		$query = "SELECT " . $fieldName . " FROM " . $tableName . "";
 		$result = $pdo->query($query);
 		$result->setFetchMode(PDO::FETCH_ASSOC);
-echo "inside1\n";
+
 		$i=0;
 		
 		while ( $row = $result->fetch(PDO::FETCH_ASSOC) ) {
 			if (!empty($row)) {
-		echo "inside2\n";
-
+		
 				$returnArray[$i] = $row;
 				$i++;
 				$skipRest = "false";
@@ -50,18 +50,12 @@ echo "inside1\n";
 		}
 		
 		if ($skipRest != "true"){
-		echo "inside3\n";
-
 			foreach ($returnArray as $row) {
-			echo "inside4\n";
-
 				foreach ($row as $key=>$val) {
-echo "inside5 " . $key . " => " . $val . " => " . $fieldName . "\n";
+					echo "testtest<option value=\"$val\">$val</option>\n";
 
 				if ($key == $fieldName) {
-				echo "inside6\n";
-
-					echo "<option value=" . $val . ">$val</option>\n";
+					echo "<option value=\"$val\">$val</option>\n";
 				}
 				else {
 					echo "<option value=\"none\">No records avail</option>\n";
