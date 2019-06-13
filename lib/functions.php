@@ -44,7 +44,7 @@ error_reporting(E_ALL);
 				$skipRest = "false";
 			}
 			else {
-				echo htmlspecialchars("<option value=\"none\">No records avail</option>\n");
+				echo "<option value=\"none\">No records avail</option>\n";
 				$skipRest="true";
 			}
 		}
@@ -57,7 +57,7 @@ error_reporting(E_ALL);
 					echo "<option value=\"" . htmlspecialchars($val) . "\">" . htmlspecialchars($val) . "</option>\n";
 				}
 				else {
-					echo htmlspecialchars("<option value=\"none\">No records avail</option>\n");
+					echo "<option value=\"none\">No records avail</option>\n";
 				}
 				}
 			}
@@ -125,7 +125,7 @@ function addPups($litterID, $numberPups, $species, $strain, $birthDate) {
 				echo "Error inserting records!";
 				}
 			else {
-				echo "Success - " . $numberPups . " new pups added to the database!";
+				echo "Success - " . htmlspecialchars($numberPups) . " new pups added to the database!";
 				}
 			} 
 		else {
@@ -135,12 +135,26 @@ function addPups($litterID, $numberPups, $species, $strain, $birthDate) {
 		$pdo=null;
 }
 
-function displayAnimalTable($litterID, $numberPups, $species, $strain, $birthDate) {
+function displayAnimalTable() {
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
+	
+	$displayAll = TRUE;
 
-	$failCount = 0;
+	if ( isset( $_REQUEST["Filter"] ) ) { // retrieve the form data by using the element's name attributes value as key 
+		$displayAll = FALSE;
+    	$filterSpecies = $_REQUEST["species"]; 
+    	$filterStrain = $_REQUEST["strain"]; 
+    	$filterLitter = $_REQUEST["litterID"]; 
+    	$filterBreeder = $_REQUEST["breederPair"]; 
+    	$filterSpecies = $_REQUEST["species"]; 
+    	$filterPI = $_REQUEST["investigator"]; 
+    	$filterSpecies = $_REQUEST["species"]; 
+    	$filterGeno = $_REQUEST["genotype"]; 
+    	$filterClass = $_REQUEST["class"]; 
+    	$filterTagNumber = $_REQUEST["tagNumber"]; 
+	}
 
 	$options = [
 	  PDO::ATTR_EMULATE_PREPARES   => false, // turn off emulation mode for "real" prepared statements
@@ -149,6 +163,93 @@ function displayAnimalTable($litterID, $numberPups, $species, $strain, $birthDat
 	];
     require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
     
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
+
+	echo "<div id=\"animal_table\">";
+	echo "<style type=\"text/css\" scoped>";
+	echo "table {border-collapse: collapse;}";
+	echo "table, th, td {border: 1px solid black;}";
+	echo "th {text-align: center; vertical-align: middle; background-color: #bbbbff;}";
+	echo "tr:nth=child(even) {background-color: #ffffff;}";
+	echo "tr:nth=child(odd)  {background-color: #cccccc;}";
+	echo "td {text-align: center; vertical-align: middle;}";
+	echo "</style>";
+
+	echo "<form>";
+    echo "<table id=\"animals\">";
+    echo "<tr><th>ID</th><th>Tag Number</th><th>Species</th><th>Class</th><th>Sex</th><th>Strain</th><th>Genotype</th><th>Litter ID</th><th>Parent Pair</th><th>Birth Date</th><th>Wean Date</th><th>Tag Date</th><td>Deceased</th><td>Transferred</th><tr>";
+    
+    if ($displayAll) {
+    
+    	$query = "SELECT * FROM `animals`";
+		$result = $pdo->query($query);
+		$result->setFetchMode(PDO::FETCH_ASSOC);
+
+		$tableRow=0;
+		
+		while ( $row = $result->fetch(PDO::FETCH_ASSOC) ) {
+			if (!empty($row)) {
+				$animalID = $row["animalID"];
+				$species = $row["species"];
+				$tagNumber = $row["tagNumber"];
+				$sex = $row["sex"];
+				$classification = $row["classification"];
+				$strain = $row["strain"];
+				$genotype = $row["genotype"];
+				$litterID = $row["litterID"];
+				$parentPair = $row["parents_id"];
+				$birth_date = $row["birth_date"];
+				$wean_date = $row["wean_date"];
+				$tag_date = $row["tag_date"];
+				$deceased = $row["deceased"];
+				$transferred = $row["transferred"];
+				
+				if ($deceased == 1) {
+					$strDeceased = "Yes";
+				}
+				else {
+					$strDeceased = "No";
+				}
+				
+				if ($transferred == 1) {
+					$strTransferred = "Yes";
+				}
+				else {
+					$strTransferred = "No";
+				}
+
+				
+				echo "<tr>";
+				echo "<td><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>"
+				echo "<td>" . $animalID . "</td>"; 
+				echo "<td>" . $tagNumber . "</td>"; 
+
+				echo "<td>" . $species . "</td>"; 
+				echo "<td>" . $classification . "</td>"; 
+				echo "<td>" . $sex . "</td>"; 
+				echo "<td>" . $strain . "</td>"; 
+				echo "<td>" . $genotype . "</td>"; 
+				echo "<td>" . $litterID . "</td>"; 
+				echo "<td>" . $parentPair . "</td>"; 
+				echo "<td>" . $birth_date . "</td>"; 
+				echo "<td>" . $wean_date . "</td>"; 
+				echo "<td>" . $tag_date . "</td>"; 
+				echo "<td>" . $strDeceased . "</td>"; 
+				echo "<td>" . $strTransferred . "</td>"; 
+				echo "</tr>";
+				
+				
+			}
+		}
+
+    }
+    
+    
+    
+	echo "</table>";
+	echo "</form>";
+    $pdo=null;
+   
 }
 ?>
 
