@@ -96,6 +96,11 @@ function addPups($litterID, $numberPups, $species, $strain, $birthDate) {
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+$options = [
+  PDO::ATTR_EMULATE_PREPARES   => false, // turn off emulation mode for "real" prepared statements
+  PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, //turn on errors in the form of exceptions
+  PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, //make the default fetch be an associative array
+];
 
 
     require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
@@ -104,7 +109,7 @@ error_reporting(E_ALL);
     
 	try {
 		if ($litterExists) {
-			$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+			$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
 			//$query = "INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES ";
 			$query = $pdo->prepare("INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES (:litterID, ':species', ':strain', ':birthDate')");
 			//$query->bindParam(':litterID', $litterID, PDO::PARAM_INT);
