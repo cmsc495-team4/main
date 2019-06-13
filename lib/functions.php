@@ -44,7 +44,7 @@ error_reporting(E_ALL);
 				$skipRest = "false";
 			}
 			else {
-				echo "\<option value=\"none\"\>No records avail\</option\>\n";
+				echo htmlspecialchars("<option value=\"none\">No records avail</option>\n");
 				$skipRest="true";
 			}
 		}
@@ -52,13 +52,12 @@ error_reporting(E_ALL);
 		if ($skipRest != "true"){
 			foreach ($returnArray as $row) {
 				foreach ($row as $key=>$val) {
-					echo "\<option value=\"$val\"\>$val\</option\>\n";
 
 				if ($key == $fieldName) {
-					echo "\<option value=\"$val\"\>$val\</option\>\n";
+					echo htmlspecialchars("<option value=\"") . $val . htmlspecialchars("\">$val</option>\n");
 				}
 				else {
-					echo "\<option value=\"none\"\>No records avail\</option\>\n";
+					echo htmlspecialchars("<option value=\"none\">No records avail</option>\n");
 				}
 				}
 			}
