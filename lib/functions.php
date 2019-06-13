@@ -56,7 +56,7 @@ echo "inside1\n";
 			echo "inside4\n";
 
 				foreach ($row as $key=>$val) {
-echo "inside5 " . $key . " => " . $val . "\n";
+echo "inside5 " . $key . " => " . $val . " => " . $fieldName . "\n";
 
 				if ($key == $fieldName) {
 				echo "inside6\n";
