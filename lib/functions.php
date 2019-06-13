@@ -220,7 +220,7 @@ function displayAnimalTable() {
 
 				
 				echo "<tr>";
-				echo "<td><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>"
+				echo "<td><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>";
 				echo "<td>" . $animalID . "</td>"; 
 				echo "<td>" . $tagNumber . "</td>"; 
 
