@@ -111,10 +111,9 @@ error_reporting(E_ALL);
 			//$query->bindParam(':species', $species, PDO::PARAM_STR, 12);
 			//$query->bindParam(':strain', $strain, PDO::PARAM_STR, 18);
 			//$query->bindParam(':birthDate', $birthDate, PDO::PARAM_STR, 18);
-			$query->execute([:litterID => $litterID, :species => $species, :strain => $strain, :birthDate => $birthDate]);
 			for ($i=0; $i < $numberPups; $i++) {
-				//$query = $query . "(" . $litterID . ", '" . $species . "', '" . $strain . "', '" . $birthDate . "')";
-				$query->execute();
+				$query->execute([':litterID' => $litterID, ':species' => $species, ':strain' => $strain, ':birthDate' => $birthDate]);
+				//$query->execute();
 				if ($i < $numberPups-1) {
 					//$query = $query . ",";
 				}
