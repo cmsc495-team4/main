@@ -119,6 +119,8 @@ $options = [
 			//$query->bindParam(':birthDate', $birthDate, PDO::PARAM_STR, 18);
 			for ($i=0; $i < $numberPups; $i++) {
 				$query->execute([':litterID' => $litterID, ':species' => $species, ':strain' => $strain, ':birthDate' => $birthDate]);
+				var_dump($query);
+
 			$testvar=$query->fetch(PDO::FETCH_ASSOC)	;
 			var_dump($testvar);
 			if ($i < $numberPups-1) {
