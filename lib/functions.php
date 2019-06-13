@@ -59,6 +59,8 @@ echo "inside1\n";
 echo "inside5 " . $key . " => " . $val . "\n";
 
 				if ($key == $fieldName) {
+				echo "inside6\n";
+
 					echo "<option value=" . $val . ">$val</option>\n";
 				}
 				else {
