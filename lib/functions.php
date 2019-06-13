@@ -32,12 +32,13 @@ error_reporting(E_ALL);
 		$query = "SELECT " . $fieldName . " FROM " . $tableName . "";
 		$result = $pdo->query($query);
 		$result->setFetchMode(PDO::FETCH_ASSOC);
-
+echo "inside1\n";
 		$i=0;
 		
 		while ( $row = $result->fetch(PDO::FETCH_ASSOC) ) {
 			if (!empty($row)) {
-		
+		echo "inside2\n";
+
 				$returnArray[$i] = $row;
 				$i++;
 				$skipRest = "false";
@@ -49,6 +50,8 @@ error_reporting(E_ALL);
 		}
 		
 		if ($skipRest != "true"){
+		echo "inside3\n";
+
 			foreach ($returnArray as $row) {
 				foreach ($row as $key=>$val) {
 
