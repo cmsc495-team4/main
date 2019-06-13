@@ -111,7 +111,6 @@ $options = [
     $litterExists = checkLitterExists($litterID);
     
 		if ($litterExists) {
-			echo "Inside if";
 			$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
 			
 			$setup = $pdo->prepare("SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;");
