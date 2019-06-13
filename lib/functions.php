@@ -96,6 +96,9 @@ function addPups($litterID, $numberPups, $species, $strain, $birthDate) {
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+$failCount = 0;
+
 $options = [
   PDO::ATTR_EMULATE_PREPARES   => false, // turn off emulation mode for "real" prepared statements
   PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, //turn on errors in the form of exceptions
@@ -111,32 +114,23 @@ $options = [
 		if ($litterExists) {
 			echo "Inside if";
 			$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
+			
 			$setup = $pdo->prepare("SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;");
 			$setup->execute();	
-			//$query = "INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES ";
+			
 			$query = $pdo->prepare("INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES (?, ?, ?, ?)");
-							var_dump($query);
-//$query->bindParam(':litterID', $litterID, PDO::PARAM_INT);
-			//$query->bindParam(':species', $species, PDO::PARAM_STR, 12);
-			//$query->bindParam(':strain', $strain, PDO::PARAM_STR, 18);
-			//$query->bindParam(':birthDate', $birthDate, PDO::PARAM_STR, 18);
+			
 			for ($i=0; $i < $numberPups; $i++) {
-				$query->execute([$litterID, $species, $strain, $birthDate]);
-				//$result = $query->fetchAll();
-				var_dump($result);
-
-			//$testvar=$query->fetch(PDO::FETCH_ASSOC)	;
-			//var_dump($testvar);
-			if ($i < $numberPups-1) {
-					//$query = $query . ",";
-				}
-				else {
-					//$query = $query . ";";
-				}
+				if (!$query->execute([$litterID, $species, $strain, $birthDate])) {
+					$failCount++;
+					}
 			}
-			//$result = $pdo->query($query);
-			//$result->fetch(PDO::FETCH_ASSOC);
-		}
+			if ($failCount > 0) {
+				echo "Error inserting records!";
+			}
+			else {
+				echo "Success - " . $numberPups . " new pups added to the database!";
+			}
 		else {
 			echo "Error - Duplicate Litter ID";
 		}
