@@ -123,9 +123,8 @@ $options = [
 			//$query->bindParam(':birthDate', $birthDate, PDO::PARAM_STR, 18);
 			for ($i=0; $i < $numberPups; $i++) {
 				$query->execute([$litterID, $species, $strain, $birthDate]);
-				echo "\nrowCount: " . $query->rowCount();
-
-				var_dump($query);
+				$result = $query->fetchAll();
+				var_dump($result);
 
 			//$testvar=$query->fetch(PDO::FETCH_ASSOC)	;
 			//var_dump($testvar);
