@@ -59,7 +59,7 @@ echo "inside1\n";
 echo "inside5 " . $key . " => " . $val . "\n";
 
 				if ($key == $fieldName) {
-					echo "<option value=\"$val\">$val</option>\n";
+					echo "<option value=" . $val . ">$val</option>\n";
 				}
 				else {
 					echo "<option value=\"none\">No records avail</option>\n";
