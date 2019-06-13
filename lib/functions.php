@@ -54,7 +54,7 @@ error_reporting(E_ALL);
 				foreach ($row as $key=>$val) {
 
 				if ($key == $fieldName) {
-					echo htmlspecialchars("<option value=\"") . $val . htmlspecialchars("\">") . $val . htmlspecialchars("</option>");
+					echo <code>htmlspecialchars("<option value=\"") . $val . htmlspecialchars("\">") . $val . htmlspecialchars("</option>")</code;
 				}
 				else {
 					echo htmlspecialchars("<option value=\"none\">No records avail</option>\n");
