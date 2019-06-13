@@ -110,7 +110,6 @@ $options = [
     
     $litterExists = checkLitterExists($litterID);
     
-	//try {
 		if ($litterExists) {
 			echo "Inside if";
 			$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
@@ -131,14 +130,11 @@ $options = [
 			else {
 				echo "Success - " . $numberPups . " new pups added to the database!";
 				}
+			} 
 		else {
 			echo "Error - Duplicate Litter ID";
 			}
-		}
-	//} catch (PDOException $e) {
-        	$returnArray=array("Error accessing database");
-    //	}
-
+		
 }
 ?>
 
