@@ -100,7 +100,6 @@ $options = [
   PDO::ATTR_EMULATE_PREPARES   => true, // turn off emulation mode for "real" prepared statements
   PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, //turn on errors in the form of exceptions
   PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, //make the default fetch be an associative array
-  PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => true,
 ];
 
 
@@ -112,6 +111,7 @@ $options = [
 		if ($litterExists) {
 			echo "Inside if";
 			$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
+			$pdo->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, TRUE);
 			//$query = "INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES ";
 			$query = $pdo->prepare("SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 				SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
