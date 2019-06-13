@@ -124,15 +124,16 @@ $options = [
 				if (!$query->execute([$litterID, $species, $strain, $birthDate])) {
 					$failCount++;
 					}
-			}
+				}
 			if ($failCount > 0) {
 				echo "Error inserting records!";
-			}
+				}
 			else {
 				echo "Success - " . $numberPups . " new pups added to the database!";
-			}
+				}
 		else {
 			echo "Error - Duplicate Litter ID";
+			}
 		}
 	//} catch (PDOException $e) {
         	$returnArray=array("Error accessing database");
