@@ -24,6 +24,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
     <select>
         <?php getDropDown("generation_name", "generations"); ?>
         </select>
+        </form>
 <hr>
     <?php
 		$testvar = checkLitterExists(2); 
