@@ -52,9 +52,11 @@ error_reporting(E_ALL);
 		if ($skipRest != "true"){
 			foreach ($returnArray as $row) {
 				foreach ($row as $key=>$val) {
-
+				echo 
 				if ($key == $fieldName) {
-					echo htmlspecialchars("<option value=\"") . $val . htmlspecialchars("\">$val</option>" . "\n");
+					echo htmlspecialchars("<option value=\"");
+					echo $val;
+					echo htmlspecialchars("\">$val</option>" . "\n");
 				}
 				else {
 					echo htmlspecialchars("<option value=\"none\">No records avail</option>\n");
