@@ -123,7 +123,7 @@ $options = [
 			//$query->bindParam(':birthDate', $birthDate, PDO::PARAM_STR, 18);
 			for ($i=0; $i < $numberPups; $i++) {
 				$query->execute([$litterID, $species, $strain, $birthDate]);
-				$result = $query->fetchAll();
+				//$result = $query->fetchAll();
 				var_dump($result);
 
 			//$testvar=$query->fetch(PDO::FETCH_ASSOC)	;
