@@ -21,11 +21,11 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 </form>
     <hr>
     <form>
-  <input list="browsers">
-  <datalist id="browsers">
-          <?php getDropDown("generation_name", "generations"); ?>
-</datalist>
-</input>        </form>
+    Inside form
+    <select name="test">
+        <?php getDropDown("generation_name", "generations"); ?>
+        </select>
+        </form>
 <hr>
     <?php
 		$testvar = checkLitterExists(2); 
