@@ -54,11 +54,7 @@ error_reporting(E_ALL);
 				foreach ($row as $key=>$val) {
 
 				if ($key == $fieldName) {
-					echo htmlspecialchars("<option value=\"");
-					echo $val;
-					echo htmlspecialchars("\">");
-					echo $val;
-					echo htmlspecialchars("</option>");
+					echo "<option value=\"" . htmlspecialchars($val) . "\">" . htmlspecialchars($val) . "</option>\n";
 				}
 				else {
 					echo htmlspecialchars("<option value=\"none\">No records avail</option>\n");
@@ -66,7 +62,8 @@ error_reporting(E_ALL);
 				}
 			}
 		}
-			
+		
+		$pdo=null;
 }
 
 
@@ -91,7 +88,8 @@ error_reporting(E_ALL);
 		} catch (PDOException $e) {
             $returnArray=array("Error accessing database");
         }
-
+        
+		$pdo=null;
 }
 
 function addPups($litterID, $numberPups, $species, $strain, $birthDate) {
@@ -133,7 +131,24 @@ function addPups($litterID, $numberPups, $species, $strain, $birthDate) {
 		else {
 			echo "Error - Duplicate Litter ID";
 			}
-		
+			
+		$pdo=null;
+}
+
+function displayAnimalTable($litterID, $numberPups, $species, $strain, $birthDate) {
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+
+	$failCount = 0;
+
+	$options = [
+	  PDO::ATTR_EMULATE_PREPARES   => false, // turn off emulation mode for "real" prepared statements
+	  PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, //turn on errors in the form of exceptions
+	  PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, //make the default fetch be an associative array
+	];
+    require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+    
 }
 ?>
 
