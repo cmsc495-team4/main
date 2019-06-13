@@ -111,11 +111,10 @@ $options = [
 		if ($litterExists) {
 			echo "Inside if";
 			$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
-			$pdo->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, TRUE);
+			$setup = $pdo->prepare("SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;");
+			$setup->execute();	
 			//$query = "INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES ";
-			$query = $pdo->prepare("SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;\n
-				SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;\n
-				INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES (?, ?, ?, ?)");
+			$query = $pdo->prepare("INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES (?, ?, ?, ?)");
 							var_dump($query);
 //$query->bindParam(':litterID', $litterID, PDO::PARAM_INT);
 			//$query->bindParam(':species', $species, PDO::PARAM_STR, 12);
