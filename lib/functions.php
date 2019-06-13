@@ -18,11 +18,12 @@
 //      getDropDown("generation_name", "generations");  <--wrapped in php tags
 //  </select>
 
+
+function getDropDown ($fieldName, $tableName) {
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-function getDropDown ($fieldName, $tableName) {
     $returndata=array();
     $returnArray=null;
     require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
