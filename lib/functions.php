@@ -126,8 +126,8 @@ $options = [
 
 				var_dump($query);
 
-			$testvar=$query->fetch(PDO::FETCH_ASSOC)	;
-			var_dump($testvar);
+			//$testvar=$query->fetch(PDO::FETCH_ASSOC)	;
+			//var_dump($testvar);
 			if ($i < $numberPups-1) {
 					//$query = $query . ",";
 				}
