@@ -107,7 +107,7 @@ error_reporting(E_ALL);
 			$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 			//$query = "INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES ";
 			$query = $pdo->prepare("INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES (:litterID, ':species', ':strain', ':birthDate')");
-			$query->bindParam('litterID', $litterID, PDO::PARAM_INT);
+			$query->bindParam(':litterID', $litterID, PDO::PARAM_INT);
 			$query->bindParam(':species', $species);
 			$query->bindParam(':strain', $strain);
 			$query->bindParam(':birthDate', $birthDate);
