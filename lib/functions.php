@@ -111,6 +111,7 @@ error_reporting(E_ALL);
 			$query->bindParam(':species', $species, PDO::PARAM_STR, 12);
 			$query->bindParam(':strain', $strain, PDO::PARAM_STR, 18);
 			$query->bindParam(':birthDate', $birthDate, PDO::PARAM_STR, 18);
+				$query->execute();
 
 			for ($i=0; $i < $numberPups; $i++) {
 				//$query = $query . "(" . $litterID . ", '" . $species . "', '" . $strain . "', '" . $birthDate . "')";
