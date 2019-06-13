@@ -18,9 +18,10 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
  <input type="text" name="months" placeholder="6" /> 
  <input type="submit" name="submit" /> </form> 
     </p>
-    <?php getDropDown("generation_name", "generations"); ?>
 </form>
     <hr>
+        <?php getDropDown("generation_name", "generations"); ?>
+<hr>
     <?php
 		$testvar = checkLitterExists(2); 
 		echo $testvar . "\n";  
