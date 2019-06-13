@@ -108,7 +108,7 @@ error_reporting(E_ALL);
 			$query = "INSERT INTO \'animals\' (\'litterID\', \'species\', \'strain\', \'birth_date\') VALUES ";
 
 			for ($i=0; $i < $numberPups; $i++) {
-				$query = $query . "(" . $litterID . ", \'" . $species . "\', \'" . $strain . "\', \'" . $birthdate . "\')";
+				$query = $query . "(" . $litterID . ", \'" . $species . "\', \'" . $strain . "\', \'" . $birthDate . "\')";
 
 				if ($i < $numberPups-1) {
 					$query = $query . ",";
