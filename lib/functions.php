@@ -105,23 +105,20 @@ error_reporting(E_ALL);
 	try {
 		if ($litterExists) {
 			$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-			$query = "INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES ";
-
+			//$query = "INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES ";
+			$query = $pdo->prepare("INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES (:litterID, ':species', ':strain', ':birthDate')");
 			for ($i=0; $i < $numberPups; $i++) {
-				$query = $query . "(" . $litterID . ", '" . $species . "', '" . $strain . "', '" . $birthDate . "')";
-
+				//$query = $query . "(" . $litterID . ", '" . $species . "', '" . $strain . "', '" . $birthDate . "')";
+				$query->execute();
 				if ($i < $numberPups-1) {
-					$query = $query . ",";
+					//$query = $query . ",";
 				}
 				else {
-					$query = $query . ";";
+					//$query = $query . ";";
 				}
 			}
-			var_dump($query);
-			$result = $pdo->query($query);
-			$result->fetch(PDO::FETCH_ASSOC);
-			var_dump($result);
-
+			//$result = $pdo->query($query);
+			//$result->fetch(PDO::FETCH_ASSOC);
 		}
 		else {
 			echo "Error - Duplicate Litter ID";
