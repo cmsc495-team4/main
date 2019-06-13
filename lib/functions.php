@@ -53,7 +53,10 @@ echo "inside1\n";
 		echo "inside3\n";
 
 			foreach ($returnArray as $row) {
+			echo "inside4\n";
+
 				foreach ($row as $key=>$val) {
+echo "inside5\n";
 
 				if ($key == $fieldName) {
 					echo "<option value=\"$val\">$val</option>\n";
