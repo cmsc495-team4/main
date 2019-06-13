@@ -22,7 +22,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
     <hr>
     <?php
 		$testvar = checkLitterExists(2); 
-		echo $testvar;  
+		echo $testvar . "\n";  
     ?>
     
     <?php

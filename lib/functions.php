@@ -25,7 +25,7 @@ error_reporting(E_ALL);
 function getDropDown ($fieldName, $tableName) {
     $returndata=array();
     $returnArray=null;
-    require_once $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+    require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
     
     	try {
 	        $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -93,19 +93,17 @@ error_reporting(E_ALL);
 }
 
 function addPups($litterID, $numberPups, $species, $strain, $birthDate) {
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
 
-$failCount = 0;
+	$failCount = 0;
 
-$options = [
-  PDO::ATTR_EMULATE_PREPARES   => false, // turn off emulation mode for "real" prepared statements
-  PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, //turn on errors in the form of exceptions
-  PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, //make the default fetch be an associative array
-];
-
-
+	$options = [
+	  PDO::ATTR_EMULATE_PREPARES   => false, // turn off emulation mode for "real" prepared statements
+	  PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, //turn on errors in the form of exceptions
+	  PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, //make the default fetch be an associative array
+	];
     require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
     
     $litterExists = checkLitterExists($litterID);
