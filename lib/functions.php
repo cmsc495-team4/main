@@ -112,14 +112,14 @@ $options = [
 			echo "Inside if";
 			$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
 			//$query = "INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES ";
-			$query = $pdo->prepare("INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES (:litterID, :species, :strain, :birthDate)");
+			$query = $pdo->prepare("INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES (?, ?, ?, ?)");
 							var_dump($query);
 //$query->bindParam(':litterID', $litterID, PDO::PARAM_INT);
 			//$query->bindParam(':species', $species, PDO::PARAM_STR, 12);
 			//$query->bindParam(':strain', $strain, PDO::PARAM_STR, 18);
 			//$query->bindParam(':birthDate', $birthDate, PDO::PARAM_STR, 18);
 			for ($i=0; $i < $numberPups; $i++) {
-				$query->execute([':litterID' => $litterID, ':species' => $species, ':strain' => $strain, ':birthDate' => $birthDate]);
+				$query->execute([$litterID, $species, $strain, $birthDate]);
 				var_dump($query);
 
 			$testvar=$query->fetch(PDO::FETCH_ASSOC)	;
