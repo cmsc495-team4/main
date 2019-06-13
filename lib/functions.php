@@ -117,9 +117,10 @@ error_reporting(E_ALL);
 					$query = $query . ";";
 				}
 			}
-			var_dump($result);
+			var_dump($query);
 			$result = $pdo->query($query);
 			$result->fetch(PDO::FETCH_ASSOC);
+			var_dump($result);
 
 		}
 		else {
