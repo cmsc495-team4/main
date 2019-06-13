@@ -109,8 +109,8 @@ error_reporting(E_ALL);
 			$query = $pdo->prepare("INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES (:litterID, ':species', ':strain', ':birthDate')");
 			$query->bindParam('litterID', $litterID, PDO::PARAM_INT);
 			$query->bindParam(':species', $species);
-			$query->bindParam(':strain', "%{$strain}%");
-			$query->bindParam(':birthDate', "%{$species}%");
+			$query->bindParam(':strain', $strain);
+			$query->bindParam(':birthDate', $birthDate");
 
 			for ($i=0; $i < $numberPups; $i++) {
 				//$query = $query . "(" . $litterID . ", '" . $species . "', '" . $strain . "', '" . $birthDate . "')";
