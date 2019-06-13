@@ -26,7 +26,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
     ?>
     
     <?php
- 		addPups(2,4,"mouse","strain2", "2018-12-05");
+ 		addPups(2,4,"'mouse'","'strain2'", "'2018-12-05'");
     ?>
   </body>
 </html>
