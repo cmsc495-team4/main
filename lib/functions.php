@@ -115,7 +115,7 @@ error_reporting(E_ALL);
 					$query = $query . ";";
 				}
 			}
-			
+			var_dump($result);
 			$result = $pdo->query($query);
 			$result->fetch(PDO::FETCH_ASSOC);
 
