@@ -77,7 +77,7 @@ error_reporting(E_ALL);
     require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
     
 		$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-		$query = "SELECT firstName, lastName FROM user WHERE user_role=\'Investigator\'";
+		$query = "SELECT first_name, last_name FROM user WHERE user_role=\'Investigator\'";
 		$result = $pdo->query($query);
 		$result->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -100,7 +100,7 @@ error_reporting(E_ALL);
 			
 			foreach ($returnArray as $row) {
 				foreach ($row as $key=>$val) {
-					$name = $row['lastName'] . ", " . $row['firstName'];
+					$name = $row['last_name'] . ", " . $row['first_name'];
 					echo "<option value=\"pi_name\">" . htmlspecialchars($name) . "</option>\n";
 				}
 			}
