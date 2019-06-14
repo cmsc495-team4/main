@@ -319,6 +319,7 @@ function displayAnimalTable() {
     
 	echo "</table>\n";
 	echo "</form>\n";
+	echo "</div>";
     $pdo=null;
    
 }
