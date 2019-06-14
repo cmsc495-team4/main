@@ -79,7 +79,7 @@ error_reporting(E_ALL);
 		$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 		$query = "SELECT * FROM user WHERE user_role=\'Investigator\'";
 		$result = $pdo->query($query);
-		var_dump($result);
+		var_dump($query);
 		$result->setFetchMode(PDO::FETCH_ASSOC);
 
 		$i=0;
