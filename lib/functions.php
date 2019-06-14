@@ -177,7 +177,7 @@ function displayAnimalTable() {
 
 	echo "<form>";
     echo "<table id=\"animals\">";
-    echo "<tr><th>Select</th><th>ID</th><th>Tag Number</th><th>Species</th><th>Class</th><th>Sex</th><th>Strain</th><th>Genotype</th><th>Litter ID</th><th>Parent Pair</th><th>Birth Date</th><th>Wean Date</th><th>Tag Date</th><th>Deceased</th><th>Transferred</th><tr>";
+    echo "<tr><th>Select</th><th>ID</th><th>Investigator</th><th>Tag Number</th><th>Species</th><th>Class</th><th>Sex</th><th>Strain</th><th>Genotype</th><th>Litter ID</th><th>Parent Pair</th><th>Birth Date</th><th>Wean Date</th><th>Tag Date</th><th>Deceased</th><th>Transferred</th><tr>";
     
     if ($displayAll) {
     
@@ -226,11 +226,28 @@ function displayAnimalTable() {
 				$parentPair = $row2["breedingPair"];
 				
 				
+				$query3="SELECT responsible_PI FROM strains WHERE strain='" . $strain . "'";
+				$result3 = $pdo->query($query3);
+				$result3->setFetchMode(PDO::FETCH_ASSOC);
+				$row3 = $result3->fetch(PDO::FETCH_ASSOC);
+				
+				$responsible_PI = $row3["responsible_PI"];
+				
+				$query4="SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
+				$result4 = $pdo->query($query4);
+				$result4->setFetchMode(PDO::FETCH_ASSOC);
+				$row4 = $result4->fetch(PDO::FETCH_ASSOC);
+				
+				$firstName = $row4["first_name"];
+				$lastName = $row4["last_name"];
+
+				
+
 				echo "<tr>";
 				echo "<td><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>";
 				echo "<td>" . $animalID . "</td>"; 
+				echo "<td>" . $lastName . ", " . $firstName . "</td>";
 				echo "<td>" . $tagNumber . "</td>"; 
-
 				echo "<td>" . $species . "</td>"; 
 				echo "<td>" . $classification . "</td>"; 
 				echo "<td>" . $sex . "</td>"; 
