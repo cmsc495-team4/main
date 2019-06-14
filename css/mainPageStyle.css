@@ -143,7 +143,7 @@ footer div table {
 }
 
 	table.animals
-		{border-collapse: collapse; border-spacing: 5px; border: 1px solid black;}
+		{border-collapse: collapse; border-spacing: 5px; border: 1px solid black; width:100%}
 	th.animals
 		{text-align: center; vertical-align: middle; background-color: #bbbbff; padding:10px; border: 1px solid black;}
 	tr.animals:nth=child(even)  
