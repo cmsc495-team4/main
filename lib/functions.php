@@ -79,7 +79,7 @@ error_reporting(E_ALL);
 		$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 		$query = "SELECT * FROM user WHERE user_role='Investigator'";
 		$result = $pdo->query($query);
-		var_dump($query);
+		//var_dump($query);
 		$result->setFetchMode(PDO::FETCH_ASSOC);
 
 		$i=0;
@@ -100,10 +100,10 @@ error_reporting(E_ALL);
 		if ($skipRest != "true"){
 			
 			foreach ($returnArray as $row) {
-				foreach ($row as $key=>$val) {
+				//foreach ($row as $key=>$val) {
 					$name = $row['last_name'] . ", " . $row['first_name'];
 					echo "<option value=\"pi_name\">" . htmlspecialchars($name) . "</option>\n";
-				}
+				//}
 			}
 		}
 		
