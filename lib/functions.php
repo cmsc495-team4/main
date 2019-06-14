@@ -84,7 +84,6 @@ error_reporting(E_ALL);
 
 		$i=0;
 		
-		echo "<option value=\"pi_name\" selected>Select Investigator</option>\n";
 		
 		while ( $row = $result->fetch(PDO::FETCH_ASSOC) ) {
 			if (!empty($row)) {
@@ -94,7 +93,7 @@ error_reporting(E_ALL);
 				$skipRest = "false";
 			}
 			else {
-				echo "<option value=\"none\">No records avail</option>\n";
+			echo "<option value=\"pi_name\" selected>No Investigators</option>\n";
 				$skipRest="true";
 			}
 		}
@@ -107,6 +106,8 @@ error_reporting(E_ALL);
 					echo "<option value=\"pi_name\">" . htmlspecialchars($name) . "</option>\n";
 				//}
 			}
+			echo "<option value=\"pi_name\" selected>Select Investigator</option>\n";
+
 		}
 		
 		$pdo=null;
