@@ -181,7 +181,8 @@ function displayAnimalTable() {
     
     if ($displayAll) {
     
-    	$query = "SELECT * FROM `animals`";
+    	$query = "SELECT * FROM `animals` UNION SELECT litterID FROM litters WHERE litters.animalID_pup = animals.animalID
+    				UNION SELECT breedingPair FROM litters WHERE litters.animalID_pup = animals.animalID";
 		$result = $pdo->query($query);
 		$result->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -197,7 +198,7 @@ function displayAnimalTable() {
 				$strain = $row["strain"];
 				$genotype = $row["genotype"];
 				$litterID = $row["litterID"];
-				$parentPair = $row["parents_id"];
+				$parentPair = $row["breedingPair"];
 				$birth_date = $row["birth_date"];
 				$wean_date = $row["wean_date"];
 				$tag_date = $row["tag_date"];
