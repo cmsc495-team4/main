@@ -77,7 +77,7 @@ error_reporting(E_ALL);
     require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
     
 		$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-		$query = "SELECT * FROM user WHERE user_role=\'Investigator\'";
+		$query = "SELECT * FROM user WHERE user_role='Investigator'";
 		$result = $pdo->query($query);
 		var_dump($query);
 		$result->setFetchMode(PDO::FETCH_ASSOC);
