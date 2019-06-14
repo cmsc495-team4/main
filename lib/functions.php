@@ -172,7 +172,7 @@ function displayAnimalTable() {
 	echo "th {text-align: center; vertical-align: middle; background-color: #bbbbff; padding:10px}";
 	//echo "tr:nth=child(even) {background-color: #ffffff;}";
 	echo "tr:nth=child(odd)  {background-color: #cccccc;}";
-	echo "td {text-align: center; vertical-align: middle;}";
+	echo "td {text-align: center; vertical-align: middle;  padding: 4px}";
 	echo "</style>";
 
 	echo "<form>";
