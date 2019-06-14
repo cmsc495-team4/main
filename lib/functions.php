@@ -212,15 +212,15 @@ function displayAnimalTable() {
     
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
 
-	echo "<div>\n";
-	echo "<style scoped>\n";
-	echo "table {border-collapse: collapse; border-spacing: 5px;}\n";
-	echo "table, th, td {border: 1px solid black;}\n";
-	echo "th {text-align: center; vertical-align: middle; background-color: #bbbbff; padding:10px}\n";
+	echo "<div id=\"animalTable\">\n";
+	//echo "<style scoped>\n";
+	//echo "table {border-collapse: collapse; border-spacing: 5px;}\n";
+	//echo "table, th, td {border: 1px solid black;}\n";
+	//echo "th {text-align: center; vertical-align: middle; background-color: #bbbbff; padding:10px}\n";
 	//echo "tr:nth=child(even) {background-color: #ffffff;}\n";
-	echo "tr:nth=child(odd)  {background-color: #cccccc;}\n";
-	echo "td {text-align: center; vertical-align: middle;  padding: 4px}\n";
-	echo "</style>\n";
+	//echo "tr:nth=child(odd)  {background-color: #cccccc;}\n";
+	//echo "td {text-align: center; vertical-align: middle;  padding: 4px}\n";
+	//echo "</style>\n";
 
 	echo "<form>\n";
     echo "<table id=\"animals\">\n";

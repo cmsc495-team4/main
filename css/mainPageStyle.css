@@ -141,3 +141,16 @@ footer div table {
   margin-left: 5px;
   width: 600px;
 }
+
+#animalTable {
+	table 
+		{border-collapse: collapse; border-spacing: 5px;}
+	table, th, td 
+		{border: 1px solid black;}
+	th 
+		{text-align: center; vertical-align: middle; background-color: #bbbbff; padding:10px}
+	tr:nth=child(odd)  
+		{background-color: #cccccc;}
+	td 	
+		{text-align: center; vertical-align: middle;  padding: 4px}
+}
