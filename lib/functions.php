@@ -223,8 +223,8 @@ function displayAnimalTable() {
 	//echo "</style>\n";
 
 	echo "<form>\n";
-    echo "<table id=\"animalTable\">\n";
-    echo "<tr><th>Select</th><th>ID</th><th>Investigator</th><th>Tag Number</th><th>Species</th><th>Class</th><th>Sex</th><th>Strain</th><th>Genotype</th><th>Litter ID</th><th>Parent Pair</th><th>Birth Date</th><th>Wean Date</th><th>Tag Date</th><th>Deceased</th><th>Transferred</th><tr>\n";
+    echo "<table class=\"animals\">\n";
+    echo "<tr class=\"animals\"><th class=\"animals\">Select</th><th class=\"animals\">ID</th><th class=\"animals\">Investigator</th><th class=\"animals\">Tag Number</th><th class=\"animals\">Species</th><th class=\"animals\">Class</th><th class=\"animals\">Sex</th><th class=\"animals\">Strain</th><th class=\"animals\">Genotype</th><th class=\"animals\">Litter ID</th><th class=\"animals\">Parent Pair</th><th class=\"animals\">Birth Date</th><th class=\"animals\">Wean Date</th><th class=\"animals\">Tag Date</th><th class=\"animals\">Deceased</th><th class=\"animals\">Transferred</th><tr class=\"animals\">\n";
     
     if ($displayAll) {
     
@@ -290,23 +290,23 @@ function displayAnimalTable() {
 
 				
 
-				echo "<tr>\n";
-				echo "<td><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
-				echo "<td>" . $animalID . "</td>\n"; 
-				echo "<td>" . $lastName . ", " . $firstName . "</td>\n";
-				echo "<td>" . $tagNumber . "</td>\n"; 
-				echo "<td>" . $species . "</td>\n"; 
-				echo "<td>" . $classification . "</td>\n"; 
-				echo "<td>" . $sex . "</td>\n"; 
-				echo "<td>" . $strain . "</td>\n"; 
-				echo "<td>" . $genotype . "</td\n>"; 
-				echo "<td>" . $litterID . "</td>\n"; 
-				echo "<td>" . $parentPair . "</td>\n"; 
-				echo "<td>" . $birth_date . "</td>\n"; 
-				echo "<td>" . $wean_date . "</td>\n"; 
-				echo "<td>" . $tag_date . "</td>\n"; 
-				echo "<td>" . $strDeceased . "</td>\n"; 
-				echo "<td>" . $strTransferred . "</td>\n"; 
+				echo "<tr class=\"animals\">\n";
+				echo "<td class=\"animals\"><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
+				echo "<td class=\"animals\">" . $animalID . "</td>\n"; 
+				echo "<td class=\"animals\">" . $lastName . ", " . $firstName . "</td>\n";
+				echo "<td class=\"animals\">" . $tagNumber . "</td>\n"; 
+				echo "<td class=\"animals\">" . $species . "</td>\n"; 
+				echo "<td class=\"animals\">" . $classification . "</td>\n"; 
+				echo "<td class=\"animals\">" . $sex . "</td>\n"; 
+				echo "<td class=\"animals\">" . $strain . "</td>\n"; 
+				echo "<td class=\"animals\">" . $genotype . "</td\n>"; 
+				echo "<td class=\"animals\">" . $litterID . "</td>\n"; 
+				echo "<td class=\"animals\">" . $parentPair . "</td>\n"; 
+				echo "<td class=\"animals\">" . $birth_date . "</td>\n"; 
+				echo "<td class=\"animals\">" . $wean_date . "</td>\n"; 
+				echo "<td class=\"animals\">" . $tag_date . "</td>\n"; 
+				echo "<td class=\"animals\">" . $strDeceased . "</td>\n"; 
+				echo "<td class=\"animals\">" . $strTransferred . "</td>\n"; 
 				echo "</tr>\n";
 				
 				
