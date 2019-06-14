@@ -108,7 +108,7 @@ input, select {
 header {
   background-color: lightgrey;
   border-bottom: 2px solid black;
-  height: 10%;
+  /*height: 10%;*/
 }
 
 header div table {
