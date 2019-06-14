@@ -181,12 +181,9 @@ function displayAnimalTable() {
     
     if ($displayAll) {
     
-    	//$query = "SELECT * FROM `animals` UNION SELECT litterID FROM litters WHERE litters.animalID_pup = animals.animalID UNION SELECT breedingPair FROM litters WHERE litters.animalID_pup = animals.animalID";
-		//$query = "CREATE VIEW tempView AS SELECT 1 AS * FROM vnetprom_team4.animals UNION ALL SELECT 2 AS * FROM vnetprom_team4.litters; SELECT * FROM tempView";
-		$query = "SELECT `animalID`, `species`, `tagNumber`, `sex`, `classification`, `strain`, `genotype`, `birth_date`, `wean_date`, `tag_date`, `deceased`, `transferred` FROM `vnetprom_team4` . `animals` UNION ALL 
-		SELECT `litterID`, `breedingPair` FROM `vnetprom_team4` . `litters`";
+    	$query1 = "SELECT * FROM `animals`";
 		
-		$result = $pdo->query($query);
+		$result = $pdo->query($query1);
 		$result->setFetchMode(PDO::FETCH_ASSOC);
 
 		$tableRow=0;
@@ -200,8 +197,6 @@ function displayAnimalTable() {
 				$classification = $row["classification"];
 				$strain = $row["strain"];
 				$genotype = $row["genotype"];
-				$litterID = $row["litterID"];
-				$parentPair = $row["breedingPair"];
 				$birth_date = $row["birth_date"];
 				$wean_date = $row["wean_date"];
 				$tag_date = $row["tag_date"];
@@ -222,6 +217,14 @@ function displayAnimalTable() {
 					$strTransferred = "No";
 				}
 
+				$query2="SELECT `litterID`, `breedingPair` FROM litters WHERE animalID_pup=" . $animalID
+				$result2 = $pdo->query($query2);
+				$result2->setFetchMode(PDO::FETCH_ASSOC);
+				$row2 = $result2->fetch(PDO::FETCH_ASSOC)
+				
+				$litterID = $row2["litterID"];
+				$parentPair = $row2["breedingPair"];
+				
 				
 				echo "<tr>";
 				echo "<td><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>";
