@@ -137,8 +137,7 @@ body div {
 footer {
   background-color: lightgrey;
   border-top: 2px solid black;
-  height: 5%;
-  max-height: 50px;
+  height: auto;
 }
 
 footer div table {
