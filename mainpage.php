@@ -71,8 +71,9 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 </body>
 <footer>
 <form>
-<div>
 <fieldset>
+
+<div>
 
   <table>
     <tr>
@@ -91,9 +92,10 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 
     </tr>
   </table>
-  </fieldset>
 
 </div>
+  </fieldset>
+
 </form>
 </footer>
 </html>
