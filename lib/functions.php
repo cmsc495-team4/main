@@ -212,19 +212,19 @@ function displayAnimalTable() {
     
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
 
-	echo "<div id=\"animal_table\">";
-	echo "<style type=\"text/css\" scoped>";
-	echo "table {border-collapse: collapse; border-spacing: 5px;}";
-	echo "table, th, td {border: 1px solid black;}";
-	echo "th {text-align: center; vertical-align: middle; background-color: #bbbbff; padding:10px}";
-	//echo "tr:nth=child(even) {background-color: #ffffff;}";
-	echo "tr:nth=child(odd)  {background-color: #cccccc;}";
-	echo "td {text-align: center; vertical-align: middle;  padding: 4px}";
-	echo "</style>";
+	echo "<div id=\"animal_table\">\n";
+	echo "<style type=\"text/css\" scoped>\n";
+	echo "table {border-collapse: collapse; border-spacing: 5px;}\n";
+	echo "table, th, td {border: 1px solid black;}\n";
+	echo "th {text-align: center; vertical-align: middle; background-color: #bbbbff; padding:10px}\n";
+	//echo "tr:nth=child(even) {background-color: #ffffff;}\n";
+	echo "tr:nth=child(odd)  {background-color: #cccccc;}\n";
+	echo "td {text-align: center; vertical-align: middle;  padding: 4px}\n";
+	echo "</style>\n";
 
-	echo "<form>";
-    echo "<table id=\"animals\">";
-    echo "<tr><th>Select</th><th>ID</th><th>Investigator</th><th>Tag Number</th><th>Species</th><th>Class</th><th>Sex</th><th>Strain</th><th>Genotype</th><th>Litter ID</th><th>Parent Pair</th><th>Birth Date</th><th>Wean Date</th><th>Tag Date</th><th>Deceased</th><th>Transferred</th><tr>";
+	echo "<form>\n";
+    echo "<table id=\"animals\">\n";
+    echo "<tr><th>Select</th><th>ID</th><th>Investigator</th><th>Tag Number</th><th>Species</th><th>Class</th><th>Sex</th><th>Strain</th><th>Genotype</th><th>Litter ID</th><th>Parent Pair</th><th>Birth Date</th><th>Wean Date</th><th>Tag Date</th><th>Deceased</th><th>Transferred</th><tr>\n";
     
     if ($displayAll) {
     
