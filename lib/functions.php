@@ -226,7 +226,7 @@ function displayAnimalTable() {
 				$parentPair = $row2["breedingPair"];
 				
 				
-				$query3="SELECT responsible_PI FROM strains WHERE strain='" . $strain . "'";
+				$query3="SELECT responsible_PI FROM strains WHERE strain_name='" . $strain . "'";
 				$result3 = $pdo->query($query3);
 				$result3->setFetchMode(PDO::FETCH_ASSOC);
 				$row3 = $result3->fetch(PDO::FETCH_ASSOC);
