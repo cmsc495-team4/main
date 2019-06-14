@@ -66,6 +66,49 @@ error_reporting(E_ALL);
 		$pdo=null;
 }
 
+function getInvestigators ($username) {
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+    $returndata=array();
+    $returnArray=null;
+    
+    require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+    
+		$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+		$query = "SELECT firstName, lastName FROM user WHERE user_role=\'Investigator\'";
+		$result = $pdo->query($query);
+		$result->setFetchMode(PDO::FETCH_ASSOC);
+
+		$i=0;
+		
+		while ( $row = $result->fetch(PDO::FETCH_ASSOC) ) {
+			if (!empty($row)) {
+		
+				$returnArray[$i] = $row;
+				$i++;
+				$skipRest = "false";
+			}
+			else {
+				echo "<option value=\"none\">No records avail</option>\n";
+				$skipRest="true";
+			}
+		}
+		
+		if ($skipRest != "true"){
+			
+			foreach ($returnArray as $row) {
+				foreach ($row as $key=>$val) {
+					$name = $row['lastName'] . ", " . $row['firstName'];
+					echo "<option value=\"pi_name\">" . htmlspecialchars($name) . "</option>\n";
+				}
+			}
+		}
+		
+		$pdo=null;
+}
+
 
 function checkLitterExists ($litterID) {
 ini_set('display_errors', 1);
