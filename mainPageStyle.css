@@ -116,7 +116,7 @@ header div table {
   margin-bottom: 1px;
   margin-left: 5px;
   width: 1000px;
-  height: 50px;
+  height: auto;
 }
 
 header div table td {
