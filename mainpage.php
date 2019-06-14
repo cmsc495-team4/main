@@ -74,15 +74,19 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 <div>
   <table>
     <tr>
-      <td><button type="submit" name="addPup">Add pups</button></td>
-      <td><button type="submit" name="assBreeder">Add breeder pair</button></td>
-      <td><button type="submit" name="updateEntry">Update animal entry</button></td>
-      <td>Reports:</td>
+      <td><button type="submit" name="updateEntry">Update Selected</button></td>
+      <td><button type="submit" name="addPup">Add Pups</button></td>
+      <td><button type="submit" name="addBreeder">Add Breeder Pair</button></td>
+      <td><button type="submit" name="addBreeder">Add Litter</button></td>
+
+      <td>Display Report:</td>
       <td>
         <select>
           <option value="1">1</option>
         </select>
       </td>
+      <td><button type="submit" name="goReport">Go</button></td>
+
     </tr>
   </table>
 </div>
