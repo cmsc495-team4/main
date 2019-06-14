@@ -1,3 +1,10 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
+?>
+
 <html>
 <head>
 	<title></title>
@@ -11,7 +18,7 @@
           <td>PI:</td>
           <td>
             <select>
-              <option value="1">1</option>
+        		<?php getInvestigators(); ?>
             </select>
           </td>
           <td>Species:</td>
