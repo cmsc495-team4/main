@@ -290,24 +290,24 @@ function displayAnimalTable() {
 
 				
 
-				echo "<tr>";
-				echo "<td><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>";
-				echo "<td>" . $animalID . "</td>"; 
-				echo "<td>" . $lastName . ", " . $firstName . "</td>";
-				echo "<td>" . $tagNumber . "</td>"; 
-				echo "<td>" . $species . "</td>"; 
-				echo "<td>" . $classification . "</td>"; 
-				echo "<td>" . $sex . "</td>"; 
-				echo "<td>" . $strain . "</td>"; 
-				echo "<td>" . $genotype . "</td>"; 
-				echo "<td>" . $litterID . "</td>"; 
-				echo "<td>" . $parentPair . "</td>"; 
-				echo "<td>" . $birth_date . "</td>"; 
-				echo "<td>" . $wean_date . "</td>"; 
-				echo "<td>" . $tag_date . "</td>"; 
-				echo "<td>" . $strDeceased . "</td>"; 
-				echo "<td>" . $strTransferred . "</td>"; 
-				echo "</tr>";
+				echo "<tr>\n";
+				echo "<td><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
+				echo "<td>" . $animalID . "</td>\n"; 
+				echo "<td>" . $lastName . ", " . $firstName . "</td>\n";
+				echo "<td>" . $tagNumber . "</td>\n"; 
+				echo "<td>" . $species . "</td>\n"; 
+				echo "<td>" . $classification . "</td>\n"; 
+				echo "<td>" . $sex . "</td>\n"; 
+				echo "<td>" . $strain . "</td>\n"; 
+				echo "<td>" . $genotype . "</td\n>"; 
+				echo "<td>" . $litterID . "</td>\n"; 
+				echo "<td>" . $parentPair . "</td>\n"; 
+				echo "<td>" . $birth_date . "</td>\n"; 
+				echo "<td>" . $wean_date . "</td>\n"; 
+				echo "<td>" . $tag_date . "</td>\n"; 
+				echo "<td>" . $strDeceased . "</td>\n"; 
+				echo "<td>" . $strTransferred . "</td>\n"; 
+				echo "</tr>\n";
 				
 				
 			}
@@ -317,8 +317,8 @@ function displayAnimalTable() {
     
     
     
-	echo "</table>";
-	echo "</form>";
+	echo "</table>\n";
+	echo "</form>\n";
     $pdo=null;
    
 }
