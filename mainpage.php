@@ -58,7 +58,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
           <td>
             <input type="text" name="dob" placeholder="mm/dd/yyyy">
           </td>
-          <td><button type="submit" name="filter">Filter</button></td>
+          <td><button type="submit" name="filter">Apply Filter</button></td>
         </tr>
       </table>
     </form>
@@ -71,6 +71,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 </body>
 <footer>
 <form>
+<fieldset>
 <div>
   <table>
     <tr>
@@ -90,6 +91,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
     </tr>
   </table>
 </div>
+</fieldset>
 </form>
 </footer>
 </html>
