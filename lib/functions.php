@@ -217,7 +217,7 @@ function displayAnimalTable() {
 					$strTransferred = "No";
 				}
 
-				$query2="SELECT `litterID`, `breedingPair` FROM litters WHERE animalID_pup=" . $animalID
+				$query2="SELECT `litterID`, `breedingPair` FROM litters WHERE animalID_pup=" . $animalID;
 				$result2 = $pdo->query($query2);
 				$result2->setFetchMode(PDO::FETCH_ASSOC);
 				$row2 = $result2->fetch(PDO::FETCH_ASSOC)
