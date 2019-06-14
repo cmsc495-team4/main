@@ -183,7 +183,8 @@ function displayAnimalTable() {
     
     	//$query = "SELECT * FROM `animals` UNION SELECT litterID FROM litters WHERE litters.animalID_pup = animals.animalID UNION SELECT breedingPair FROM litters WHERE litters.animalID_pup = animals.animalID";
 		//$query = "CREATE VIEW tempView AS SELECT 1 AS * FROM vnetprom_team4.animals UNION ALL SELECT 2 AS * FROM vnetprom_team4.litters; SELECT * FROM tempView";
-		$query = "SELECT * FROM `vnetprom_team4` . `animals` UNION ALL SELECT * FROM `vnetprom_team4` . `litters`";
+		$query = "SELECT `animalID`, `species`, `tagNumber`, `sex`, `classification`, `strain`, `genotype`, `birth_date`, `wean_date`, `tag_date`, `deceased`, `transferred` FROM `vnetprom_team4` . `animals` UNION ALL 
+		SELECT `litterID`, `breedingPair` FROM `vnetprom_team4` . `litters`";
 		
 		$result = $pdo->query($query);
 		$result->setFetchMode(PDO::FETCH_ASSOC);
