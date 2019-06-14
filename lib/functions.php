@@ -167,17 +167,17 @@ function displayAnimalTable() {
 
 	echo "<div id=\"animal_table\">";
 	echo "<style type=\"text/css\" scoped>";
-	echo "table {border-collapse: collapse;}";
+	echo "table {border-collapse: collapse; border-spacing: 5px;}";
 	echo "table, th, td {border: 1px solid black;}";
 	echo "th {text-align: center; vertical-align: middle; background-color: #bbbbff;}";
-	echo "tr:nth=child(even) {background-color: #ffffff;}";
+	//echo "tr:nth=child(even) {background-color: #ffffff;}";
 	echo "tr:nth=child(odd)  {background-color: #cccccc;}";
 	echo "td {text-align: center; vertical-align: middle;}";
 	echo "</style>";
 
 	echo "<form>";
     echo "<table id=\"animals\">";
-    echo "<tr><th>ID</th><th>Tag Number</th><th>Species</th><th>Class</th><th>Sex</th><th>Strain</th><th>Genotype</th><th>Litter ID</th><th>Parent Pair</th><th>Birth Date</th><th>Wean Date</th><th>Tag Date</th><td>Deceased</th><td>Transferred</th><tr>";
+    echo "<tr><th>Select</th><th>ID</th><th>Tag Number</th><th>Species</th><th>Class</th><th>Sex</th><th>Strain</th><th>Genotype</th><th>Litter ID</th><th>Parent Pair</th><th>Birth Date</th><th>Wean Date</th><th>Tag Date</th><th>Deceased</th><th>Transferred</th><tr>";
     
     if ($displayAll) {
     
