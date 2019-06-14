@@ -84,6 +84,8 @@ error_reporting(E_ALL);
 
 		$i=0;
 		
+		echo "<option value=\"pi_name\">Select Investigator</option>";
+		
 		while ( $row = $result->fetch(PDO::FETCH_ASSOC) ) {
 			if (!empty($row)) {
 		
