@@ -169,7 +169,7 @@ function displayAnimalTable() {
 	echo "<style type=\"text/css\" scoped>";
 	echo "table {border-collapse: collapse; border-spacing: 5px;}";
 	echo "table, th, td {border: 1px solid black;}";
-	echo "th {text-align: center; vertical-align: middle; background-color: #bbbbff;}";
+	echo "th {text-align: center; vertical-align: middle; background-color: #bbbbff; padding:10px}";
 	//echo "tr:nth=child(even) {background-color: #ffffff;}";
 	echo "tr:nth=child(odd)  {background-color: #cccccc;}";
 	echo "td {text-align: center; vertical-align: middle;}";
