@@ -109,7 +109,7 @@ error_reporting(E_ALL);
 					echo "<option value=\"pi_name\">" . htmlspecialchars($name) . "</option>\n";
 				//}
 			}
-			echo "<option value=\"pi_name\" selected>Select Investigator</option>\n";
+			echo "<option value=\"pi_name\" selected>- select -</option>\n";
 
 		}
 		
