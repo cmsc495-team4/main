@@ -31,7 +31,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
           <td>Strain:</td>
           <td>
             <select>
-              <?php getDropDown("strain_name", "strain") ?>
+              <?php getDropDown("strain_name", "strains") ?>
             </select>
           </td>
           <td>
