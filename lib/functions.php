@@ -102,14 +102,14 @@ error_reporting(E_ALL);
 		}
 		
 		if ($skipRest != "true"){
-			
+			echo "<option value=\"pi_name\" selected>- select -</option>\n";
+
 			foreach ($returnArray as $row) {
 				//foreach ($row as $key=>$val) {
 					$name = $row['last_name'] . ", " . $row['first_name'];
 					echo "<option value=\"pi_name\">" . htmlspecialchars($name) . "</option>\n";
 				//}
 			}
-			echo "<option value=\"pi_name\" selected>- select -</option>\n";
 
 		}
 		
