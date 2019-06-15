@@ -194,7 +194,7 @@ footer fieldset {
 		
 	tr.animals
 		{transition: all ease-in-out .25s}
-        .selected{background-color:"light cyan";color:#000;font-weight: bold}
+        .selected{background-color:#E0FFFF;color:#000;font-weight: bold}
 
 	th.animals
 		{text-align: center; vertical-align: middle; background-color: #bbbbff; padding:10px; border: 1px solid black;}
