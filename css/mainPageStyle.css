@@ -125,7 +125,23 @@ header div table {
 }
 
 header div table td {
-  padding-right: 5px;
+  background-color: lightgrey;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+header fieldset {
+  display: block;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  padding-top: 0.35em;
+  padding-bottom: 0.625em;
+  padding-left: 0.75em;
+  padding-right: 0.75em
+  border: 2px groove (internal value);
 }
 
 body div {
@@ -142,7 +158,7 @@ footer {
   border-right: 1px solid black;
 
   height: auto;
-  padding-bottom: 3px;
+  padding-bottom: 4px;
 }
 
 footer div table {

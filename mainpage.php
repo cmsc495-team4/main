@@ -13,6 +13,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 <header>
   <div>
     <form>
+    <fieldset>
       <table>
         <tr>
           <td>PI:</td>
@@ -61,6 +62,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
           <td><button type="submit" name="filter">Apply Filter</button></td>
         </tr>
       </table>
+      </fieldset>
     </form>
   </div>
 </header>
