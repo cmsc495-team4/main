@@ -50,6 +50,8 @@ error_reporting(E_ALL);
 		}
 		
 		if ($skipRest != "true"){
+			echo "<option value=\"0000\" selected>- select -</option>\n";
+
 			foreach ($returnArray as $row) {
 				foreach ($row as $key=>$val) {
 
