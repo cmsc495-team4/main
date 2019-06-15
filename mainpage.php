@@ -15,7 +15,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 
 
   <div>
-  <img source="img/mouse.jpg">
+  <img src="img/mouse.jpg">
     <form>
     <fieldset>
       <table>
