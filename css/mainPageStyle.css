@@ -29,18 +29,6 @@ time, mark, audio, video {
     font-family: Verdana, Arial;
 }
 
-fieldset {
-  display: block;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 5px;
-  margin-bottom: 9px;
-  padding-top: 0.35em;
-  padding-bottom: 0.625em;
-  padding-left: 0.75em;
-  padding-right: 0.75em;
-  border: 2px groove (internal value);
-}
 body {
     line-height:1;
 }
@@ -162,6 +150,20 @@ footer div table {
   width: auto;
   height: auto;
 }
+
+footer fieldset {
+  display: block;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 0.35em;
+  padding-bottom: 0.625em;
+  padding-left: 0.75em;
+  padding-right: 0.75em
+  border: 2px groove (internal value);
+}
+
 
 	table.animals
 		{border-collapse: collapse; border-spacing: 5px; border: 1px solid black; width:100%}
