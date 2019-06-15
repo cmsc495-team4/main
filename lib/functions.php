@@ -35,7 +35,10 @@ error_reporting(E_ALL);
 		$result->setFetchMode(PDO::FETCH_ASSOC);
 
 		$i=0;
-		
+		$j=0;
+		$alreadyFound=array();
+		$alreadyFound=null;
+
 		while ( $row = $result->fetch(PDO::FETCH_ASSOC) ) {
 			if (!empty($row)) {
 		
@@ -48,7 +51,7 @@ error_reporting(E_ALL);
 				$skipRest="true";
 			}
 		}
-		$j=0;
+		
 		if ($skipRest != "true"){
 			echo "<option value=\"0000\" selected>- select -</option>\n";
 
