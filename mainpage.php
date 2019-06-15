@@ -12,16 +12,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 </head>
 <header>
 
-<script type="text/javascript">
 
-function changeColor(x){
-	if(document.getElementById('change').checked)
-		x.bgColor='light cyan';
-	else
-		x.bgColor='white';
-	return true;
-}
-</script>
 
   <div>
     <form>
@@ -91,7 +82,16 @@ function changeColor(x){
 </header>
 
 <body>
+<script type="text/javascript">
 
+function changeColor(x){
+	if(document.getElementById('change').checked)
+		x.bgColor='light cyan';
+	else
+		x.bgColor='white';
+	return true;
+}
+</script>
 <?php displayAnimalTable() ?>
 
 </body>
