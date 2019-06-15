@@ -300,7 +300,7 @@ function displayAnimalTable() {
 				
 
 				echo "<tr onclick=\"changeColor(this)\" class=\"animals\">\n";
-				echo "<td class=\"animals\"><input type=\"radio\" name=\"rowselect\" id=\"change\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
+				echo "<td onclick=\"changeColor(this)\" class=\"animals\"><input type=\"radio\" name=\"rowselect\" id=\"change\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
 				echo "<td class=\"animals\">" . $animalID . "</td>\n"; 
 				echo "<td class=\"animals\">" . $lastName . ", " . $firstName . "</td>\n";
 				echo "<td class=\"animals\">" . $tagNumber . "</td>\n"; 
