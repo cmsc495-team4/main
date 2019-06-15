@@ -35,13 +35,13 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
             </select>
           </td>
           <td>
-            <input type="checkbox" name="breeders" value="breeders">Breeders
+            <input type="checkbox" name="breeders" value="breeders" selected>Breeders
           </td>
           <td>
-            <input type="checkbox" name="weanlings" value="weanlings">Weanlings
+            <input type="checkbox" name="weanlings" value="weanlings" selected>Weanlings
           </td>
                     <td>
-            <input type="checkbox" name="pups" value="pups">Pups/Unclassified
+            <input type="checkbox" name="pups" value="pups" selected>Pups/Unclassified
           </td>
 
           
