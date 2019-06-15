@@ -189,7 +189,7 @@ footer fieldset {
 
 	table.animals
 		{border-collapse: collapse; border-spacing: 5px; border: 1px solid black; width:100%}
-	table.animals tr:nth-of-type(even)  {background: #F0FFF0;}
+	table.animals tr:nth-of-type(even)  {background: #F7FFFF;}
 	table.animals tr:nth-of-type(odd)  {background: #E0FFFF;}
 		
 
