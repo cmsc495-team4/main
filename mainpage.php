@@ -49,11 +49,15 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
         <tr>
           <td>Pair:</td>
           <td>
-            <input type="text" name="pair" placeholder="Pair">
+          	<select>
+          	  <?php getDropDown("pairID", "breeders") ?>
+			</select>
           </td>
           <td>Tag#:</td>
           <td>
-            <input type="text" name="tag" placeholder="Tag#">
+          	<select>
+          	  <?php getDropDown("tagNumber", "animals") ?>
+			</select>
           </td>
           <td>Date of Birth:</td>
           <td>
