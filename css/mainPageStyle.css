@@ -115,7 +115,9 @@ header {
   border-bottom: 2px solid black;
   border-left: 1px solid black;
   border-right: 1px solid black;
-  /*height: 10%;*/
+  height: auto;
+  padding-bottom: 4px;
+
 }
 
 header div table {
