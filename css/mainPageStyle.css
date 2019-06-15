@@ -193,7 +193,7 @@ footer fieldset {
 	/* table.animals tr:nth-of-type(odd)  {background: #F0FFFF;} */
 		
 	tr.animals
-		{transition: all ease-in-out .25s}
+		{transition: all ease-in-out .44s}
         .selected{background-color:#E0FFFF;color:#000;font-weight: bold}
 
 	th.animals

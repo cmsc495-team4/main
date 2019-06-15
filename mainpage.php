@@ -126,10 +126,10 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 
   <table>
     <tr>
-      <td><button type="submit" name="updateEntry">Update Selected</button></td>
-      <td><button type="submit" name="addPup">Add Pups</button></td>
-      <td><button type="submit" name="addBreeder">Add Breeder Pair</button></td>
-      <td><button type="submit" name="addBreeder">Add Litter</button></td>
+      <td><button class="update" type="submit" name="updateEntry">Update Selected</button></td>
+      <td><button class="update" type="submit" name="addPup">Add Pups</button></td>
+      <td><button class="update" type="submit" name="addBreeder">Add Breeder Pair</button></td>
+      <td><button class="update" type="submit" name="addBreeder">Add Litter</button></td>
 
       <td>Display Report:</td>
       <td>
