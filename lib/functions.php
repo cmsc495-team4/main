@@ -48,20 +48,23 @@ error_reporting(E_ALL);
 				$skipRest="true";
 			}
 		}
-		
+		$j=0;
 		if ($skipRest != "true"){
 			echo "<option value=\"0000\" selected>- select -</option>\n";
 
 			foreach ($returnArray as $row) {
 				foreach ($row as $key=>$val) {
-
-				if ($key == $fieldName) {
-					echo "<option value=\"" . htmlspecialchars($val) . "\">" . htmlspecialchars($val) . "</option>\n";
-				}
-				else {
-					echo "<option value=\"none\">No records avail</option>\n";
-				}
-				}
+					$alreadyFound[$j] = $val;
+					if (!in_array($val, $alreadyFound)) {
+						if ($key == $fieldName) {
+							echo "<option value=\"" . htmlspecialchars($val) . "\">" . htmlspecialchars($val) . "</option>\n";
+						}
+						else {
+							echo "<option value=\"none\">No records avail</option>\n";
+						}
+					}
+					$j++;
+				}	
 			}
 			//echo "<option value=\"0000\" selected>- select -</option>\n";
 		}
