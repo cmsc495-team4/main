@@ -186,14 +186,16 @@ footer fieldset {
   border: 2px groove (internal value);
 }
 
-
+button.update {
+        .selected{border: 1px;}
+}
 	table.animals
 		{border-collapse: collapse; border-spacing: 5px; border: 1px solid black; width:100%}
 	/* table.animals tr:nth-of-type(even)  {background: #F7FFFF;} */
 	/* table.animals tr:nth-of-type(odd)  {background: #F0FFFF;} */
 		
 	tr.animals
-		{transition: all ease-in-out .44s}
+		{transition: all linear 0.5s}
         .selected{background-color:#E0FFFF;color:#000;font-weight: bold}
 
 	th.animals
