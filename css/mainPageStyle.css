@@ -27,6 +27,9 @@ time, mark, audio, video {
     background:transparent;
     font-style: normal;
     font-family: Verdana, Arial;
+    tr:nth=child(even)  {background-color: #F0FFF0;}
+	tr:nth=child(odd)  {background-color: #E077FF;}
+
 }
 
 body {
