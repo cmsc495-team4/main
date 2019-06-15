@@ -61,7 +61,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
           </td>
           <td>Date of Birth:</td>
           <td>
-            <input type="text" name="dob" placeholder="mm/dd/yyyy">
+            <input type="date" name="dob" placeholder="mm/dd/yyyy">
           </td>
           <td><button type="submit" name="filter">Apply Filter</button></td>
         </tr>
