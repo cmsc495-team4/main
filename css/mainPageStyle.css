@@ -33,10 +33,6 @@ body {
     line-height:1;
 }
 
-table {
-    tr:nth=child(even)  {background-color: #F0FFF0;}
-	tr:nth=child(odd)  {background-color: #E077FF;}
-}
 
 article,aside,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section { 
@@ -193,8 +189,10 @@ footer fieldset {
 
 	table.animals
 		{border-collapse: collapse; border-spacing: 5px; border: 1px solid black; width:100%}
-	tr.animals > tr:nth=child(even)  {background-color: #F0FFF0;}
-	table.animals > tr:nth=child(odd)  {background-color: #E077FF;}
+	table.animals {
+    	tr:nth-of-type(even)  {background: #F0FFF0;}
+		tr:nth-of-type(odd)  {background: #E0FFFF;}
+		}
 
 	th.animals
 		{text-align: center; vertical-align: middle; background-color: #bbbbff; padding:10px; border: 1px solid black;}
