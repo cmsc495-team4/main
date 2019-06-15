@@ -25,13 +25,13 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
           <td>Species:</td>
           <td>
             <select>
-              <option value="1">1</option>
+              <?php getDropDown("species_name", "species") ?>
             </select>
           </td>
           <td>Strain:</td>
           <td>
             <select>
-              <option value="1">1</option>
+              <?php getDropDown("strain_name", "strain") ?>
             </select>
           </td>
           <td>
