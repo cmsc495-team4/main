@@ -105,6 +105,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
                             {
                                 // remove the selected class
                                 //el.classList.remove("selected");
+                            	this.parentElement.parentElement.classList.toggle("selected");
                                 this.parentElement.parentElement.classList.toggle("animals");
                             }
                         }
