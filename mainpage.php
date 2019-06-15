@@ -50,13 +50,13 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
           <td>Pair:</td>
           <td>
           	<select>
-          	  <?php getDropDown("pairID", "breeders") ?>
+          	  <?php getDropDown("pairID", "breeder_pairs") ?>
 			</select>
           </td>
           <td>Tag#:</td>
           <td>
           	<select>
-          	  <?php //getDropDown("tagNumber", "animals") ?>
+          	  <?php getDropDown("tagNumber", "animals") ?>
 			</select>
           </td>
           <td>Date of Birth:</td>
