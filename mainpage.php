@@ -11,6 +11,18 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 	<link rel="stylesheet" type="text/css" href="css/mainPageStyle.css">
 </head>
 <header>
+
+<script type="text/javascript">
+
+function changeColor(x){
+	if(document.getElementById('change').checked)
+		x.bgColor='light cyan';
+	else
+		x.bgColor='white';
+	return true;
+}
+</script>
+
   <div>
     <form>
     <fieldset>
@@ -77,6 +89,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
     </form>
   </div>
 </header>
+
 <body>
 
 <?php displayAnimalTable() ?>
@@ -111,4 +124,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 
 </form>
 </footer>
+
+
+
 </html>
