@@ -142,7 +142,7 @@ header fieldset {
   padding-top: 0.35em;
   padding-bottom: 0.625em;
   padding-left: 0.75em;
-  padding-right: 0.75em
+  padding-right: 0.75em;
   border: 2px groove (internal value);
 }
 
@@ -182,7 +182,7 @@ footer fieldset {
   padding-top: 0.35em;
   padding-bottom: 0.625em;
   padding-left: 0.75em;
-  padding-right: 0.75em
+  padding-right: 0.75em;
   border: 2px groove (internal value);
 }
 
