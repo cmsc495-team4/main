@@ -59,6 +59,13 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
           	  <?php getDropDown("tagNumber", "animals") ?>
 			</select>
           </td>
+          <td>Litter ID::</td>
+          <td>
+          	<select>
+          	  <?php getDropDown("litterID", "litters") ?>
+			</select>
+          </td>
+
           <td>Date of Birth:</td>
           <td>
             <input type="date" name="dob" placeholder="mm/dd/yyyy">
