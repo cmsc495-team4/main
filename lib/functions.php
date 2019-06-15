@@ -63,7 +63,7 @@ error_reporting(E_ALL);
 				}
 				}
 			}
-			echo "<option value=\"0000\" selected>- select -</option>\n";
+			//echo "<option value=\"0000\" selected>- select -</option>\n";
 		}
 		
 		$pdo=null;
