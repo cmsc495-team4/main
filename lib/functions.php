@@ -57,7 +57,6 @@ error_reporting(E_ALL);
 
 			foreach ($returnArray as $row) {
 				foreach ($row as $key=>$val) {
-					$alreadyFound[$j] = $val;
 					if (!in_array($val, $alreadyFound)) {
 						if ($key == $fieldName) {
 							echo "<option value=\"" . htmlspecialchars($val) . "\">" . htmlspecialchars($val) . "</option>\n";
@@ -66,6 +65,7 @@ error_reporting(E_ALL);
 							echo "<option value=\"none\">No records avail</option>\n";
 						}
 					}
+					$alreadyFound[$j] = $val;
 					$j++;
 				}	
 			}
