@@ -61,6 +61,7 @@ error_reporting(E_ALL);
 				}
 				}
 			}
+			echo "<option value=\"none\" selected >- select -</option>\n";
 		}
 		
 		$pdo=null;
