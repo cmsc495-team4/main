@@ -209,10 +209,12 @@ button.update {
 	/* table.animals tr:nth-of-type(even)  {background: #F7FFFF;} */
 	/* table.animals tr:nth-of-type(odd)  {background: #F0FFFF;} */
 		
-	tr.animals
-		{transition: all linear 0.5s}
-        .selected{background-color:#E0FFFF;color:#000;font-weight: bold}
-
+	tr.animals {
+		transition: all linear 0.5s
+		font-style: normal;
+		background-color:#FFFFFF;}
+    tr.selected{background-color:#E0FFFF;color:#000;font-weight: bold; transition: all linear 0.5s}
+	
 	th.animals
 		{text-align: center; vertical-align: middle; background-color: #bbbbff; padding:10px; border: 1px solid black;}
 	td.animals 	

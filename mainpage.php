@@ -104,7 +104,8 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
                             if(el.tagName === "TR")
                             {
                                 // remove the selected class
-                                el.classList.remove("selected");
+                                //el.classList.remove("selected");
+                                this.parentElement.parentElement.classList.toggle("animals");
                             }
                         }
                         
