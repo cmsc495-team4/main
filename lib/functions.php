@@ -57,7 +57,7 @@ error_reporting(E_ALL);
 
 			foreach ($returnArray as $row) {
 				foreach ($row as $key=>$val) {
-					if (!in_array($val, $alreadyFound)) {
+					if (!in_array($val, $alreadyFound)) {  //don't add duplicate values to the list
 						if ($key == $fieldName) {
 							echo "<option value=\"" . htmlspecialchars($val) . "\">" . htmlspecialchars($val) . "</option>\n";
 						}

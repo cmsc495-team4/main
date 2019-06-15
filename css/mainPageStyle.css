@@ -188,9 +188,10 @@ footer fieldset {
 
 	table.animals
 		{border-collapse: collapse; border-spacing: 5px; border: 1px solid black; width:100%}
+	table.animals 	tr:nth=child(even)  {background-color: #F0FFF0;}
+	table.animals 	tr:nth=child(odd)  {background-color: E0FFFF;}
+
 	th.animals
 		{text-align: center; vertical-align: middle; background-color: #bbbbff; padding:10px; border: 1px solid black;}
-	tr.animals:nth=child(even)  
-		{background-color: #cccccc;}
 	td.animals 	
-		{text-align: center; vertical-align: middle; padding: 4px; 1px solid black;}
+		{text-align: center; vertical-align: middle; padding: 4px; border: 1px solid gray;}
