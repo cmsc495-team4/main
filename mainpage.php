@@ -82,18 +82,41 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 </header>
 
 <body>
-<script type="text/javascript">
-
-function changeColor(x){
-	if(document.getElementById('change').checked)
-		x.bgColor='light cyan';
-	else
-		x.bgColor='white';
-	return true;
-}
-</script>
 <?php displayAnimalTable() ?>
 
+
+      <script>
+            
+            function selectRow(){
+        
+                var radios = document.getElementsByName("rowselect");
+                for( var i = 0; i < radios.length; i++ )
+                {
+                    radios[i].onclick = function()
+                    {
+                        // remove class from the other rows
+                        
+                        var el = document.getElementById("header-row");
+                        
+                        // go to the nex sibing
+                        while(el = el.nextSibling)
+                        {
+                            if(el.tagName === "TR")
+                            {
+                                // remove the selected class
+                                el.classList.remove("selected");
+                            }
+                        }
+                        
+                     // radio  -      td      -          tr 
+                        this.parentElement.parentElement.classList.toggle("selected");
+                    };
+                }
+        
+            }
+            selectRow();
+        </script>    
+        
 </body>
 <footer>
 <form>
