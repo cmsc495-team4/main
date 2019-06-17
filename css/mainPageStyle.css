@@ -142,7 +142,7 @@ header div table {
   margin-left: 10px;
   margin-right: 10px;
   width: auto;
-  height: auto;
+  height: 50px;
 }
 
 header div table td {
@@ -186,7 +186,7 @@ footer div table {
   padding-bottom: 6px;
 
   width: auto;
-  height: auto;
+  height: 50px;
 }
 
 footer fieldset {
