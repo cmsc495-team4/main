@@ -18,6 +18,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
   <img align="left" src="img/mouse-1.png" height="117" width="87">
     <form>
     <fieldset>
+    <legend>Filter Results</legend>
       <table>
         <tr>
           <td>PI:</td>
