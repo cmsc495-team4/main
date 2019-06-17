@@ -131,7 +131,7 @@ header {
   border-bottom: 2px solid black;
   border-left: 1px solid black;
   border-right: 1px solid black;
-  height: auto;
+  height: 50px;
   padding-bottom: 4px;
 
 }
@@ -142,7 +142,7 @@ header div table {
   margin-left: 10px;
   margin-right: 10px;
   width: auto;
-  height: 50px;
+  height: auto;
 }
 
 header div table td {
