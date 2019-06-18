@@ -205,6 +205,9 @@ footer fieldset {
 tr.footer{
   vertical-align: middle;
 }
+td.footer{
+  vertical-align: middle;
+}
 
 img.mouselogo {
 padding-top: 5px;
