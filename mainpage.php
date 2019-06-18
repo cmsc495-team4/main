@@ -11,7 +11,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 	<link rel="stylesheet" type="text/css" href="css/mainPageStyle.css">
 </head>
 <header>
-<div>
+<div class="logo">
   <img align="center" class="ritalogo" src="img/ritalogo-1.png" height="94" width="360">
   <h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
 </div>

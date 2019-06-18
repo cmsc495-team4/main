@@ -29,6 +29,11 @@ time, mark, audio, video {
     font-family: Verdana, Arial;
 }
 
+div.logo {
+overflow-y: hidden;
+overflow-x: hidden; 
+
+}
 h2.maintitle {
     text-align: center;
     font-family: "Avant Garde", Verdana;
