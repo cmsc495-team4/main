@@ -37,8 +37,8 @@ overflow-x: hidden;
 h2.maintitle {
     text-align: center;
     font-family: "Avant Garde", Verdana;
-    font-size: 16px;
-    text-shadow: 2px 2px;
+    font-size: 18px;
+    text-shadow: 2px 2px 4px #000000;
 }
 
 tr {
