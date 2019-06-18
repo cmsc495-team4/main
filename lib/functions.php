@@ -114,7 +114,7 @@ error_reporting(E_ALL);
 			foreach ($returnArray as $row) {
 				//foreach ($row as $key=>$val) {
 					$name = $row['last_name'] . ", " . $row['first_name'];
-					echo "<option value=\"pi_name\">" . htmlspecialchars($name) . "</option>\n";
+					echo "<option value=\"" . htmlspecialchars($name) . "\">" . htmlspecialchars($name) . "</option>\n";
 				//}
 			}
 
