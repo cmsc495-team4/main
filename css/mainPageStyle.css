@@ -213,7 +213,8 @@ vertical-align: middle;
 }
 
 button.update {
-        .selected{border: 1px;}
+    vertical-align: middle;
+    .selected{border: 1px;}
 }
 table.animals
     {border-collapse: collapse; border-spacing: 5px; border: 1px solid black; width:100%}
