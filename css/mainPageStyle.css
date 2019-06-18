@@ -201,21 +201,25 @@ footer fieldset {
   border: 2px groove (internal value);
 }
 
+img.mouselogo {
+vertical-align: middle;
+}
+
 button.update {
         .selected{border: 1px;}
 }
-	table.animals
-		{border-collapse: collapse; border-spacing: 5px; border: 1px solid black; width:100%}
-	/* table.animals tr:nth-of-type(even)  {background: #F7FFFF;} */
-	/* table.animals tr:nth-of-type(odd)  {background: #F0FFFF;} */
-		
-	tr.animals {
-		transition: all linear 0.5s
-		font-style: normal;
-		background-color:#FFFFFF;}
-    tr.selected{background-color:#E0FFFF;color:#000;font-weight: bold; transition: all linear 0.5s}
-	
-	th.animals
-		{text-align: center; vertical-align: middle; background-color: #bbbbff; padding:10px; border: 1px solid black;}
-	td.animals 	
-		{text-align: center; vertical-align: middle; padding: 4px; border: 1px dotted gray;}
+table.animals
+    {border-collapse: collapse; border-spacing: 5px; border: 1px solid black; width:100%}
+/* table.animals tr:nth-of-type(even)  {background: #F7FFFF;} */
+/* table.animals tr:nth-of-type(odd)  {background: #F0FFFF;} */
+    
+tr.animals {
+    transition: all linear 0.5s
+    font-style: normal;
+    background-color:#FFFFFF;}
+tr.selected{background-color:#E0FFFF;color:#000;font-weight: bold; transition: all linear 0.5s}
+
+th.animals
+    {text-align: center; vertical-align: middle; background-color: #bbbbff; padding:10px; border: 1px solid black;}
+td.animals 	
+    {text-align: center; vertical-align: middle; padding: 4px; border: 1px dotted gray;}
