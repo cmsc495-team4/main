@@ -137,8 +137,8 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
       <td>Display Report:</td>
       <td>
         <select>
-          <option value="pi_name" selected>- select -</option>
-          <option value="Pup Survivability">1</option>
+          <option value="survival" selected>- select -</option>
+          <option value="survival">Pup Survivability</option>
         </select>
       </td>
       <td><button type="submit" name="goReport">Go</button></td>
