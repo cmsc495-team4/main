@@ -128,7 +128,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 <div>
   <img align="left" class="mouselogo" src="img/mouse-1.png" height="117" width="87">
 
-  <table class="footer">
+  <table class="tb-footer">
     <tr class="tr-footer">
       <td class="td-footer"><button class="update" type="submit" name="updateEntry">Update Selected</button></td>
       <td class="td-footer"><button class="update" type="submit" name="addPup">Add Pups</button></td>
