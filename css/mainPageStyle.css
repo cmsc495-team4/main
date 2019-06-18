@@ -32,7 +32,7 @@ time, mark, audio, video {
 div.logo {
 overflow-y: hidden;
 overflow-x: hidden; 
-margin-bottom: 4px;
+height: 120px;
 }
 h2.maintitle {
     text-align: center;
