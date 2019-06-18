@@ -184,6 +184,7 @@ footer div table {
   margin-left: 10px;
   margin-right: 10px;
   padding-bottom: 6px;
+  vertical-align: middle;
 
   width: auto;
   height: 50px;
