@@ -133,7 +133,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
       <td class="td-footer"><button class="update" type="submit" name="addPup">Add Pups</button></td>
       <td class="td-footer"><button class="update" type="submit" name="addBreeder">Add Breeder Pair</button></td>
       <td class="td-footer"><button class="update" type="submit" name="addBreeder">Add Litter</button></td>
-      <td name="this is an empty cell for spacing">&nbsp;</td>
+      <td name="this is an empty cell for spacing">&emsp;</td>
       <td>Display Report:</td>
       <td>
         <select>
