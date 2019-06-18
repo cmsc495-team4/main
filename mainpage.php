@@ -12,7 +12,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 </head>
 <header>
 <div class="logo">
-  <img align="center" class="ritalogo" src="img/ritalogo-1.png" height="94" width="360">
+  <img align="center" class="ritalogo" src="img/ritalogo-1.png" height="97" width="360">
   <h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
 </div>
   <div>
