@@ -141,6 +141,8 @@ header {
   border-bottom: 2px solid black;
   border-left: 1px solid black;
   border-right: 1px solid black;
+width: auto;
+
   height: 228px;
   padding-bottom: 6px;
 
@@ -194,6 +196,8 @@ footer {
   border-right: 1px solid black;
 
   height: auto;
+    width: auto;
+
   padding-bottom: 4px;
 }
 
