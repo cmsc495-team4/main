@@ -221,7 +221,7 @@ footer fieldset {
   border: 2px groove (internal value);
 }
 table.tb-footer{
-  vertical-align: middle;
+  vertical-align: middle!important;
 }
 tr.tr-footer{
   vertical-align: middle;
