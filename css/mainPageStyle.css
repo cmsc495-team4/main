@@ -141,8 +141,6 @@ header {
   border-bottom: 2px solid black;
   border-left: 1px solid black;
   border-right: 1px solid black;
-width: auto;
-
   height: 228px;
   padding-bottom: 6px;
 
@@ -196,8 +194,6 @@ footer {
   border-right: 1px solid black;
 
   height: auto;
-    width: auto;
-
   padding-bottom: 4px;
 }
 
@@ -246,7 +242,7 @@ img.ritalogo {
 display: block;
 margin-left: auto;
 margin-right: auto;
-padding-top: 4px;:
+padding-top: 8px;:
 padding-right: 8px;:
 vertical-align: middle;
 }
@@ -258,7 +254,7 @@ button.update {
 }
 
 table.animals
-    {border-collapse: collapse; border-spacing: 5px; border: 1px solid black; width:auto}
+    {border-collapse: collapse; border-spacing: 5px; border: 1px solid black; width:100%}
 /* table.animals tr:nth-of-type(even)  {background: #F7FFFF;} */
 /* table.animals tr:nth-of-type(odd)  {background: #F0FFFF;} */
     
