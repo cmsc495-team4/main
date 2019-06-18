@@ -75,7 +75,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
           <td>
             <input type="date" name="dob" placeholder="mm/dd/yyyy">
           </td>
-          <td><button class="filter" type="submit" name="filter">Apply Filter</button></td>
+          <td class="filter-button"><button class="filter" type="submit" name="filter">Apply Filter</button></td>
         </tr>
       </table>
       </fieldset>

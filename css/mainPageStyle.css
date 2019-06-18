@@ -164,7 +164,10 @@ header fieldset {
 button.filter {
     vertical-align: middle;
     line-height: 20px;
-    padding: 4px;}
+    padding-top: 4px;}
+    padding-bottom: 4px;}
+    padding-left: 12px;}
+    padding-right: 12px;}
 }
 
 
@@ -214,6 +217,10 @@ tr.footer{
 }
 td.footer{
   vertical-align: middle;
+}
+
+td.filter-button{
+  text-align: right;
 }
 
 img.mouselogo {
