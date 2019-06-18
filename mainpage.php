@@ -86,38 +86,34 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 <?php displayAnimalTable() ?>
 
 
-      <script>
-            
-            function selectRow(){
-        
-                var radios = document.getElementsByName("rowselect");
-                for( var i = 0; i < radios.length; i++ )
-                {
-                    radios[i].onclick = function()
-                    {
-                        // remove class from the other rows
-                        
-                        var el = document.getElementById("header-row");
-                        
-                        // go to the nex sibing
-                        while(el = el.nextSibling)
-                        {
-                            if(el.tagName === "TR")
-                            {
-                                // remove the selected class
-                                el.classList.remove("selected");
+<script>
+    
+    function selectRow(){
 
-                            }
-                        }
-                        
-                     // radio  -      td      -          tr 
-                        this.parentElement.parentElement.classList.toggle("selected");
-                    };
+        var radios = document.getElementsByName("rowselect");
+        for( var i = 0; i < radios.length; i++ )
+        {
+            radios[i].onclick = function()
+            {
+                // remove class from the other rows
+                
+                var element = document.getElementById("header-row");
+                
+                // go to the next sibing
+                while(element = element.nextSibling)
+                {
+                    if(element.tagName === "TR")
+                    {
+                        // remove the selected class
+                        element.classList.remove("selected");
+                    }
                 }
-        
-            }
-            selectRow();
-        </script>    
+                this.parentElement.parentElement.classList.toggle("selected");
+            };
+        }
+    }
+    selectRow();
+</script>    
         
 </body>
 <footer>
