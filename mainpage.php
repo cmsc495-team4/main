@@ -15,7 +15,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 
 
   <div>
-  <img align="left" id="mouselogo" src="img/mouse-1.png" height="117" width="87">
+  <img align="left" class="mouselogo" src="img/mouse-1.png" height="117" width="87">
     <form>
     <fieldset>
     <legend>Filter Results</legend>
