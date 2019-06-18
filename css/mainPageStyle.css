@@ -228,6 +228,14 @@ padding-right: 3px;
 vertical-align: middle;
 }
 
+img.ritalogo {
+display: block;
+margin-left: auto;
+margin-right: auto;
+vertical-align: middle;
+}
+
+
 button.update {
     vertical-align: middle;
     .selected{border: 1px;}
