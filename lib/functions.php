@@ -117,7 +117,6 @@ error_reporting(E_ALL);
 					echo "<option value=\"" . htmlspecialchars($name) . "\">" . htmlspecialchars($name) . "</option>\n";
 				//}
 			}
-
 		}
 		
 		$pdo=null;

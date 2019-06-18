@@ -1,15 +1,14 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/mainPageStyle.css">
+</head>
 <?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 ?>
-
-<html>
-<head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/mainPageStyle.css">
-</head>
 <header>
 <div class="logo">
   <img align="center" class="ritalogo" src="img/ritalogo-1.png" height="97" width="360">
