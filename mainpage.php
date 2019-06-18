@@ -153,8 +153,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 
 </form>
 </footer>
-<br>
-&emsp; © 2019, CMSC495 Team #4
+<br>&emsp; © 2019, CMSC495 Team #4
 
 
 </html>
