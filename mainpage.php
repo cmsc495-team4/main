@@ -75,7 +75,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
           <td>
             <input type="date" name="dob" placeholder="mm/dd/yyyy">
           </td>
-          <td class="filter-button"><button class="filter" type="submit" name="filter">Apply Filter</button></td>
+          <td class="filter-button"><button class="action" type="submit" name="filter">Apply Filter</button></td>
         </tr>
       </table>
       </fieldset>
@@ -141,7 +141,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
           <option value="survival">Pup Survivability</option>
         </select>
       </td>
-      <td><button type="submit" name="goReport">Go</button></td>
+      <td><button class="action" type="submit" name="goReport">Go</button></td>
 
     </tr>
   </table>

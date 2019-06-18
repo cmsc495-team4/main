@@ -161,7 +161,7 @@ header fieldset {
   border: 2px groove (internal value);
 }
 
-button.filter {
+button.action {
     vertical-align: middle;
     line-height: 20px;
     padding-top: 4px;
