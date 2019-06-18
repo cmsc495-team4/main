@@ -11,9 +11,9 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 	<link rel="stylesheet" type="text/css" href="css/mainPageStyle.css">
 </head>
 <header>
-
-
-
+<div>
+  <img align="center" class="ritalogo" src="img/ritalogo-1.png" height="94" width="360">
+</div>
   <div>
   <img align="left" class="mouselogo" src="img/mouse-1.png" height="117" width="87">
     <form>
