@@ -16,7 +16,6 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
   <h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
 </div>
   <div>
-  <img align="left" class="mouselogo" src="img/mouse-1.png" height="117" width="87">
     <form>
     <fieldset>
     <legend>Filter Results</legend>
@@ -127,6 +126,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 <fieldset>
 
 <div>
+  <img align="left" class="mouselogo" src="img/mouse-1.png" height="117" width="87">
 
   <table>
     <tr class="tr-footer">
