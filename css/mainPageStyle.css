@@ -161,6 +161,13 @@ header fieldset {
   border: 2px groove (internal value);
 }
 
+button.filter {
+    vertical-align: middle;
+    line-height: 20px;
+    padding: 4px;}
+}
+
+
 body div {
 /*  min-height: 80%; */
 /*  max-height: 83%; */
@@ -219,6 +226,7 @@ button.update {
     vertical-align: middle;
     .selected{border: 1px;}
 }
+
 table.animals
     {border-collapse: collapse; border-spacing: 5px; border: 1px solid black; width:100%}
 /* table.animals tr:nth-of-type(even)  {background: #F7FFFF;} */
