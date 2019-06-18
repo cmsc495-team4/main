@@ -37,7 +37,6 @@ error_reporting(E_ALL);
 		$i=0;
 		$j=0;
 		$alreadyFound=array();
-		$alreadyFound=null;
 
 		while ( $row = $result->fetch(PDO::FETCH_ASSOC) ) {
 			if (!empty($row)) {
