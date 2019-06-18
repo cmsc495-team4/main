@@ -202,6 +202,10 @@ footer fieldset {
   border: 2px groove (internal value);
 }
 
+tr.footer{
+  vertical-align: middle;
+}
+
 img.mouselogo {
 padding-top: 5px;
 padding-right: 3px;

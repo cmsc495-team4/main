@@ -128,7 +128,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 <div>
 
   <table>
-    <tr>
+    <tr class="tr-footer">
       <td><button class="update" type="submit" name="updateEntry">Update Selected</button></td>
       <td><button class="update" type="submit" name="addPup">Add Pups</button></td>
       <td><button class="update" type="submit" name="addBreeder">Add Breeder Pair</button></td>
