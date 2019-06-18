@@ -220,6 +220,12 @@ footer fieldset {
   padding-right: 0.75em;
   border: 2px groove (internal value);
 }
+
+
+div.div-footer{
+  vertical-align: middle;
+}
+
 table.tb-footer{
   vertical-align: middle!important;
 }

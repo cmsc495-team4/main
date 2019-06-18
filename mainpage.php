@@ -125,7 +125,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 <form>
 <fieldset>
 
-<div>
+<div class="div-footer">
   <img align="left" class="mouselogo" src="img/mouse-1.png" height="117" width="87">
 
   <table class="tb-footer">
