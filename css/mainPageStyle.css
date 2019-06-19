@@ -182,7 +182,7 @@ button.action {
 body div {
 /*  min-height: 80%; */
 /*  max-height: 83%; */
-  overflow: auto;
+ /* overflow: auto; */
 }
 
 footer {
