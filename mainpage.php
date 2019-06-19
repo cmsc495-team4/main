@@ -11,7 +11,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 ?>
 <header>
 <div class="logo">
-  <img align="center" class="ritalogo" src="img/ritalogo-1.png" height="97" width="360">
+  <img class="ritalogo" src="img/ritalogo-1.png" height="97" width="360">
   <h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
 </div>
   <div>
@@ -130,7 +130,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
       <td class="td-footer"><button class="update" type="submit" name="addPup">Add Pups</button></td>
       <td class="td-footer"><button class="update" type="submit" name="addBreeder">Add Breeder Pair</button></td>
       <td class="td-footer"><button class="update" type="submit" name="addBreeder">Add Litter</button></td>
-      <td name="this is an empty cell for spacing">&emsp;&emsp;&emsp;</td>
+      <td id="this is an empty cell for spacing">&emsp;&emsp;&emsp;</td>
       <td>Display Report:</td>
       <td>
         <select>
@@ -148,7 +148,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 
 </form>
 </footer>
-<br>&emsp; © 2019, CMSC495 Team #4
+<br>&emsp; © 2019, CMSC495 Team #4</br>
 
 
 </html>
