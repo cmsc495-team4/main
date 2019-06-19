@@ -356,7 +356,7 @@ function displayAnimalTable()
 
     if ($displayAll) {
 
-        $query1 = "SELECT * FROM `animals`";
+    $query1 = "SELECT * FROM `animals`";
     
     $result = $pdo->query($query1);
     $result->setFetchMode(PDO::FETCH_ASSOC);
@@ -438,7 +438,86 @@ function displayAnimalTable()
       } 
     } 
     else {
-        $query1 = "SELECT * FROM `animals` WHERE " . $filterList;
+    
+    $query1 = "SELECT * FROM `animals` WHERE " . $animalList;
+            $result = $pdo->query($query1);
+    $result->setFetchMode(PDO::FETCH_ASSOC);
+
+    $tableRow = 0;
+
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        if (! empty($row)) {
+            $animalID = $row["animalID"];
+            $species = $row["species"];
+            $tagNumber = $row["tagNumber"];
+            $sex = $row["sex"];
+            $classification = $row["classification"];
+            $strain = $row["strain"];
+            $genotype = $row["genotype"];
+            $birth_date = $row["birth_date"];
+            $wean_date = $row["wean_date"];
+            $tag_date = $row["tag_date"];
+            $deceased = $row["deceased"];
+            $transferred = $row["transferred"];
+
+            if ($deceased == 1) {
+                $strDeceased = "Yes";
+            } else {
+                $strDeceased = "No";
+            }
+
+            if ($transferred == 1) {
+                $strTransferred = "Yes";
+            } else {
+                $strTransferred = "No";
+            }
+
+            $query2 = "SELECT `litterID`, `breedingPair` FROM litters WHERE animalID_pup=" . $animalID;
+            $result2 = $pdo->query($query2);
+            $result2->setFetchMode(PDO::FETCH_ASSOC);
+            $row2 = $result2->fetch(PDO::FETCH_ASSOC);
+
+            $litterID = $row2["litterID"];
+            $parentPair = $row2["breedingPair"];
+
+            $query3 = "SELECT PI_username FROM PI_strains WHERE PI_strain='" . $strain . "'";
+            $result3 = $pdo->query($query3);
+            $result3->setFetchMode(PDO::FETCH_ASSOC);
+            $row3 = $result3->fetch(PDO::FETCH_ASSOC);
+
+            $responsible_PI = $row3["PI_username"];
+
+            $query4 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
+            $result4 = $pdo->query($query4);
+            $result4->setFetchMode(PDO::FETCH_ASSOC);
+            $row4 = $result4->fetch(PDO::FETCH_ASSOC);
+
+            $firstName = $row4["first_name"];
+            $lastName = $row4["last_name"];
+
+            echo "<tr>\n";
+            echo "<td><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
+            echo "<td>" . $animalID . "</td>\n";
+            echo "<td>" . $lastName . ", " . $firstName . "</td>\n";
+            echo "<td>" . $tagNumber . "</td>\n";
+            echo "<td>" . $species . "</td>\n";
+            echo "<td>" . $classification . "</td>\n";
+            echo "<td>" . $sex . "</td>\n";
+            echo "<td>" . $strain . "</td>\n";
+            echo "<td>" . $genotype . "</td\n>";
+            echo "<td>" . $litterID . "</td>\n";
+            echo "<td>" . $parentPair . "</td>\n";
+            echo "<td>" . $birth_date . "</td>\n";
+            echo "<td>" . $wean_date . "</td>\n";
+            echo "<td>" . $tag_date . "</td>\n";
+            echo "<td>" . $strDeceased . "</td>\n";
+            echo "<td>" . $strTransferred . "</td>\n";
+            echo "</tr>\n";
+        }
+    	
+    	
+    	
+      } 
     }
     
 
