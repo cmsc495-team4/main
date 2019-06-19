@@ -105,15 +105,17 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 <body>
 <script>
 $(document).ready( function () {
-    $('#maintable').DataTable( {
-    dom: 'Bfrtip',
+    $('#maintable').DataTable();
+} );
+
+var table = $('#maintable').DataTable( {
     buttons: [
         'copy', 'excel', 'pdf'
     ]
 } );
-} );
-
-
+  
+table.buttons().container()
+    .appendTo( $('.col-sm-6:eq(0)', table.table().container() ) );
 </script>
 <?php displayAnimalTable() ?>
 
