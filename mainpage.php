@@ -112,9 +112,9 @@ new $.fn.dataTable.Buttons( table, {
     ]
 } );
 
-$(document).ready( function () {
-    $('#maintable').DataTable();
-} );
+//$(document).ready( function () {
+//   $('#maintable').DataTable();
+//} );
 
 
 </script>
