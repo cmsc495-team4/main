@@ -107,7 +107,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 $(document).ready( function () {
     $('#maintable').DataTable(
         buttons: [
-        'copy', 'excel', 'pdf'
+        'copy', 'excel'
     ]);
 } );
 </script>
