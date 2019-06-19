@@ -106,6 +106,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 <script>
 $(document).ready( function () {
     $('#maintable').DataTable( {
+    dom: 'Bfrtip',
     buttons: [
         'copy', 'excel', 'pdf'
     ]
