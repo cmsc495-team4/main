@@ -394,7 +394,7 @@ function displayAnimalTable()
             $litterID = $row2["litterID"];
             $parentPair = $row2["breedingPair"];
 
-            $query3 = "SELECT PI_username FROM PI_strains WHERE strain_name='" . $strain . "'";
+            $query3 = "SELECT PI_username FROM PI_strains WHERE sPI_strain='" . $strain . "'";
             $result3 = $pdo->query($query3);
             $result3->setFetchMode(PDO::FETCH_ASSOC);
             $row3 = $result3->fetch(PDO::FETCH_ASSOC);
