@@ -226,7 +226,7 @@ function displayAnimalTable()
 
     if (isset($_REQUEST["Filter"])) { // retrieve the form data by using the element's name attributes value as key
         $displayAll = FALSE;
-
+		echo $displayAll;
         if (isset($_REQUEST["pi_name"])) {
             $filterPI = $_REQUEST["pi_name"];
             $piFilter = "username='" . $filterPI . "'";
