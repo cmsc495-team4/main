@@ -44,10 +44,10 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
            <!-- <input type="checkbox" name="breeders" value="breeders" checked>Breeders -->
           </td>
           <td>
-            <input type="checkbox" name="weanlings" value="weanlings" checked>Weanlings
+          <input type="hidden" name="weanlings" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">Weanlings
           </td>
                     <td>
-            <input type="checkbox" name="pups" value="pups" checked>Pups/Unclassified
+          <input type="hidden" name="pups" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">Pups/Unclassified
           </td>
 
         </tr>
