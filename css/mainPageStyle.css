@@ -13,8 +13,7 @@ del, dfn, em, img, ins, kbd, q, samp,
 small, strong, sub, sup, var,
 b, i,
 dl, dt, dd, ol, ul, li,
-form, label, legend,
-table, caption, tfoot, thead, th, td,
+form, label, legend, caption,
 article, aside, canvas, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
@@ -42,16 +41,8 @@ h2.maintitle {
 }
 
 tr {
-    margin:0;
-    padding:0;
-    border:0;
-    outline:0;
-    font-size:12px;
-    vertical-align:baseline;
-    background:transparent;
     font-style: normal;
     font-family: Verdana, Arial;
-    transition: all linear 0.5s;
 
 }
 
@@ -272,7 +263,7 @@ tr.animals {
     transition: all linear 0.5s
     font-style: normal;
     background-color:#FFFFFF;}
-tr.selected{background-color:#E0FFFF;color:#000;font-weight: bold; transition: all linear 0.5s}
+/* tr.selected{background-color:#E0FFFF;color:#000;font-weight: bold; transition: all linear 0.5s} */
 
 th.animals
     {text-align: center; vertical-align: middle; background-color: #bbbbff; padding:10px; border: 1px solid black;}
