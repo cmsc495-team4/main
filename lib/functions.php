@@ -343,9 +343,9 @@ function displayAnimalTable()
 
     echo "<div id=\"animalTable\">\n";
     echo "<form>\n";
-    echo "<table id=\"maintable\" class=\"animals\">\n";
+    echo "<table id=\"maintable\" class=\"display\">\n";
     echo "<thead>";
-    echo "<tr id=\"header-row\" class=\"animals\"><th class=\"animals\">Select</th><th>class=\"animals\">ID</th><th class=\"animals\">Investigator</th><th class=\"animals\">Tag Number</th><th class=\"animals\">Species</th><th class=\"animals\">Class</th><th class=\"animals\">Sex</th><th class=\"animals\">Strain</th><th class=\"animals\">Genotype</th><th class=\"animals\">Litter ID</th><th class=\"animals\">Parent Pair</th><th class=\"animals\">Birth Date</th><th class=\"animals\">Wean Date</th><th class=\"animals\">Tag Date</th><th class=\"animals\">Deceased</th><th class=\"animals\">Transferred</th><tr class=\"animals\">\n";
+    echo "<tr id=\"header-row\" class=\"animals\"><th>Select</th><th>ID</th><th>Investigator</th><th>Tag Number</th><th>Species</th><th>Class</th><th>Sex</th><th>Strain</th><th>Genotype</th><th>Litter ID</th><th>Parent Pair</th><th>Birth Date</th><th>Wean Date</th><th>Tag Date</th><th>Deceased</th><th>Transferred</th><tr class=\"animals\">\n";
 	echo "</thead><tbody>";
 
     if ($displayAll) {
