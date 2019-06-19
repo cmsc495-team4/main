@@ -60,9 +60,9 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
           </td>
           <td>Tag#:</td>
           <td>
-          	<select>
+          	<datalist>
           	  <?php getDropDown("tagNumber", "animals") ?>
-			</select>
+			</datalist>
           </td>
           <td>Litter ID::</td>
           <td>
