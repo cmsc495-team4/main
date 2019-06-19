@@ -223,7 +223,7 @@ function displayAnimalTable()
     error_reporting(E_ALL);
 	$animalList = "";
     $displayAll = TRUE;
-
+echo "before\n";
     if (isset($_REQUEST["filter"])) { // retrieve the form data by using the element's name attributes value as key
         $displayAll = FALSE;
 		echo $displayAll;
