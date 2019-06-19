@@ -440,6 +440,7 @@ echo "before\n";
     else {
     
     $query1 = "SELECT * FROM `animals` WHERE " . $animalList;
+    echo $query1 . "\n";
             $result = $pdo->query($query1);
     $result->setFetchMode(PDO::FETCH_ASSOC);
 
