@@ -235,6 +235,7 @@ function displayAnimalTable()
             }
         }
 
+        
         if (isset($_REQUEST["pairID"])) {
             $filterBreederPair = $_REQUEST["pairID"];
             if (empty($filterList)) {
