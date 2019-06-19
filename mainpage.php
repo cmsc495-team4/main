@@ -27,6 +27,21 @@
 <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.2/js/dataTables.responsive.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/scroller/2.0.0/js/dataTables.scroller.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.js"></script>
+
+    <script language="javascript" type="text/javascript">
+ 
+        $(document).ready(function () {
+ 
+            $('#maintable').DataTable ({
+                order: [[1, 'asc' ]],
+                dom: 'Bflrtip',
+                buttons: [ 'csv', 'excel' ]
+            });
+        });
+ 
+    </script>
+
+
 </head>
 <?php
 ini_set('display_errors', 1);
@@ -109,18 +124,6 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 </header>
 
 <body>
-<script>
-$(document).ready( function () {
-    $('#maintable').DataTable( {
-    dom: 'Bfrtip',
-    buttons: [
-        'copy', 'excel', 'pdf'
-    ]
-} );
-} );
-
-
-</script>
 <?php displayAnimalTable() ?>
 
 
