@@ -63,7 +63,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
           <input type="hidden" name="weanlings" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value" checked>Weanlings
           </td>
                     <td>
-          <input type="hidden" name="pups" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value"checked >Pups/Unclassified
+          <input type="hidden" name="pups" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value" checked >Pups/Unclassified
           </td>
 
         </tr>
