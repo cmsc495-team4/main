@@ -345,7 +345,7 @@ function displayAnimalTable()
     echo "<form>\n";
     echo "<table id=\"maintable\" class=\"animals\">\n";
     echo "<thead>";
-    echo "<tr id=\"header-row\" class=\"animals\"><th class=\"animals\">Select</th><th style=\"display: none\">class=\"animals\">ID</th><th class=\"animals\">Investigator</th><th class=\"animals\">Tag Number</th><th class=\"animals\">Species</th><th class=\"animals\">Class</th><th class=\"animals\">Sex</th><th class=\"animals\">Strain</th><th class=\"animals\">Genotype</th><th class=\"animals\">Litter ID</th><th class=\"animals\">Parent Pair</th><th class=\"animals\">Birth Date</th><th class=\"animals\">Wean Date</th><th class=\"animals\">Tag Date</th><th class=\"animals\">Deceased</th><th class=\"animals\">Transferred</th><tr class=\"animals\">\n";
+    echo "<tr id=\"header-row\" class=\"animals\"><th class=\"animals\">Select</th><th>class=\"animals\">ID</th><th class=\"animals\">Investigator</th><th class=\"animals\">Tag Number</th><th class=\"animals\">Species</th><th class=\"animals\">Class</th><th class=\"animals\">Sex</th><th class=\"animals\">Strain</th><th class=\"animals\">Genotype</th><th class=\"animals\">Litter ID</th><th class=\"animals\">Parent Pair</th><th class=\"animals\">Birth Date</th><th class=\"animals\">Wean Date</th><th class=\"animals\">Tag Date</th><th class=\"animals\">Deceased</th><th class=\"animals\">Transferred</th><tr class=\"animals\">\n";
 	echo "</thead><tbody>";
 
     if ($displayAll) {
