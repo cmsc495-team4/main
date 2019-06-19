@@ -345,11 +345,12 @@ function displayAnimalTable()
     echo "<form>\n";
     echo "<table id=\"maintable\" class=\"display compact\">\n";
     echo "<thead>";
-    echo "<tr><th>Select</th> <th>ID</th> <th>Investigator</th> <th>Tag Number</th> 
+    echo "<tr>
+    		<th>Select</th> <th>ID</th> <th>Investigator</th> <th>Tag Number</th> 
     		<th>Species</th> <th>Class</th> <th>Sex</th> <th>Strain</th> <th>Genotype</th> 
     		<th>Litter ID</th> <th>Parent Pair</th> <th>Birth Date</th> <th>Wean Date</th> 
     		<th>Tag Date</th> <th>Deceased</th> <th>Transferred</th> 
-    		<\tr>\n";
+    	  </tr>\n";
 	echo "</thead>
 	<tbody>";
 

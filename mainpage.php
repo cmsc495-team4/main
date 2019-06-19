@@ -76,7 +76,6 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
           </td>
           <td>Tag#:</td>
           <td>
-          <
           	<select name="tagNumber"> 
           	  <?php getDropDown("tagNumber", "animals") ?>
 			</select>
