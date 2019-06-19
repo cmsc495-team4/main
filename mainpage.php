@@ -104,7 +104,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 
 <body>
 <script>
-var table = $('#myTable').DataTable();
+var table = $('#maintable').DataTable();
  
 new $.fn.dataTable.Buttons( table, {
     buttons: [
