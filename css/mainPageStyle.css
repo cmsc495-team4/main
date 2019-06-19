@@ -33,6 +33,12 @@ overflow-y: hidden;
 overflow-x: hidden; 
 height: 126px;
 }
+
+div.maintable {
+padding-top: 5px;
+padding-bottom: 5px;
+}
+
 h2.maintitle {
     text-align: center;
     font-family: "Avant Garde", Verdana;
