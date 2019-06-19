@@ -223,10 +223,10 @@ function displayAnimalTable()
     error_reporting(E_ALL);
 	$animalList = "";
     $displayAll = TRUE;
-echo "before\n";
-    if (isset($_REQUEST["filter"])) { // retrieve the form data by using the element's name attributes value as key
+//echo "before\n";
+    if (isset($_REQUEST["Filter"])) { // retrieve the form data by using the element's name attributes value as key
         $displayAll = FALSE;
-		echo $displayAll;
+		//echo $displayAll;
         if (isset($_REQUEST["pi_name"])) {
             $filterPI = $_REQUEST["pi_name"];
             $piFilter = "username='" . $filterPI . "'";
