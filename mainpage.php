@@ -22,19 +22,19 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
         <tr>
           <td>PI:</td>
           <td>
-            <select>
+            <select name="pi_name">
         		<?php getInvestigators(); ?>
             </select>
           </td>
           <td>Species:</td>
           <td>
-            <select>
+            <select name="species_name">
               <?php getDropDown("species_name", "species") ?>
             </select>
           </td>
           <td>Strain:</td>
           <td>
-            <select>
+            <select name="strain_name">
               <?php getDropDown("strain_name", "strains") ?>
             </select>
           </td>
@@ -54,26 +54,27 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
         <tr>
           <td>Pair:</td>
           <td>
-          	<select>
+          	<select name="breederPair">
           	  <?php getDropDown("pairID", "breeding_pairs") ?>
 			</select>
           </td>
           <td>Tag#:</td>
           <td>
-          	<datalist> 
+          <
+          	<select name="tagNumber"> 
           	  <?php getDropDown("tagNumber", "animals") ?>
-			</datalist>
+			</select>
           </td>
           <td>Litter ID::</td>
           <td>
-          	<select>
+          	<select name="litterID">
           	  <?php getDropDown("litterID", "litters") ?>
 			</select>
           </td>
 
           <td>Date of Birth:</td>
           <td>
-            <input type="date" name="dob" placeholder="mm/dd/yyyy">
+            <input type="date" name="birth_date" placeholder="mm/dd/yyyy">
           </td>
           <td class="filter-button"><button class="action" type="submit" name="filter">Apply Filter</button></td>
         </tr>
