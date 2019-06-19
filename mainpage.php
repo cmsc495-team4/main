@@ -104,17 +104,13 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 
 <body>
 <script>
-var table = $('#maintable').DataTable();
- 
-new $.fn.dataTable.Buttons( table, {
+$(document).ready( function () {
+    $('#maintable').DataTable( {
     buttons: [
         'copy', 'excel', 'pdf'
     ]
 } );
-
-//$(document).ready( function () {
-//   $('#maintable').DataTable();
-//} );
+} );
 
 
 </script>
