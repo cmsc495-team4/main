@@ -94,7 +94,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
           <td>
             <input type="date" name="birth_date" placeholder="mm/dd/yyyy">
           </td>
-          <td class="filter-button"><button class="action" type="submit" name="filter">Apply Filter</button></td>
+          <td class="filter-button"><button class="action" type="submit" name="filter" value="submitted">Apply Filter</button></td>
         </tr>
       </table>
       </fieldset>

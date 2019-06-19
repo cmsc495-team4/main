@@ -357,9 +357,7 @@ function displayAnimalTable()
     if ($displayAll) {
 
         $query1 = "SELECT * FROM `animals`";
-    } else {
-        $query1 = "SELECT * FROM `animals` WHERE " . $filterList;
-    }
+    
     $result = $pdo->query($query1);
     $result->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -434,6 +432,12 @@ function displayAnimalTable()
             echo "<td>" . $strTransferred . "</td>\n";
             echo "</tr>\n";
         }
+    	
+    	
+    	
+    	} else {
+        $query1 = "SELECT * FROM `animals` WHERE " . $filterList;
+    }
     }
 
     echo "</tbody></table>\n";
