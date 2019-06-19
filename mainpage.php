@@ -39,7 +39,9 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
             </select>
           </td>
           <td>
-            <input type="checkbox" name="breeders" value="breeders" checked>Breeders
+          <input type="hidden" name="breeders" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value" checked>Breeders
+
+           <!-- <input type="checkbox" name="breeders" value="breeders" checked>Breeders -->
           </td>
           <td>
             <input type="checkbox" name="weanlings" value="weanlings" checked>Weanlings
@@ -48,7 +50,6 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
             <input type="checkbox" name="pups" value="pups" checked>Pups/Unclassified
           </td>
 
-          
         </tr>
         <tr>
           <td>Pair:</td>
