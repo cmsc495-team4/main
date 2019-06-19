@@ -34,7 +34,7 @@
  
             $('#maintable').DataTable ({
                 order: [[1, 'asc' ]],
-                dom: 'Bflrtip',
+                dom: 'B',
                 buttons: [ 'csv', 'excel' ]
             });
         });
