@@ -435,10 +435,12 @@ function displayAnimalTable()
     	
     	
     	
-    	} else {
+      } 
+    } 
+    else {
         $query1 = "SELECT * FROM `animals` WHERE " . $filterList;
     }
-    }
+    
 
     echo "</tbody></table>\n";
     echo "</form>\n";
