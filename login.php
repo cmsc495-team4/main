@@ -1,5 +1,3 @@
-<html>
-<body>
 <?php
 session_start();
 ini_set('display_errors', 1);
@@ -62,6 +60,8 @@ if(isset($_POST['submit'])){
 	}
 }
 ?>
+<html>
+<body>
 <div class="logo">
   <img align="center" class="ritalogo" src="img/ritalogo-1.png" height="97" width="360">
   <h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
