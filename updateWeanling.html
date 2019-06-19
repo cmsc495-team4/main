@@ -1,0 +1,113 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/upWeanlingStyle.css">
+</head>
+
+<header>
+	<div class="logo">
+		<a href="http://495team4.com/mainpage.php">
+			<img class="ritalogo" src="img/ritalogo-1.png" height="97" width="360">
+		</a>
+		<h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
+	</div>
+	<div class="headerUpd">
+		<h1>Update Weanling</h1>
+	</div>
+</header>
+
+<body>
+	<div>
+		<table class="table1">
+			<tr>
+				<td>PI:</td>
+				<td>
+					<select>
+						<option value="1">1</option>
+					</select>
+				</td>
+				<td>Species:</td>
+				<td>
+					<select>
+						<option value="1">1</option>
+					</select>
+				</td>
+				<td>Strain:</td>
+				<td>
+					<select>
+						<option value="1">1</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<table class="table2">
+			<tr>
+				<td>Tag #:</td>
+				<td>
+					<input type="text" name="Tag">
+				</td>
+				<td>Wean Date:</td>
+				<td>
+					<input type="text" name="weanDate">
+				</td>
+			</tr>
+			<tr>
+				<td>DOB:</td>
+				<td>
+					<input type="text" name="DOB" placeholder="mm/dd/yyyy">
+				</td>
+				<td>Tag Date:</td>
+				<td>
+					<input type="text" name="tagDate" placeholder="mm/dd/yyyy">
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<table class="table3">
+			<tr>
+				<td>Location:</td>
+				<td>
+					<input type="text" name="location">
+				</td>
+				<td>Sex:</td>
+				<td>
+					<input type="text" name="sex">
+				</td>
+				<td>Genotype:</td>
+				<td>
+					<input type="text" name="genotype">
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<table class="table4">
+			<tr>
+				<td>
+					<input type="checkbox" name="deceased" value="deceased">
+					<label for="deceased">Deceased</label>
+				</td>
+				<td>
+					<input type="checkbox" name="transferred" value="transferred">
+					<label for="transferred">Transferred</label>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<table class="table5">
+			<tr>
+				<td>Comments:</td>
+				<td>
+					<textarea id="commentBox" name="commentBox" rows="5" cols="33"></textarea>
+				</td>
+		</table>
+	</div>
+	<div class="buttonDiv">
+		<button class="buttonUp" type="submit" name="update">Update</button>
+	</div>
+</body>
+</html>
