@@ -343,7 +343,7 @@ function displayAnimalTable()
 
     echo "<div id=\"animalTable\" class=\"maintable\">\n";
     echo "<form>\n";
-    echo "<table id=\"maintable\" class=\"display compact row-border\">\n";
+    echo "<table id=\"maintable\" class=\"display compact\">\n";
     echo "<thead>";
     echo "<tr>
     		<th>Select</th> <th>ID</th> <th>Investigator</th> <th>Tag Number</th> 
