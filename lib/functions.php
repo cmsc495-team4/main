@@ -344,7 +344,9 @@ function displayAnimalTable()
     echo "<div id=\"animalTable\">\n";
     echo "<form>\n";
     echo "<table class=\"animals\">\n";
+    echo "<thead>";
     echo "<tr id=\"header-row\" class=\"animals\"><th class=\"animals\">Select</th><th style=\"display: none\">class=\"animals\">ID</th><th class=\"animals\">Investigator</th><th class=\"animals\">Tag Number</th><th class=\"animals\">Species</th><th class=\"animals\">Class</th><th class=\"animals\">Sex</th><th class=\"animals\">Strain</th><th class=\"animals\">Genotype</th><th class=\"animals\">Litter ID</th><th class=\"animals\">Parent Pair</th><th class=\"animals\">Birth Date</th><th class=\"animals\">Wean Date</th><th class=\"animals\">Tag Date</th><th class=\"animals\">Deceased</th><th class=\"animals\">Transferred</th><tr class=\"animals\">\n";
+	echo "</thead><tbody>";
 
     if ($displayAll) {
 
@@ -392,12 +394,12 @@ function displayAnimalTable()
             $litterID = $row2["litterID"];
             $parentPair = $row2["breedingPair"];
 
-            $query3 = "SELECT responsible_PI FROM strains WHERE strain_name='" . $strain . "'";
+            $query3 = "SELECT PI_username FROM PI_strains WHERE strain_name='" . $strain . "'";
             $result3 = $pdo->query($query3);
             $result3->setFetchMode(PDO::FETCH_ASSOC);
             $row3 = $result3->fetch(PDO::FETCH_ASSOC);
 
-            $responsible_PI = $row3["responsible_PI"];
+            $responsible_PI = $row3["PI_username"];
 
             $query4 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
             $result4 = $pdo->query($query4);
@@ -428,7 +430,7 @@ function displayAnimalTable()
         }
     }
 
-    echo "</table>\n";
+    echo "</tbody></table>\n";
     echo "</form>\n";
     echo "</div>";
     $pdo = null;
