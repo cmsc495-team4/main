@@ -107,6 +107,14 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 $(document).ready( function () {
     $('#maintable').DataTable();
 } );
+
+var table = $('#myTable').DataTable();
+ 
+new $.fn.dataTable.Buttons( table, {
+    buttons: [
+        'copy', 'excel', 'pdf'
+    ]
+} );
 </script>
 <?php displayAnimalTable() ?>
 
