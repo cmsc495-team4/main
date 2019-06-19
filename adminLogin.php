@@ -1,7 +1,3 @@
-<html>
-<body>
-
-	
 <?php
 session_start();
 ini_set('display_errors', 1);
@@ -62,6 +58,8 @@ if(isset($_POST['submit'])){
 	}
 }
 ?>
+<html>
+<body>
 <div class="logo">
   <img align="center" class="ritalogo" src="img/ritalogo-1.png" height="97" width="360">
   <h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
@@ -70,7 +68,7 @@ if(isset($_POST['submit'])){
 	<h2>Administrator Login</h2>
 	<?php if(isset($message)){
 		echo '<label class="text-danger" style="color:red">'.$message.'</label>';
-	} ?>
+	}?>
 	<form method="POST">
 		<div>
 		<label for="username">Admin Username : </label>
