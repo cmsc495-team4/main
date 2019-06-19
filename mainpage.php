@@ -32,11 +32,7 @@
  
         $(document).ready(function () {
  
-            $('#maintable').DataTable ({
-                order: [[1, 'asc' ]],
-                dom: 'B',
-                buttons: [ 'csv', 'excel' ]
-            });
+            $('#maintable').DataTable ();
         });
  
     </script>
