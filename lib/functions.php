@@ -110,7 +110,8 @@ function getInvestigators()
         foreach ($returnArray as $row) {
             // foreach ($row as $key=>$val) {
             $name = $row['last_name'] . ", " . $row['first_name'];
-            echo "<option name=\"pi_name\" value=\"" . htmlspecialchars($name) . "\">" . htmlspecialchars($name) . "</option>\n";
+            $username = $row['username'];
+            echo "<option name=\"pi_name\" value=\"" . htmlspecialchars($username) . "\">" . htmlspecialchars($name) . "</option>\n";
             // }
         }
     }
@@ -228,92 +229,103 @@ function displayAnimalTable()
 
         if (isset($_REQUEST["pi_name"])) {
             $filterPI = $_REQUEST["pi_name"];
-            if (empty($filterList)) {
-                $filterList = "responsiblePI='" . $_REQUEST["pi_name"] . "'";
-            } else {
-                $filterList = " AND responsiblePI='" . $_REQUEST["pi_name"] . "'";
+            $piFilter = "username='" . $filterPI . "'";
             }
         }
 
         
         if (isset($_REQUEST["pairID"])) {
             $filterBreederPair = $_REQUEST["pairID"];
-            if (empty($filterList)) {
-                $filterList = "pairID=" . $_REQUEST["pairID"];
+            if (empty($litterFilter)) {
+                $litterFilter = "pairID=" . $filterBreederPair;
             } else {
-                $filterList = " AND pairID=" . $_REQUEST["pairID"];
-            }
-        }
-
-        if (isset($_REQUEST["species_name"])) {
-            $filterSpecies = $_REQUEST["species_name"];
-            if (empty($filterList)) {
-                $filterList = "species_name='" . $_REQUEST["species_name"] . "'";
-            } else {
-                $filterList = " AND species_name='" . $_REQUEST["species_name"] . "'";
-            }
-        }
-
-        if (isset($_REQUEST["strain_name"])) {
-            $filterStrain = $_REQUEST["strain_name"];
-            if (empty($filterList)) {
-                $filterList = "strain_name='" . $_REQUEST["strain_name"] . "'";
-            } else {
-                $filterList = " AND strain_name='" . $_REQUEST["strain_name"] . "'";
-            }
-        }
-
-        if (isset($_REQUEST["tagNumber"])) {
-            $filterTagNumber = $_REQUEST["tagNumber"];
-            if (empty($filterList)) {
-                $filterList = "tagNumber=" . $_REQUEST["tagNumber"];
-            } else {
-                $filterList = " AND tagNumber=" . $_REQUEST["tagNumber"];
+                $litterFilter = " AND pairID=" . $filterBreederPair;
             }
         }
 
         if (isset($_REQUEST["litterID"])) {
             $filterLitterID = $_REQUEST["litterID"];
-            if (empty($filterList)) {
-                $filterList = "litterID=" . $_REQUEST["litterID"];
+            if (empty($litterFilter)) {
+                $litterFilter = "litterID=" . $filterLitterID;
             } else {
-                $filterList = " AND litterID=" . $_REQUEST["litterID"];
+                $litterFilter = " AND litterID=" . $filterLitterID;
             }
         }
+
+
+        if (isset($_REQUEST["species"])) {
+            $filterSpecies = $_REQUEST["species"];
+            if (empty($animalList)) {
+                $animalList = "species='" . $filterSpecies . "'";
+            } else {
+                $animalList = " AND species='" . $filterSpecies . "'";
+            }
+        }
+
+        if (isset($_REQUEST["strain"])) {
+            $filterStrain = $_REQUEST["strain"];
+            if (empty($animalList)) {
+                $animalList = "strain='" . $filterStrain . "'";
+            } else {
+                $animalList = " AND strain='" . $filterStrain . "'";
+            }
+        }
+
+        if (isset($_REQUEST["tagNumber"])) {
+            $filterTagNumber = $_REQUEST["tagNumber"];
+            if (empty($animalList)) {
+                $animalList = "tagNumber=" . $filterTagNumber;
+            } else {
+                $animalList = " AND tagNumber=" . $filterTagNumber;
+            }
+        }
+
 
         if (isset($_REQUEST["birth_date"])) {
             $filterBirthDate = $_REQUEST["birth_date"];
-            if (empty($filterList)) {
-                $filterList = "birth_date=" . $_REQUEST["birth_date"] . "'";
+            if (empty($animalList)) {
+                $animalList = "birth_date=" . $filterBirthDate . "'";
             } else {
-                $filterList = " AND birth_date=" . $_REQUEST["birth_date"] . "'";
+                $animalList = " AND birth_date=" . $filterBirthDate . "'";
             }
         }
 
+        if ((!isset($_REQUEST["breeder"])) || (!isset($_REQUEST["pup"])) || (!isset($_REQUEST["weanling"]))) {
+            	$animalList = $animalList . ")";
+
+
         if (isset($_REQUEST["breeder"])) {
             $filterBreeder = $_REQUEST["breeder"];
-            if (empty($filterList)) {
-                $filterList = "breeder=" . $_REQUEST["breeder"];
+            if (empty($animalList)) {
+                $animalList = "(classification='breeder'";
             } else {
-                $filterList = " AND breeder=" . $_REQUEST["breeder"];
+                $animalList = " AND (classification='breeder'";
             }
+            
+            if ((!isset($_REQUEST["pup"])) && (!isset($_REQUEST["weanling"]))) {
+            	$animalList = $animalList . ")";
+			}
         }
 
         if (isset($_REQUEST["pup"])) {
             $filterPup = $_REQUEST["pup"];
-            if (empty($filterList)) {
-                $filterList = "pup=" . $_REQUEST["pup"];
+            if (empty($animalList)) {
+                $animalList = "(classification=" . $filterPup;
             } else {
-                $filterList = " AND pup=" . $_REQUEST["pup"];
+                $animalList = " OR classification=" . $filterPup;
             }
+            
+            if (!isset($_REQUEST["weanling"])) {
+            	$animalList = $animalList . ")";
+			}
         }
 
         if (isset($_REQUEST["weanling"])) {
             $filterWeanling = $_REQUEST["weanling"];
-            if (empty($filterList)) {
-                $filterList = "weanling=" . $_REQUEST["weanling"];
+            if (empty($animalList)) {
+                $animalList = "(classification=" . $filterWeanling . ")";
             } else {
-                $filterList = " AND weanling=" . $_REQUEST["weanling"];
+                $animalList = " OR classification=" . $filterWeanling . ")";
             }
         }
     }
