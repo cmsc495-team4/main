@@ -221,7 +221,7 @@ function displayAnimalTable()
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-
+	$animalList = "";
     $displayAll = TRUE;
 
     if (isset($_REQUEST["Filter"])) { // retrieve the form data by using the element's name attributes value as key
