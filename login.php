@@ -68,9 +68,11 @@ if(isset($_POST['submit'])){
 </div>
 <div class="login">
 	<h2>Login</h2>
-	<?php if(isset($message)){
+<?php
+	if(isset($message)){
 		echo '<label class="text-danger" style="color:red">'.$message.'</label>';
-	} ?>
+	}
+?>
 	<form method="POST">
 		<div>
 		<label for="username">Username : </label>
@@ -86,5 +88,5 @@ if(isset($_POST['submit'])){
 <div class="container">
 	<span class="create_user"><a href="adminLogin.php">Create New User</a></span>
 </div>
-</html>
 </body>
+</html>
