@@ -345,8 +345,9 @@ function displayAnimalTable()
     echo "<form>\n";
     echo "<table id=\"maintable\" class=\"display\">\n";
     echo "<thead>";
-    echo "<tr id=\"header-row\" class=\"animals\"><th>Select</th><th>ID</th><th>Investigator</th><th>Tag Number</th><th>Species</th><th>Class</th><th>Sex</th><th>Strain</th><th>Genotype</th><th>Litter ID</th><th>Parent Pair</th><th>Birth Date</th><th>Wean Date</th><th>Tag Date</th><th>Deceased</th><th>Transferred</th><tr class=\"animals\">\n";
-	echo "</thead><tbody>";
+    echo "<tr><th>Select</th><th>ID</th><th>Investigator</th><th>Tag Number</th><th>Species</th><th>Class</th><th>Sex</th><th>Strain</th><th>Genotype</th><th>Litter ID</th><th>Parent Pair</th><th>Birth Date</th><th>Wean Date</th><th>Tag Date</th><th>Deceased</th><th>Transferred</th><tr class=\"animals\">\n";
+	echo "</thead>
+	<tbody>";
 
     if ($displayAll) {
 
