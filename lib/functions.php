@@ -273,7 +273,7 @@ function displayAnimalTable()
         }
     }
     
-    if (isset($_REQUEST["tagNumber"])) {
+    if (isset($_POST["tagNumber"])) {
         $filterTagNumber = $_REQUEST["tagNumber"];
         if (empty($animalList)) {
             $animalList = "tagNumber=" . $filterTagNumber;
@@ -292,7 +292,7 @@ function displayAnimalTable()
         }
     }
     
-    if ((! isset($_REQUEST["breeder"])) || (! isset($_REQUEST["pup"])) || (! isset($_REQUEST["weanling"]))) {
+    if ((!isset($_REQUEST["breeder"])) || (!isset($_REQUEST["pup"])) || (!isset($_REQUEST["weanling"])) && (!empty($animalList)) {
         $animalList = $animalList . ")";
         
         if (isset($_REQUEST["breeder"])) {
@@ -304,7 +304,7 @@ function displayAnimalTable()
             }
             
             if ((!isset($_REQUEST["pup"])) && (!isset($_REQUEST["weanling"]))) {
-                $animalList = $animalList . ")1";
+                $animalList = $animalList . ")";
             }
         }
         
@@ -317,7 +317,7 @@ function displayAnimalTable()
             }
             
             if (!isset($_REQUEST["weanling"])) {
-                $animalList = $animalList . ")2";
+                $animalList = $animalList . ")";
             }
         }
         
