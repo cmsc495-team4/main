@@ -11,8 +11,7 @@ if (isset($_POST['strain_name'])) {
 $strains_name = $_POST['strain_name'];	
 }
 
-if (isset($
-_POST['breederPair'])) {
+if (isset($_POST['breederPair'])) {
 $strains_name = $_POST['breederPair'];	
 }
 
