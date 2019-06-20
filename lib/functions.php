@@ -62,11 +62,11 @@ function getDropDown($fieldName, $tableName, $previousValue)
         foreach ($returnArray as $row) {
             foreach ($row as $key => $val) {
             	if ($val == $previousValue) {
-            		$extra = " selected";
+            		$extra = "selected";
             	}
                 if (! in_array($val, $alreadyFound)) { // don't add duplicate values to the list
                     if ($key == $fieldName) {
-                        echo "<option name=\"" . $fieldName . "\" value=\"" . htmlspecialchars($val) . $extra . "\">" . htmlspecialchars($val) . "</option>\n";
+                        echo "<option name=\"" . $fieldName . "\" value=\"" . htmlspecialchars($val). "\" " . $extra . ">" . htmlspecialchars($val) . "</option>\n";
                     } else {
                         echo "<option value=\"none\">No records avail</option>\n";
                     }
