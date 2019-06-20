@@ -493,6 +493,15 @@ function displayAnimalTable()
                     $strTransferred = "No";
                 }
                 
+                
+                //////////////////////////////
+                
+                ///    Need to add a JOIN statement to get this to properly combine results from animalList and list below
+                
+                /////////////////////////////
+                
+                
+                
                 $query2 = "SELECT `litterID`, `breedingPair` FROM litters WHERE animalID_pup=" . $animalID . " " . $litterFilter;
                 $result2 = $pdo->query($query2);
                 $result2->setFetchMode(PDO::FETCH_ASSOC);
