@@ -456,7 +456,7 @@ function displayAnimalTable()
         
         $query1 = "SELECT * FROM `animals` " . $animalList;
         
-        echo "\n<br>SQL Query --> <strong>" . $query1 . "</strong>\n<br>";
+        echo "\n<br>SQL Query --> <strong>" . $query1 . "</strong>\n<br><br>";
 
 
         $result = $pdo->query($query1);
