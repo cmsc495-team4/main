@@ -251,7 +251,7 @@ function displayAnimalTable()
     if (!empty($_REQUEST["breedingPair"])) {
         $filterBreederPair = $_REQUEST["breedingPair"];
         if (empty($litterFilter)) {
-            $litterFilter = "WHERE pairID=" . $filterBreederPair;
+            $litterFilter = "AND pairID=" . $filterBreederPair;
         } else {
             $litterFilter = $litterFilter . " AND pairID=" . $filterBreederPair;
         }
@@ -260,7 +260,7 @@ function displayAnimalTable()
     if (!empty($_REQUEST["litterID"])) {
         $filterLitterID = $_REQUEST["litterID"];
         if (empty($litterFilter)) {
-            $litterFilter = "WHERE litterID=" . $filterLitterID;
+            $litterFilter = "AND litterID=" . $filterLitterID;
         } else {
             $litterFilter = $litterFilter . " AND litterID=" . $filterLitterID;
         }
@@ -401,7 +401,7 @@ function displayAnimalTable()
                     $strTransferred = "No";
                 }
                 
-                $query2 = "SELECT `litterID`, `breedingPair` FROM litters " . $litterID;
+                $query2 = "SELECT `litterID`, `breedingPair` FROM litters WHERE animalID_pup=" . $animalID;
                 $result2 = $pdo->query($query2);
                 $result2->setFetchMode(PDO::FETCH_ASSOC);
                 $row2 = $result2->fetch(PDO::FETCH_ASSOC);
@@ -416,7 +416,7 @@ function displayAnimalTable()
                 
                 $responsible_PI = $row3["PI_username"];
                 
-                $query4 = "SELECT first_name, last_name FROM user " . $piFilter;
+                $query4 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
                 $result4 = $pdo->query($query4);
                 $result4->setFetchMode(PDO::FETCH_ASSOC);
                 $row4 = $result4->fetch(PDO::FETCH_ASSOC);
@@ -480,7 +480,7 @@ function displayAnimalTable()
                     $strTransferred = "No";
                 }
                 
-                $query2 = "SELECT `litterID`, `breedingPair` FROM litters WHERE animalID_pup=" . $animalID;
+                $query2 = "SELECT `litterID`, `breedingPair` FROM litters WHERE animalID_pup=" . $animalID . " " . $litterFilter;
                 $result2 = $pdo->query($query2);
                 $result2->setFetchMode(PDO::FETCH_ASSOC);
                 $row2 = $result2->fetch(PDO::FETCH_ASSOC);
