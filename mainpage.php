@@ -3,6 +3,11 @@
 
 <?php
 
+if (isset($_REQUEST["clear"])) {
+	$_POST = array();
+	$_REQUEST = array();
+}
+
 if (isset($_POST['species_name'])) {
 $species_name = $_POST['species_name'];	
 }
