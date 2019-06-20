@@ -292,7 +292,7 @@ function displayAnimalTable()
         }
     }
     
-    if ((!isset($_REQUEST["breeder"])) || (!isset($_REQUEST["pup"])) || (!isset($_REQUEST["weanling"])) && (!empty($animalList)) {
+    if ((!isset($_REQUEST["breeder"])) || (!isset($_REQUEST["pup"])) || (!isset($_REQUEST["weanling"])) && (!empty($animalList))) {
         $animalList = $animalList . ")";
         
         if (isset($_REQUEST["breeder"])) {
