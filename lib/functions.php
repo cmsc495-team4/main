@@ -455,6 +455,10 @@ function displayAnimalTable()
     } else {
         
         $query1 = "SELECT * FROM `animals` " . $animalList;
+        
+        echo "\n<br>SQL Query --> <strong>" . $query1 . "</strong>\n<br>";
+
+
         $result = $pdo->query($query1);
         $result->setFetchMode(PDO::FETCH_ASSOC);
         
@@ -516,7 +520,6 @@ function displayAnimalTable()
                 $firstName = $row4["first_name"];
                 $lastName = $row4["last_name"];
                 
-                echo "\nSQL Query --> <strong>" . $query1 . "</strong>\n";
 
                 
                 echo "<tr>\n";
