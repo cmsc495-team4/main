@@ -86,6 +86,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 
 </div>
 <div>
+<?php echo "species: [" . $species_name . "]"; ?>
 	<form action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
 		<fieldset>
 			<legend>Filter Results</legend>
