@@ -231,6 +231,7 @@ function displayAnimalTable()
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     $animalList = "";
+    $litterFilter = "";
     $displayAll = TRUE;
     
     if (isset($_REQUEST["clear"])) {
