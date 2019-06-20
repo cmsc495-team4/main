@@ -34,10 +34,10 @@ DROP USER IF EXISTS `vnetprom_team4user`@`localhost`;
 CREATE USER `vnetprom_team4`@`localhost` IDENTIFIED BY 'cmsc495!!';
 CREATE USER `vnetprom_team4user`@`localhost` IDENTIFIED BY '!!cmsc495';
 GRANT ALL PRIVILEGES ON * . * TO `vnetprom_team4`@`localhost`;
-GRANT SELECT, DELETE, UPDATE, EXECUTE, INSERT ON `vnetprom_team4v2` . * TO `vnetprom_team4user`@`localhost`;
+GRANT SELECT, DELETE, UPDATE, EXECUTE, INSERT ON `vnetprom_team4` . * TO `vnetprom_team4user`@`localhost`;
 
 --
--- Database: `vnetprom_team4v2`
+-- Database: `vnetprom_team4`
 --
 
 CREATE DATABASE IF NOT EXISTS `vnetprom_team4` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
