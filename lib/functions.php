@@ -455,7 +455,6 @@ function displayAnimalTable()
     } else {
         
         $query1 = "SELECT * FROM `animals` " . $animalList;
-        echo $query1 . "\n";
         $result = $pdo->query($query1);
         $result->setFetchMode(PDO::FETCH_ASSOC);
         
@@ -516,6 +515,9 @@ function displayAnimalTable()
                 
                 $firstName = $row4["first_name"];
                 $lastName = $row4["last_name"];
+                
+                echo "\nSQL Query --> <strong>" . $query1 . "</strong>\n";
+
                 
                 echo "<tr>\n";
                 echo "<td><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
