@@ -242,7 +242,7 @@ function displayAnimalTable()
         if (empty($litterFilter)) {
             $litterFilter = "pairID=" . $filterBreederPair;
         } else {
-            $litterFilter = " AND pairID=" . $filterBreederPair;
+            $litterFilter = $litterFilter . " AND pairID=" . $filterBreederPair;
         }
     }
     
@@ -251,7 +251,7 @@ function displayAnimalTable()
         if (empty($litterFilter)) {
             $litterFilter = "litterID=" . $filterLitterID;
         } else {
-            $litterFilter = " AND litterID=" . $filterLitterID;
+            $litterFilter = $litterFilter . " AND litterID=" . $filterLitterID;
         }
     }
     
@@ -260,7 +260,7 @@ function displayAnimalTable()
         if (empty($animalList)) {
             $animalList = "species='" . $filterSpecies . "'";
         } else {
-            $animalList = " AND species='" . $filterSpecies . "'";
+            $animalList = $animalList . " AND species='" . $filterSpecies . "'";
         }
     }
     
@@ -269,7 +269,7 @@ function displayAnimalTable()
         if (empty($animalList)) {
             $animalList = "strain='" . $filterStrain . "'";
         } else {
-            $animalList = " AND strain='" . $filterStrain . "'";
+            $animalList = $animalList . " AND strain='" . $filterStrain . "'";
         }
     }
     
@@ -278,7 +278,7 @@ function displayAnimalTable()
         if (empty($animalList)) {
             $animalList = "tagNumber=" . $filterTagNumber;
         } else {
-            $animalList = " AND tagNumber=" . $filterTagNumber;
+            $animalList = $animalList . " AND tagNumber=" . $filterTagNumber;
         }
     }
     
@@ -288,7 +288,7 @@ function displayAnimalTable()
         if (empty($animalList)) {
             $animalList = "birth_date=" . $filterBirthDate . "'";
         } else {
-            $animalList = " AND birth_date=" . $filterBirthDate . "'";
+            $animalList = $animalList . " AND birth_date=" . $filterBirthDate . "'";
         }
     }
     
@@ -299,7 +299,7 @@ function displayAnimalTable()
             if (empty($animalList)) {
                 $animalList = "(classification='breeder'";
             } else {
-                $animalList = " AND (classification='breeder'";
+                $animalList = $animalList . " AND (classification='breeder'";
             }
             
             if ((!isset($_REQUEST["pup"])) && (!isset($_REQUEST["weanling"]))) {
@@ -312,7 +312,7 @@ function displayAnimalTable()
             if (empty($animalList)) {
                 $animalList = "(classification=" . $filterPup;
             } else {
-                $animalList = " OR classification=" . $filterPup;
+                $animalList = $animalList . " OR classification=" . $filterPup;
             }
             
             if (!isset($_REQUEST["weanling"])) {
@@ -325,7 +325,7 @@ function displayAnimalTable()
             if (empty($animalList)) {
                 $animalList = "(classification=" . $filterWeanling . ")";
             } else {
-                $animalList = " OR classification=" . $filterWeanling . ")";
+                $animalList = $animalList . " OR classification=" . $filterWeanling . ")";
             }
         }
     
