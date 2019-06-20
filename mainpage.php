@@ -8,19 +8,19 @@ $species_name = $_POST['species_name'];
 }
 
 if (isset($_POST['strain_name'])) {
-$strains_name = $_POST['strain_name'];	
+$strain_name = $_POST['strain_name'];	
 }
 
 if (isset($_POST['breederPair'])) {
-$strains_name = $_POST['breederPair'];	
+$breederPair = $_POST['breederPair'];	
 }
 
 if (isset($_POST['tagNumber'])) {
-$strains_name = $_POST['tagNumber'];	
+$tagNumber = $_POST['tagNumber'];	
 }
 
 if (isset($_POST['litterID'])) {
-$strains_name = $_POST['litterID'];	
+$litterID = $_POST['litterID'];	
 }
 
 
