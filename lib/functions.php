@@ -228,7 +228,7 @@ function displayAnimalTable()
     $animalList = "";
     $displayAll = TRUE;
     // echo "before\n";
-    if (isset($_REQUEST["Filter"])) { // retrieve the form data by using the element's name attributes value as key
+    if (isset($_REQUEST["filter"])) { // retrieve the form data by using the element's name attributes value as key
         $displayAll = FALSE;
         // echo $displayAll;
         if (isset($_REQUEST["pi_name"])) {
