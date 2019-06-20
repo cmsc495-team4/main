@@ -73,6 +73,7 @@ function getDropDown($fieldName, $tableName, $previousValue)
                 }
                 $alreadyFound[$j] = $val;
                 $j ++;
+                $extra = "";
             }
         }
         // echo "<option value=\"0000\" selected>- select -</option>\n";
