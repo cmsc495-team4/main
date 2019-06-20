@@ -237,8 +237,8 @@ function displayAnimalTable()
         }
     }
     
-    if (!empty($_REQUEST["pairID"])) {
-        $filterBreederPair = $_REQUEST["pairID"];
+    if (!empty($_REQUEST["breedingPair"])) {
+        $filterBreederPair = $_REQUEST["breedingPair"];
         if (empty($litterFilter)) {
             $litterFilter = "pairID=" . $filterBreederPair;
         } else {
@@ -255,8 +255,8 @@ function displayAnimalTable()
         }
     }
     
-    if (!empty($_REQUEST["species"])) {
-        $filterSpecies = $_REQUEST["species"];
+    if (!empty($_REQUEST["species_name"])) {
+        $filterSpecies = $_REQUEST["species_name"];
         if (empty($animalList)) {
             $animalList = "species='" . $filterSpecies . "'";
         } else {
@@ -264,8 +264,8 @@ function displayAnimalTable()
         }
     }
     
-    if (!empty($_REQUEST["strain"])) {
-        $filterStrain = $_REQUEST["strain"];
+    if (!empty($_REQUEST["strain_name"])) {
+        $filterStrain = $_REQUEST["strain_name"];
         if (empty($animalList)) {
             $animalList = "strain='" . $filterStrain . "'";
         } else {
@@ -292,8 +292,7 @@ function displayAnimalTable()
         }
     }
     
-    if ((!isset($_REQUEST["breeder"])) || (!isset($_REQUEST["pup"])) || (!isset($_REQUEST["weanling"])) && (!empty($animalList))) {
-        $animalList = $animalList . ")";
+
         
         if (isset($_REQUEST["breeder"])) {
             $filterBreeder = $_REQUEST["breeder"];
@@ -329,7 +328,7 @@ function displayAnimalTable()
                 $animalList = " OR classification=" . $filterWeanling . ")";
             }
         }
-    }
+    
     
     $options = [
         PDO::ATTR_EMULATE_PREPARES => false, // turn off emulation mode for "real" prepared statements
