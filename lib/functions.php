@@ -273,7 +273,7 @@ function displayAnimalTable()
         }
     }
     
-    if (isset($_POST["tagNumber"])) {
+    if (isset($_REQUEST["tagNumber"])) {
         $filterTagNumber = $_REQUEST["tagNumber"];
         if (empty($animalList)) {
             $animalList = "tagNumber=" . $filterTagNumber;

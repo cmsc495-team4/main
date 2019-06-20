@@ -92,11 +92,11 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
             </select></td>
 					<td>Species:</td>
 					<td><select name="species_name">
-              <?php getDropDown("species_name", "species", "<?php print $species_name;?>") ?>
+              <?php getDropDown("species_name", "species", $species_name); ?>
             </select></td>
 					<td>Strain:</td>
 					<td><select name="strain_name">
-              <?php getDropDown("strain_name", "strains", "<?php print $strain_name;?>") ?>
+              <?php getDropDown("strain_name", "strains", $strain_name); ?>
             </select></td>
 					<td><input type="hidden" name="breeders" value="0"><input
 							type="checkbox"
@@ -115,15 +115,15 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 				<tr>
 					<td>Pair:</td>
 					<td><select name="breederPair">
-          	  <?php getDropDown("pairID", "breeding_pairs", "<?php print $breederPair;?>") ?>
+          	  <?php getDropDown("pairID", "breeding_pairs", $breederPair); ?>
 			</select></td>
 					<td>Tag#:</td>
 					<td><select name="tagNumber"> 
-          	  <?php getDropDown("tagNumber", "animals", "<?php print $tagNumber;?>") ?>
+          	  <?php getDropDown("tagNumber", "animals", $tagNumber); ?>
 			</select></td>
 					<td>Litter ID::</td>
 					<td><select name="litterID">
-          	  <?php getDropDown("litterID", "litters", "<?php print $litterID;?>") ?>
+          	  <?php getDropDown("litterID", "litters", $litterID); ?>
 			</select></td>
 
 					<td>Date of Birth:</td>
