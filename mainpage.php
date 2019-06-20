@@ -81,7 +81,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 
 </div>
 <div>
-	<form action="<?php $_SESSION['PHP_SELF']?>" method="POST">>
+	<form action="<?php $_SERVER['REQUEST_URI']?>" method="POST">>
 		<fieldset>
 			<legend>Filter Results</legend>
 			<table>
