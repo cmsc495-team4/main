@@ -284,7 +284,7 @@ function displayAnimalTable()
     
     if (isset($_REQUEST["birth_date"])) {
         $filterBirthDate = $_REQUEST["birth_date"];
-        echo "----->> dobvar: [" . $filterBirthDate . "]\n"
+        echo "----->> dobvar: [" . $filterBirthDate . "]\n";
         if (empty($animalList)) {
             $animalList = "birth_date=" . $filterBirthDate . "'";
         } else {
