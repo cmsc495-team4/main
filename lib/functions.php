@@ -528,15 +528,3 @@ function displayAnimalTable()
     $pdo = null;
 }
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
