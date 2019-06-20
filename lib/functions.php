@@ -244,14 +244,14 @@ function displayAnimalTable()
         // echo $displayAll;
         if (!empty($_REQUEST["pi_name"])) {
             $filterPI = $_REQUEST["pi_name"];
-            $piFilter = "username='" . $filterPI . "'";
+            $piFilter = "WHERE username='" . $filterPI . "'";
         }
     }
     
     if (!empty($_REQUEST["breedingPair"])) {
         $filterBreederPair = $_REQUEST["breedingPair"];
         if (empty($litterFilter)) {
-            $litterFilter = "pairID=" . $filterBreederPair;
+            $litterFilter = "WHERE pairID=" . $filterBreederPair;
         } else {
             $litterFilter = $litterFilter . " AND pairID=" . $filterBreederPair;
         }
@@ -260,7 +260,7 @@ function displayAnimalTable()
     if (!empty($_REQUEST["litterID"])) {
         $filterLitterID = $_REQUEST["litterID"];
         if (empty($litterFilter)) {
-            $litterFilter = "litterID=" . $filterLitterID;
+            $litterFilter = "WHERE litterID=" . $filterLitterID;
         } else {
             $litterFilter = $litterFilter . " AND litterID=" . $filterLitterID;
         }
@@ -269,7 +269,7 @@ function displayAnimalTable()
     if (!empty($_REQUEST["species_name"])) {
         $filterSpecies = $_REQUEST["species_name"];
         if (empty($animalList)) {
-            $animalList = "species='" . $filterSpecies . "'";
+            $animalList = "WHERE species='" . $filterSpecies . "'";
         } else {
             $animalList = $animalList . " AND species='" . $filterSpecies . "'";
         }
@@ -278,7 +278,7 @@ function displayAnimalTable()
     if (!empty($_REQUEST["strain_name"])) {
         $filterStrain = $_REQUEST["strain_name"];
         if (empty($animalList)) {
-            $animalList = "strain='" . $filterStrain . "'";
+            $animalList = "WHERE strain='" . $filterStrain . "'";
         } else {
             $animalList = $animalList . " AND strain='" . $filterStrain . "'";
         }
@@ -287,7 +287,7 @@ function displayAnimalTable()
     if (!empty($_REQUEST["tagNumber"])) {
         $filterTagNumber = $_REQUEST["tagNumber"];
         if (empty($animalList)) {
-            $animalList = "tagNumber=" . $filterTagNumber;
+            $animalList = "WHERE tagNumber=" . $filterTagNumber;
         } else {
             $animalList = $animalList . " AND tagNumber=" . $filterTagNumber;
         }
@@ -297,7 +297,7 @@ function displayAnimalTable()
         $filterBirthDate = $_REQUEST["birth_date"];
         echo "----->> dobvar: [" . $filterBirthDate . "]\n";
         if (empty($animalList)) {
-            $animalList = "birth_date=" . $filterBirthDate . "'";
+            $animalList = "WHERE birth_date=" . $filterBirthDate . "'";
         } else {
             $animalList = $animalList . " AND birth_date=" . $filterBirthDate . "'";
         }
@@ -308,7 +308,7 @@ function displayAnimalTable()
         if (isset($_REQUEST["breeder"])) {
             $filterBreeder = $_REQUEST["breeder"];
             if (empty($animalList)) {
-                $animalList = "(classification='breeder'";
+                $animalList = "WHERE (classification='breeder'";
             } else {
                 $animalList = $animalList . " AND (classification='breeder'";
             }
@@ -321,7 +321,7 @@ function displayAnimalTable()
         if (isset($_REQUEST["pup"])) {
             $filterPup = $_REQUEST["pup"];
             if (empty($animalList)) {
-                $animalList = "(classification=" . $filterPup;
+                $animalList = "WHERE (classification=" . $filterPup;
             } else {
                 $animalList = $animalList . " OR classification=" . $filterPup;
             }
@@ -334,7 +334,7 @@ function displayAnimalTable()
         if (isset($_REQUEST["weanling"])) {
             $filterWeanling = $_REQUEST["weanling"];
             if (empty($animalList)) {
-                $animalList = "(classification=" . $filterWeanling . ")";
+                $animalList = "WHERE (classification=" . $filterWeanling . ")";
             } else {
                 $animalList = $animalList . " OR classification=" . $filterWeanling . ")";
             }
@@ -401,7 +401,7 @@ function displayAnimalTable()
                     $strTransferred = "No";
                 }
                 
-                $query2 = "SELECT `litterID`, `breedingPair` FROM litters WHERE animalID_pup=" . $animalID;
+                $query2 = "SELECT `litterID`, `breedingPair` FROM litters " . $litterID;
                 $result2 = $pdo->query($query2);
                 $result2->setFetchMode(PDO::FETCH_ASSOC);
                 $row2 = $result2->fetch(PDO::FETCH_ASSOC);
@@ -416,7 +416,7 @@ function displayAnimalTable()
                 
                 $responsible_PI = $row3["PI_username"];
                 
-                $query4 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
+                $query4 = "SELECT first_name, last_name FROM user " . $piFilter;
                 $result4 = $pdo->query($query4);
                 $result4->setFetchMode(PDO::FETCH_ASSOC);
                 $row4 = $result4->fetch(PDO::FETCH_ASSOC);
@@ -446,7 +446,7 @@ function displayAnimalTable()
         }
     } else {
         
-        $query1 = "SELECT * FROM `animals` WHERE " . $animalList;
+        $query1 = "SELECT * FROM `animals` " . $animalList;
         echo $query1 . "\n";
         $result = $pdo->query($query1);
         $result->setFetchMode(PDO::FETCH_ASSOC);
