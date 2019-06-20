@@ -303,8 +303,8 @@ function displayAnimalTable()
                 $animalList = " AND (classification='breeder'";
             }
             
-            if ((! isset($_REQUEST["pup"])) && (! isset($_REQUEST["weanling"]))) {
-                $animalList = $animalList . ")";
+            if ((!isset($_REQUEST["pup"])) && (!isset($_REQUEST["weanling"]))) {
+                $animalList = $animalList . ")1";
             }
         }
         
@@ -316,8 +316,8 @@ function displayAnimalTable()
                 $animalList = " OR classification=" . $filterPup;
             }
             
-            if (! isset($_REQUEST["weanling"])) {
-                $animalList = $animalList . ")";
+            if (!isset($_REQUEST["weanling"])) {
+                $animalList = $animalList . ")2";
             }
         }
         
