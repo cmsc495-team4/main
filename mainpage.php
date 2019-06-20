@@ -2,33 +2,30 @@
                       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <?php
-
 if (isset($_REQUEST["clear"])) {
-	$_POST = array();
-	$_REQUEST = array();
+    $_POST = array();
+    $_REQUEST = array();
 }
 
 if (isset($_POST['species_name'])) {
-$species_name = $_POST['species_name'];	
+    $species_name = $_POST['species_name'];
 }
 
 if (isset($_POST['strain_name'])) {
-$strain_name = $_POST['strain_name'];	
+    $strain_name = $_POST['strain_name'];
 }
 
 if (isset($_POST['breederPair'])) {
-$breederPair = $_POST['breederPair'];	
+    $breederPair = $_POST['breederPair'];
 }
 
 if (isset($_POST['tagNumber'])) {
-$tagNumber = $_POST['tagNumber'];	
+    $tagNumber = $_POST['tagNumber'];
 }
 
 if (isset($_POST['litterID'])) {
-$litterID = $_POST['litterID'];	
+    $litterID = $_POST['litterID'];
 }
-
-
 
 ?>
 
@@ -69,8 +66,6 @@ $litterID = $_POST['litterID'];
 		src="https://cdn.datatables.net/scroller/2.0.0/js/dataTables.scroller.js"></script>
 	<script type="text/javascript"
 		src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.js"></script>
-		
-
 
 </head>
 <?php
@@ -133,11 +128,11 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 
 					<td>Date of Birth:</td>
 					<td><input type="date" name="birth_date" placeholder="mm/dd/yyyy"></td>
-					
-					
+
+
 					<td class="filter-button"><button class="action" type="submit"
 							name="filter" value="submitted">Apply Filter</button></td>
-							
+
 					<td class="filter-button"><button class="action" type="submit"
 							name="clear" value="submitted">Clear Filters</button></td>
 				</tr>
