@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+I -- phpMyAdmin SQL Dump
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
@@ -21,10 +21,13 @@ USE `mysql` ;
 /*!40101 SET NAMES utf8mb4 */;
 
 DROP SCHEMA IF EXISTS `vnetprom_team4v2`;
+DROP SCHEMA IF EXISTS `vnetprom_team4`;
 
-CREATE SCHEMA IF NOT EXISTS `vnetprom_team4v2` DEFAULT CHARACTER SET UTF8MB4 ;
+CREATE SCHEMA IF NOT EXISTS `vnetprom_team4` DEFAULT CHARACTER SET UTF8MB4 ;
 
 DROP DATABASE IF EXISTS `vnetprom_team4v2`;
+DROP DATABASE IF EXISTS `vnetprom_team4`;
+
 
 DROP USER IF EXISTS `vnetprom_team4`@`localhost`;
 DROP USER IF EXISTS `vnetprom_team4user`@`localhost`; 
@@ -37,8 +40,8 @@ GRANT SELECT, DELETE, UPDATE, EXECUTE, INSERT ON `vnetprom_team4v2` . * TO `vnet
 -- Database: `vnetprom_team4v2`
 --
 
-CREATE DATABASE IF NOT EXISTS `vnetprom_team4v2` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `vnetprom_team4v2`;
+CREATE DATABASE IF NOT EXISTS `vnetprom_team4` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `vnetprom_team4`;
 
 
 
