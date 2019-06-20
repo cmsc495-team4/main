@@ -250,6 +250,8 @@ function displayAnimalTable()
     }
     
     if (!empty($_REQUEST["breedingPair"])) {
+        $displayAll = FALSE;
+
         $filterBreederPair = $_REQUEST["breedingPair"];
         if (empty($litterFilter)) {
             $litterFilter = "AND pairID=" . $filterBreederPair;
@@ -259,6 +261,8 @@ function displayAnimalTable()
     }
     
     if (!empty($_REQUEST["litterID"])) {
+    	$displayAll = FALSE;
+    	
         $filterLitterID = $_REQUEST["litterID"];
         if (empty($litterFilter)) {
             $litterFilter = "AND litterID=" . $filterLitterID;
@@ -268,6 +272,8 @@ function displayAnimalTable()
     }
     
     if (!empty($_REQUEST["species_name"])) {
+    	$displayAll = FALSE;
+    	
         $filterSpecies = $_REQUEST["species_name"];
         if (empty($animalList)) {
             $animalList = "WHERE species='" . $filterSpecies . "'";
@@ -277,6 +283,8 @@ function displayAnimalTable()
     }
     
     if (!empty($_REQUEST["strain_name"])) {
+    	$displayAll = FALSE;
+    	
         $filterStrain = $_REQUEST["strain_name"];
         if (empty($animalList)) {
             $animalList = "WHERE strain='" . $filterStrain . "'";
@@ -286,6 +294,8 @@ function displayAnimalTable()
     }
     
     if (!empty($_REQUEST["tagNumber"])) {
+    	$displayAll = FALSE;
+    	
         $filterTagNumber = $_REQUEST["tagNumber"];
         if (empty($animalList)) {
             $animalList = "WHERE tagNumber=" . $filterTagNumber;
@@ -295,6 +305,8 @@ function displayAnimalTable()
     }
     
     if (!empty($_REQUEST["birth_date"])) {
+    	$displayAll = FALSE;
+    	
         $filterBirthDate = $_REQUEST["birth_date"];
         echo "----->> dobvar: [" . $filterBirthDate . "]\n";
         if (empty($animalList)) {
