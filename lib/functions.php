@@ -251,7 +251,7 @@ function displayAnimalTable()
     
     if (! empty($_REQUEST["pairID"])) {
         $displayAll = FALSE;
-        
+        echo "inside\n";
         $filterbreedingPair = $_REQUEST["pairID"];
         if (empty($animalList)) {
             $animalList = "WHERE breedingPair=" . $filterbreedingPair;
