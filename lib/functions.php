@@ -353,11 +353,16 @@ function displayAnimalTable()
     
     if (! empty($_REQUEST["weanling"])) {
         $filterWeanling = "weanling";
+        $weanlingChecked = 1;
         if (empty($animalList)) {
             $animalList = "WHERE (classification='" . $filterWeanling . "')";
         } else {
             $animalList = $animalList . " OR classification='" . $filterWeanling . "')";
         }
+        
+        else {
+            $weanlingChecked=0;
+            }
     }
     
     

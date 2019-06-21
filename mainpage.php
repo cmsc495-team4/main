@@ -30,12 +30,10 @@ if (isset($_POST['litterID'])) {
 if (isset($_POST['genotype_name'])) {
     $litterID = $_POST['genotype_name'];
 }
-/*
-if (isset($_POST['weanling'])) {
-    $weanling = $_POST['weanling'];
-} else {
-    $weanling = 1;
-}
+
+if (!empty($_POST['weanling'])) {
+    $weanlingChecked = "checked";
+} 
 
 if (isset($_POST['pup'])) {
     $pup = $_POST['pup'];
@@ -48,7 +46,7 @@ if (isset($_POST['breeder'])) {
 } else {
     $breeder = 1;
 }
-*/
+
 ?>
 
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"
@@ -124,7 +122,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 					<td><select name="genotype_name">
           	  <?php getDropDown("genotype_name", "genotypes", $litterID); ?>
 			</select></td>
-
+<!--
                     <td><input type="hidden" name="breeders" value="0"><input
 							type="checkbox"
 							onclick="this.previousSibling.value=1-this.previousSibling.value"
@@ -137,14 +135,13 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 							type="checkbox"
 							onclick="this.previousSibling.value=1-this.previousSibling.value"
 							checked>Pups/Unclassified </td>			
-            <!--
-					<td><input type="hidden" name="breeder" value="<?php echo $breeder ?>"><input
+-->					<td><input type="hidden" name="breeder" value="1" <?php echo $weanlingChecked ?><input
 							type="checkbox">Breeders </td>
-					<td><input type="hidden" name="weanling" value="<?php echo $weanling ?>" checked><input
+					<td><input type="hidden" name="weanling" value="1" checked><input
 							type="checkbox">Weanlings </td>
-					<td><input type="hidden" name="pup" value="<?php echo $pup ?>" checked><input
+					<td><input type="hidden" name="pup" value="1" checked><input
 							type="checkbox">Pups/Unclassified </td>
-			-->
+			
 
 
 				</tr>
