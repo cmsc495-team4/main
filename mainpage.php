@@ -2,10 +2,6 @@
                       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <?php
-if (isset($_REQUEST["clear"])) {
-    $_POST = array();
-    $_REQUEST = array();
-}
 
 if (isset($_POST['species_name'])) {
     $species_name = $_POST['species_name'];
@@ -60,6 +56,14 @@ if (isset($_POST['breeder'])) {
     $breeder = $_POST['breeder'];
 } else {
     $breeder = "";
+}
+
+if (isset($_REQUEST["clear"])) {
+    $_POST = array();
+    $_REQUEST = array();
+    $breederChecked="checked";
+    $weanlingChecked="checked";
+    $pupChecked="checked";
 }
 
 ?>
