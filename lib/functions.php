@@ -362,10 +362,10 @@ function displayAnimalTable()
         if (empty($animalList)) {
             $animalList = "WHERE (classification='" . $filterWeanling . "')";
         } elseif ((empty($_REQUEST["breeder"])) && (empty($_REQUEST["pup"]))) {
-            $animalList = $animalList . " AND (classification='" . $filterPup . "')";
+            $animalList = $animalList . " AND (classification='" . $filterWeanling . "')";
         }
           else {
-            $animalList = $animalList . " OR classification='" . $filterPup . "')";
+            $animalList = $animalList . " OR classification='" . $filterWeanling . "')";
         }
     }
     
