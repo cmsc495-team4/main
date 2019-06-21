@@ -264,7 +264,7 @@ function displayAnimalTable()
         $displayAll = FALSE;
         
         $filterLitterID = $_REQUEST["litterID"];
-        if (empty($litterFilter)) {
+        if (empty($animalList)) {
             $animalList = "WHERE litterID=" . $filterLitterID;
         } else {
             $animalList = $litterFilter . " AND litterID=" . $filterLitterID;
