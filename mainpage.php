@@ -30,7 +30,7 @@ if (isset($_POST['litterID'])) {
 if (isset($_POST['genotype_name'])) {
     $litterID = $_POST['genotype_name'];
 }
-
+/*
 if (isset($_POST['weanling'])) {
     $weanling = $_POST['weanling'];
 } else {
@@ -48,7 +48,7 @@ if (isset($_POST['breeder'])) {
 } else {
     $breeder = 1;
 }
-
+*/
 ?>
 
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"
