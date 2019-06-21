@@ -125,7 +125,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
           	  <?php getDropDown("genotype_name", "genotypes", $litterID); ?>
 			</select></td>
 
-            
+            <!--
 					<td><input type="hidden" name="breeder" value="<?php echo $breeder ?>"><input
 							type="checkbox"
 							onclick="this.previousSibling.value=1-this.previousSibling.value"
@@ -138,6 +138,15 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 							type="checkbox"
 							onclick="this.previousSibling.value=1-this.previousSibling.value"
 							checked>Pups/Unclassified </td>
+			-->
+					<td><input type="hidden" name="breeder" value="<?php echo $breeder ?>"><input
+							type="checkbox">Breeders </td>
+					<td><input type="hidden" name="weanling" value="<?php echo $weanling ?>"><input
+							type="checkbox">Weanlings </td>
+					<td><input type="hidden" name="pup" value="<?php echo $pup ?>"><input
+							type="checkbox">Pups/Unclassified </td>
+
+
 
 				</tr>
 				<tr>
