@@ -150,12 +150,12 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 							type="checkbox"
 							onclick="this.previousSibling.value=1-this.previousSibling.value"
 							checked>Pups/Unclassified </td>			
--->					<td><input type="hidden" name="breeder" value="1" <?php echo $weanlingChecked; ?>><input
-							type="checkbox">Breeders </td>
-					<td><input type="hidden" name="weanling" value="1" checked><input
-							type="checkbox">Weanlings </td>
-					<td><input type="hidden" name="pup" value="1" checked><input
-							type="checkbox">Pups/Unclassified </td>
+-->					<td><input type="hidden" name="breeder" value="1"><input
+							type="checkbox" <?php echo $weanlingChecked; ?>>Breeders </td>
+					<td><input type="hidden" name="weanling" value="1" ><input
+							type="checkbox" checked>Weanlings </td>
+					<td><input type="hidden" name="pup" value="1" ><input
+							type="checkbox" checked>Pups/Unclassified </td>
 			
 
 
