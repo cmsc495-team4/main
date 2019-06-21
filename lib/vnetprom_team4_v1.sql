@@ -30,7 +30,7 @@ DROP DATABASE IF EXISTS `vnetprom_team4`;
 
 
 DROP USER IF EXISTS `vnetprom_team4`@`localhost`;
-DROP USER IF EXISTS `vnetprom_team4user`@`localhost`; 
+DROP USER IF EXISTS `vnetprom_team4user`@`localhost`;
 CREATE USER `vnetprom_team4`@`localhost` IDENTIFIED BY 'cmsc495!!';
 CREATE USER `vnetprom_team4user`@`localhost` IDENTIFIED BY '!!cmsc495';
 GRANT ALL PRIVILEGES ON * . * TO `vnetprom_team4`@`localhost`;
@@ -223,26 +223,49 @@ DROP TABLE IF EXISTS `PI_strains`;
 CREATE TABLE `PI_strains` (
   `id_PI` int(11) NOT NULL,
   `PI_username` varchar(64) DEFAULT NULL,
-  `PI_strain` varchar(45) DEFAULT NULL
+  `PI_strain` varchar(45) DEFAULT NULL,
+  'PI_species' varchar(45) DEFAUL NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `PI_strains`
 --
 
-INSERT INTO `PI_strains` (`id_PI`, `PI_username`, `PI_strain`) VALUES
-(1, 'jdoe', 'strain1'),
-(2, 'jsmith', 'strain2'),
-(3, 'jsmith', 'strain3'),
-(4, 'jdoe', 'strain3'),
-(5, 'tdavis', 'strain3'),
-(6, 'jdoe', 'strain4'),
-(7, 'jsmith', 'strain4'),
-(8, 'jsmith', 'strain5'),
-(9, 'tdavis', 'strain6'),
-(10, 'jsmith', 'strain7'),
-(11, 'tdavid', 'strain8'),
-(12, 'jdoe', 'strain8');
+INSERT INTO `PI_strains` (`id_PI`, `PI_username`, `PI_strain`, 'PI_species') VALUES
+(1, 'Hatcher', 'Sprague-Dawley','Rat'),
+(2, 'Hatcher', 'Long Evans', 'Rat'),
+(3, 'Hatcher', 'Wistar','Rat'),
+(4, 'Hatcher', 'Th-Cre','Rat'),
+(5, 'Hatcher', 'Drd-Cre','Rat'),
+(6, 'Hatcher', 'C57BL/6','Mouse'),
+(7, 'Hatcher', 'Vglut7','Mouse'),
+(8, 'Hatcher', 'Dat-Tomato','Mouse'),
+(9, 'Mabry', 'C57BL/6','Mouse'),
+(10, 'Mabry', 'BALB/c','Mouse'),
+(11, 'Mabry', 'Thor-dat','Mouse'),
+(12, 'Mabry', 'Vgat3','Mouse'),
+(13, 'Matthew', 'Vglut7','Rat'),
+(14, 'Matthew', 'GHS','Rat'),
+(15, 'Matthew', 'Cfos-Lacz','Rat'),
+(16, 'Matthew', 'Long Evans','Rat'),
+(17, 'Matthew', 'Wistar','Rat'),
+(18, 'Matthew', 'PDYN-IRES-iCre','Rat'),
+(19, 'Sapp', 'Sprague-Dawley','Rat'),
+(20, 'Sapp', 'Long Evans','Rat'),
+(21, 'Sapp', 'Wistar','Rat'),
+(22, 'Sapp', 'GHSR','Rat'),
+(23, 'Sapp', 'Rosa-iHIV x SD','Rat'),
+(24, 'Sapp', 'Cfos-NIMH','Rat'),
+(25, 'Sharma', 'C57BL/6','Mouse'),
+(26, 'Sharma', 'BALB/c','Mouse'),
+(27, 'Sharma', 'Th-cre','Mouse'),
+(28, 'Sharma', 'Cfos-Lacz','Mouse'),
+(29, 'Sharma', 'Long Evans','Rat'),
+(30, 'Sharma', 'R26-TeTR-fos-T-iCre','Rat'),
+(31, 'Mendel', 'Trp53','Mouse'),
+(32, 'Mendel', 'BALB/c','Mouse'),
+(33, 'Mendel', 'Long Evans','Rat'),
+(34, 'Mendel', 'TR-fos-MFRP 1','Rat');
 
 -- --------------------------------------------------------
 
@@ -319,9 +342,6 @@ INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `last_name`,
 ('jsmith', NULL, '', '2019-06-19 06:45:53', 'Smith', 'Jane', 'Investigator'),
 ('rinvest', 'NULL', '$2y$12$mK/rWvoZm/SWiFrw0W7TYeJO8V5OBqO79djzH0hxqh7Opzwr2djty', '2019-06-19 18:02:23', 'Invest', 'Ronald', 'Investigator'),
 ('tdavis', NULL, '', '2019-06-19 06:45:53', 'Davis', 'Tom', 'Investigator');
-
-DROP VIEW IF EXISTS combined_search;
-CREATE VIEW combined_search AS (SELECT animals.*, litters.* FROM animals LEFT JOIN litters ON animals.animalID=litters.animalID_pup);
 
 --
 -- Indexes for dumped tables
@@ -519,3 +539,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
