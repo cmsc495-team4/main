@@ -344,9 +344,13 @@ function displayAnimalTable()
         $filterPup = "pup";
         if (empty($animalList)) {
             $animalList = "WHERE (classification='" . $filterPup . "'";
-        } else {
+        } elseif (empty($_REQUEST["breeder"])) {
+            $animalList = $animalList . " AND (classification='" . $filterPup . "'";
+        }
+          else {
             $animalList = $animalList . " OR classification='" . $filterPup . "'";
         }
+
         
         if (empty($_REQUEST["weanling"])) {
             $animalList = $animalList . ")";
@@ -357,8 +361,11 @@ function displayAnimalTable()
         $filterWeanling = "weanling";
         if (empty($animalList)) {
             $animalList = "WHERE (classification='" . $filterWeanling . "')";
-        } else {
-            $animalList = $animalList . " OR classification='" . $filterWeanling . "')";
+        } elseif ((empty($_REQUEST["breeder"])) && (empty($_REQUEST["pup"]))) {
+            $animalList = $animalList . " AND (classification='" . $filterPup . "')";
+        }
+          else {
+            $animalList = $animalList . " OR classification='" . $filterPup . "')";
         }
     }
     
