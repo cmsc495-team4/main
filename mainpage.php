@@ -31,6 +31,18 @@ if (isset($_POST['genotype_name'])) {
     $litterID = $_POST['genotype_name'];
 }
 
+if (isset($_POST['weanling'])) {
+    $litterID = $_POST['weanling'];
+}
+
+if (isset($_POST['pup'])) {
+    $litterID = $_POST['pup'];
+}
+
+if (isset($_POST['breeder'])) {
+    $litterID = $_POST['breeder'];
+}
+
 ?>
 
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"
