@@ -30,7 +30,7 @@ if (isset($_POST['litterID'])) {
 if (isset($_POST['genotype_name'])) {
     $litterID = $_POST['genotype_name'];
 }
-/*
+
 if (isset($_POST['weanling'])) {
     $weanling = $_POST['weanling'];
 } else {
@@ -48,7 +48,7 @@ if (isset($_POST['breeder'])) {
 } else {
     $breeder = 1;
 }
-*/
+
 ?>
 
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"
@@ -126,15 +126,15 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 			</select></td>
 
             
-					<td><input type="hidden" name="$<?php echo $breeder ?>" value="1"><input
+					<td><input type="hidden" name="breeder" value="<?php echo $breeder ?>"><input
 							type="checkbox"
 							onclick="this.previousSibling.value=1-this.previousSibling.value"
 							checked>Breeders </td>
-					<td><input type="hidden" name="<?php echo $weanling ?>" value="1"><input
+					<td><input type="hidden" name="weanling" value="<?php echo $weanling ?>"><input
 							type="checkbox"
 							onclick="this.previousSibling.value=1-this.previousSibling.value"
 							checked>Weanlings </td>
-					<td><input type="hidden" name="<?php echo $pup ?>" value="1"><input
+					<td><input type="hidden" name="pup" value="<?php echo $pup ?>"><input
 							type="checkbox"
 							onclick="this.previousSibling.value=1-this.previousSibling.value"
 							checked>Pups/Unclassified </td>
