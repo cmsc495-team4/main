@@ -98,6 +98,12 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 					<td><select name="strain_name">
               <?php getDropDown("strain_name", "strains", $strain_name); ?>
             </select></td>
+            <td>Genotype:</td>
+					<td><select name="litterID">
+          	  <?php getDropDown("genotype_name", "genotypes", $litterID); ?>
+			</select></td>
+
+            
 					<td><input type="hidden" name="breeders" value="0"><input
 							type="checkbox"
 							onclick="this.previousSibling.value=1-this.previousSibling.value"
@@ -121,7 +127,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 					<td><select name="tagNumber"> 
           	  <?php getDropDown("tagNumber", "animals", $tagNumber); ?>
 			</select></td>
-					<td>Litter ID::</td>
+					<td>Litter ID:</td>
 					<td><select name="litterID">
           	  <?php getDropDown("litterID", "litters", $litterID); ?>
 			</select></td>

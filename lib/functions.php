@@ -291,6 +291,17 @@ function displayAnimalTable()
         }
     }
     
+    if (! empty($_REQUEST["genotype_name"])) {
+        $displayAll = FALSE;
+        
+        $filterGenotype = $_REQUEST["genotype_name"];
+        if (empty($animalList)) {
+            $animalList = "WHERE genotype='" . $filterGenotype . "'";
+        } else {
+            $animalList = $animalList . " AND genotype='" . $filterGenotype . "'";
+        }
+    }
+    
     if (! empty($_REQUEST["tagNumber"])) {
         $displayAll = FALSE;
         
