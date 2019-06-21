@@ -25,7 +25,9 @@ function getDropDown($fieldName, $tableName, $previousValue)
     
     $returndata = array();
     $returnArray = null;
-    
+    $extra = "";
+
+
     require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
     
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
