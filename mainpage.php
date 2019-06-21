@@ -40,21 +40,21 @@ if (isset($_POST['genotype_name'])) {
 }
 
 if (isset($_POST['filter'])) {
-    if ($_POST['breeder'] == 1) {
+    if ($_POST['breeder'] == "on") {
         $breederChecked="checked";
     }
     else {
         $breederChecked="";
     }
     
-    if ($_POST['weanling'] == 1) {
+    if ($_POST['weanling'] == "on") {
         $weanlingChecked="weanling";
     }
     else {
         $weanlingChecked="";
     }
 
-    if ($_POST['pup'] == 1) {
+    if ($_POST['pup'] == "on") {
         $pupChecked="pup";
     }
     else {
