@@ -326,33 +326,33 @@ function displayAnimalTable()
     }
     
     if (! empty($_REQUEST["breeder"])) {
-        $filterBreeder = $_REQUEST["breeder"];
+        $filterBreeder = "breeder";
         if (empty($animalList)) {
-            $animalList = "WHERE (classification='breeder'";
+            $animalList = "WHERE (classification=" . $filterBreeder;
         } else {
-            $animalList = $animalList . " AND (classification='breeder'";
+            $animalList = $animalList . " AND (classification=" . $filterBreeder;
         }
         
-        if ((! isset($_REQUEST["pup"])) && (! isset($_REQUEST["weanling"]))) {
+        if ((empty($_REQUEST["pup"])) && (empty($_REQUEST["weanling"]))) {
             $animalList = $animalList . ")";
         }
     }
     
     if (! empty($_REQUEST["pup"])) {
-        $filterPup = $_REQUEST["pup"];
+        $filterPup = "pup";
         if (empty($animalList)) {
             $animalList = "WHERE (classification=" . $filterPup;
         } else {
             $animalList = $animalList . " OR classification=" . $filterPup;
         }
         
-        if (! isset($_REQUEST["weanling"])) {
+        if (empty($_REQUEST["weanling"])) {
             $animalList = $animalList . ")";
         }
     }
     
     if (! empty($_REQUEST["weanling"])) {
-        $filterWeanling = $_REQUEST["weanling"];
+        $filterWeanling = "weanling";
         if (empty($animalList)) {
             $animalList = "WHERE (classification=" . $filterWeanling . ")";
         } else {
@@ -360,9 +360,6 @@ function displayAnimalTable()
         }
     }
     
-    if ((! empty($_REQUEST["weanling"])) || (! empty($_REQUEST["pup"])) || (! empty($_REQUEST["breeder"]))) {
-         $animalList = $animalList . ")";
-    }
     
     $options = [
         PDO::ATTR_EMULATE_PREPARES => false, // turn off emulation mode for "real" prepared statements
