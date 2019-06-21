@@ -249,10 +249,10 @@ function displayAnimalTable()
         }
     }
     
-    if (! empty($_REQUEST["breedingPair"])) {
+    if (! empty($_REQUEST["pairID"])) {
         $displayAll = FALSE;
         
-        $filterbreedingPair = $_REQUEST["breedingPair"];
+        $filterbreedingPair = $_REQUEST["pairID"];
         if (empty($animalList)) {
             $animalList = "WHERE breedingPair=" . $filterbreedingPair;
         } else {
