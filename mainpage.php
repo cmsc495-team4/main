@@ -125,27 +125,26 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
           	  <?php getDropDown("genotype_name", "genotypes", $litterID); ?>
 			</select></td>
 
-            <!--
-					<td><input type="hidden" name="breeder" value="<?php echo $breeder ?>"><input
+                    <td><input type="hidden" name="breeders" value="0"><input
 							type="checkbox"
 							onclick="this.previousSibling.value=1-this.previousSibling.value"
 							checked>Breeders </td>
-					<td><input type="hidden" name="weanling" value="<?php echo $weanling ?>"><input
+					<td><input type="hidden" name="weanlings" value="0"><input
 							type="checkbox"
 							onclick="this.previousSibling.value=1-this.previousSibling.value"
 							checked>Weanlings </td>
-					<td><input type="hidden" name="pup" value="<?php echo $pup ?>"><input
+					<td><input type="hidden" name="pups" value="0"><input
 							type="checkbox"
 							onclick="this.previousSibling.value=1-this.previousSibling.value"
-							checked>Pups/Unclassified </td>
-			-->
-					<td><input type="hidden" name="breeder" value="<?php echo $breeder ?>" checked><input
+							checked>Pups/Unclassified </td>			
+            <!--
+					<td><input type="hidden" name="breeder" value="<?php echo $breeder ?>"><input
 							type="checkbox">Breeders </td>
 					<td><input type="hidden" name="weanling" value="<?php echo $weanling ?>" checked><input
 							type="checkbox">Weanlings </td>
-					<td><input type="hidden" name="pup" value="<?php echo $pup ?>"checked><input
+					<td><input type="hidden" name="pup" value="<?php echo $pup ?>" checked><input
 							type="checkbox">Pups/Unclassified </td>
-
+			-->
 
 
 				</tr>
