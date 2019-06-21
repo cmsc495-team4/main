@@ -27,6 +27,10 @@ if (isset($_POST['litterID'])) {
     $litterID = $_POST['litterID'];
 }
 
+if (isset($_POST['genotype_name'])) {
+    $litterID = $_POST['genotype_name'];
+}
+
 ?>
 
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"
@@ -99,7 +103,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
               <?php getDropDown("strain_name", "strains", $strain_name); ?>
             </select></td>
             <td>Genotype:</td>
-					<td><select name="litterID">
+					<td><select name="genotype_name">
           	  <?php getDropDown("genotype_name", "genotypes", $litterID); ?>
 			</select></td>
 

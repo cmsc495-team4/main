@@ -325,7 +325,7 @@ function displayAnimalTable()
         }
     }
     
-    if (isset($_REQUEST["breeder"])) {
+    if (! empty($_REQUEST["breeder"])) {
         $filterBreeder = $_REQUEST["breeder"];
         if (empty($animalList)) {
             $animalList = "WHERE (classification='breeder'";
@@ -338,7 +338,7 @@ function displayAnimalTable()
         }
     }
     
-    if (isset($_REQUEST["pup"])) {
+    if (! empty($_REQUEST["pup"])) {
         $filterPup = $_REQUEST["pup"];
         if (empty($animalList)) {
             $animalList = "WHERE (classification=" . $filterPup;
@@ -351,7 +351,7 @@ function displayAnimalTable()
         }
     }
     
-    if (isset($_REQUEST["weanling"])) {
+    if (! empty($_REQUEST["weanling"])) {
         $filterWeanling = $_REQUEST["weanling"];
         if (empty($animalList)) {
             $animalList = "WHERE (classification=" . $filterWeanling . ")";
