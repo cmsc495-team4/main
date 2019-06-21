@@ -15,8 +15,8 @@ if (isset($_POST['strain_name'])) {
     $strain_name = "";
 }
 
-if (isset($_POST['breedingPair'])) {
-    $breedingPair = $_POST['breedingPair'];
+if (isset($_POST['pairID'])) {
+    $breedingPair = $_POST['pairID'];
 } else {
     $breedingPair = "";
 }
@@ -167,7 +167,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 				</tr>
 				<tr>
 					<td>Pair:</td>
-					<td><select name="breedingPair">
+					<td><select name="pairID">
           	  <?php getDropDown("pairID", "breeding_pairs", $breedingPair); ?>
 			</select></td>
 					<td>Tag#:</td>
