@@ -34,6 +34,9 @@ if (isset($_POST['genotype_name'])) {
 if (!empty($_POST['weanling'])) {
     $weanlingChecked = "checked";
 } 
+else {
+    $weanlingChecked = "";
+}
 
 if (isset($_POST['pup'])) {
     $pup = $_POST['pup'];
