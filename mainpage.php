@@ -38,6 +38,38 @@ if (isset($_POST['genotype_name'])) {
 } else {
     $genotype = "";
 }
+
+if (isset($_POST['filter'])) {
+    if ($_POST['breeder'] == 1) {
+        $breederChecked="checked";
+    }
+    else {
+        $breederChecked="";
+    }
+    
+    if ($_POST['weanling'] == 1) {
+        $weanlingChecked="weanling";
+    }
+    else {
+        $weanlingChecked="";
+    }
+
+    if ($_POST['pup'] == 1) {
+        $pupChecked="pup";
+    }
+    else {
+        $pupChecked="";
+    }
+
+}
+else {
+    $breederChecked="checked";
+    $weanlingChecked="checked";
+    $pupChecked="checked";
+
+}
+
+
 /*
 if ((($_POST['weanling']) == 1) || (!isset($_POST['weanling']))) {
     $weanlingChecked = "checked";
@@ -143,7 +175,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 					<td><select name="genotype_name">
           	  <?php getDropDown("genotype_name", "genotypes", $litterID); ?>
 			</select></td>
-
+<!-->
                     <td><input type="hidden" name="breeders" value="0"><input
 							type="checkbox" name="breeders" 
 							onclick="this.previousSibling.value=1-this.previousSibling.value"
@@ -156,18 +188,16 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 							type="checkbox" name="pups" 
 							onclick="this.previousSibling.value=1-this.previousSibling.value"
 							checked>Pups/Unclassified </td>		
-							
-							<!--	
-				    <td><input type="hidden" name="breeder" value="0">
+						-->	
+				    <td> <!-- <input type="hidden" name="breeder" value="0"> -->
                     <input type="checkbox" name="breeder" <?php echo $breederChecked; ?>>Breeders </td>
                     
-					<td><input type="hidden" name="weanling" value="0" >
+					<td> <!-- <input type="hidden" name="weanling" value="0" > -->
 					<input type="checkbox" name="weanling" <?php echo $weanlingChecked; ?>>Weanlings </td>
 					
-					<td><input type="hidden" name="pup" value="0" >
+					<td> <!-- <input type="hidden" name="pup" value="0" > -->
 					<input type="checkbox" name="pup" <?php echo $pupChecked; ?>>Pups/Unclassified </td>
 			
--->
 
 				</tr>
 				<tr>
