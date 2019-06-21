@@ -38,7 +38,7 @@ if (isset($_POST['genotype_name'])) {
 } else {
     $genotype = "";
 }
-
+/*
 if ((($_POST['weanling']) == 1) || (!isset($_POST['weanling']))) {
     $weanlingChecked = "checked";
 } 
@@ -59,7 +59,7 @@ if (($_POST['breeder']) == 1) {
 else {
     $breederChecked = "";
 }
-
+*/
 if (isset($_REQUEST["clear"])) {
     $_POST = array();
     $_REQUEST = array();
