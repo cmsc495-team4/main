@@ -139,11 +139,11 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 							onclick="this.previousSibling.value=1-this.previousSibling.value"
 							checked>Pups/Unclassified </td>
 			-->
-					<td><input type="hidden" name="breeder" value="<?php echo $breeder ?>"><input
+					<td><input type="hidden" name="breeder" value="<?php echo $breeder ?>" checked><input
 							type="checkbox">Breeders </td>
-					<td><input type="hidden" name="weanling" value="<?php echo $weanling ?>"><input
+					<td><input type="hidden" name="weanling" value="<?php echo $weanling ?>" checked><input
 							type="checkbox">Weanlings </td>
-					<td><input type="hidden" name="pup" value="<?php echo $pup ?>"><input
+					<td><input type="hidden" name="pup" value="<?php echo $pup ?>"checked><input
 							type="checkbox">Pups/Unclassified </td>
 
 
