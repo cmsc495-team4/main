@@ -213,7 +213,7 @@ function getAnimals()
     if (isset($_REQUEST["Filter"])) { // retrieve the form data by using the element's name attributes value as key
         $displayAll = FALSE;
         $filterPI = $_REQUEST["pi_name"];
-        $filterBreeder = $_REQUEST["breederPair"];
+        $filterBreeder = $_REQUEST["breedingPair"];
         $filterSpecies = $_REQUEST["species_name"];
         $filterPair = $_REQUEST["strain_name"];
         $filterTagNumber = $_REQUEST["tagNumber"];
@@ -252,11 +252,11 @@ function displayAnimalTable()
     if (! empty($_REQUEST["breedingPair"])) {
         $displayAll = FALSE;
         
-        $filterBreederPair = $_REQUEST["breedingPair"];
+        $filterbreedingPair = $_REQUEST["breedingPair"];
         if (empty($animalList)) {
-            $animalList = "WHERE breedingPair=" . $filterBreederPair;
+            $animalList = "WHERE breedingPair=" . $filterbreedingPair;
         } else {
-            $animalList = $litterFilter . " AND breedingPair=" . $filterBreederPair;
+            $animalList = $litterFilter . " AND breedingPair=" . $filterbreedingPair;
         }
     }
     
