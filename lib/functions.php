@@ -254,9 +254,9 @@ function displayAnimalTable()
         
         $filterBreederPair = $_REQUEST["breedingPair"];
         if (empty($animalList)) {
-            $animalList = "WHERE pairID=" . $filterBreederPair;
+            $animalList = "WHERE breedingPair=" . $filterBreederPair;
         } else {
-            $animalList = $litterFilter . " AND pairID=" . $filterBreederPair;
+            $animalList = $litterFilter . " AND breedingPair=" . $filterBreederPair;
         }
     }
     
