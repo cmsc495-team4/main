@@ -454,7 +454,7 @@ function displayAnimalTable()
         }
     } else {
         
-        $query1 = "SELECT * FROM `animals` " . $animalList;
+        $query1 = "SELECT * FROM `combined_search` " . $animalList;
         
         echo "\n<br>SQL Query Debug --> <strong>" . $query1 . "</strong>\n<br><br>";
 
