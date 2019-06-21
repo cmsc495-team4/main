@@ -410,7 +410,7 @@ function displayAnimalTable()
                 $tag_date = $row["tag_date"];
                 $deceased = $row["deceased"];
                 $transferred = $row["transferred"];
-                
+
                 if ($deceased == 1) {
                     $strDeceased = "Yes";
                 } else {
@@ -493,7 +493,9 @@ function displayAnimalTable()
                 $tag_date = $row["tag_date"];
                 $deceased = $row["deceased"];
                 $transferred = $row["transferred"];
-                
+                $parentPair = $row["breedingPair"];
+                $litterID = $row["litterID"];
+
                 if ($deceased == 1) {
                     $strDeceased = "Yes";
                 } else {
@@ -511,7 +513,7 @@ function displayAnimalTable()
                 // / Need to add a JOIN statement to get this to properly combine results from animalList and list below
                 
                 // ///////////////////////////
-                
+/*
                 $query2 = "SELECT `litterID`, `breedingPair` FROM litters WHERE animalID_pup=" . $animalID . " " . $litterFilter;
                 $result2 = $pdo->query($query2);
                 $result2->setFetchMode(PDO::FETCH_ASSOC);
@@ -519,7 +521,7 @@ function displayAnimalTable()
                 
                 $litterID = $row2["litterID"];
                 $parentPair = $row2["breedingPair"];
-                
+*/
                 $query3 = "SELECT PI_username FROM PI_strains WHERE PI_strain='" . $strain . "'";
                 $result3 = $pdo->query($query3);
                 $result3->setFetchMode(PDO::FETCH_ASSOC);
