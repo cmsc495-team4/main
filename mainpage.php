@@ -167,7 +167,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 				</tr>
 				<tr>
 					<td>Pair:</td>
-					<td><select name="breederPair">
+					<td><select name="breedingPair">
           	  <?php getDropDown("pairID", "breeding_pairs", $breederPair); ?>
 			</select></td>
 					<td>Tag#:</td>
