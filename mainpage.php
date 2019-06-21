@@ -126,15 +126,15 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 			</select></td>
 
             
-					<td><input type="hidden" name="$<?php echo $breeder ?>" value="0"><input
+					<td><input type="hidden" name="$<?php echo $breeder ?>" value="1"><input
 							type="checkbox"
 							onclick="this.previousSibling.value=1-this.previousSibling.value"
 							checked>Breeders </td>
-					<td><input type="hidden" name="<?php echo $weanling ?>" value="0"><input
+					<td><input type="hidden" name="<?php echo $weanling ?>" value="1"><input
 							type="checkbox"
 							onclick="this.previousSibling.value=1-this.previousSibling.value"
 							checked>Weanlings </td>
-					<td><input type="hidden" name="<?php echo $pup ?>" value="0"><input
+					<td><input type="hidden" name="<?php echo $pup ?>" value="1"><input
 							type="checkbox"
 							onclick="this.previousSibling.value=1-this.previousSibling.value"
 							checked>Pups/Unclassified </td>
