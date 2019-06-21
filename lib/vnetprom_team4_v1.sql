@@ -320,6 +320,9 @@ INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `last_name`,
 ('rinvest', 'NULL', '$2y$12$mK/rWvoZm/SWiFrw0W7TYeJO8V5OBqO79djzH0hxqh7Opzwr2djty', '2019-06-19 18:02:23', 'Invest', 'Ronald', 'Investigator'),
 ('tdavis', NULL, '', '2019-06-19 06:45:53', 'Davis', 'Tom', 'Investigator');
 
+DROP VIEW IF EXISTS combined_search;
+CREATE VIEW combined_search AS (SELECT animals.*, litters.* FROM animals LEFT JOIN litters ON animals.animalID=litters.animalID_pup);
+
 --
 -- Indexes for dumped tables
 --

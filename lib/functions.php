@@ -251,10 +251,10 @@ function displayAnimalTable()
         $displayAll = FALSE;
         
         $filterBreederPair = $_REQUEST["breedingPair"];
-        if (empty($litterFilter)) {
-            $litterFilter = "AND pairID=" . $filterBreederPair;
+        if (empty($animalList)) {
+            $animalList = "WHERE pairID=" . $filterBreederPair;
         } else {
-            $litterFilter = $litterFilter . " AND pairID=" . $filterBreederPair;
+            $animalList = $litterFilter . " AND pairID=" . $filterBreederPair;
         }
     }
     
@@ -263,9 +263,9 @@ function displayAnimalTable()
         
         $filterLitterID = $_REQUEST["litterID"];
         if (empty($litterFilter)) {
-            $litterFilter = "AND litterID=" . $filterLitterID;
+            $animalList = "WHERE litterID=" . $filterLitterID;
         } else {
-            $litterFilter = $litterFilter . " AND litterID=" . $filterLitterID;
+            $animalList = $litterFilter . " AND litterID=" . $filterLitterID;
         }
     }
     
