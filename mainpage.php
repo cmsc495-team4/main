@@ -9,26 +9,38 @@ if (isset($_REQUEST["clear"])) {
 
 if (isset($_POST['species_name'])) {
     $species_name = $_POST['species_name'];
+} else {
+    $species_name = "";
 }
 
 if (isset($_POST['strain_name'])) {
     $strain_name = $_POST['strain_name'];
+} else {
+    $strain_name = "";
 }
 
 if (isset($_POST['breederPair'])) {
     $breederPair = $_POST['breederPair'];
+} else {
+    $breederPair = "";
 }
 
 if (isset($_POST['tagNumber'])) {
     $tagNumber = $_POST['tagNumber'];
+} else {
+    $tagNumber = "";
 }
 
 if (isset($_POST['litterID'])) {
     $litterID = $_POST['litterID'];
+} else {
+    $litterID = "";
 }
 
 if (isset($_POST['genotype_name'])) {
-    $litterID = $_POST['genotype_name'];
+    $genotype = $_POST['genotype_name'];
+} else {
+    $genotype = "";
 }
 
 if (!empty($_POST['weanling'])) {
@@ -41,13 +53,13 @@ else {
 if (isset($_POST['pup'])) {
     $pup = $_POST['pup'];
 } else {
-    $pup = 1;
+    $pup = "";
 }
 
 if (isset($_POST['breeder'])) {
     $breeder = $_POST['breeder'];
 } else {
-    $breeder = 1;
+    $breeder = "";
 }
 
 ?>
