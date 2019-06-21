@@ -1,521 +1,551 @@
--- phpMyAdmin SQL Dump
--- version 4.8.5
--- https://www.phpmyadmin.net/
---
--- Host: localhost:3306
--- Generation Time: Jun 20, 2019 at 12:09 AM
--- Server version: 10.1.40-MariaDB
--- PHP Version: 7.2.7
-
-SET FOREIGN_KEY_CHECKS=0;
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-USE `mysql` ;
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
-DROP SCHEMA IF EXISTS `vnetprom_team4v2`;
-DROP SCHEMA IF EXISTS `vnetprom_team4`;
-
-CREATE SCHEMA IF NOT EXISTS `vnetprom_team4` DEFAULT CHARACTER SET UTF8MB4 ;
-
-DROP DATABASE IF EXISTS `vnetprom_team4v2`;
-DROP DATABASE IF EXISTS `vnetprom_team4`;
-
-
-DROP USER IF EXISTS `vnetprom_team4`@`localhost`;
-DROP USER IF EXISTS `vnetprom_team4user`@`localhost`; 
-CREATE USER `vnetprom_team4`@`localhost` IDENTIFIED BY 'cmsc495!!';
-CREATE USER `vnetprom_team4user`@`localhost` IDENTIFIED BY '!!cmsc495';
-GRANT ALL PRIVILEGES ON * . * TO `vnetprom_team4`@`localhost`;
-GRANT SELECT, DELETE, UPDATE, EXECUTE, INSERT ON `vnetprom_team4` . * TO `vnetprom_team4user`@`localhost`;
-
---
--- Database: `vnetprom_team4`
---
-
-CREATE DATABASE IF NOT EXISTS `vnetprom_team4` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `vnetprom_team4`;
-
-
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `animals`
---
-
-DROP TABLE IF EXISTS `animals`;
-CREATE TABLE `animals` (
-  `animalID` int(11) NOT NULL,
-  `species` varchar(10) DEFAULT NULL,
-  `classification` varchar(24) DEFAULT 'weanling',
-  `sex` varchar(10) DEFAULT NULL,
-  `entered_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `tag_date` date DEFAULT NULL,
-  `birth_date` date DEFAULT NULL,
-  `wean_date` date DEFAULT NULL,
-  `genotype` varchar(128) DEFAULT NULL,
-  `generation` varchar(128) DEFAULT NULL,
-  `location` varchar(128) DEFAULT NULL,
-  `tagNumber` int(11) DEFAULT NULL,
-  `deceased` bit(1) NOT NULL DEFAULT b'0',
-  `transferred` bit(1) NOT NULL DEFAULT b'0',
-  `comments` varchar(512) DEFAULT NULL,
-  `strain` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `animals`
---
-
-INSERT INTO `animals` (`animalID`, `species`, `classification`, `sex`, `entered_date`, `tag_date`, `birth_date`, `wean_date`, `genotype`, `generation`, `location`, `tagNumber`, `deceased`, `transferred`, `comments`, `strain`) VALUES
-(88, 'mouse', 'breeder', 'Male', '2019-06-05 00:00:00', '2019-06-12', '2019-06-05', '2019-06-05', 'type1', 'gen1', 'location1', 2876, b'0', b'0', 'No notes', 'strain1'),
-(99, 'mouse', 'breeder', 'Female', '2019-06-05 00:00:00', '2019-06-12', '2019-06-05', '2019-06-05', 'type8', 'gen1', 'location1', 2347, b'0', b'0', 'No notes', 'strain1'),
-(101, 'mouse', 'weanling', 'Male', '2019-06-05 00:00:00', '2019-06-12', '2019-06-05', '2019-06-05', 'type4', 'gen2', 'location2', 9037, b'0', b'0', 'none', 'strain3'),
-(102, 'mouse', 'weanling', 'Female', '2019-06-05 00:00:00', '2019-06-12', '2019-06-05', '2019-06-05', 'type3', 'gen2', 'location2', 4836, b'0', b'0', 'none', 'strain1'),
-(103, 'mouse', 'breeder', 'Male', '2019-06-05 00:00:00', '2019-06-12', '2019-06-05', '2019-06-05', 'type2', 'gen2', 'location2', 5213, b'0', b'1', 'none', 'strain2'),
-(104, 'mouse', 'breeder', 'Female', '2019-06-05 00:00:00', '2019-06-12', '2019-06-05', '2019-06-05', 'type1', 'gen2', 'location2', 1256, b'0', b'0', 'none', 'strain4'),
-(105, 'mouse', 'weanling', 'Female', '2019-06-05 00:00:00', '2019-06-12', '2019-06-05', '2019-06-05', 'type8', 'gen3', 'location3', 6425, b'0', b'0', 'none', 'strain4'),
-(106, 'mouse', 'weanling', 'Female', '2019-06-05 00:00:00', '2019-06-12', '2019-06-05', '2019-06-05', 'type3', 'gen3', 'location3', 1234, b'0', b'0', 'none', 'strain6'),
-(107, 'mouse', 'pup', 'Female', '2019-06-05 00:00:00', '2019-06-12', '2019-06-05', '2019-06-05', 'type3', 'gen3', 'location3', 3433, b'0', b'0', 'none', 'strain6'),
-(108, 'mouse', 'pup', 'Male', '2019-06-05 00:00:00', '2019-06-12', '2019-06-05', '2019-06-05', 'type3', 'gen3', 'location3', 3434, b'0', b'0', 'none', 'strain6');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `breeding_pairs`
---
-
-DROP TABLE IF EXISTS `breeding_pairs`;
-CREATE TABLE `breeding_pairs` (
-  `pairID` int(11) NOT NULL,
-  `maleID` int(11) DEFAULT NULL,
-  `femaleID` int(11) DEFAULT NULL,
-  `desiredStrain` varchar(128) DEFAULT NULL,
-  `offspringGen` varchar(128) DEFAULT NULL,
-  `pair_date` date DEFAULT NULL,
-  `notes` varchar(512) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `breeding_pairs`
---
-
-INSERT INTO `breeding_pairs` (`pairID`, `maleID`, `femaleID`, `desiredStrain`, `offspringGen`, `pair_date`, `notes`) VALUES
-(1, 88, 99, NULL, 'gen2', '2019-06-05', 'na'),
-(2, 103, 102, NULL, 'gen3', '2019-06-05', 'na'),
-(3, 103, 102, NULL, 'gen3', '2018-06-05', 'na');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `generations`
---
-
-DROP TABLE IF EXISTS `generations`;
-CREATE TABLE `generations` (
-  `generation_name` varchar(128) NOT NULL,
-  `animalID_gen` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `generations`
---
-
-INSERT INTO `generations` (`generation_name`, `animalID_gen`) VALUES
-('gen1', NULL),
-('gen2', NULL),
-('gen3', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `genotypes`
---
-
-DROP TABLE IF EXISTS `genotypes`;
-CREATE TABLE `genotypes` (
-  `genotype_name` varchar(128) NOT NULL,
-  `animalID_geno` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `genotypes`
---
-
-INSERT INTO `genotypes` (`genotype_name`, `animalID_geno`) VALUES
-('type1', NULL),
-('type2', NULL),
-('type3', NULL),
-('type4', NULL),
-('type5', NULL),
-('type6', NULL),
-('type7', NULL),
-('type8', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `litters`
---
-
-DROP TABLE IF EXISTS `litters`;
-CREATE TABLE `litters` (
-  `id` int(11) NOT NULL,
-  `litterID` int(11) DEFAULT NULL,
-  `animalID_pup` int(11) DEFAULT NULL,
-  `breedingPair` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `litters`
---
-
-INSERT INTO `litters` (`id`, `litterID`, `animalID_pup`, `breedingPair`) VALUES
-(1, 1, 101, 1),
-(2, 1, 102, 1),
-(3, 2, 105, 2),
-(4, 3, 106, 2),
-(5, 3, 107, 2),
-(6, 3, 108, 2);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `location`
---
-
-DROP TABLE IF EXISTS `location`;
-CREATE TABLE `location` (
-  `location_name` varchar(128) NOT NULL,
-  `animalID_location` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `location`
---
-
-INSERT INTO `location` (`location_name`, `animalID_location`) VALUES
-('loc1', 88),
-('loc2', 99),
-('loc3', 101),
-('loc4', 102),
-('loc5', 103),
-('loc6', 104),
-('loc7', 105),
-('loc8', 106);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `PI_strains`
---
-
-DROP TABLE IF EXISTS `PI_strains`;
-CREATE TABLE `PI_strains` (
-  `id_PI` int(11) NOT NULL,
-  `PI_username` varchar(64) DEFAULT NULL,
-  `PI_strain` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `PI_strains`
---
-
-INSERT INTO `PI_strains` (`id_PI`, `PI_username`, `PI_strain`) VALUES
-(1, 'jdoe', 'strain1'),
-(2, 'jsmith', 'strain2'),
-(3, 'jsmith', 'strain3'),
-(4, 'jdoe', 'strain3'),
-(5, 'tdavis', 'strain3'),
-(6, 'jdoe', 'strain4'),
-(7, 'jsmith', 'strain4'),
-(8, 'jsmith', 'strain5'),
-(9, 'tdavis', 'strain6'),
-(10, 'jsmith', 'strain7'),
-(11, 'tdavid', 'strain8'),
-(12, 'jdoe', 'strain8');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `species`
---
-
-DROP TABLE IF EXISTS `species`;
-CREATE TABLE `species` (
-  `species_name` varchar(10) NOT NULL,
-  `animalID_species` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `species`
---
-
-INSERT INTO `species` (`species_name`, `animalID_species`) VALUES
-('mouse', NULL),
-('rat', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `strains`
---
-
-DROP TABLE IF EXISTS `strains`;
-CREATE TABLE `strains` (
-  `id_strain` int(11) NOT NULL,
-  `strain_name` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `strains`
---
-
-INSERT INTO `strains` (`id_strain`, `strain_name`) VALUES
-(1, 'strain1'),
-(2, 'strain2'),
-(3, 'strain3'),
-(4, 'strain4'),
-(5, 'strain5'),
-(6, 'strain6'),
-(7, 'strain7'),
-(8, 'strain8');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (
-  `username` varchar(64) NOT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `password` varchar(60) NOT NULL,
-  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `last_name` varchar(45) DEFAULT NULL,
-  `first_name` varchar(45) DEFAULT NULL,
-  `user_role` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `last_name`, `first_name`, `user_role`) VALUES
-('admin', 'NULL', '$2y$12$CBwE4S.u7OKW9D0EkGIljO3qAGzfgOQijjXikS0V3kV76hJ61Ye82', '2019-06-19 18:04:45', 'Admin', 'Adam', 'Admin'),
-('jbaker', NULL, '', '2019-06-19 06:45:53', 'Baker', 'June', 'Geneticist'),
-('jdoe', NULL, '', '2019-06-19 06:45:53', 'Doe', 'John', 'Investigator'),
-('jjohnson', NULL, '', '2019-06-19 06:45:53', 'Johnson', 'Jim', 'Breeder Tech'),
-('jsmith', NULL, '', '2019-06-19 06:45:53', 'Smith', 'Jane', 'Investigator'),
-('rinvest', 'NULL', '$2y$12$mK/rWvoZm/SWiFrw0W7TYeJO8V5OBqO79djzH0hxqh7Opzwr2djty', '2019-06-19 18:02:23', 'Invest', 'Ronald', 'Investigator'),
-('tdavis', NULL, '', '2019-06-19 06:45:53', 'Davis', 'Tom', 'Investigator');
-
-DROP VIEW IF EXISTS combined_search;
-CREATE VIEW combined_search AS (SELECT animals.*, litters.* FROM animals LEFT JOIN litters ON animals.animalID=litters.animalID_pup);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `animals`
---
-ALTER TABLE `animals`
-  ADD PRIMARY KEY (`animalID`),
-  ADD UNIQUE KEY `tagNumber_UNIQUE` (`animalID`,`tagNumber`),
-  ADD KEY `location_idx` (`location`),
-  ADD KEY `generation_idx` (`generation`),
-  ADD KEY `genotype_idx` (`genotype`),
-  ADD KEY `species_idx` (`species`),
-  ADD KEY `birth_date_idx` (`birth_date`),
-  ADD KEY `wean_date_idx` (`wean_date`),
-  ADD KEY `entered_date_idx` (`entered_date`),
-  ADD KEY `strain_idx` (`strain`);
-
---
--- Indexes for table `breeding_pairs`
---
-ALTER TABLE `breeding_pairs`
-  ADD PRIMARY KEY (`pairID`),
-  ADD UNIQUE KEY `pairID_UNIQUE` (`pairID`),
-  ADD KEY `offspringGen_idx` (`offspringGen`),
-  ADD KEY `male_idx` (`maleID`),
-  ADD KEY `female_idx` (`femaleID`),
-  ADD KEY `desiredStrain_idx` (`desiredStrain`),
-  ADD KEY `pair_date_idx` (`pair_date`);
-
---
--- Indexes for table `generations`
---
-ALTER TABLE `generations`
-  ADD PRIMARY KEY (`generation_name`),
-  ADD UNIQUE KEY `generation_name_UNIQUE` (`generation_name`),
-  ADD KEY `animalID_gen_idx` (`animalID_gen`);
-
---
--- Indexes for table `genotypes`
---
-ALTER TABLE `genotypes`
-  ADD PRIMARY KEY (`genotype_name`),
-  ADD UNIQUE KEY `genotype_name_UNIQUE` (`genotype_name`),
-  ADD KEY `animalID_idx` (`animalID_geno`);
-
---
--- Indexes for table `litters`
---
-ALTER TABLE `litters`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_UNIQUE` (`id`),
-  ADD KEY `animalID_idx` (`animalID_pup`),
-  ADD KEY `breedingPair_idx` (`breedingPair`);
-
---
--- Indexes for table `location`
---
-ALTER TABLE `location`
-  ADD PRIMARY KEY (`location_name`),
-  ADD UNIQUE KEY `location_name_UNIQUE` (`location_name`),
-  ADD KEY `animalID_idx` (`animalID_location`);
-
---
--- Indexes for table `PI_strains`
---
-ALTER TABLE `PI_strains`
-  ADD PRIMARY KEY (`id_PI`),
-  ADD UNIQUE KEY `id_PI_UNIQUE` (`id_PI`),
-  ADD KEY `PI_username_idx` (`PI_username`),
-  ADD KEY `strain_idx` (`PI_strain`);
-
---
--- Indexes for table `species`
---
-ALTER TABLE `species`
-  ADD PRIMARY KEY (`species_name`),
-  ADD UNIQUE KEY `species_name_UNIQUE` (`species_name`),
-  ADD KEY `animalID_species_idx` (`animalID_species`);
-
---
--- Indexes for table `strains`
---
-ALTER TABLE `strains`
-  ADD PRIMARY KEY (`id_strain`),
-  ADD UNIQUE KEY `id_UNIQUE` (`id_strain`),
-  ADD KEY `strain_name_UNIQUE` (`strain_name`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`username`),
-  ADD UNIQUE KEY `username_UNIQUE` (`username`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `animals`
---
-ALTER TABLE `animals`
-  MODIFY `animalID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
-
---
--- AUTO_INCREMENT for table `breeding_pairs`
---
-ALTER TABLE `breeding_pairs`
-  MODIFY `pairID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `litters`
---
-ALTER TABLE `litters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `PI_strains`
---
-ALTER TABLE `PI_strains`
-  MODIFY `id_PI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT for table `strains`
---
-ALTER TABLE `strains`
-  MODIFY `id_strain` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `animals`
---
-ALTER TABLE `animals`
-  ADD CONSTRAINT `generation` FOREIGN KEY (`generation`) REFERENCES `generations` (`generation_name`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `genotype` FOREIGN KEY (`genotype`) REFERENCES `genotypes` (`genotype_name`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `location` FOREIGN KEY (`location`) REFERENCES `location` (`location_name`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `species` FOREIGN KEY (`species`) REFERENCES `species` (`species_name`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `strain` FOREIGN KEY (`strain`) REFERENCES `strains` (`strain_name`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `breeding_pairs`
---
-ALTER TABLE `breeding_pairs`
-  ADD CONSTRAINT `desiredStrain` FOREIGN KEY (`desiredStrain`) REFERENCES `strains` (`strain_name`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `female_ID` FOREIGN KEY (`femaleID`) REFERENCES `animals` (`animalID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `male_ID` FOREIGN KEY (`maleID`) REFERENCES `animals` (`animalID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `offspringGen` FOREIGN KEY (`offspringGen`) REFERENCES `generations` (`generation_name`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `generations`
---
-ALTER TABLE `generations`
-  ADD CONSTRAINT `animalID_gen` FOREIGN KEY (`animalID_gen`) REFERENCES `animals` (`animalID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `genotypes`
---
-ALTER TABLE `genotypes`
-  ADD CONSTRAINT `animalID_geno` FOREIGN KEY (`animalID_geno`) REFERENCES `animals` (`animalID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `litters`
---
-ALTER TABLE `litters`
-  ADD CONSTRAINT `animalID_pup` FOREIGN KEY (`animalID_pup`) REFERENCES `animals` (`animalID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `breedingPair` FOREIGN KEY (`breedingPair`) REFERENCES `breeding_pairs` (`pairID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `location`
---
-ALTER TABLE `location`
-  ADD CONSTRAINT `animalID_location` FOREIGN KEY (`animalID_location`) REFERENCES `animals` (`animalID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `PI_strains`
---
-ALTER TABLE `PI_strains`
-  ADD CONSTRAINT `PI_strain` FOREIGN KEY (`PI_strain`) REFERENCES `strains` (`strain_name`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `PI_username` FOREIGN KEY (`PI_username`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `species`
---
-ALTER TABLE `species`
-  ADD CONSTRAINT `animalID_species` FOREIGN KEY (`animalID_species`) REFERENCES `animals` (`animalID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-SET FOREIGN_KEY_CHECKS=1;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+<?php
+
+// Function: getDropDown()
+// Parameters required: $fieldName and $tableName
+//
+// This function is to be inserted between the <select> tags of an HTML dropdown dialog
+// Call this function with the arguments $fieldName (name of DB field for which you want a value)
+// and $tableName (name of DB table containing field)
+//
+// results of calling: getDropDown("generation_name", "generations") will be returned similar to:
+// <option value="gen1">gen1</option>
+// <option value="gen2">gen2</option>
+// <option value="gen3">gen3</option>
+// --where, for example "gen1" is the value contained in the "generation_name" field of the table "generations"
+//
+// Your HTML dropdown code will look similar to this:
+// <select name="choose_generation">
+// getDropDown("generation_name", "generations"); <--wrapped in php tags
+// </select>
+function getDropDown($fieldName, $tableName, $previousValue)
+{
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    $returndata = array();
+    $returnArray = null;
+
+    require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $query = "SELECT " . $fieldName . " FROM " . $tableName . " ORDER BY " . $fieldName . " ASC";
+    $result = $pdo->query($query);
+    $result->setFetchMode(PDO::FETCH_ASSOC);
+
+    $i = 0;
+    $j = 0;
+    $alreadyFound = array();
+
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        if (! empty($row)) {
+
+            $returnArray[$i] = $row;
+            $i ++;
+            $skipRest = "false";
+        } else {
+            echo "<option value=\"none\">No records avail</option>\n";
+            $skipRest = "true";
+        }
+    }
+
+    if ($skipRest != "true") {
+
+        if (! empty($previousValue)) {
+            echo "<option name=\"" . $fieldName . "\"value=\"\" >- select -</option>\n";
+        } else {
+            echo "<!-- *** dropdown box \"<option>\" values are auto-generated by code -->\n";
+            echo "<option name=\"" . $fieldName . "\"value=\"\" selected>- select -</option>\n";
+        }
+        foreach ($returnArray as $row) {
+            foreach ($row as $key => $val) {
+                if ($val == $previousValue) {
+                    $extra = "selected";
+                }
+                if (! in_array($val, $alreadyFound)) { // don't add duplicate values to the list
+                    if ($key == $fieldName) {
+                        echo "<option name=\"" . $fieldName . "\" value=\"" . htmlspecialchars($val) . "\" " . $extra . ">" . htmlspecialchars($val) . "</option>\n";
+                    } else {
+                        echo "<option value=\"none\">No records avail</option>\n";
+                    }
+                }
+                $alreadyFound[$j] = $val;
+                $j ++;
+                $extra = "";
+            }
+        }
+        // echo "<option value=\"0000\" selected>- select -</option>\n";
+    }
+
+    $pdo = null;
+}
+
+function getInvestigators()
+{
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    $returndata = array();
+    $returnArray = null;
+
+    require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $query = "SELECT DISTINCT PI_username FROM PI_strains ORDER BY PI_username ASC";
+    $result = $pdo->query($query);
+    // var_dump($query);
+    $result->setFetchMode(PDO::FETCH_ASSOC);
+
+    $i = 0;
+
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        if (! empty($row)) {
+            $returnArray[$i] = $row;
+            $i ++;
+            $skipRest = "false";
+        } else {
+            echo "<option value=\"pi_name\" selected>No Investigators</option>\n";
+            $skipRest = "true";
+        }
+    }
+
+    if ($skipRest != "true") {
+        echo "<!-- *** dropdown box \"<option>\" values are auto-generated by code -->\n";
+        echo "<option name=\"pi_name\" value=\"\" selected>- select -</option>\n";
+
+        foreach ($returnArray as $row) {
+            // foreach ($row as $key=>$val) {
+            $username = $row["PI_username"];
+            echo "<option name=\"pi_name\" value=\"". "\">" . htmlspecialchars($username) . "</option>\n";
+        }
+    }
+
+    $pdo = null;
+}
+
+
+function checkLitterExists($litterID)
+{
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+    $litterExists = TRUE;
+
+    try {
+        $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+        $query = "SELECT id FROM litters WHERE litterID = " . $litterID;
+        $result = $pdo->query($query);
+        $result->fetch(PDO::FETCH_ASSOC);
+
+        if (! $result) {
+            $litterExists = FALSE;
+        }
+        return $litterExists;
+    } catch (PDOException $e) {
+        $returnArray = array(
+            "Error accessing database"
+        );
+    }
+
+    $pdo = null;
+}
+
+function addPups($litterID, $numberPups, $species, $strain, $birthDate)
+{
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    $failCount = 0;
+
+    $options = [
+        PDO::ATTR_EMULATE_PREPARES => false, // turn off emulation mode for "real" prepared statements
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // turn on errors in the form of exceptions
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC // make the default fetch be an associative array
+    ];
+    require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+
+    $litterExists = checkLitterExists($litterID);
+
+    if ($litterExists) {
+        $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
+
+        $setup = $pdo->prepare("SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;");
+        $setup->execute();
+
+        $query = $pdo->prepare("INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES (?, ?, ?, ?)");
+
+        for ($i = 0; $i < $numberPups; $i ++) {
+            if (! $query->execute([
+                $litterID,
+                $species,
+                $strain,
+                $birthDate
+            ])) {
+                $failCount ++;
+            }
+        }
+        if ($failCount > 0) {
+            echo "Error inserting records!";
+        } else {
+            echo "Success - " . htmlspecialchars($numberPups) . " new pups added to the database!";
+        }
+    } else {
+        echo "Error - Duplicate Litter ID";
+    }
+
+    $pdo = null;
+}
+
+function getAnimals()
+{
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    if (isset($_REQUEST["Filter"])) { // retrieve the form data by using the element's name attributes value as key
+        $displayAll = FALSE;
+        $filterPI = $_REQUEST["pi_name"];
+        $filterBreeder = $_REQUEST["breederPair"];
+        $filterSpecies = $_REQUEST["species_name"];
+        $filterPair = $_REQUEST["strain_name"];
+        $filterTagNumber = $_REQUEST["tagNumber"];
+        $filterLitter = $_REQUEST["litterID"];
+        $filterDOB = $_REQUEST["birth_date"];
+        $filterBreeder = $_REQUEST["breeder"];
+        $filterPup = $_REQUEST["pup"];
+        $filterWeanling = $_REQUEST["weanling"];
+    }
+}
+
+function displayAnimalTable()
+{
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    $animalList = "";
+    $litterFilter = "";
+    $displayAll = TRUE;
+
+    if (isset($_REQUEST["clear"])) {
+        $_POST = array();
+        $_REQUEST = array();
+    }
+
+    // echo "before\n";
+    if (isset($_REQUEST["filter"])) { // retrieve the form data by using the element's name attributes value as key
+        $displayAll = FALSE;
+        // echo $displayAll;
+        if (! empty($_REQUEST["pi_name"])) {
+            $filterPI = $_REQUEST["pi_name"];
+            $piFilter = "WHERE username='" . $filterPI . "'";
+        }
+    }
+
+    if (! empty($_REQUEST["breedingPair"])) {
+        $displayAll = FALSE;
+
+        $filterBreederPair = $_REQUEST["breedingPair"];
+        if (empty($litterFilter)) {
+            $litterFilter = "AND pairID=" . $filterBreederPair;
+        } else {
+            $litterFilter = $litterFilter . " AND pairID=" . $filterBreederPair;
+        }
+    }
+
+    if (! empty($_REQUEST["litterID"])) {
+        $displayAll = FALSE;
+
+        $filterLitterID = $_REQUEST["litterID"];
+        if (empty($litterFilter)) {
+            $litterFilter = "AND litterID=" . $filterLitterID;
+        } else {
+            $litterFilter = $litterFilter . " AND litterID=" . $filterLitterID;
+        }
+    }
+
+    if (! empty($_REQUEST["species_name"])) {
+        $displayAll = FALSE;
+
+        $filterSpecies = $_REQUEST["species_name"];
+        if (empty($animalList)) {
+            $animalList = "WHERE species='" . $filterSpecies . "'";
+        } else {
+            $animalList = $animalList . " AND species='" . $filterSpecies . "'";
+        }
+    }
+
+    if (! empty($_REQUEST["strain_name"])) {
+        $displayAll = FALSE;
+
+        $filterStrain = $_REQUEST["strain_name"];
+        if (empty($animalList)) {
+            $animalList = "WHERE strain='" . $filterStrain . "'";
+        } else {
+            $animalList = $animalList . " AND strain='" . $filterStrain . "'";
+        }
+    }
+
+    if (! empty($_REQUEST["tagNumber"])) {
+        $displayAll = FALSE;
+
+        $filterTagNumber = $_REQUEST["tagNumber"];
+        if (empty($animalList)) {
+            $animalList = "WHERE tagNumber=" . $filterTagNumber;
+        } else {
+            $animalList = $animalList . " AND tagNumber=" . $filterTagNumber;
+        }
+    }
+
+    if (! empty($_REQUEST["birth_date"])) {
+        $displayAll = FALSE;
+
+        $filterBirthDate = $_REQUEST["birth_date"];
+        echo "----->> dobvar: [" . $filterBirthDate . "]\n";
+        if (empty($animalList)) {
+            $animalList = "WHERE birth_date=" . $filterBirthDate . "'";
+        } else {
+            $animalList = $animalList . " AND birth_date=" . $filterBirthDate . "'";
+        }
+    }
+
+    if (isset($_REQUEST["breeder"])) {
+        $filterBreeder = $_REQUEST["breeder"];
+        if (empty($animalList)) {
+            $animalList = "WHERE (classification='breeder'";
+        } else {
+            $animalList = $animalList . " AND (classification='breeder'";
+        }
+
+        if ((! isset($_REQUEST["pup"])) && (! isset($_REQUEST["weanling"]))) {
+            $animalList = $animalList . ")";
+        }
+    }
+
+    if (isset($_REQUEST["pup"])) {
+        $filterPup = $_REQUEST["pup"];
+        if (empty($animalList)) {
+            $animalList = "WHERE (classification=" . $filterPup;
+        } else {
+            $animalList = $animalList . " OR classification=" . $filterPup;
+        }
+
+        if (! isset($_REQUEST["weanling"])) {
+            $animalList = $animalList . ")";
+        }
+    }
+
+    if (isset($_REQUEST["weanling"])) {
+        $filterWeanling = $_REQUEST["weanling"];
+        if (empty($animalList)) {
+            $animalList = "WHERE (classification=" . $filterWeanling . ")";
+        } else {
+            $animalList = $animalList . " OR classification=" . $filterWeanling . ")";
+        }
+    }
+
+    $options = [
+        PDO::ATTR_EMULATE_PREPARES => false, // turn off emulation mode for "real" prepared statements
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // turn on errors in the form of exceptions
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC // make the default fetch be an associative array
+    ];
+    require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
+
+    echo "<!-- *** NOTE *** This HTML table and contents are auto-generated by code -->\n";
+
+    echo "<div id=\"animalTable\" class=\"maintable\">\n";
+    echo "<form>\n";
+    echo "<table id=\"maintable\" class=\"display compact\">\n";
+    echo "<thead>";
+    echo "<tr>
+    		<th>Select</th> <th>ID</th> <th>Investigator</th> <th>Tag Number</th>
+    		<th>Species</th> <th>Class</th> <th>Sex</th> <th>Strain</th> <th>Genotype</th>
+    		<th>Litter ID</th> <th>Parent Pair</th> <th>Birth Date</th> <th>Wean Date</th>
+    		<th>Tag Date</th> <th>Deceased</th> <th>Transferred</th>
+    	  </tr>\n";
+    echo "</thead>
+	<tbody>";
+
+    if ($displayAll) {
+
+        $query1 = "SELECT * FROM `animals`";
+
+        $result = $pdo->query($query1);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+
+        $tableRow = 0;
+
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            if (! empty($row)) {
+                $animalID = $row["animalID"];
+                $species = $row["species"];
+                $tagNumber = $row["tagNumber"];
+                $sex = $row["sex"];
+                $classification = $row["classification"];
+                $strain = $row["strain"];
+                $genotype = $row["genotype"];
+                $birth_date = $row["birth_date"];
+                $wean_date = $row["wean_date"];
+                $tag_date = $row["tag_date"];
+                $deceased = $row["deceased"];
+                $transferred = $row["transferred"];
+
+                if ($deceased == 1) {
+                    $strDeceased = "Yes";
+                } else {
+                    $strDeceased = "No";
+                }
+
+                if ($transferred == 1) {
+                    $strTransferred = "Yes";
+                } else {
+                    $strTransferred = "No";
+                }
+
+                $query2 = "SELECT `litterID`, `breedingPair` FROM litters WHERE animalID_pup=" . $animalID;
+                $result2 = $pdo->query($query2);
+                $result2->setFetchMode(PDO::FETCH_ASSOC);
+                $row2 = $result2->fetch(PDO::FETCH_ASSOC);
+
+                $litterID = $row2["litterID"];
+                $parentPair = $row2["breedingPair"];
+
+                $query3 = "SELECT PI_username FROM PI_strains WHERE PI_strain='" . $strain . "'";
+                $result3 = $pdo->query($query3);
+                $result3->setFetchMode(PDO::FETCH_ASSOC);
+                $row3 = $result3->fetch(PDO::FETCH_ASSOC);
+
+                $responsible_PI = $row3["PI_username"];
+
+                $query4 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
+                $result4 = $pdo->query($query4);
+                $result4->setFetchMode(PDO::FETCH_ASSOC);
+                $row4 = $result4->fetch(PDO::FETCH_ASSOC);
+
+                $firstName = $row4["first_name"];
+                $lastName = $row4["last_name"];
+
+                echo "<tr>\n";
+                echo "<td><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
+                echo "<td>" . $animalID . "</td>\n";
+                echo "<td>" . $lastName . ", " . $firstName . "</td>\n";
+                echo "<td>" . $tagNumber . "</td>\n";
+                echo "<td>" . $species . "</td>\n";
+                echo "<td>" . $classification . "</td>\n";
+                echo "<td>" . $sex . "</td>\n";
+                echo "<td>" . $strain . "</td>\n";
+                echo "<td>" . $genotype . "</td\n>";
+                echo "<td>" . $litterID . "</td>\n";
+                echo "<td>" . $parentPair . "</td>\n";
+                echo "<td>" . $birth_date . "</td>\n";
+                echo "<td>" . $wean_date . "</td>\n";
+                echo "<td>" . $tag_date . "</td>\n";
+                echo "<td>" . $strDeceased . "</td>\n";
+                echo "<td>" . $strTransferred . "</td>\n";
+                echo "</tr>\n";
+            }
+        }
+    } else {
+
+        $query1 = "SELECT * FROM `animals` " . $animalList;
+
+        echo "\n<br>SQL Query Debug --> <strong>" . $query1 . "</strong>\n<br><br>";
+
+
+        $result = $pdo->query($query1);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+
+        $tableRow = 0;
+
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            if (! empty($row)) {
+                $animalID = $row["animalID"];
+                $species = $row["species"];
+                $tagNumber = $row["tagNumber"];
+                $sex = $row["sex"];
+                $classification = $row["classification"];
+                $strain = $row["strain"];
+                $genotype = $row["genotype"];
+                $birth_date = $row["birth_date"];
+                $wean_date = $row["wean_date"];
+                $tag_date = $row["tag_date"];
+                $deceased = $row["deceased"];
+                $transferred = $row["transferred"];
+
+                if ($deceased == 1) {
+                    $strDeceased = "Yes";
+                } else {
+                    $strDeceased = "No";
+                }
+
+                if ($transferred == 1) {
+                    $strTransferred = "Yes";
+                } else {
+                    $strTransferred = "No";
+                }
+
+                // ////////////////////////////
+
+                // / Need to add a JOIN statement to get this to properly combine results from animalList and list below
+
+                // ///////////////////////////
+
+                $query2 = "SELECT `litterID`, `breedingPair` FROM litters WHERE animalID_pup=" . $animalID . " " . $litterFilter;
+                $result2 = $pdo->query($query2);
+                $result2->setFetchMode(PDO::FETCH_ASSOC);
+                $row2 = $result2->fetch(PDO::FETCH_ASSOC);
+
+                $litterID = $row2["litterID"];
+                $parentPair = $row2["breedingPair"];
+
+                $query3 = "SELECT PI_username FROM PI_strains WHERE PI_strain='" . $strain . "'";
+                $result3 = $pdo->query($query3);
+                $result3->setFetchMode(PDO::FETCH_ASSOC);
+                $row3 = $result3->fetch(PDO::FETCH_ASSOC);
+
+                $responsible_PI = $row3["PI_username"];
+
+                $query4 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
+                $result4 = $pdo->query($query4);
+                $result4->setFetchMode(PDO::FETCH_ASSOC);
+                $row4 = $result4->fetch(PDO::FETCH_ASSOC);
+
+                $firstName = $row4["first_name"];
+                $lastName = $row4["last_name"];
+
+
+
+                echo "<tr>\n";
+                echo "<td><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
+                echo "<td>" . $animalID . "</td>\n";
+                echo "<td>" . $lastName . ", " . $firstName . "</td>\n";
+                echo "<td>" . $tagNumber . "</td>\n";
+                echo "<td>" . $species . "</td>\n";
+                echo "<td>" . $classification . "</td>\n";
+                echo "<td>" . $sex . "</td>\n";
+                echo "<td>" . $strain . "</td>\n";
+                echo "<td>" . $genotype . "</td\n>";
+                echo "<td>" . $litterID . "</td>\n";
+                echo "<td>" . $parentPair . "</td>\n";
+                echo "<td>" . $birth_date . "</td>\n";
+                echo "<td>" . $wean_date . "</td>\n";
+                echo "<td>" . $tag_date . "</td>\n";
+                echo "<td>" . $strDeceased . "</td>\n";
+                echo "<td>" . $strTransferred . "</td>\n";
+                echo "</tr>\n";
+            }
+        }
+    }
+
+    echo "</tbody></table>\n";
+    echo "</form>\n";
+    echo "</div>";
+    $pdo = null;
+}
+?>
+
