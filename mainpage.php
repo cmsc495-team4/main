@@ -43,7 +43,7 @@ if (isset($_POST['genotype_name'])) {
     $genotype = "";
 }
 
-if (!empty($_POST['weanling'])) {
+if (($_POST['weanling']) == 1) {
     $weanlingChecked = "checked";
 } 
 else {
