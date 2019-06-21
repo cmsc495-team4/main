@@ -46,16 +46,18 @@ else {
     $weanlingChecked = "";
 }
 
-if (isset($_POST['pup'])) {
-    $pup = $_POST['pup'];
-} else {
-    $pup = "";
+if (($_POST['pup']) == 1) {
+    $pupChecked = "checked";
+} 
+else {
+    $pupChecked = "";
 }
 
-if (isset($_POST['breeder'])) {
-    $breeder = $_POST['breeder'];
-} else {
-    $breeder = "";
+if (($_POST['breeder']) == 1) {
+    $breederChecked = "checked";
+} 
+else {
+    $breederChecked = "";
 }
 
 if (isset($_REQUEST["clear"])) {
@@ -155,11 +157,11 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 							onclick="this.previousSibling.value=1-this.previousSibling.value"
 							checked>Pups/Unclassified </td>			
 -->					<td><input type="hidden" name="breeder" value="1"><input
-							type="checkbox" <?php echo $weanlingChecked; ?>>Breeders </td>
+							type="checkbox" <?php echo $breederChecked; ?>>Breeders </td>
 					<td><input type="hidden" name="weanling" value="1" ><input
-							type="checkbox" checked>Weanlings </td>
+							type="checkbox" <?php echo $weanlingChecked; ?>>Weanlings </td>
 					<td><input type="hidden" name="pup" value="1" ><input
-							type="checkbox" checked>Pups/Unclassified </td>
+							type="checkbox" <?php echo $pupChecked; ?>>Pups/Unclassified </td>
 			
 
 
