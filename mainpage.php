@@ -156,11 +156,11 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 							type="checkbox"
 							onclick="this.previousSibling.value=1-this.previousSibling.value"
 							checked>Pups/Unclassified </td>			
--->					<td><input type="hidden" name="breeder" value="1"><input
+-->					<td><input type="hidden" name="breeder" value="0"><input
 							type="checkbox" <?php echo $breederChecked; ?>>Breeders </td>
-					<td><input type="hidden" name="weanling" value="1" ><input
+					<td><input type="hidden" name="weanling" value="0" ><input
 							type="checkbox" <?php echo $weanlingChecked; ?>>Weanlings </td>
-					<td><input type="hidden" name="pup" value="1" ><input
+					<td><input type="hidden" name="pup" value="0" ><input
 							type="checkbox" <?php echo $pupChecked; ?>>Pups/Unclassified </td>
 			
 
