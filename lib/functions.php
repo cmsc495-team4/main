@@ -471,8 +471,8 @@ function displayAnimalTable()
         $query1 = "SELECT * FROM `combined_search` " . $animalList;
         
         echo "\n<br>SQL Query Debug --> <strong>" . $query1 . "</strong>\n<br><br>";
-        echo var_dump($_POST);
-        echo var_dump($_REQUEST);
+        //echo var_dump($_POST);
+        //echo var_dump($_REQUEST);
 
         $result = $pdo->query($query1);
         $result->setFetchMode(PDO::FETCH_ASSOC);
