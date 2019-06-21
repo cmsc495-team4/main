@@ -175,7 +175,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 					<td><select name="genotype_name">
           	  <?php getDropDown("genotype_name", "genotypes", $litterID); ?>
 			</select></td>
-<!-->
+<!--
                     <td><input type="hidden" name="breeders" value="0"><input
 							type="checkbox" name="breeders" 
 							onclick="this.previousSibling.value=1-this.previousSibling.value"
