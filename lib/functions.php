@@ -360,7 +360,7 @@ function displayAnimalTable()
         }
     }
     
-    if ((! empty($_REQUEST["weanling"]) || (! empty($_REQUEST["pup"]) || (! empty($_REQUEST["breeder"])) {
+    if ((! empty($_REQUEST["weanling"])) || (! empty($_REQUEST["pup"])) || (! empty($_REQUEST["breeder"]))) {
         echo ")";
     }
     
