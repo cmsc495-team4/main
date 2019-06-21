@@ -48,14 +48,14 @@ if (isset($_POST['filter'])) {
     }
     
     if ($_POST['weanling'] == "on") {
-        $weanlingChecked="weanling";
+        $weanlingChecked="checked";
     }
     else {
         $weanlingChecked="";
     }
 
     if ($_POST['pup'] == "on") {
-        $pupChecked="pup";
+        $pupChecked="checked";
     }
     else {
         $pupChecked="";
