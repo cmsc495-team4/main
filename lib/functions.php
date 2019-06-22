@@ -532,13 +532,14 @@ function displayAnimalTable()
                     $strTransferred = "No";
                 }
                 
-                $query2 = "SELECT PI_username, strain_ID FROM PI_assigned_animals WHERE PI_animalID=" . $animalID;
+                $query2 = "SELECT PI_username, PI_strain_ID FROM PI_assigned_animals WHERE PI_animalID=" . $animalID;
                 $result2 = $pdo->query($query2);
                 $result2->setFetchMode(PDO::FETCH_ASSOC);
                 $row2 = $result2->fetch(PDO::FETCH_ASSOC);
                 
                 $responsible_PI = $row2["PI_username"];
-                $strain_ID = $row2["strain_ID"];
+                $strain_ID = $row2["PI_strain_ID"];
+                
                 
                 if (!empty($responsible_PI)) {
 					$query3 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
@@ -554,13 +555,27 @@ function displayAnimalTable()
 					$firstName = "";
                 }
                 
-                $query4 = "SELECT strain_name, strain_species FROM strains WHERE id_strain=" . $strain_ID;
-                $result4 = $pdo->query($query4);
-                $result4->setFetchMode(PDO::FETCH_ASSOC);
-                $row4 = $result4->fetch(PDO::FETCH_ASSOC);
+                if (!empty($strain_ID)) {
+					$query4 = "SELECT `strain_name`, `strain_species` FROM `strains` WHERE id_strain=" . $strain_ID;
+					$result4 = $pdo->query($query4);
+					$result4->setFetchMode(PDO::FETCH_ASSOC);
+					$row4 = $result4->fetch(PDO::FETCH_ASSOC);
+				
+					$strain = $row4["strain_name"];
+					$species = $row4["strain_species"];
+                }
+                else {
+                	$strain="";
+                	$species="";
+                }
                 
-                $strain = $row4["first_name"];
-                $species = $row4["strain_species"];
+                $query5 = "SELECT litterID, breedingPair FROM litters WHERE animalID_pup=" . $animalID;
+                $result5 = $pdo->query($query5);
+                $result5->setFetchMode(PDO::FETCH_ASSOC);
+                $row5 = $result5->fetch(PDO::FETCH_ASSOC);
+                
+                $litterID = $row5["litterID"];
+                $parentPair = $row5["breedingPair"];
                 
                 
                 echo "<tr>\n";
