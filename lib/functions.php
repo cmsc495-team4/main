@@ -428,7 +428,7 @@ function displayAnimalTable()
                     $strTransferred = "No";
                 }
                 
-                $query2 = "SELECT PI_username, strain_ID FROM PI_assigned_animals WHERE PI_animalID=" . $animalID;
+                $query2 = "SELECT PI_username, PI_strain_ID FROM PI_assigned_animals WHERE PI_animalID=" . $animalID;
                 $result2 = $pdo->query($query2);
                 $result2->setFetchMode(PDO::FETCH_ASSOC);
                 $row2 = $result2->fetch(PDO::FETCH_ASSOC);
