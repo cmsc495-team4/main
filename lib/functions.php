@@ -444,7 +444,7 @@ function displayAnimalTable()
                 $firstName = $row3["first_name"];
                 $lastName = $row3["last_name"];
                 
-                if (!empty($strain_name)) {
+                if (!empty($strain_ID)) {
 					$query4 = "SELECT `strain_name`, `strain_species` FROM `strains` WHERE id_strain=" . $strain_ID;
 					echo "\n---> " . $query4 . "\n\n";
 					$result4 = $pdo->query($query4);
