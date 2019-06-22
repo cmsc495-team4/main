@@ -436,13 +436,19 @@ function displayAnimalTable()
                 $responsible_PI = $row2["PI_username"];
                 $strain_ID = $row2["PI_strain_ID"];
                 
-                $query3 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
-                $result3 = $pdo->query($query3);
-                $result3->setFetchMode(PDO::FETCH_ASSOC);
-                $row3 = $result3->fetch(PDO::FETCH_ASSOC);
-                
-                $firstName = $row3["first_name"];
-                $lastName = $row3["last_name"];
+                if (!empty($responsible_PI)) {
+					$query3 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
+					$result3 = $pdo->query($query3);
+					$result3->setFetchMode(PDO::FETCH_ASSOC);
+					$row3 = $result3->fetch(PDO::FETCH_ASSOC);
+				
+					$firstName = $row3["first_name"];
+					$lastName = $row3["last_name"] . ", ";
+                }
+                else {
+					$lastName = "Unassigned";
+					$firstName = "";
+                }
                 
                 if (!empty($strain_ID)) {
 					$query4 = "SELECT `strain_name`, `strain_species` FROM `strains` WHERE id_strain=" . $strain_ID;
@@ -469,7 +475,7 @@ function displayAnimalTable()
                 echo "<tr>\n";
                 echo "<td><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
                 echo "<td>" . $animalID . "</td>\n";
-                echo "<td>" . $lastName . ", " . $firstName . "</td>\n";
+                echo "<td>" . $lastName . $firstName . "</td>\n";
                 echo "<td>" . $tagNumber . "</td>\n";
                 echo "<td>" . $species . "</td>\n";
                 echo "<td>" . $classification . "</td>\n";
@@ -536,13 +542,19 @@ function displayAnimalTable()
                 $responsible_PI = $row2["PI_username"];
                 $strain_ID = $row2["strain_ID"];
                 
-                $query3 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
-                $result3 = $pdo->query($query3);
-                $result3->setFetchMode(PDO::FETCH_ASSOC);
-                $row3 = $result3->fetch(PDO::FETCH_ASSOC);
-                
-                $firstName = $row3["first_name"];
-                $lastName = $row3["last_name"];
+                if (!empty($responsible_PI)) {
+					$query3 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
+					$result3 = $pdo->query($query3);
+					$result3->setFetchMode(PDO::FETCH_ASSOC);
+					$row3 = $result3->fetch(PDO::FETCH_ASSOC);
+				
+					$firstName = $row3["first_name"];
+					$lastName = $row3["last_name"] . ", ";
+                }
+                else {
+					$lastName = "Unassigned";
+					$firstName = "";
+                }
                 
                 $query4 = "SELECT strain_name, strain_species FROM strains WHERE id_strain=" . $strain_ID;
                 $result4 = $pdo->query($query4);
@@ -556,7 +568,7 @@ function displayAnimalTable()
                 echo "<tr>\n";
                 echo "<td><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
                 echo "<td>" . $animalID . "</td>\n";
-                echo "<td>" . $lastName . ", " . $firstName . "</td>\n";
+                echo "<td>" . $lastName . $firstName . "</td>\n";
                 echo "<td>" . $tagNumber . "</td>\n";
                 echo "<td>" . $species . "</td>\n";
                 echo "<td>" . $classification . "</td>\n";
