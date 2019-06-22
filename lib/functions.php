@@ -419,6 +419,8 @@ function displayAnimalTable()
                 $animalID = $row["animalID"];
                 $tagNumber = $row["tagNumber"];
                 $sex = $row["sex"];
+                $strain = $row["strain_name"];
+                $species = $row["strain_species"];
                 $classification = $row["classification"];
                 $genotype = $row["genotype"];
                 $birth_date = $row["birth_date"];
@@ -461,19 +463,6 @@ function displayAnimalTable()
 					$firstName = "";
                 }
                 
-                if (!empty($strain_ID)) {
-					$query4 = "SELECT `strain_name`, `strain_species` FROM `strains` WHERE id_strain=" . $strain_ID;
-					$result4 = $pdo->query($query4);
-					$result4->setFetchMode(PDO::FETCH_ASSOC);
-					$row4 = $result4->fetch(PDO::FETCH_ASSOC);
-				
-					$strain = $row4["strain_name"];
-					$species = $row4["strain_species"];
-                }
-                else {
-                	$strain="";
-                	$species="";
-                }
                 
                 $query5 = "SELECT litterID, breedingPair FROM litters WHERE animalID_pup=" . $animalID;
                 $result5 = $pdo->query($query5);
@@ -522,6 +511,8 @@ function displayAnimalTable()
                 $animalID = $row["animalID"];
                 $tagNumber = $row["tagNumber"];
                 $sex = $row["sex"];
+                $strain = $row["strain_name"];
+                $species = $row["strain_species"];
                 $classification = $row["classification"];
                 $genotype = $row["genotype"];
                 $birth_date = $row["birth_date"];
@@ -570,19 +561,6 @@ function displayAnimalTable()
 					$firstName = "";
                 }
                 
-                if (!empty($strain_ID)) {
-					$query4 = "SELECT `strain_name`, `strain_species` FROM `strains` WHERE id_strain=" . $strain_ID;
-					$result4 = $pdo->query($query4);
-					$result4->setFetchMode(PDO::FETCH_ASSOC);
-					$row4 = $result4->fetch(PDO::FETCH_ASSOC);
-				
-					$strain = $row4["strain_name"];
-					$species = $row4["strain_species"];
-                }
-                else {
-                	$strain="";
-                	$species="";
-                }
                 
                 $query5 = "SELECT litterID, breedingPair FROM litters WHERE animalID_pup=" . $animalID;
                 $result5 = $pdo->query($query5);
