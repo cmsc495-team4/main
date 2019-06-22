@@ -434,7 +434,7 @@ function displayAnimalTable()
                 $row2 = $result2->fetch(PDO::FETCH_ASSOC);
                 
                 $responsible_PI = $row2["PI_username"];
-                $strain_ID = $row2["strain_ID"];
+                $strain_ID = $row2["PI_strain_ID"];
                 
                 $query3 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
                 $result3 = $pdo->query($query3);
