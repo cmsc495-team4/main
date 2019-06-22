@@ -449,7 +449,7 @@ function displayAnimalTable()
                 $result4->setFetchMode(PDO::FETCH_ASSOC);
                 $row4 = $result4->fetch(PDO::FETCH_ASSOC);
                 
-                $strain = $row4["first_name"];
+                $strain = $row4["strain_name"];
                 $species = $row4["strain_species"];
                 
                 $query5 = "SELECT litterID, breedingPair FROM litters WHERE animalID_pup=" . $animalID;
@@ -457,8 +457,8 @@ function displayAnimalTable()
                 $result5->setFetchMode(PDO::FETCH_ASSOC);
                 $row5 = $result5->fetch(PDO::FETCH_ASSOC);
                 
-                $litterID = $row4["litterID"];
-                $parentPair = $row4["breedingPair"];
+                $litterID = $row5["litterID"];
+                $parentPair = $row5["breedingPair"];
 
                 echo "<tr>\n";
                 echo "<td><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
