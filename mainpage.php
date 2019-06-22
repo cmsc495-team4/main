@@ -3,6 +3,12 @@
 
 <?php
 
+if (isset($_POST['pi_name'])) {
+    $last_pi_name = $_POST['pi_name'];
+} else {
+    $last_pi_name = "";
+}
+
 if (isset($_POST['species_name'])) {
     $species_name = $_POST['species_name'];
 } else {
@@ -139,7 +145,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 				<tr>
 					<td>PI:</td>
 					<td><select name="pi_name">
-        		<?php getInvestigators(); ?>
+        		<?php getInvestigators($last_pi_name); ?>
             </select></td>
 					<td>Species:</td>
 					<td><select name="species_name">
