@@ -70,8 +70,18 @@ if(isset($_POST['register'])){
 <html>
 <body><center>
 <div class="logo">
-  <img align="center" class="ritalogo" src="img/ritalogo-1.png" height="97" width="360">
-  <h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
+	<img align="center" class="ritalogo" src="img/ritalogo-1.png" height="97" width="360">
+	<h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
+	<div class="dropdown">
+		<button class="dropbtn" style="position:absolute;right:0;top:0;padding:14px 16px;">User &#9660</button>
+		<div class="dropdown-content">
+			<?php if($_SESSION['role'] == "Admin")
+			echo '<a href="register.php">Create User</a>';
+			/*add other admin tasks here*/
+			?>
+			<a href="logout.php">Logout</a>
+		</div>
+	</div>
 </div>
 
 <div class="container">
