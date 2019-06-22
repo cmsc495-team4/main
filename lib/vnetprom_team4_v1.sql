@@ -55,6 +55,7 @@ USE `vnetprom_team4`;
 DROP TABLE IF EXISTS `animals`;
 CREATE TABLE `animals` (
   `animalID` int(11) NOT NULL,
+  `PI_username` varchar(64) DEFAULT NULL,
   `species` varchar(10) DEFAULT NULL,
   `classification` varchar(24) DEFAULT 'weanling',
   `sex` varchar(10) DEFAULT NULL,
@@ -76,17 +77,32 @@ CREATE TABLE `animals` (
 -- Dumping data for table `animals`
 --
 
-INSERT INTO `animals` (`animalID`, `species`, `classification`, `sex`, `entered_date`, `tag_date`, `birth_date`, `wean_date`, `genotype`, `generation`, `location`, `tagNumber`, `deceased`, `transferred`, `comments`, `strain`) VALUES
-(88, 'mouse', 'breeder', 'Male', '2019-06-05 00:00:00', '2019-06-12', '2019-06-05', '2019-06-05', 'type1', 'gen1', 'location1', 2876, b'0', b'0', 'No notes', 'strain1'),
-(99, 'mouse', 'breeder', 'Female', '2019-06-05 00:00:00', '2019-06-12', '2019-06-05', '2019-06-05', 'type8', 'gen1', 'location1', 2347, b'0', b'0', 'No notes', 'strain1'),
-(101, 'mouse', 'weanling', 'Male', '2019-06-05 00:00:00', '2019-06-12', '2019-06-05', '2019-06-05', 'type4', 'gen2', 'location2', 9037, b'0', b'0', 'none', 'strain3'),
-(102, 'mouse', 'weanling', 'Female', '2019-06-05 00:00:00', '2019-06-12', '2019-06-05', '2019-06-05', 'type3', 'gen2', 'location2', 4836, b'0', b'0', 'none', 'strain1'),
-(103, 'mouse', 'breeder', 'Male', '2019-06-05 00:00:00', '2019-06-12', '2019-06-05', '2019-06-05', 'type2', 'gen2', 'location2', 5213, b'0', b'1', 'none', 'strain2'),
-(104, 'mouse', 'breeder', 'Female', '2019-06-05 00:00:00', '2019-06-12', '2019-06-05', '2019-06-05', 'type1', 'gen2', 'location2', 1256, b'0', b'0', 'none', 'strain4'),
-(105, 'mouse', 'weanling', 'Female', '2019-06-05 00:00:00', '2019-06-12', '2019-06-05', '2019-06-05', 'type8', 'gen3', 'location3', 6425, b'0', b'0', 'none', 'strain4'),
-(106, 'mouse', 'weanling', 'Female', '2019-06-05 00:00:00', '2019-06-12', '2019-06-05', '2019-06-05', 'type3', 'gen3', 'location3', 1234, b'0', b'0', 'none', 'strain6'),
-(107, 'mouse', 'pup', 'Female', '2019-06-05 00:00:00', '2019-06-12', '2019-06-05', '2019-06-05', 'type3', 'gen3', 'location3', 3433, b'0', b'0', 'none', 'strain6'),
-(108, 'mouse', 'pup', 'Male', '2019-06-05 00:00:00', '2019-06-12', '2019-06-05', '2019-06-05', 'type3', 'gen3', 'location3', 3434, b'0', b'0', 'none', 'strain6');
+--animalID 1-2 breeding pair, 3-13 weanlings from first litter, 16-17 rat breeding pair, 14-15 runted deceased pups. 18-24 pups for 16 and 17's first litter 
+INSERT INTO `animals` (`animalID`,`PI_username` ,`species`, `classification`, `sex`, `entered_date`, `tag_date`, `birth_date`, `wean_date`, `genotype`, `generation`, `location`, `tagNumber`, `deceased`, `transferred`, `comments`, `strain`) VALUES
+(1,'Hatcher', 'mouse', 'breeder', 'M', '2019-06-05 00:00:00', '2019-12-12', '2019-11-14', '2019-12-05', 'wt', 'F', 'B1C110', 10000, b'0', b'0', 'No notes', 'C57BL/6'),
+(2, 'Hatcher','mouse', 'breeder', 'F', '2019-06-05 00:00:00', '2019-12-20', '2019-12-01', '2019-11-9', 'het', 'F', 'B1C110', 10010, b'0', b'0', 'No notes', 'Dat-Tomato'),
+(3, 'Hatcher','mouse', 'weanling', 'M', '2019-06-05 00:00:00', '2019-02-05', '2019-01-21', '2019-02-12', 'het', '1', 'B1C111', 10100, b'0', b'0', 'No notes', 'Dat-Tomato'),
+(4, 'Hatcher','mouse', 'weanling', 'M', '2019-06-05 00:00:00', '2019-02-05', '2019-01-21', '2019-02-12', 'het', '1', 'B1C111', 10101, b'0', b'0', 'No notes', 'Dat-Tomato'),
+(5, 'Hatcher','mouse', 'weanling', 'M', '2019-06-05 00:00:00', '2019-02-05', '2019-01-21', '2019-02-12', 'het', '1', 'B1C111', 10102, b'0', b'0', 'No notes', 'Dat-Tomato'),
+(6, 'Hatcher','mouse', 'weanling', 'M', '2019-06-05 00:00:00', '2019-02-05', '2019-01-21', '2019-02-12', 'wt', '1', 'B1C111', 10103, b'0', b'0', 'No notes', 'Dat-Tomato'),
+(7, 'Hatcher','mouse', 'weanling', 'M', '2019-06-05 00:00:00', '2019-02-05', '2019-01-21', '2019-02-12', 'het', '1', 'B1C111', 10104, b'0', b'0', 'No notes', 'Dat-Tomato'),
+(8, 'Hatcher','mouse', 'weanling', 'M', '2019-06-05 00:00:00', '2019-02-05', '2019-01-21', '2019-02-12', 'wt', '1', 'B1C111', 10105, b'0', b'0', 'No notes', 'Dat-Tomato'),
+(9, 'Hatcher','mouse', 'weanling', 'M', '2019-06-05 00:00:00', '2019-02-05', '2019-01-21', '2019-02-12', 'wt', '1', 'B1C111', 10106, b'0', b'0', 'No notes', 'Dat-Tomato'),
+(10, 'Hatcher','mouse', 'weanling', 'F', '2019-06-05 00:00:00', '2019-02-05', '2019-01-21', '2019-02-12', 'het', '1', 'B1C111', 10107, b'0', b'0', 'No notes', 'Dat-Tomato'),
+(11, 'Hatcher','mouse', 'weanling', 'F', '2019-06-05 00:00:00', '2019-02-05', '2019-01-21', '2019-02-12', 'wt', '1', 'B1C111', 10108, b'0', b'0', 'No notes', 'Dat-Tomato'),
+(12, 'Hatcher','mouse', 'weanling', 'F', '2019-06-05 00:00:00', '2019-02-05', '2019-01-21', '2019-02-12', 'wt', '1', 'B1C111', 10109, b'0', b'0', 'No notes', 'Dat-Tomato'),
+(13, 'Hatcher','mouse', 'weanling', 'F', '2019-06-05 00:00:00', '2019-02-05', '2019-01-21', '2019-02-12', 'het', '1', 'B1C111', 10110, b'0', b'0', 'No notes', 'Dat-Tomato');
+(16,'Hatcher', 'rat', 'breeder', 'M', '2019-06-05 00:00:00', '2019-05-12', '2019-04-14', '2019-05-05', 'het', '2', 'B1C110', 23000, b'0', b'0', 'No notes', 'Th-Cre'),
+(17,'Hatcher', 'rat', 'breeder', 'F', '2019-06-05 00:00:00', '2019-05-20', '2019-04-14', NULL, 'wt', '2', 'B1C110', 23455, b'0', b'0', 'CRL Rat', 'Long Evans')
+(14, 'Hatcher','mouse', 'pup', NULL, '2019-06-05 00:00:00', NULL, '2019-01-21', NULL, NULL, '1', 'B1C110',NULL , b'1', b'0', 'runted', 'Dat-Tomato'),
+(15, 'Hatcher','mouse', 'pup', NULL, '2019-06-05 00:00:00', NULL, '2019-01-21', NULL, NULL, '1', 'B1C110',NULL, b'1', b'0', 'runted', 'Dat-Tomato'),
+(18,'Hatcher', 'rat', 'pup`', NULL, '2019-06-05 00:00:00', NULL, '2019-06-21', NULL, NULL, '3', 'B1C110',NULL , b'0', b'0', 'No notes', 'Th-Cre'),
+(19,'Hatcher', 'rat', 'pup', NULL, '2019-06-05 00:00:00', NULL, '2019-06-21', NULL, NULL, '3', 'B1C110', NULL, b'0', b'0', 'No notes', 'Th-Cre'),
+(20,'Hatcher', 'rat', 'pup', NULL, '2019-06-05 00:00:00', NULL, '2019-06-21', NULL, NULL, '3', 'B1C110', NULL, b'0', b'0', 'No notes', 'Th-Cre'),
+(21,'Hatcher', 'rat', 'pup', NULL, '2019-06-05 00:00:00', NULL, '2019-06-21', NULL, NULL, '3', 'B1C110', NULL, b'0', b'0', 'No notes', 'Th-Cre'),
+(22,'Hatcher', 'rat', 'pup', NULL, '2019-06-05 00:00:00', NULL, '2019-06-21', NULL, NULL, '3', 'B1C110', NULL, b'0', b'0', 'No notes', 'Th-Cre'),
+(23,'Hatcher', 'rat', 'pup', NULL, '2019-06-05 00:00:00', NULL, '2019-06-21', NULL, NULL, '3', 'B1C110', NULL, b'0', b'0', 'No notes', 'Th-Cre'),
+(24,'Hatcher', 'rat', 'pup', NULL, '2019-06-05 00:00:00', NULL, '2019-06-21', NULL, NULL, '3', 'B1C110', NULL, b'0', b'0', 'No notes', 'Th-Cre');
 
 -- --------------------------------------------------------
 
@@ -108,11 +124,10 @@ CREATE TABLE `breeding_pairs` (
 --
 -- Dumping data for table `breeding_pairs`
 --
-
+--Two pairs for hatcher PI
 INSERT INTO `breeding_pairs` (`pairID`, `maleID`, `femaleID`, `desiredStrain`, `offspringGen`, `pair_date`, `notes`) VALUES
-(1, 88, 99, NULL, 'gen2', '2019-06-05', 'na'),
-(2, 103, 102, NULL, 'gen3', '2019-06-05', 'na'),
-(3, 103, 102, NULL, 'gen3', '2018-06-05', 'na');
+(1, 1, 2, 'Dat-Tomato', '1', '2019-01-05', 'founder'),
+(2, 16, 17, 'Th-Cre', '3', '2019-06-01', NULL);
 
 -- --------------------------------------------------------
 
@@ -152,14 +167,9 @@ CREATE TABLE `genotypes` (
 --
 
 INSERT INTO `genotypes` (`genotype_name`, `animalID_geno`) VALUES
-('type1', NULL),
-('type2', NULL),
-('type3', NULL),
-('type4', NULL),
-('type5', NULL),
-('type6', NULL),
-('type7', NULL),
-('type8', NULL);
+('het', NULL),
+('hom', NULL),
+('wt', NULL);
 
 -- --------------------------------------------------------
 
@@ -179,13 +189,27 @@ CREATE TABLE `litters` (
 -- Dumping data for table `litters`
 --
 
+--litters from two existing pairs for Hatcher
 INSERT INTO `litters` (`id`, `litterID`, `animalID_pup`, `breedingPair`) VALUES
-(1, 1, 101, 1),
-(2, 1, 102, 1),
-(3, 2, 105, 2),
-(4, 3, 106, 2),
-(5, 3, 107, 2),
-(6, 3, 108, 2);
+(1, 1, 4, 1),
+(2, 1, 5, 1),
+(3, 1, 6, 1),
+(4, 1, 7, 1),
+(5, 1, 8, 1),
+(6, 1, 9, 1),
+(7, 1, 10, 1),
+(8, 1, 11, 1),
+(9, 1, 12, 1),
+(10, 1, 13, 1),
+(11, 1, 15, 1),
+(12, 1, 14, 1),
+(13, 1, 18, 2),
+(14, 1, 19, 2),
+(15, 1, 20, 2),
+(16, 1, 21, 2),
+(17, 1, 22, 2),
+(18, 1, 23, 2),
+(19, 1, 24, 2);
 
 -- --------------------------------------------------------
 
@@ -223,26 +247,49 @@ DROP TABLE IF EXISTS `PI_strains`;
 CREATE TABLE `PI_strains` (
   `id_PI` int(11) NOT NULL,
   `PI_username` varchar(64) DEFAULT NULL,
-  `PI_strain` varchar(45) DEFAULT NULL
+  `PI_strain` varchar(45) DEFAULT NULL,
+  'PI_species' varchar(45) DEFAUL NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `PI_strains`
 --
 
-INSERT INTO `PI_strains` (`id_PI`, `PI_username`, `PI_strain`) VALUES
-(1, 'jdoe', 'strain1'),
-(2, 'jsmith', 'strain2'),
-(3, 'jsmith', 'strain3'),
-(4, 'jdoe', 'strain3'),
-(5, 'tdavis', 'strain3'),
-(6, 'jdoe', 'strain4'),
-(7, 'jsmith', 'strain4'),
-(8, 'jsmith', 'strain5'),
-(9, 'tdavis', 'strain6'),
-(10, 'jsmith', 'strain7'),
-(11, 'tdavid', 'strain8'),
-(12, 'jdoe', 'strain8');
+INSERT INTO `PI_strains` (`id_PI`, `PI_username`, `PI_strain`, 'PI_species') VALUES
+(1, 'Hatcher', 'Sprague-Dawley','Rat'),
+(2, 'Hatcher', 'Long Evans', 'Rat'),
+(3, 'Hatcher', 'Wistar','Rat'),
+(4, 'Hatcher', 'Th-Cre','Rat'),
+(5, 'Hatcher', 'Drd-Cre','Rat'),
+(6, 'Hatcher', 'C57BL/6','Mouse'),
+(7, 'Hatcher', 'Vglut7','Mouse'),
+(8, 'Hatcher', 'Dat-Tomato','Mouse'),
+(9, 'Mabry', 'C57BL/6','Mouse'),
+(10, 'Mabry', 'BALB/c','Mouse'),
+(11, 'Mabry', 'Thor-dat','Mouse'),
+(12, 'Mabry', 'Vgat3','Mouse'),
+(13, 'Matthew', 'Vglut7','Rat'),
+(14, 'Matthew', 'GHS','Rat'),
+(15, 'Matthew', 'Cfos-Lacz','Rat'),
+(16, 'Matthew', 'Long Evans','Rat'),
+(17, 'Matthew', 'Wistar','Rat'),
+(18, 'Matthew', 'PDYN-IRES-iCre','Rat'),
+(19, 'Sapp', 'Sprague-Dawley','Rat'),
+(20, 'Sapp', 'Long Evans','Rat'),
+(21, 'Sapp', 'Wistar','Rat'),
+(22, 'Sapp', 'GHSR','Rat'),
+(23, 'Sapp', 'Rosa-iHIV x SD','Rat'),
+(24, 'Sapp', 'Cfos-NIMH','Rat'),
+(25, 'Sharma', 'C57BL/6','Mouse'),
+(26, 'Sharma', 'BALB/c','Mouse'),
+(27, 'Sharma', 'Th-cre','Mouse'),
+(28, 'Sharma', 'Cfos-Lacz','Mouse'),
+(29, 'Sharma', 'Long Evans','Rat'),
+(30, 'Sharma', 'R26-TeTR-fos-T-iCre','Rat'),
+(31, 'Mendel', 'Trp53','Mouse'),
+(32, 'Mendel', 'BALB/c','Mouse'),
+(33, 'Mendel', 'Long Evans','Rat'),
+(34, 'Mendel', 'TR-fos-MFRP 1','Rat');
 
 -- --------------------------------------------------------
 
