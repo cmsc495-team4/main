@@ -446,7 +446,6 @@ function displayAnimalTable()
                 
                 if (!empty($strain_ID)) {
 					$query4 = "SELECT `strain_name`, `strain_species` FROM `strains` WHERE id_strain=" . $strain_ID;
-					echo "\n---> " . $query4 . "\n\n";
 					$result4 = $pdo->query($query4);
 					$result4->setFetchMode(PDO::FETCH_ASSOC);
 					$row4 = $result4->fetch(PDO::FETCH_ASSOC);
