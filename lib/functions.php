@@ -454,6 +454,10 @@ function displayAnimalTable()
 					$strain = $row4["strain_name"];
 					$species = $row4["strain_species"];
                 }
+                else {
+                	$strain="";
+                	$species="";
+                }
                 
                 $query5 = "SELECT litterID, breedingPair FROM litters WHERE animalID_pup=" . $animalID;
                 $result5 = $pdo->query($query5);
