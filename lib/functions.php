@@ -494,6 +494,16 @@ function displayAnimalTable()
         }
     } else {
         
+        $query0 = "SELECT PI_username FROM PI_assigned_animals WHERE PI_animalID='" . $animalID . "'";
+		$result0 = $pdo->query($query0);
+		$result0->setFetchMode(PDO::FETCH_ASSOC);
+		$row0 = $result0->fetch(PDO::FETCH_ASSOC);
+		
+		$responsible_PI = $row0["PI_username"];
+
+        
+        
+        
         $query1 = "SELECT * FROM `combined_search` " . $animalList;
         
         echo "\n<br>SQL Query Debug --> <strong>" . $query1 . "</strong>\n<br><br>";
@@ -540,6 +550,9 @@ function displayAnimalTable()
                 $responsible_PI = $row2["PI_username"];
                 $strain_ID = $row2["PI_strain_ID"];
                 
+                if ((!empty($pi_name)) && ($responsible_PI != $pi_name)) {
+                	continue;
+                }
                 
                 if (!empty($responsible_PI)) {
 					$query3 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
