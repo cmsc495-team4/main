@@ -287,9 +287,9 @@ function displayAnimalTable()
         
         $filterSpecies = $_REQUEST["species_name"];
         if (empty($animalList)) {
-            $animalList = "WHERE species='" . $filterSpecies . "'";
+            $animalList = "WHERE strain_species='" . $filterSpecies . "'";
         } else {
-            $animalList = $animalList . " AND species='" . $filterSpecies . "'";
+            $animalList = $animalList . " AND strain_species='" . $filterSpecies . "'";
         }
     }
     
@@ -298,9 +298,9 @@ function displayAnimalTable()
         
         $filterStrain = $_REQUEST["strain_name"];
         if (empty($animalList)) {
-            $animalList = "WHERE strain='" . $filterStrain . "'";
+            $animalList = "WHERE strain_name='" . $filterStrain . "'";
         } else {
-            $animalList = $animalList . " AND strain='" . $filterStrain . "'";
+            $animalList = $animalList . " AND strain_name='" . $filterStrain . "'";
         }
     }
     
