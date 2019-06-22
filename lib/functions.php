@@ -508,11 +508,9 @@ function displayAnimalTable()
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             if (! empty($row)) {
                 $animalID = $row["animalID"];
-                $species = $row["species"];
                 $tagNumber = $row["tagNumber"];
                 $sex = $row["sex"];
                 $classification = $row["classification"];
-                $strain = $row["strain"];
                 $genotype = $row["genotype"];
                 $birth_date = $row["birth_date"];
                 $wean_date = $row["wean_date"];
