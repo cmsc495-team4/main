@@ -282,6 +282,27 @@ function displayAnimalTable()
         }
     }
     
+    if (! empty($_REQUEST["species_name"])) {
+        $displayAll = FALSE;
+        
+        $filterSpecies = $_REQUEST["species_name"];
+        if (empty($animalList)) {
+            $animalList = "WHERE species='" . $filterSpecies . "'";
+        } else {
+            $animalList = $animalList . " AND species='" . $filterSpecies . "'";
+        }
+    }
+    
+    if (! empty($_REQUEST["strain_name"])) {
+        $displayAll = FALSE;
+        
+        $filterStrain = $_REQUEST["strain_name"];
+        if (empty($animalList)) {
+            $animalList = "WHERE strain='" . $filterStrain . "'";
+        } else {
+            $animalList = $animalList . " AND strain='" . $filterStrain . "'";
+        }
+    }
     
     if (! empty($_REQUEST["genotype_name"])) {
         $displayAll = FALSE;
