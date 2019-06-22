@@ -407,7 +407,7 @@ function displayAnimalTable()
     
     if ($displayAll) {
         
-        $query1 = "SELECT * FROM `combined_search`";
+        $query1 = "SELECT * FROM `filtered_return`";
         
         $result = $pdo->query($query1);
         $result->setFetchMode(PDO::FETCH_ASSOC);
@@ -506,7 +506,7 @@ function displayAnimalTable()
     } else {
         
         
-        $query1 = "SELECT * FROM `combined_search` " . $animalList;
+        $query1 = "SELECT * FROM `filtered_return` " . $animalList;
         
         echo "\n<br>SQL Query Debug --> <strong>" . $query1 . "</strong>\n<br><br>";
         //echo var_dump($_POST);
