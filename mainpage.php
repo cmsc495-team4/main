@@ -2,6 +2,7 @@
                       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <?php
+session_start();
 /*if (!isset($_SESSION['user_name'])){
 	header('Location: login.php');
 }*/
