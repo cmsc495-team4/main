@@ -115,9 +115,6 @@ if(isset($_POST['register'])){
 		<button type="submit" name="register"> Register User </button>
 	</form>
 </div>
-<div class="container">
-	<span class="return"><a href="mainpage.php">Return to Mainpage</a></span>
-	<span class="logout"><a href="logout.php">Logout</a></span>
-</div>
+
 </html>
 </body>
