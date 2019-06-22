@@ -540,8 +540,8 @@ function displayAnimalTable()
                 
                 $responsible_PI = $row2["PI_username"];
                 $strain_ID = $row2["PI_strain_ID"];
-                echo "--> " . $pi_name . ": " . $responsible_PI . "\n\n";
-                if ((!empty($pi_name)) && ($responsible_PI != $pi_name)) {
+                //echo "--> " . $filterPI . ": " . $responsible_PI . "\n\n";
+                if ((!empty($filterPI)) && ($responsible_PI != $filterPI)) {
                 	continue;
                 }
                 
