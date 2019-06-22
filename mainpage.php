@@ -96,6 +96,7 @@ if (isset($_REQUEST["clear"])) {
 <head>
 <title></title>
 <link rel="stylesheet" type="text/css" href="css/mainPageStyle.css">
+<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
 	<link rel="stylesheet" type="text/css"
 		href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.css" />
 	<link rel="stylesheet" type="text/css"
