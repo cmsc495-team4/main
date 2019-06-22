@@ -46,6 +46,35 @@ h2.maintitle {
     text-shadow: 2px 2px 2px gray;
 }
 
+.dropdown {
+	float: left;
+	overflow: hidden;
+	text-align: right;
+	padding: 14px 16px;
+	background-color: inherit;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.dropdown-content{
+	display: none;
+	position: relative;
+	background-color: #ffffff;
+	min-width: 60px;
+	z-index: 1;
+}
+
+.dropdown-content a{
+	display: block;
+	color: black;
+	padding: 12px 16px;
+}
+
+.dropdown:hover .dropdown-content{
+	display: block;
+}
+
 tr {
     font-style: normal;
     font-family: Verdana, Arial;
