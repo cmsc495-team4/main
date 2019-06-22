@@ -32,9 +32,10 @@ echo "</table>";
 else {
     echo "No matches found!";
 }
-echo "<pre><p>diag info:</p>";
-var_dump($finalData);
-echo "</pre>";
+
+//echo "<pre><p>diag info:</p>";
+//var_dump($finalData);
+//echo "</pre>";
 
 function returnAgingBreeders ($ageMonths) {
     $returnArray=null;
@@ -46,16 +47,12 @@ function returnAgingBreeders ($ageMonths) {
     	try {
 	        $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 
-
-			$query = "CALL returnAgingBreeders(" . (int)$ageMonths . ")";
+			//select all records with a breeder classification from the SQL view (combined_search) with a birth date > 6 months from now
+			$query = "SELECT * FROM combined_search WHERE birth_date <= (now() - interval 6 month) AND classification='breeder'";
 
 			$result = $pdo->query($query);
 			$result->setFetchMode(PDO::FETCH_ASSOC);
 
-
-
-			//call stored MySQL procedure to retrieve data
-			//while ( $row= mysql_fetch_array( $query ))
 			$i=0;
 			
 			while ( $row = $result->fetch(PDO::FETCH_ASSOC) ) {
@@ -64,14 +61,6 @@ function returnAgingBreeders ($ageMonths) {
 			
 					$returnArray[$i] = $row;
 					$i++;
-				
-		
-					// $returnArray[0] is pairID (int);
-					// $returnArray[1] is male breeder tagNumber (int);
-					// $returnArray[2] is female breeder tagNumber (int);
-					// $returnArray[3] is the desiredStrain (string);
-					// $returnArray[4] is the generation name of pair's offspring (string);
-					// $returnArray[5] is the pair date (string/date);
 				}
 				else {
 					$returnArray=array("No Records Found");

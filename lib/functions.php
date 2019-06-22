@@ -31,7 +31,7 @@ function getDropDown($fieldName, $tableName, $previousValue)
     require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
     
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $query = "SELECT " . $fieldName . " FROM " . $tableName . " ORDER BY " . $fieldName . " ASC";
+    $query = "SELECT DISTINCT" . $fieldName . " FROM " . $tableName . " ORDER BY " . $fieldName . " ASC";
     $result = $pdo->query($query);
     $result->setFetchMode(PDO::FETCH_ASSOC);
     
@@ -94,7 +94,7 @@ function getInvestigators()
     require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
     
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $query = "SELECT * FROM user WHERE user_role='Investigator' ORDER BY last_name ASC";
+    $query = "SELECT DISTINCT * FROM user WHERE user_role='Investigator' ORDER BY last_name ASC";
     $result = $pdo->query($query);
     // var_dump($query);
     $result->setFetchMode(PDO::FETCH_ASSOC);
@@ -396,7 +396,7 @@ function displayAnimalTable()
     
     if ($displayAll) {
         
-        $query1 = "SELECT * FROM `animals`";
+        $query1 = "SELECT * FROM `combined_search`";
         
         $result = $pdo->query($query1);
         $result->setFetchMode(PDO::FETCH_ASSOC);
@@ -430,28 +430,20 @@ function displayAnimalTable()
                     $strTransferred = "No";
                 }
                 
-                $query2 = "SELECT `litterID`, `breedingPair` FROM litters WHERE animalID_pup=" . $animalID;
-                $result2 = $pdo->query($query2);
+                $query2 = "SELECT PI_username FROM PI_assigned_animals WHERE PI_animalID='" . $animalID . "'";
+                $result2 = $pdo->query($query3);
                 $result2->setFetchMode(PDO::FETCH_ASSOC);
                 $row2 = $result2->fetch(PDO::FETCH_ASSOC);
                 
-                $litterID = $row2["litterID"];
-                $parentPair = $row2["breedingPair"];
+                $responsible_PI = $row2["PI_username"];
                 
-                $query3 = "SELECT PI_username FROM PI_strains WHERE PI_strain='" . $strain . "'";
-                $result3 = $pdo->query($query3);
+                $query3 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
+                $result3 = $pdo->query($query4);
                 $result3->setFetchMode(PDO::FETCH_ASSOC);
                 $row3 = $result3->fetch(PDO::FETCH_ASSOC);
                 
-                $responsible_PI = $row3["PI_username"];
-                
-                $query4 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
-                $result4 = $pdo->query($query4);
-                $result4->setFetchMode(PDO::FETCH_ASSOC);
-                $row4 = $result4->fetch(PDO::FETCH_ASSOC);
-                
-                $firstName = $row4["first_name"];
-                $lastName = $row4["last_name"];
+                $firstName = $row3["first_name"];
+                $lastName = $row3["last_name"];
                 
                 echo "<tr>\n";
                 echo "<td><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
@@ -515,36 +507,30 @@ function displayAnimalTable()
                     $strTransferred = "No";
                 }
                 
-                // ////////////////////////////
-                
-                // / Need to add a JOIN statement to get this to properly combine results from animalList and list below
-                
-                // ///////////////////////////
-/*
-                $query2 = "SELECT `litterID`, `breedingPair` FROM litters WHERE animalID_pup=" . $animalID . " " . $litterFilter;
-                $result2 = $pdo->query($query2);
+                $query2 = "SELECT PI_username, strain_ID FROM PI_assigned_animals WHERE PI_animalID='" . $animalID . "'";
+                $result2 = $pdo->query($query3);
                 $result2->setFetchMode(PDO::FETCH_ASSOC);
                 $row2 = $result2->fetch(PDO::FETCH_ASSOC);
                 
-                $litterID = $row2["litterID"];
-                $parentPair = $row2["breedingPair"];
-*/
-                $query3 = "SELECT PI_username FROM PI_strains WHERE PI_strain='" . $strain . "'";
-                $result3 = $pdo->query($query3);
+                $responsible_PI = $row2["PI_username"];
+                $strain_ID = $row2["strain_ID"];
+                
+                $query3 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
+                $result3 = $pdo->query($query4);
                 $result3->setFetchMode(PDO::FETCH_ASSOC);
                 $row3 = $result3->fetch(PDO::FETCH_ASSOC);
                 
-                $responsible_PI = $row3["PI_username"];
+                $firstName = $row3["first_name"];
+                $lastName = $row3["last_name"];
                 
-                $query4 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
+                $query4 = "SELECT strain_name, strain_species FROM strains WHERE id_strain='" . $strain_ID . "'";
                 $result4 = $pdo->query($query4);
                 $result4->setFetchMode(PDO::FETCH_ASSOC);
-                $row4 = $result4->fetch(PDO::FETCH_ASSOC);
+                $row4 = $result3->fetch(PDO::FETCH_ASSOC);
                 
-                $firstName = $row4["first_name"];
-                $lastName = $row4["last_name"];
+                $strain = $row4["first_name"];
+                $species = $row4["strain_species"];
                 
-
                 
                 echo "<tr>\n";
                 echo "<td><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
