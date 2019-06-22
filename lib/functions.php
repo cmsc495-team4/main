@@ -31,7 +31,7 @@ function getDropDown($fieldName, $tableName, $previousValue)
     require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
     
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $query = "SELECT DISTINCT" . $fieldName . " FROM " . $tableName . " ORDER BY " . $fieldName . " ASC";
+    $query = "SELECT DISTINCT " . $fieldName . " FROM " . $tableName . " ORDER BY " . $fieldName . " ASC";
     $result = $pdo->query($query);
     $result->setFetchMode(PDO::FETCH_ASSOC);
     
