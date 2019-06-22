@@ -61,13 +61,16 @@ if(isset($_POST['submit'])){
 }
 ?>
 <html>
-<body>
+<body><center>
 <div class="logo">
   <img align="center" class="ritalogo" src="img/ritalogo-1.png" height="97" width="360">
   <h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
 </div>
 <div class="login">
 	<h2>Login</h2>
+<img align="center" class="mouselogo" src="img/mouse-1.png"
+	height="117" width="87">
+</br></br></br>
 <?php
 	if(isset($message)){
 		echo '<label class="text-danger" style="color:red">'.$message.'</label>';
@@ -77,16 +80,21 @@ if(isset($_POST['submit'])){
 		<div>
 		<label for="username">Username : </label>
 		<input type="text" name="username" required>
-		</div>
+		</div></br>
 		<div>
 		<label for="password">Password : </label>
 		<input type="password" name="password" required>
-		</div>
+		</div></br>
 		<button type="submit" name="submit"> Login </button>
 	</form>
-</div>
-<div class="container">
+</div></br></br>
+<div class="container"><body vlink="red">
 	<span class="create_user"><a href="adminLogin.php">Create New User</a></span>
+</br></br></br></br></br></br></br></br></br></br></br>
+
 </div>
-</body>
+<img align="center" class="rodents" src="img/rodentsv2.png"
+	height="150" width="350">
+</body></br></br></br></br></br>
+<br>&emsp; © 2019, CMSC495 Team #4</br>
 </html>
