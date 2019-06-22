@@ -143,7 +143,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 			<button class="dropbtn">User &#9660</button>
 			<div class="dropdown-content">
 				<?php if($_SESSION['role'] == "Admin")
-				echo '<a href="#">Create User</a>';
+				echo '<a href="register.php">Create User</a>';
 				/*add other admin tasks here*/
 				?>
 				<a href="logout.php">Logout</a>
