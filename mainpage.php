@@ -2,6 +2,9 @@
                       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <?php
+/*if (!isset($_SESSION['user_name'])){
+	header('Location: login.php');
+}*/
 
 if (isset($_POST['pi_name'])) {
     $last_pi_name = $_POST['pi_name'];
@@ -134,7 +137,17 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 <header>
 <div class="logo">
 	<img class="ritalogo" src="img/ritalogo-1.png" height="97" width="360">
-		<h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
+	<h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
+	<div class="dropdown">
+			<button class="dropbtn">User &#9660</button>
+			<div class="dropdown-content">
+				<?php if($_SESSION['role'] == "Admin")
+				echo '<a href="#">Create User</a>';
+				/*add other admin tasks here*/
+				?>
+				<a href="logout.php">Logout</a>
+			</div>
+		</div>
 
 </div>
 <div>
