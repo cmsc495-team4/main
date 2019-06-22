@@ -19,7 +19,7 @@ https://www.w3schools.com/howto/howto_css_dropdown_navbar.asp
 	background-color: #ffffff;
 	min-width: 60px;
 	z-index: 1;
-	border: 1px;
+	border: 2px solid yellow;
 }
 
 .dropdown-content a{
