@@ -81,29 +81,29 @@ if(isset($_POST['register'])){
 		echo '<label class="text-danger" style="color:red">'.$message.'</label>';
 	} ?>
 	<form method="POST">
-		<div>
+	<div>
 		<label for="username">Username : </label>
 		<input type="text" name="username" required>
-		</div>
-		<div>
 		<label for="password">Password : </label>
 		<input type="password" name="password" required>
-		</div>
-		<label for="email">Email : </label>
-		<input type="text" name="email" required>
+	</div></br>
+	<div>
 		<label for="fname">First Name : </label>
 		<input type="text" name="fname" required>
 		<label for="lname">Last Name : </label>
 		<input type="text" name="lname" required>
+	</div></br>
+	<div>
+		<label for="email">Email : </label>
+		<input type="text" name="email" required>
 		<label for="role">Role : </label>
-		
 		<select name="role">
 			<option value="Breeder_Tech">Breeder Tech</option>
 			<option value="Investigator">Investigator</option>
 			<option value="Geneticist">Geneticist</option>
 			<option value="Admin">Administrator</option>
 		</select>
-		
+	</div></br>
 		
 		<button type="submit" name="register"> Register User </button>
 	</form>
