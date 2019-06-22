@@ -430,7 +430,7 @@ function displayAnimalTable()
                     $strTransferred = "No";
                 }
                 
-                $query2 = "SELECT PI_username FROM PI_assigned_animals WHERE PI_animalID='" . $animalID . "'";
+                $query2 = "SELECT PI_username FROM PI_assigned_animals WHERE PI_animalID=" . $animalID;
                 $result2 = $pdo->query($query3);
                 $result2->setFetchMode(PDO::FETCH_ASSOC);
                 $row2 = $result2->fetch(PDO::FETCH_ASSOC);
@@ -507,7 +507,7 @@ function displayAnimalTable()
                     $strTransferred = "No";
                 }
                 
-                $query2 = "SELECT PI_username, strain_ID FROM PI_assigned_animals WHERE PI_animalID='" . $animalID . "'";
+                $query2 = "SELECT PI_username, strain_ID FROM PI_assigned_animals WHERE PI_animalID=" . $animalID
                 $result2 = $pdo->query($query3);
                 $result2->setFetchMode(PDO::FETCH_ASSOC);
                 $row2 = $result2->fetch(PDO::FETCH_ASSOC);
@@ -523,7 +523,7 @@ function displayAnimalTable()
                 $firstName = $row3["first_name"];
                 $lastName = $row3["last_name"];
                 
-                $query4 = "SELECT strain_name, strain_species FROM strains WHERE id_strain='" . $strain_ID . "'";
+                $query4 = "SELECT strain_name, strain_species FROM strains WHERE id_strain=" . $strain_ID;
                 $result4 = $pdo->query($query4);
                 $result4->setFetchMode(PDO::FETCH_ASSOC);
                 $row4 = $result3->fetch(PDO::FETCH_ASSOC);
