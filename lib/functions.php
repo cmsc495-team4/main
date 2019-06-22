@@ -406,11 +406,9 @@ function displayAnimalTable()
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             if (! empty($row)) {
                 $animalID = $row["animalID"];
-                $species = $row["species"];
                 $tagNumber = $row["tagNumber"];
                 $sex = $row["sex"];
                 $classification = $row["classification"];
-                $strain = $row["strain"];
                 $genotype = $row["genotype"];
                 $birth_date = $row["birth_date"];
                 $wean_date = $row["wean_date"];
@@ -430,12 +428,13 @@ function displayAnimalTable()
                     $strTransferred = "No";
                 }
                 
-                $query2 = "SELECT PI_username FROM PI_assigned_animals WHERE PI_animalID=" . $animalID;
+                $query2 = "SELECT PI_username, strain_ID FROM PI_assigned_animals WHERE PI_animalID=" . $animalID;
                 $result2 = $pdo->query($query2);
                 $result2->setFetchMode(PDO::FETCH_ASSOC);
                 $row2 = $result2->fetch(PDO::FETCH_ASSOC);
                 
                 $responsible_PI = $row2["PI_username"];
+                $strain_ID = $row2["strain_ID"];
                 
                 $query3 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
                 $result3 = $pdo->query($query3);
@@ -445,6 +444,22 @@ function displayAnimalTable()
                 $firstName = $row3["first_name"];
                 $lastName = $row3["last_name"];
                 
+                $query4 = "SELECT strain_name, strain_species FROM strains WHERE id_strain=" . $strain_ID;
+                $result4 = $pdo->query($query4);
+                $result4->setFetchMode(PDO::FETCH_ASSOC);
+                $row4 = $result4->fetch(PDO::FETCH_ASSOC);
+                
+                $strain = $row4["first_name"];
+                $species = $row4["strain_species"];
+                
+                $query5 = "SELECT litterID, breedingPair FROM litters WHERE animalID_pup=" . $animalID;
+                $result5 = $pdo->query($query5);
+                $result5->setFetchMode(PDO::FETCH_ASSOC);
+                $row5 = $result5->fetch(PDO::FETCH_ASSOC);
+                
+                $litterID = $row4["litterID"];
+                $parentPair = $row4["breedingPair"];
+
                 echo "<tr>\n";
                 echo "<td><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
                 echo "<td>" . $animalID . "</td>\n";
