@@ -431,14 +431,14 @@ function displayAnimalTable()
                 }
                 
                 $query2 = "SELECT PI_username FROM PI_assigned_animals WHERE PI_animalID=" . $animalID;
-                $result2 = $pdo->query($query3);
+                $result2 = $pdo->query($query2);
                 $result2->setFetchMode(PDO::FETCH_ASSOC);
                 $row2 = $result2->fetch(PDO::FETCH_ASSOC);
                 
                 $responsible_PI = $row2["PI_username"];
                 
                 $query3 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
-                $result3 = $pdo->query($query4);
+                $result3 = $pdo->query($query3);
                 $result3->setFetchMode(PDO::FETCH_ASSOC);
                 $row3 = $result3->fetch(PDO::FETCH_ASSOC);
                 
@@ -508,7 +508,7 @@ function displayAnimalTable()
                 }
                 
                 $query2 = "SELECT PI_username, strain_ID FROM PI_assigned_animals WHERE PI_animalID=" . $animalID;
-                $result2 = $pdo->query($query3);
+                $result2 = $pdo->query($query2);
                 $result2->setFetchMode(PDO::FETCH_ASSOC);
                 $row2 = $result2->fetch(PDO::FETCH_ASSOC);
                 
@@ -516,7 +516,7 @@ function displayAnimalTable()
                 $strain_ID = $row2["strain_ID"];
                 
                 $query3 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
-                $result3 = $pdo->query($query4);
+                $result3 = $pdo->query($query3);
                 $result3->setFetchMode(PDO::FETCH_ASSOC);
                 $row3 = $result3->fetch(PDO::FETCH_ASSOC);
                 
@@ -526,7 +526,7 @@ function displayAnimalTable()
                 $query4 = "SELECT strain_name, strain_species FROM strains WHERE id_strain=" . $strain_ID;
                 $result4 = $pdo->query($query4);
                 $result4->setFetchMode(PDO::FETCH_ASSOC);
-                $row4 = $result3->fetch(PDO::FETCH_ASSOC);
+                $row4 = $result4->fetch(PDO::FETCH_ASSOC);
                 
                 $strain = $row4["first_name"];
                 $species = $row4["strain_species"];
