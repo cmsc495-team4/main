@@ -88,8 +88,7 @@ if(isset($_POST['submit'])){
 		<button type="submit" name="submit"> Login </button>
 	</form>
 </div></br></br>
-<div class="container"><body vlink="red">
-	<span class="create_user"><a href="adminLogin.php">Create New User</a></span>
+
 </br></br></br></br></br></br></br></br></br></br></br>
 
 </div>
