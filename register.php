@@ -1,7 +1,3 @@
-<html>
-<body>
-
-	
 <?php
 session_start();
 ini_set('display_errors', 1);
@@ -71,10 +67,13 @@ if(isset($_POST['register'])){
 }
 }
 ?>
+<html>
+<body><center>
 <div class="logo">
   <img align="center" class="ritalogo" src="img/ritalogo-1.png" height="97" width="360">
   <h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
 </div>
+
 <div class="container">
 	<h2>Register New User</h2>
 	<?php if(isset($message)){
@@ -109,6 +108,7 @@ if(isset($_POST['register'])){
 	</form>
 </div>
 <div class="container">
+	<span class="return"><a href="mainpage.php">Return to Mainpage</a></span>
 	<span class="logout"><a href="logout.php">Logout</a></span>
 </div>
 </html>
