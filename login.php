@@ -97,9 +97,10 @@ h2 {
 	text-shadow: 1px 1px 4px gray;
 }
 
-label, input {
+label, input, button {
     display: inline-block;
     vertical-align: baseline;
+    margin-bottom: 6px;
 }
 input {
   display: inline-block;
