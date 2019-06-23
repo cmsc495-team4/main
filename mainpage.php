@@ -6,7 +6,7 @@ session_start();
 
  if (!isset($_SESSION['user_name'])){
  header('Location: login.php');
- }
+ } else {
  
 
 if (isset($_POST['pi_name'])) {
@@ -89,7 +89,7 @@ if (isset($_REQUEST["clear"])) {
     $pupChecked = "checked";
     $dob = " placeholder=\"mm/dd/yyyy\"";
 }
-
+}
 ?>
 
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"
