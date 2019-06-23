@@ -92,7 +92,7 @@ if(isset($_POST['submit'])){
         text-align: center;
         font-family: "Avant Garde", Verdana;
         font-size: 18px;
-        text-shadow: 2px 2px 3px gray;
+        text-shadow: 1px 1px 4px gray;
     }
 
    </style>
