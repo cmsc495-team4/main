@@ -1,3 +1,5 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <?php
 session_start();
 ini_set('display_errors', 1);
@@ -61,6 +63,22 @@ if(isset($_POST['submit'])){
 }
 ?>
 <html>
+
+    <style>
+    .fixed-bottom-wrapper{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .fixed-bottom-wrapper img{
+        display: table;
+        position: relative;
+        margin: auto;
+   }
+   </style>
+
+
 <body><center>
 <div class="logo">
   <img align="center" class="ritalogo" src="img/ritalogo-1.png" height="97" width="360">
@@ -87,13 +105,17 @@ if(isset($_POST['submit'])){
 		</div></br>
 		<button type="submit" name="submit"> Login </button>
 	</form>
-</div></br></br>
+</div>
+<!--
+</br></br>
 
 </br></br></br></br></br></br></br></br></br></br></br>
-
+-->
 </div>
+<div class="fixed-bottom-wrapper">
 <img align="center" class="rodents" src="img/rodentsv2.png"
 	height="150" width="350">
+	</div>
 </body></br></br></br></br></br>
 <br>&emsp; © 2019, CMSC495 Team #4</br>
 </html>
