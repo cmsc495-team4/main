@@ -285,9 +285,9 @@ function displayAnimalTable()
         
         $filterSpecies = $_REQUEST["species_name"];
         if (empty($animalList)) {
-            $animalList = "WHERE strain_species='" . $filterSpecies . "'";
+            $animalList = "WHERE species_name='" . $filterSpecies . "'";
         } else {
-            $animalList = $animalList . " AND strain_species='" . $filterSpecies . "'";
+            $animalList = $animalList . " AND species_name='" . $filterSpecies . "'";
         }
     }
     
