@@ -139,6 +139,6 @@ if(isset($_POST['submit'])){
 <br>&emsp; © 2019, CMSC495 Team #4</br></center>
 	</div>
 </div>
-</br></br></br></br>
+</br>&nbsp;</br>
 </body>
 </html>
