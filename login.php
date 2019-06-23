@@ -164,7 +164,7 @@ if (isset($message)) {
 				
 			</form>
 		</div>
-	
+		</center>
 	</div>
 	<div class="fixed-bottom-wrapper">
 		<img align="center" class="rodents" src="img/rodentsv3.png"> </br>

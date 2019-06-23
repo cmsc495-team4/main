@@ -89,12 +89,11 @@ if (isset($_REQUEST["clear"])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"
-	dir="ltr">
+<html lang="en">
 
 <head>
 <meta charset="utf-8"/>
-<title></title>
+<title>RITA Main Page</title>
 <link rel="stylesheet" type="text/css" href="css/mainPageStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
 		<link rel="stylesheet" type="text/css"
