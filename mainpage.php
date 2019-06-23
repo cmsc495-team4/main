@@ -172,7 +172,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
             </select></td>
             <td>Genotype:</td>
 					<td><select name="genotype_name">
-          	  <?php getDropDown("genotype_name", "genotypes", $litterID); ?>
+          	  <?php getDropDown("genotype_name", "genotypes", $genotype); ?>
 			</select></td>
 
 				    <td> <!-- <input type="hidden" name="breeder" value="0"> -->
