@@ -69,6 +69,7 @@ if(isset($_POST['submit'])){
         position: fixed;
         bottom: 0;
         width: 100%;
+        z-index: -1;
     }
 
     .fixed-bottom-wrapper img{
