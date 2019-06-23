@@ -105,6 +105,12 @@ form, input {
   float: right;
 }
 
+.loginform {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 </style>
 
 
@@ -128,17 +134,16 @@ if (isset($message)) {
 }
 ?>
 	<form method="POST">
-				<div>
+				<div class="loginform">
 					<label for="username">Username:</label> <input type="text"
 						name="username" required>
-				</div>
 				</br>
-				<div>
 					<label for="password">Password:</label> <input type="password"
 						name="password" required>
-				</div>
 				</br>
 				<button type="submit" name="submit">Login</button>
+				</div>
+				
 			</form>
 		</div>
 	
