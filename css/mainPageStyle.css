@@ -266,6 +266,7 @@ th.animals {
 	text-align: center;
 	vertical-align: middle;
 	background-color: #eeeeff;
+	margin-top: 2px;
 	padding: 5px;
 	border: 1px dotted black;
 }
