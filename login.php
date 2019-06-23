@@ -126,8 +126,7 @@ if(isset($_POST['submit'])){
 	height="150" width="350">
 	</div>
 </div>
-</br></br></br></br></br>
-<br>&emsp; © 2019, CMSC495 Team #4</br>
-</body></br></br></br></br></br>
-<br>&emsp; © 2019, CMSC495 Team #4</br>
+</br></br></br></br></br><center>
+<br>&emsp; © 2019, CMSC495 Team #4</br></center>
+</body>
 </html>
