@@ -86,7 +86,9 @@ if(isset($_POST['submit'])){
    </style>
 
 
-<body class="main-body"><center>
+<body>
+<div class="main-body">
+<center>
 <div class="logo">
   <img align="center" class="ritalogo" src="img/ritalogo-1.png" height="97" width="360">
   <h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
@@ -123,6 +125,9 @@ if(isset($_POST['submit'])){
 <img align="center" class="rodents" src="img/rodentsv3.png"
 	height="150" width="350">
 	</div>
+</div>
+</br></br></br></br></br>
+<br>&emsp; © 2019, CMSC495 Team #4</br>
 </body></br></br></br></br></br>
 <br>&emsp; © 2019, CMSC495 Team #4</br>
 </html>
