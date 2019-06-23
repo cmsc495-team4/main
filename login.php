@@ -79,7 +79,7 @@ if(isset($_POST['submit'])){
         height: auto;
    }
    
-    .main-body {
+    body {
         min-height: 800px;
     }
 
