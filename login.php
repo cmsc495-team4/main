@@ -83,7 +83,7 @@ if (isset($_POST['submit'])) {
 }
 
 body {
-	min-height: 800px;
+	min-height: 600px;
 	background: transparent;
 	font-style: normal;
 	font-family: Verdana, Arial;
