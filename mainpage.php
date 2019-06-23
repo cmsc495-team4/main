@@ -49,6 +49,12 @@ if (isset($_POST['genotype_name'])) {
     $genotype = "";
 }
 
+if (isset($_POST['birth_date'])) {
+    $dob = " value=" . "\"" . $_POST['birth_date'] . "\"";
+} else {
+    $dob = " placeholder=\"mm/dd/yyyy\"";
+}
+
 if (isset($_POST['filter'])) {
     if ($_POST['breeder'] == "on") {
         $breederChecked="checked";
@@ -201,7 +207,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 			</select></td>
 
 					<td>Date of Birth:</td>
-					<td><input type="date" name="birth_date" placeholder="mm/dd/yyyy"></td>
+					<td><input type="date" name="birth_date" <?php echo $dob; ?> > </td>
 
 
 					<td class="filter-button"><button class="action" type="submit"
