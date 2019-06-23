@@ -37,8 +37,8 @@ if(isset($_POST['register'])){
 			}else{
 				//Username available. Insert new record
 
-//Temporary password hash
-		//$passwordHash = password_hash($_POST['password'], PASSWORD_BCRYPT, array("cost" => 12));
+		//password hash
+		$passwordHash = password_hash($_POST['password'], PASSWORD_BCRYPT, array("cost" => 12));
 		//var_dump($passwordHash);
 			
 				$date = date('Y-m-d H:i:s'); //for create_time
