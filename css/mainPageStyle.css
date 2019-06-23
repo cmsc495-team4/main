@@ -248,7 +248,10 @@ button.update {
 	selected {border: 1px;
 }
 
+div.dataTables_length {
+	padding: 3px;
 }
+
 table.animals {
 	border-collapse: collapse;
 	border-spacing: 5px;
