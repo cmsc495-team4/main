@@ -43,7 +43,7 @@ h2.maintitle {
     text-align: center;
     font-family: "Avant Garde", Verdana;
     font-size: 18px;
-    text-shadow: 2px 2px 3px ;
+    text-shadow: 2px 2px 3px gray;
 }
 
 tr {
