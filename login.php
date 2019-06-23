@@ -102,7 +102,7 @@ label, input {
 }
 form, input {
   display: inline-block;
-  float: right;
+  float: middle;
 }
 
 .loginform {
