@@ -100,7 +100,7 @@ label, input {
     display: inline-block;
     vertical-align: baseline;
 }
-form, input {
+input {
   display: inline-block;
   float: right;
 }
