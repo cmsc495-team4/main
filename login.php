@@ -111,6 +111,11 @@ form, input {
     margin-right: auto;
 }
 
+.login {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 </style>
 
 
