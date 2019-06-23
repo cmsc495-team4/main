@@ -86,6 +86,7 @@ body {
 	background: transparent;
 	font-style: normal;
 	font-family: Verdana, Arial;
+	font-size: 10px;
 }
 
 h2 {

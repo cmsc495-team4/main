@@ -1,6 +1,0 @@
-.fix{
-    position:fixed;
-    bottom:0px;
-    left:50%;
-}
-<img src="yourimagepath" class="fix"/>
