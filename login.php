@@ -77,6 +77,7 @@ if(isset($_POST['submit'])){
         margin: auto;
         width: auto;
         height: auto;
+        z-index: -1;
    }
    
     body {
