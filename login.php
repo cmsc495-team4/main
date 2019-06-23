@@ -110,6 +110,7 @@ input {
 .loginform {
     width: 204px;
     margin: auto;
+    vertical-align: top;
 }
 
 .login {
