@@ -102,18 +102,16 @@ label, input {
 }
 form, input {
   display: inline-block;
-  float: middle;
+  float: right;
 }
 
 .loginform {
     width: 200px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 }
 
 .login {
-    margin-left: auto;
-    margin-right: auto;
+    margin-: auto;
 }
 
 </style>
