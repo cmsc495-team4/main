@@ -22,27 +22,26 @@ function getDropDown($fieldName, $tableName, $previousValue)
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-    
+
     $returndata = array();
     $returnArray = null;
     $extra = "";
 
-
     require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
-    
+
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $query = "SELECT DISTINCT " . $fieldName . " FROM " . $tableName . " ORDER BY " . $fieldName . " ASC";
     echo "\n--> " . $query . "\n";
     $result = $pdo->query($query);
     $result->setFetchMode(PDO::FETCH_ASSOC);
-    
+
     $i = 0;
     $j = 0;
     $alreadyFound = array();
-    
+
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         if (! empty($row)) {
-            
+
             $returnArray[$i] = $row;
             $i ++;
             $skipRest = "false";
@@ -51,9 +50,9 @@ function getDropDown($fieldName, $tableName, $previousValue)
             $skipRest = "true";
         }
     }
-    
+
     if ($skipRest != "true") {
-        
+
         if (! empty($previousValue)) {
             echo "<option name=\"" . $fieldName . "\"value=\"\" >- select -</option>\n";
         } else {
@@ -79,7 +78,7 @@ function getDropDown($fieldName, $tableName, $previousValue)
         }
         // echo "<option value=\"0000\" selected>- select -</option>\n";
     }
-    
+
     $pdo = null;
 }
 
@@ -88,23 +87,23 @@ function getInvestigators($last_pi_name)
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-    
+
     $returndata = array();
     $returnArray = null;
-    
+
     require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
-    
+
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $query = "SELECT DISTINCT * FROM user WHERE user_role='Investigator' ORDER BY last_name ASC";
     $result = $pdo->query($query);
     // var_dump($query);
     $result->setFetchMode(PDO::FETCH_ASSOC);
-    
+
     $i = 0;
-    
+
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         if (! empty($row)) {
-            
+
             $returnArray[$i] = $row;
             $i ++;
             $skipRest = "false";
@@ -113,7 +112,7 @@ function getInvestigators($last_pi_name)
             $skipRest = "true";
         }
     }
-    
+
     if ($skipRest != "true") {
         if (! empty($last_pi_name)) {
             echo "<option name=\"pi_name\" value=\"\">- select -</option>\n";
@@ -127,14 +126,13 @@ function getInvestigators($last_pi_name)
             $name = $row['last_name'] . ", " . $row['first_name'];
             $username = $row['username'];
             if ($username == $last_pi_name) {
-				echo "<option name=\"pi_name\" value=\"" . htmlspecialchars($username) . "\" selected>" . htmlspecialchars($name) . "</option>\n";
-            }
-            else {
-				echo "<option name=\"pi_name\" value=\"" . htmlspecialchars($username) . "\">" . htmlspecialchars($name) . "</option>\n";
+                echo "<option name=\"pi_name\" value=\"" . htmlspecialchars($username) . "\" selected>" . htmlspecialchars($name) . "</option>\n";
+            } else {
+                echo "<option name=\"pi_name\" value=\"" . htmlspecialchars($username) . "\">" . htmlspecialchars($name) . "</option>\n";
             }
         }
     }
-    
+
     $pdo = null;
 }
 
@@ -143,16 +141,16 @@ function checkLitterExists($litterID)
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-    
+
     require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
     $litterExists = TRUE;
-    
+
     try {
         $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
         $query = "SELECT id FROM litters WHERE litterID = " . $litterID;
         $result = $pdo->query($query);
         $result->fetch(PDO::FETCH_ASSOC);
-        
+
         if (! $result) {
             $litterExists = FALSE;
         }
@@ -162,7 +160,7 @@ function checkLitterExists($litterID)
             "Error accessing database"
         );
     }
-    
+
     $pdo = null;
 }
 
@@ -171,26 +169,26 @@ function addPups($litterID, $numberPups, $species, $strain, $birthDate)
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-    
+
     $failCount = 0;
-    
+
     $options = [
         PDO::ATTR_EMULATE_PREPARES => false, // turn off emulation mode for "real" prepared statements
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // turn on errors in the form of exceptions
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC // make the default fetch be an associative array
     ];
     require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
-    
+
     $litterExists = checkLitterExists($litterID);
-    
+
     if ($litterExists) {
         $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
-        
+
         $setup = $pdo->prepare("SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;");
         $setup->execute();
-        
+
         $query = $pdo->prepare("INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES (?, ?, ?, ?)");
-        
+
         for ($i = 0; $i < $numberPups; $i ++) {
             if (! $query->execute([
                 $litterID,
@@ -209,7 +207,7 @@ function addPups($litterID, $numberPups, $species, $strain, $birthDate)
     } else {
         echo "Error - Duplicate Litter ID";
     }
-    
+
     $pdo = null;
 }
 
@@ -218,7 +216,7 @@ function getAnimals()
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-    
+
     if (isset($_REQUEST["Filter"])) { // retrieve the form data by using the element's name attributes value as key
         $displayAll = FALSE;
         $filterPI = $_REQUEST["pi_name"];
@@ -242,12 +240,12 @@ function displayAnimalTable()
     $animalList = "";
     $litterFilter = "";
     $displayAll = TRUE;
-    
+
     if (isset($_REQUEST["clear"])) {
         $_POST = array();
         $_REQUEST = array();
     }
-    
+
     // echo "before\n";
     if (isset($_REQUEST["filter"])) { // retrieve the form data by using the element's name attributes value as key
         $displayAll = FALSE;
@@ -257,10 +255,10 @@ function displayAnimalTable()
             $piFilter = "WHERE username='" . $filterPI . "'";
         }
     }
-    
+
     if (! empty($_REQUEST["pairID"])) {
         $displayAll = FALSE;
-        
+
         $filterbreedingPair = $_REQUEST["pairID"];
         if (empty($animalList)) {
             $animalList = "WHERE breedingPair=" . $filterbreedingPair;
@@ -268,10 +266,10 @@ function displayAnimalTable()
             $animalList = $animalList . " AND breedingPair=" . $filterbreedingPair;
         }
     }
-    
+
     if (! empty($_REQUEST["litterID"])) {
         $displayAll = FALSE;
-        
+
         $filterLitterID = $_REQUEST["litterID"];
         if (empty($animalList)) {
             $animalList = "WHERE litterID=" . $filterLitterID;
@@ -279,10 +277,10 @@ function displayAnimalTable()
             $animalList = $animalList . " AND litterID=" . $filterLitterID;
         }
     }
-    
+
     if (! empty($_REQUEST["species_name"])) {
         $displayAll = FALSE;
-        
+
         $filterSpecies = $_REQUEST["species_name"];
         if (empty($animalList)) {
             $animalList = "WHERE species_name='" . $filterSpecies . "'";
@@ -290,10 +288,10 @@ function displayAnimalTable()
             $animalList = $animalList . " AND species_name='" . $filterSpecies . "'";
         }
     }
-    
+
     if (! empty($_REQUEST["strain_name"])) {
         $displayAll = FALSE;
-        
+
         $filterStrain = $_REQUEST["strain_name"];
         if (empty($animalList)) {
             $animalList = "WHERE strain_name='" . $filterStrain . "'";
@@ -301,10 +299,10 @@ function displayAnimalTable()
             $animalList = $animalList . " AND strain_name='" . $filterStrain . "'";
         }
     }
-    
+
     if (! empty($_REQUEST["genotype_name"])) {
         $displayAll = FALSE;
-        
+
         $filterGenotype = $_REQUEST["genotype_name"];
         if (empty($animalList)) {
             $animalList = "WHERE genotype='" . $filterGenotype . "'";
@@ -312,10 +310,10 @@ function displayAnimalTable()
             $animalList = $animalList . " AND genotype='" . $filterGenotype . "'";
         }
     }
-    
+
     if (! empty($_REQUEST["tagNumber"])) {
         $displayAll = FALSE;
-        
+
         $filterTagNumber = $_REQUEST["tagNumber"];
         if (empty($animalList)) {
             $animalList = "WHERE tagNumber=" . $filterTagNumber;
@@ -323,10 +321,10 @@ function displayAnimalTable()
             $animalList = $animalList . " AND tagNumber=" . $filterTagNumber;
         }
     }
-    
+
     if (! empty($_REQUEST["birth_date"])) {
         $displayAll = FALSE;
-        
+
         $filterBirthDate = $_REQUEST["birth_date"];
         echo "----->> dobvar: [" . $filterBirthDate . "]\n";
         if (empty($animalList)) {
@@ -335,7 +333,7 @@ function displayAnimalTable()
             $animalList = $animalList . " AND birth_date='" . $filterBirthDate . "'";
         }
     }
-    
+
     if (! empty($_REQUEST["breeder"])) {
         $filterBreeder = "breeder";
         if (empty($animalList)) {
@@ -343,53 +341,49 @@ function displayAnimalTable()
         } else {
             $animalList = $animalList . " AND (classification='" . $filterBreeder . "'";
         }
-        
+
         if ((empty($_REQUEST["pup"])) && (empty($_REQUEST["weanling"]))) {
             $animalList = $animalList . ")";
         }
     }
-    
+
     if (! empty($_REQUEST["pup"])) {
         $filterPup = "pup";
         if (empty($animalList)) {
             $animalList = "WHERE (classification='" . $filterPup . "'";
         } elseif (empty($_REQUEST["breeder"])) {
             $animalList = $animalList . " AND (classification='" . $filterPup . "'";
-        }
-          else {
+        } else {
             $animalList = $animalList . " OR classification='" . $filterPup . "'";
         }
 
-        
         if (empty($_REQUEST["weanling"])) {
             $animalList = $animalList . ")";
         }
     }
-    
+
     if (! empty($_REQUEST["weanling"])) {
         $filterWeanling = "weanling";
         if (empty($animalList)) {
             $animalList = "WHERE (classification='" . $filterWeanling . "')";
         } elseif ((empty($_REQUEST["breeder"])) && (empty($_REQUEST["pup"]))) {
             $animalList = $animalList . " AND (classification='" . $filterWeanling . "')";
-        }
-          else {
+        } else {
             $animalList = $animalList . " OR classification='" . $filterWeanling . "')";
         }
     }
-    
-    
+
     $options = [
         PDO::ATTR_EMULATE_PREPARES => false, // turn off emulation mode for "real" prepared statements
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // turn on errors in the form of exceptions
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC // make the default fetch be an associative array
     ];
     require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
-    
+
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
-    
+
     echo "<!-- *** NOTE *** This HTML table and contents are auto-generated by code -->\n";
-    
+
     echo "<div id=\"animalTable\" class=\"maintable\">\n";
     echo "<form>\n";
     echo "<table id=\"maintable\" class=\"display compact\">\n";
@@ -402,16 +396,16 @@ function displayAnimalTable()
     	  </tr>\n";
     echo "</thead>
 	<tbody>";
-    
+
     if ($displayAll) {
-        
+
         $query1 = "SELECT * FROM `filtered_return`";
-        
+
         $result = $pdo->query($query1);
         $result->setFetchMode(PDO::FETCH_ASSOC);
-        
+
         $tableRow = 0;
-        
+
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             if (! empty($row)) {
                 $animalID = $row["animalID"];
@@ -432,41 +426,39 @@ function displayAnimalTable()
                 } else {
                     $strDeceased = "No";
                 }
-                
+
                 if ($transferred == 1) {
                     $strTransferred = "Yes";
                 } else {
                     $strTransferred = "No";
                 }
-                
+
                 $query2 = "SELECT PI_username, PI_strain_ID FROM PI_assigned_animals WHERE PI_animalID=" . $animalID;
                 $result2 = $pdo->query($query2);
                 $result2->setFetchMode(PDO::FETCH_ASSOC);
                 $row2 = $result2->fetch(PDO::FETCH_ASSOC);
-                
+
                 $responsible_PI = $row2["PI_username"];
                 $strain_ID = $row2["PI_strain_ID"];
-                
-                if (!empty($responsible_PI)) {
-					$query3 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
-					$result3 = $pdo->query($query3);
-					$result3->setFetchMode(PDO::FETCH_ASSOC);
-					$row3 = $result3->fetch(PDO::FETCH_ASSOC);
-				
-					$firstName = $row3["first_name"];
-					$lastName = $row3["last_name"] . ", ";
+
+                if (! empty($responsible_PI)) {
+                    $query3 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
+                    $result3 = $pdo->query($query3);
+                    $result3->setFetchMode(PDO::FETCH_ASSOC);
+                    $row3 = $result3->fetch(PDO::FETCH_ASSOC);
+
+                    $firstName = $row3["first_name"];
+                    $lastName = $row3["last_name"] . ", ";
+                } else {
+                    $lastName = "Unassigned";
+                    $firstName = "";
                 }
-                else {
-					$lastName = "Unassigned";
-					$firstName = "";
-                }
-                
-                
+
                 $query5 = "SELECT litterID, breedingPair FROM litters WHERE animalID_pup=" . $animalID;
                 $result5 = $pdo->query($query5);
                 $result5->setFetchMode(PDO::FETCH_ASSOC);
                 $row5 = $result5->fetch(PDO::FETCH_ASSOC);
-                
+
                 $litterID = $row5["litterID"];
                 $parentPair = $row5["breedingPair"];
 
@@ -491,19 +483,18 @@ function displayAnimalTable()
             }
         }
     } else {
-        
-        
+
         $query1 = "SELECT * FROM `filtered_return` " . $animalList;
-        
+
         echo "\n<br>SQL Query Debug --> <strong>" . $query1 . "</strong>\n<br><br>";
-        //echo var_dump($_POST);
-        //echo var_dump($_REQUEST);
+        // echo var_dump($_POST);
+        // echo var_dump($_REQUEST);
 
         $result = $pdo->query($query1);
         $result->setFetchMode(PDO::FETCH_ASSOC);
-        
+
         $tableRow = 0;
-        
+
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             if (! empty($row)) {
                 $animalID = $row["animalID"];
@@ -526,49 +517,46 @@ function displayAnimalTable()
                 } else {
                     $strDeceased = "No";
                 }
-                
+
                 if ($transferred == 1) {
                     $strTransferred = "Yes";
                 } else {
                     $strTransferred = "No";
                 }
-                
+
                 $query2 = "SELECT PI_username, PI_strain_ID FROM PI_assigned_animals WHERE PI_animalID=" . $animalID;
                 $result2 = $pdo->query($query2);
                 $result2->setFetchMode(PDO::FETCH_ASSOC);
                 $row2 = $result2->fetch(PDO::FETCH_ASSOC);
-                
+
                 $responsible_PI = $row2["PI_username"];
                 $strain_ID = $row2["PI_strain_ID"];
-                //echo "--> " . $filterPI . ": " . $responsible_PI . "\n\n";
-                if ((!empty($filterPI)) && ($responsible_PI != $filterPI)) {
-                	continue;
+                // echo "--> " . $filterPI . ": " . $responsible_PI . "\n\n";
+                if ((! empty($filterPI)) && ($responsible_PI != $filterPI)) {
+                    continue;
                 }
-                
-                if (!empty($responsible_PI)) {
-					$query3 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
-					$result3 = $pdo->query($query3);
-					$result3->setFetchMode(PDO::FETCH_ASSOC);
-					$row3 = $result3->fetch(PDO::FETCH_ASSOC);
-				
-					$firstName = $row3["first_name"];
-					$lastName = $row3["last_name"] . ", ";
+
+                if (! empty($responsible_PI)) {
+                    $query3 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
+                    $result3 = $pdo->query($query3);
+                    $result3->setFetchMode(PDO::FETCH_ASSOC);
+                    $row3 = $result3->fetch(PDO::FETCH_ASSOC);
+
+                    $firstName = $row3["first_name"];
+                    $lastName = $row3["last_name"] . ", ";
+                } else {
+                    $lastName = "Unassigned";
+                    $firstName = "";
                 }
-                else {
-					$lastName = "Unassigned";
-					$firstName = "";
-                }
-                
-                
+
                 $query5 = "SELECT litterID, breedingPair FROM litters WHERE animalID_pup=" . $animalID;
                 $result5 = $pdo->query($query5);
                 $result5->setFetchMode(PDO::FETCH_ASSOC);
                 $row5 = $result5->fetch(PDO::FETCH_ASSOC);
-                
+
                 $litterID = $row5["litterID"];
                 $parentPair = $row5["breedingPair"];
-                
-                
+
                 echo "<tr>\n";
                 echo "<td><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
                 echo "<td>" . $animalID . "</td>\n";
@@ -590,7 +578,7 @@ function displayAnimalTable()
             }
         }
     }
-    
+
     echo "</tbody></table>\n";
     echo "</form>\n";
     echo "</div>";

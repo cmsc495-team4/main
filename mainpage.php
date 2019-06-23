@@ -3,9 +3,11 @@
 
 <?php
 session_start();
-/*if (!isset($_SESSION['user_name'])){
-	header('Location: login.php');
-}*/
+/*
+ * if (!isset($_SESSION['user_name'])){
+ * header('Location: login.php');
+ * }
+ */
 
 if (isset($_POST['pi_name'])) {
     $last_pi_name = $_POST['pi_name'];
@@ -57,41 +59,34 @@ if (isset($_POST['birth_date'])) {
 
 if (isset($_POST['filter'])) {
     if ($_POST['breeder'] == "on") {
-        $breederChecked="checked";
+        $breederChecked = "checked";
+    } else {
+        $breederChecked = "";
     }
-    else {
-        $breederChecked="";
-    }
-    
+
     if ($_POST['weanling'] == "on") {
-        $weanlingChecked="checked";
-    }
-    else {
-        $weanlingChecked="";
+        $weanlingChecked = "checked";
+    } else {
+        $weanlingChecked = "";
     }
 
     if ($_POST['pup'] == "on") {
-        $pupChecked="checked";
+        $pupChecked = "checked";
+    } else {
+        $pupChecked = "";
     }
-    else {
-        $pupChecked="";
-    }
-
+} else {
+    $breederChecked = "checked";
+    $weanlingChecked = "checked";
+    $pupChecked = "checked";
 }
-else {
-    $breederChecked="checked";
-    $weanlingChecked="checked";
-    $pupChecked="checked";
-
-}
-
 
 if (isset($_REQUEST["clear"])) {
     $_POST = array();
     $_REQUEST = array();
-    $breederChecked="checked";
-    $weanlingChecked="checked";
-    $pupChecked="checked";
+    $breederChecked = "checked";
+    $weanlingChecked = "checked";
+    $pupChecked = "checked";
     $dob = " placeholder=\"mm/dd/yyyy\"";
 }
 
@@ -103,38 +98,38 @@ if (isset($_REQUEST["clear"])) {
 <head>
 <title></title>
 <link rel="stylesheet" type="text/css" href="css/mainPageStyle.css">
-<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
-	<link rel="stylesheet" type="text/css"
-		href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.css" />
-	<link rel="stylesheet" type="text/css"
-		href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.css" />
-	<link rel="stylesheet" type="text/css"
-		href="https://cdn.datatables.net/fixedheader/3.1.4/css/fixedHeader.dataTables.css" />
-	<link rel="stylesheet" type="text/css"
-		href="https://cdn.datatables.net/responsive/2.2.2/css/responsive.dataTables.css" />
-	<link rel="stylesheet" type="text/css"
-		href="https://cdn.datatables.net/scroller/2.0.0/css/scroller.dataTables.css" />
-	<link rel="stylesheet" type="text/css"
-		href="https://cdn.datatables.net/select/1.3.0/css/select.dataTables.css" />
+	<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
+		<link rel="stylesheet" type="text/css"
+			href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.css" />
+		<link rel="stylesheet" type="text/css"
+			href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.css" />
+		<link rel="stylesheet" type="text/css"
+			href="https://cdn.datatables.net/fixedheader/3.1.4/css/fixedHeader.dataTables.css" />
+		<link rel="stylesheet" type="text/css"
+			href="https://cdn.datatables.net/responsive/2.2.2/css/responsive.dataTables.css" />
+		<link rel="stylesheet" type="text/css"
+			href="https://cdn.datatables.net/scroller/2.0.0/css/scroller.dataTables.css" />
+		<link rel="stylesheet" type="text/css"
+			href="https://cdn.datatables.net/select/1.3.0/css/select.dataTables.css" />
 
-	<script type="text/javascript"
-		src="https://code.jquery.com/jquery-3.3.1.js"></script>
-	<script type="text/javascript"
-		src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.js"></script>
-	<script type="text/javascript"
-		src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.js"></script>
-	<script type="text/javascript"
-		src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.js"></script>
-	<script type="text/javascript"
-		src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.js"></script>
-	<script type="text/javascript"
-		src="https://cdn.datatables.net/fixedheader/3.1.4/js/dataTables.fixedHeader.js"></script>
-	<script type="text/javascript"
-		src="https://cdn.datatables.net/responsive/2.2.2/js/dataTables.responsive.js"></script>
-	<script type="text/javascript"
-		src="https://cdn.datatables.net/scroller/2.0.0/js/dataTables.scroller.js"></script>
-	<script type="text/javascript"
-		src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.js"></script>
+		<script type="text/javascript"
+			src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<script type="text/javascript"
+			src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.js"></script>
+		<script type="text/javascript"
+			src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.js"></script>
+		<script type="text/javascript"
+			src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.js"></script>
+		<script type="text/javascript"
+			src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.js"></script>
+		<script type="text/javascript"
+			src="https://cdn.datatables.net/fixedheader/3.1.4/js/dataTables.fixedHeader.js"></script>
+		<script type="text/javascript"
+			src="https://cdn.datatables.net/responsive/2.2.2/js/dataTables.responsive.js"></script>
+		<script type="text/javascript"
+			src="https://cdn.datatables.net/scroller/2.0.0/js/dataTables.scroller.js"></script>
+		<script type="text/javascript"
+			src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.js"></script>
 
 </head>
 <?php
@@ -146,14 +141,15 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 <header>
 <div class="logo">
 	<img class="ritalogo" src="img/ritalogo-1.png" height="97" width="360">
-	<h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
-	<div class="dropdown">
+		<h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
+		<div class="dropdown">
 			<button class="dropbtn">User &#9660</button>
 			<div class="dropdown-content">
-				<?php if($_SESSION['role'] == "Admin")
-				echo '<a href="register.php">Create User</a>';
-				/*add other admin tasks here*/
-				?>
+				<?php
+                    if ($_SESSION['role'] == "Admin")
+                        echo '<a href="register.php">Create User</a>';
+                    /* add other admin tasks here */
+                ?>
 				<a href="logout.php">Logout</a>
 			</div>
 		</div>
@@ -177,20 +173,32 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 					<td><select name="strain_name">
               <?php getDropDown("strain_name", "strains", $strain_name); ?>
             </select></td>
-            <td>Genotype:</td>
+					<td>Genotype:</td>
 					<td><select name="genotype_name">
           	  <?php getDropDown("genotype_name", "genotypes", $genotype); ?>
 			</select></td>
 
-				    <td> <!-- <input type="hidden" name="breeder" value="0"> -->
-                    <input type="checkbox" name="breeder" <?php echo $breederChecked; ?>>Breeders </td>
-                    
-					<td> <!-- <input type="hidden" name="weanling" value="0" > -->
-					<input type="checkbox" name="weanling" <?php echo $weanlingChecked; ?>>Weanlings </td>
+					<td>
+						<!-- <input type="hidden" name="breeder" value="0"> --> <input
+						type="checkbox" name="breeder" <?php echo $breederChecked; ?>>Breeders
 					
-					<td> <!-- <input type="hidden" name="pup" value="0" > -->
-					<input type="checkbox" name="pup" <?php echo $pupChecked; ?>>Pups/Unclassified </td>
-			
+					
+					</td>
+
+					<td>
+						<!-- <input type="hidden" name="weanling" value="0" > --> <input
+						type="checkbox" name="weanling" <?php echo $weanlingChecked; ?>>Weanlings
+					
+					
+					</td>
+
+					<td>
+						<!-- <input type="hidden" name="pup" value="0" > --> <input
+						type="checkbox" name="pup" <?php echo $pupChecked; ?>>Pups/Unclassified
+					
+					
+					</td>
+
 
 				</tr>
 				<tr>
@@ -208,7 +216,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 			</select></td>
 
 					<td>Date of Birth:</td>
-					<td><input type="date" name="birth_date" <?php echo $dob; ?> > </td>
+					<td><input type="date" name="birth_date" <?php echo $dob; ?>></td>
 
 
 					<td class="filter-button"><button class="action" type="submit"

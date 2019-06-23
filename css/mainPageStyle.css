@@ -5,276 +5,270 @@ Last Updated: 2010-09-17
 Author: Richard Clark - http://richclarkdesign.com 
 Twitter: @rich_clark
 */
-
-html, body, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-abbr, address, cite, code,
-del, dfn, em, img, ins, kbd, q, samp,
-small, strong, sub, sup, var,
-b, i,
-dl, dt, dd, ol, ul, li,
-form, label, legend, caption,
-article, aside, canvas, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section, summary,
-time, mark, audio, video {
-    margin:0;
-    padding:0;
-    border:0;
-    outline:0;
-    font-size:12px;
-    vertical-align:baseline;
-    background:transparent;
-    font-style: normal;
-    font-family: Verdana, Arial;
+html, body, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+	pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+	small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, form, label,
+	legend, caption, article, aside, canvas, details, figcaption, figure,
+	footer, header, hgroup, menu, nav, section, summary, time, mark, audio,
+	video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 12px;
+	vertical-align: baseline;
+	background: transparent;
+	font-style: normal;
+	font-family: Verdana, Arial;
 }
 
 div.logo {
-overflow-y: hidden;
-overflow-x: hidden; 
-height: 126px;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	height: 126px;
 }
 
 div.maintable {
-padding-top: 8px;
-padding-bottom: 14px;
+	padding-top: 8px;
+	padding-bottom: 14px;
 }
 
 h2.maintitle {
-    text-align: center;
-    font-family: "Avant Garde", Verdana;
-    font-size: 18px;
-    text-shadow: 2px 2px 3px gray;
+	text-align: center;
+	font-family: "Avant Garde", Verdana;
+	font-size: 18px;
+	text-shadow: 2px 2px 3px gray;
 }
 
 tr {
-    font-style: normal;
-    font-family: Verdana, Arial;
+	font-style: normal;
+	font-family: Verdana, Arial;
 	font-size: 12px;
 }
 
-
 body {
-    line-height:1;
+	line-height: 1;
 }
 
-
-article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section { 
-    display:block;
+article, aside, details, figcaption, figure, footer, header, hgroup,
+	menu, nav, section {
+	display: block;
 }
 
 nav ul {
-    list-style:none;
+	list-style: none;
 }
 
 blockquote, q {
-    quotes:none;
+	quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content:'';
-    content:none;
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
 }
 
 a {
-    margin:0;
-    padding:0;
-    font-size:100%;
-    vertical-align:baseline;
-    background:transparent;
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
 }
 
 /* change colours to suit your needs */
 ins {
-    background-color:#ff9;
-    color:#000;
-    text-decoration:none;
+	background-color: #ff9;
+	color: #000;
+	text-decoration: none;
 }
 
 /* change colours to suit your needs */
 mark {
-    background-color:#ff9;
-    color:#000; 
-    font-style:italic;
-    font-weight:bold;
+	background-color: #ff9;
+	color: #000;
+	font-style: italic;
+	font-weight: bold;
 }
 
 del {
-    text-decoration: line-through;
+	text-decoration: line-through;
 }
 
 abbr[title], dfn[title] {
-    border-bottom:1px dotted;
-    cursor:help;
+	border-bottom: 1px dotted;
+	cursor: help;
 }
 
 table {
-    border-collapse:collapse;
-    border-spacing:0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 td {
-	padding:10px;
+	padding: 10px;
 }
-	
+
 /* change border colour to suit your needs */
 hr {
-    display:block;
-    height:1px;
-    border:0;   
-    border-top:1px solid #cccccc;
-    margin:1em 0;
-    padding:0;
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #cccccc;
+	margin: 1em 0;
+	padding: 0;
 }
 
 input, select {
-    vertical-align:middle;
+	vertical-align: middle;
 }
 
 /*Mighty Mouse code*/
-
 header {
-  background-color: lightgrey;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
-  height: 250px;
-  padding-bottom: 6px;
-      text-shadow: 1px, 1px, 1px, gray;
-
-
+	background-color: lightgrey;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	height: 250px;
+	padding-bottom: 6px;
+	text-shadow: 1px, 1px, 1px, gray;
 }
 
 header div table {
-  margin-left: 10px;
-  margin-right: 10px;
-  width: auto;
-  height: auto;
+	margin-left: 10px;
+	margin-right: 10px;
+	width: auto;
+	height: auto;
 }
 
 header div table td {
-  padding-right: 5px;
+	padding-right: 5px;
 }
 
 header fieldset {
-  display: block;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 5px;
-  padding-top: 0.25em;
-  padding-bottom: 0.525em;
-  padding-left: 0.75em;
-  padding-right: 0.75em;
-  border: 2px groove (internal value);
+	display: block;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 5px;
+	padding-top: 0.25em;
+	padding-bottom: 0.525em;
+	padding-left: 0.75em;
+	padding-right: 0.75em;
+	border: 2px groove(internal value);
 }
 
 button.action {
-    vertical-align: middle;
-    line-height: 20px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    padding-left: 12px;
-    padding-right: 12px;
-    font-size: 12px;
+	vertical-align: middle;
+	line-height: 20px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 12px;
+	padding-right: 12px;
+	font-size: 12px;
 }
 
-
 body div {
-/*  min-height: 80%; */
-/*  max-height: 83%; */
- /* overflow: auto; */
+	/*  min-height: 80%; */
+	/*  max-height: 83%; */
+	/* overflow: auto; */
+	
 }
 
 footer {
-  background-color: lightgrey;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
-
-  height: auto;
-  padding-bottom: 4px;
+	background-color: lightgrey;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	height: auto;
+	padding-bottom: 4px;
 }
 
 footer div table {
-  margin-top: 6px;
-  margin-bottom: 6px;
-  margin-left: 10px;
-  margin-right: 10px;
-  padding-bottom: 6px;
-  vertical-align: middle !important;
-
-  width: auto;
-  height: auto;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-bottom: 6px;
+	vertical-align: middle !important;
+	width: auto;
+	height: auto;
 }
 
 footer fieldset {
-  display: block;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 5px;
-  padding-top: 0.35em;
-  padding-bottom: 0.625em;
-  padding-left: 0.75em;
-  padding-right: 0.75em;
-  border: 2px groove (internal value);
+	display: block;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 5px;
+	padding-top: 0.35em;
+	padding-bottom: 0.625em;
+	padding-left: 0.75em;
+	padding-right: 0.75em;
+	border: 2px groove(internal value);
 }
 
-
-div.div-footer{
-  vertical-align: middle;
+div.div-footer {
+	vertical-align: middle;
 }
 
-table.tb-footer{
-  vertical-align: middle!important;
-}
-tr.tr-footer{
-  vertical-align: middle;
-}
-td.tr-footer{
-  vertical-align: middle;
+table.tb-footer {
+	vertical-align: middle !important;
 }
 
-td.filter-button{
-  text-align: right;
+tr.tr-footer {
+	vertical-align: middle;
+}
+
+td.tr-footer {
+	vertical-align: middle;
+}
+
+td.filter-button {
+	text-align: right;
 }
 
 img.mouselogo {
-padding-top: 5px;
-padding-right: 3px;
-vertical-align: middle;
+	padding-top: 5px;
+	padding-right: 3px;
+	vertical-align: middle;
 }
 
 img.ritalogo {
-display: block;
-margin-left: auto;
-margin-right: auto;
-padding-top: 8px;:
-padding-right: 8px;:
-vertical-align: middle;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 8px; :
+	padding-right: 8px; :
+	vertical-align: middle;
 }
-
 
 button.update {
-    vertical-align: middle;
-    .selected{border: 1px;}
+	vertical-align: middle; .
+	selected {border: 1px;
 }
 
-table.animals
-    {border-collapse: collapse; border-spacing: 5px; border: 1px solid black; width:100%}
+}
+table.animals {
+	border-collapse: collapse;
+	border-spacing: 5px;
+	border: 1px solid black;
+	width: 100%
+}
 /* table.animals tr:nth-of-type(even)  {background: #F7FFFF;} */
 /* table.animals tr:nth-of-type(odd)  {background: #F0FFFF;} */
-    
 tr.animals {
-    transition: all linear 0.5s
-    font-style: normal;
-    background-color:#FFFFFF;}
+	transition: all linear 0.5s font-style: normal;
+	background-color: #FFFFFF;
+}
 /* tr.selected{background-color:#E0FFFF;color:#000;font-weight: bold; transition: all linear 0.5s} */
-
-th.animals
-    {text-align: center; vertical-align: middle; background-color: #bbbbff; padding:10px; border: 1px solid black;}
+th.animals {
+	text-align: center;
+	vertical-align: middle;
+	background-color: #bbbbff;
+	padding: 10px;
+	border: 1px solid black;
+}
 /* td.animals 	
     {text-align: center; vertical-align: middle; padding: 4px; border: 1px dotted gray;}
 */
