@@ -101,9 +101,8 @@ label, input {
     vertical-align: baseline;
 }
 form, input {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
+  display: inline-block;
+  float: left;
 }
 
 </style>
