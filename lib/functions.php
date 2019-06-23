@@ -421,7 +421,7 @@ function displayAnimalTable()
                 $tagNumber = $row["tagNumber"];
                 $sex = $row["sex"];
                 $strain = $row["strain_name"];
-                $species = $row["strain_species"];
+                $species = $row["species_name"];
                 $classification = $row["classification"];
                 $genotype = $row["genotype"];
                 $birth_date = $row["birth_date"];
@@ -513,7 +513,7 @@ function displayAnimalTable()
                 $tagNumber = $row["tagNumber"];
                 $sex = $row["sex"];
                 $strain = $row["strain_name"];
-                $species = $row["strain_species"];
+                $species = $row["species_name"];
                 $classification = $row["classification"];
                 $genotype = $row["genotype"];
                 $birth_date = $row["birth_date"];
