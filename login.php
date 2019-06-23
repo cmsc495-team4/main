@@ -124,7 +124,7 @@ if (isset($message)) {
 				</div>
 				</br>
 				<div>
-					<label for="password">Password:&emsp;</label><input type="password"
+					<label for="password">Password:</label><input type="password"
 						name="password" required>
 				</div>
 				</br>
