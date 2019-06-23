@@ -92,6 +92,7 @@ if (isset($_REQUEST["clear"])) {
     $breederChecked="checked";
     $weanlingChecked="checked";
     $pupChecked="checked";
+    $dob = " placeholder=\"mm/dd/yyyy\"";
 }
 
 ?>
