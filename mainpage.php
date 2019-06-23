@@ -5,7 +5,8 @@
 session_start();
 
  if (!isset($_SESSION['user_name'])){
- header('Location: login.php');
+ 	header('Location: login.php');
+	exit();
  } 
 
 if (isset($_POST['pi_name'])) {
