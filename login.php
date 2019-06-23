@@ -97,11 +97,17 @@ h2 {
 	text-shadow: 1px 1px 4px gray;
 }
 
-label, input, button {
+label, input {
     display: inline-block;
     vertical-align: baseline;
     margin-bottom: 6px;
 }
+	
+button{
+    margin: auto;
+    padding-bottom: 10px;
+}
+	
 input {
   display: inline-block;
   float: right;
@@ -110,11 +116,10 @@ input {
 .loginform {
     width: 204px;
     margin: auto;
-    vertical-align: top;
 }
 
 .login {
-    margin-: auto;
+    margin: auto;
 }
 
 </style>
