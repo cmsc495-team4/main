@@ -266,8 +266,8 @@ th.animals {
 	text-align: center;
 	vertical-align: middle;
 	background-color: #eeeeff;
-	padding: 10px;
-	border: 1px solid black;
+	padding: 5px;
+	border: 1px dotted black;
 }
 /* td.animals 	
     {text-align: center; vertical-align: middle; padding: 4px; border: 1px dotted gray;}
