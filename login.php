@@ -119,12 +119,12 @@ if (isset($message)) {
 ?>
 	<form method="POST">
 				<div>
-					<label for="username">Username : </label> <input type="text"
+					<label for="username">Username: </label> <input type="text"
 						name="username" required>
 				</div>
 				</br>
 				<div>
-					<label for="password">Password : </label> <input type="password"
+					<label for="password">Password: </label> <input type="password"
 						name="password" required>
 				</div>
 				</br>
