@@ -389,10 +389,10 @@ function displayAnimalTable()
     echo "<table id=\"maintable\" class=\"display compact\">\n";
     echo "<thead>";
     echo "<tr>
-    		<th>Select</th> <th>ID</th> <th>Investigator</th> <th>Tag Number</th> 
+    		<th>Select</th> <th>ID</th> <th>Investigator</th> <th>Tag<br>Number</th> 
     		<th>Species</th> <th>Class</th> <th>Sex</th> <th>Strain</th> <th>Genotype</th> 
-    		<th>Litter ID</th> <th>Parent Pair</th> <th>Birth Date</th> <th>Wean Date</th> 
-    		<th>Tag Date</th> <th>Deceased</th> <th>Transferred</th> 
+    		<th>Litter<br>ID</th> <th>Parent<br>Pair</th> <th>Birth<br>Date</th> <th>Wean<br>Date</th> 
+    		<th>Tag<br>Date</th> <th>Deceased</th> <th>Transferred</th> 
     	  </tr>\n";
     echo "</thead>
 	<tbody>";
