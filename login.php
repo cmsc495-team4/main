@@ -137,6 +137,9 @@ if (isset($message)) {
 				<div class="loginform">
 					<label for="username">Username:</label> <input type="text"
 						name="username" required>
+						</input>
+				</div>
+				<div class="loginform">
 				</br>
 					<label for="password">Password:</label> <input type="password"
 						name="password" required>
