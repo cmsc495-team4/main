@@ -145,6 +145,7 @@ if (isset($message)) {
 						name="password" required>
 				</br>
 				</div>
+				</br>
 				<div class="loginform">
 					<button type="submit" name="submit">Login</button>
 				</div>
