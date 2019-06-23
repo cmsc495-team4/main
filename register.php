@@ -8,12 +8,13 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 
 $message = '';
 
-//if logged in as Admin
+//if not logged in as Admin
 if(empty($_SESSION['user_name']) || $_SESSION['role'] != "Admin"){
 	header('Location: login.php');
+	exit();
 }else{
 	
-//if login form submitted
+//if registration form submitted
 if(isset($_POST['register'])){
 
 	//check both fields filled out 
