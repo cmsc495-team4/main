@@ -70,6 +70,7 @@ if(isset($_POST['submit'])){
         bottom: 0;
         width: 100%;
         z-index: -1;
+        padding-bottom: 8px;
     }
 
     .fixed-bottom-wrapper img{
