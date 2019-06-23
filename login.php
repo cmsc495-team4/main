@@ -95,6 +95,11 @@ h2 {
 	font-size: 18px;
 	text-shadow: 1px 1px 4px gray;
 }
+
+label, input {
+    display: inline-block;
+    vertical-align: baseline;
+}
 </style>
 
 
