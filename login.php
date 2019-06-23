@@ -78,10 +78,15 @@ if(isset($_POST['submit'])){
         width: auto;
         height: auto;
    }
+   
+    .main-body {
+        min-height: 800px;
+    }
+
    </style>
 
 
-<body><center>
+<body class="main-body"><center>
 <div class="logo">
   <img align="center" class="ritalogo" src="img/ritalogo-1.png" height="97" width="360">
   <h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
