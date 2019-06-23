@@ -68,7 +68,6 @@ if (isset($_POST['submit'])) {
 .fixed-bottom-wrapper {
 	position: fixed;
 	bottom: 0;
-	height: 
 	width: 100%;
 	z-index: -1;
 	padding-bottom: 8px;
@@ -116,7 +115,7 @@ input {
 .loginform {
     width: 204px;
     margin: auto;
-    display: inline-block;
+    display: block;
     padding-bottom: 16px;
 }
 
