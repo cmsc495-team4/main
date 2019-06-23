@@ -106,7 +106,7 @@ form, input {
 }
 
 .loginform {
-    width: 300px;
+    width: 200px;
     margin-left: auto;
     margin-right: auto;
 }
