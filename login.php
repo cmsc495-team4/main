@@ -107,7 +107,7 @@ input {
 }
 
 .loginform {
-    width: 208px;
+    width: 204px;
     margin: auto;
 }
 
