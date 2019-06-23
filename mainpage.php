@@ -6,8 +6,7 @@ session_start();
 
  if (!isset($_SESSION['user_name'])){
  header('Location: login.php');
- } else {
- 
+ } 
 
 if (isset($_POST['pi_name'])) {
     $last_pi_name = $_POST['pi_name'];
@@ -88,7 +87,6 @@ if (isset($_REQUEST["clear"])) {
     $weanlingChecked = "checked";
     $pupChecked = "checked";
     $dob = " placeholder=\"mm/dd/yyyy\"";
-}
 }
 ?>
 
