@@ -139,13 +139,13 @@ if (isset($message)) {
 ?>
 	<form method="POST">
 				<div class="loginform">
-					<label for="username">Username:</label> <input type="text"
+					<label for="username">Username: </label> <input type="text"
 						name="username" required>
 						</input>
 				</div>
 				<div class="loginform">
 				</br>
-					<label for="password">&nbsp;Password:</label> <input type="password"
+					<label for="password">&nbsp;Password: </label> <input type="password"
 						name="password" required>
 				</br>
 				</div>
