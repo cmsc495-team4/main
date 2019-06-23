@@ -75,6 +75,8 @@ if(isset($_POST['submit'])){
         display: table;
         position: relative;
         margin: auto;
+        max-width: 66%;
+        height: auto;
    }
    </style>
 
@@ -113,7 +115,7 @@ if(isset($_POST['submit'])){
 -->
 </div>
 <div class="fixed-bottom-wrapper">
-<img align="center" class="rodents" src="img/rodentsv2.png"
+<img align="center" class="rodents" src="img/rodentsv3.png"
 	height="150" width="350">
 	</div>
 </body></br></br></br></br></br>
