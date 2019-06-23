@@ -68,6 +68,7 @@ if (isset($_POST['submit'])) {
 .fixed-bottom-wrapper {
 	position: fixed;
 	bottom: 0;
+	height: 
 	width: 100%;
 	z-index: -1;
 	padding-bottom: 8px;
@@ -105,7 +106,6 @@ label, input {
 	
 button{
     margin: auto;
-    padding-bottom: 10px;
 }
 	
 input {
@@ -116,6 +116,8 @@ input {
 .loginform {
     width: 204px;
     margin: auto;
+    display: inline-block;
+    padding-bottom: 16px;
 }
 
 .login {
