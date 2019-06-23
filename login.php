@@ -144,7 +144,9 @@ if (isset($message)) {
 					<label for="password">Password:</label> <input type="password"
 						name="password" required>
 				</br>
-				<button type="submit" name="submit">Login</button>
+				</div>
+				<div class="loginform">
+					<button type="submit" name="submit">Login</button>
 				</div>
 				
 			</form>
