@@ -75,7 +75,7 @@ if(isset($_POST['submit'])){
         display: table;
         position: relative;
         margin: auto;
-        max-width: 66%;
+        width: auto;
         height: auto;
    }
    </style>
