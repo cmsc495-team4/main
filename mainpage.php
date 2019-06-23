@@ -4,7 +4,7 @@
 <?php
 session_start();
 
- if (!iempty($_SESSION['user_name'])){
+ if (!empty($_SESSION['user_name'])){
  	header('Location: login.php');
 	exit();
  } 
