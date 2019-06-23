@@ -124,11 +124,11 @@ if(isset($_POST['submit'])){
 -->
 </div>
 <div class="fixed-bottom-wrapper">
-<img align="center" class="rodents" src="img/rodentsv3.png"
-	height="150" width="350">
+<img align="center" class="rodents" src="img/rodentsv3.png">
+	</br><center>
+<br>&emsp; © 2019, CMSC495 Team #4</br></center>
 	</div>
 </div>
-</br></br></br></br></br><center>
-<br>&emsp; © 2019, CMSC495 Team #4</br></center>
+</br></br></br></br>
 </body>
 </html>
