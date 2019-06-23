@@ -330,9 +330,9 @@ function displayAnimalTable()
         $filterBirthDate = $_REQUEST["birth_date"];
         echo "----->> dobvar: [" . $filterBirthDate . "]\n";
         if (empty($animalList)) {
-            $animalList = "WHERE birth_date=" . $filterBirthDate . "'";
+            $animalList = "WHERE birth_date='" . $filterBirthDate . "'";
         } else {
-            $animalList = $animalList . " AND birth_date=" . $filterBirthDate . "'";
+            $animalList = $animalList . " AND birth_date='" . $filterBirthDate . "'";
         }
     }
     
