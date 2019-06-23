@@ -55,7 +55,6 @@ tr {
 
 body {
     line-height:1;
-    text-shadow: 1px, 1px, 1px, gray;
 }
 
 
@@ -143,6 +142,8 @@ header {
   border-right: 1px solid black;
   height: 250px;
   padding-bottom: 6px;
+      text-shadow: 1px, 1px, 1px, gray;
+
 
 }
 
