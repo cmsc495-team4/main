@@ -194,19 +194,9 @@ button.update {
 	selected {border: 1px;
 }
 
-div.dataTables_length {
-	padding: 3px;
-	margin-left: 3px;
-}
 
-div.dataTables_filter {
-	padding: 3px;
-	margin-right: 3px;
-	
-}
-
-div.maintable_wrapper {
-	padding: 3px;
+div.dataTables_wrapper {
+	padding: 4px;
 }
 
 table.animals {
