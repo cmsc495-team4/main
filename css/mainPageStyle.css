@@ -40,11 +40,6 @@ body {
 	line-height: 1;
 }
 
-
-nav ul {
-	list-style: none;
-}
-
 blockquote, q {
 	quotes: none;
 }
@@ -53,7 +48,6 @@ blockquote:before, blockquote:after, q:before, q:after {
 	content: '';
 	content: none;
 }
-
 
 table {
 	border-collapse: collapse;
@@ -219,7 +213,7 @@ tr.animals {
 th.animals {
 	text-align: center;
 	vertical-align: middle;
-	background-color: #eeeeff;
+	background-color: #ccccff;
 	margin-top: 2px;
 	padding: 5px;
 	border: 1px dotted black;
