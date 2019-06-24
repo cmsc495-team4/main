@@ -25,7 +25,7 @@ div.maintable {
 	padding-right: 4px;
 	border-left: 1px solid;
 	border-right: 1px solid;
-	min-width: 1158px;
+	min-width: 1160px;
 }
 
 h2.maintitle {
@@ -207,7 +207,7 @@ table.animals {
 	border-spacing: 5px;
 	border: 1px solid black;
 	width: auto;
-	min-width:1158px;
+	min-width:1160px;
 }
 
 tr.animals {
