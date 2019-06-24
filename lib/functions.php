@@ -486,7 +486,7 @@ function displayAnimalTable()
 
         $query1 = "SELECT * FROM `filtered_return` " . $animalList;
 
-        echo "\n<br><font style=\"font-color: red;\">SQL Query Debug --> <strong>" . $query1 . "</strong></font>\n<br><br>";
+        echo "\n<br><font style=\"color: red;\">SQL Query Debug --> <strong>" . $query1 . "</strong></font>\n<br><br>";
         // echo var_dump($_POST);
         // echo var_dump($_REQUEST);
 
