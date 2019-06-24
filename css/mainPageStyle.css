@@ -225,3 +225,13 @@ th.animals {
 	border: 1px dotted black;
 }
 
+@media (max-width: 600px) {
+  .header-form input {
+    margin: 10px 0;
+  }
+
+  .header-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
