@@ -275,7 +275,6 @@ $(document).ready( function () {
     selectRow();
 </script>
 
-</body>
 <footer> <img align="left" class="mouselogo" src="img/mouse-1.png"
 	height="117" width="87">
 
@@ -310,6 +309,7 @@ $(document).ready( function () {
 
 	</form></footer>
 <br>&emsp; © 2019, CMSC495 Team #4</br>
+</body>
 
 
 </html>
