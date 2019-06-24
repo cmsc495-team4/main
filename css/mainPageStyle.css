@@ -87,6 +87,7 @@ header {
 	/* height: 250px; */
 	padding-bottom: 6px;
 	text-shadow: 1px, 1px, 1px, gray;
+	min-width:1160px;
 }
 
 header div table {
