@@ -231,7 +231,9 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 <body style="padding:4px;">
 	<script>
 $(document).ready( function () {
-    $('#maintable').DataTable();
+    $('#maintable').DataTable({
+    		responsive: true
+	});
 } );
 
 
