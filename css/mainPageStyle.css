@@ -206,7 +206,7 @@ table.animals {
 	border-spacing: 5px;
 	border: 1px solid black;
 	width: auto;
-	width:auto;
+	min-width:1156px;
 }
 
 tr.animals {
