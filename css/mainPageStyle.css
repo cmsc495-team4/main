@@ -205,6 +205,10 @@ div.dataTables_filter {
 	
 }
 
+label {
+	padding: 3px;
+}
+
 table.animals {
 	border-collapse: collapse;
 	border-spacing: 5px;
