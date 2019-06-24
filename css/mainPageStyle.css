@@ -196,10 +196,13 @@ button.update {
 
 div.dataTables_length {
 	padding: 3px;
+	margin-left: 3px;
 }
 
 div.dataTables_filter {
 	padding: 3px;
+	margin-right: 3px;
+	
 }
 
 table.animals {
