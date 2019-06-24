@@ -198,6 +198,10 @@ div.dataTables_length {
 	padding: 3px;
 }
 
+div.dataTables_filter {
+	padding: 3px;
+}
+
 table.animals {
 	border-collapse: collapse;
 	border-spacing: 5px;
@@ -207,13 +211,15 @@ table.animals {
 
 tr.animals {
 	transition: all linear 0.5s font-style: normal;
+	text-align: center;
+	vertical-align: middle;
+	
 	/* background-color: #FFFFFF; */
 }
 
 th.animals {
 	text-align: center;
 	vertical-align: middle;
-	background-color: #ccccff;
 	margin-top: 2px;
 	padding: 5px;
 	border: 1px dotted black;
