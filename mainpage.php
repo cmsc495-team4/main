@@ -152,7 +152,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 		</div>
 
 </div>
-<div>
+<div style="height:auto;">
 	<form action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
 		<fieldset>
 			<legend>Filter Results</legend>
