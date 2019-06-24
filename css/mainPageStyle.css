@@ -206,7 +206,7 @@ div.dataTables_filter {
 }
 
 .dataTables_wrapper {
-	padding: 4px;
+	padding: 4px!important;
 }
 
 table.animals {
