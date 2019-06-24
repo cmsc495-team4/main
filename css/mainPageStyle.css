@@ -206,7 +206,7 @@ table.animals {
 	border-collapse: collapse;
 	border-spacing: 5px;
 	border: 1px solid black;
-	width: 98%
+	width: auto;
 }
 
 tr.animals {
