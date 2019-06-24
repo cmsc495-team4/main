@@ -205,10 +205,6 @@ div.dataTables_filter {
 	
 }
 
-.dataTables_wrapper {
-	padding: 4px!important;
-}
-
 table.animals {
 	border-collapse: collapse;
 	border-spacing: 5px;
@@ -230,4 +226,8 @@ th.animals {
 	margin-top: 2px;
 	padding: 5px;
 	border: 1px dotted black;
+}
+
+.dataTables_wrapper {
+	padding: 4px!important;
 }
