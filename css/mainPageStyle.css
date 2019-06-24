@@ -44,6 +44,7 @@ tr {
 body {
 	line-height: 1;
 	min-width:1160px;
+	overflow: scroll;
 }
 
 blockquote, q {
