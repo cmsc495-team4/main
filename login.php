@@ -59,10 +59,12 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-<html>
+<meta charset="utf-8"/>
+<title>RITA - Login</title>
 
 <style>
 .fixed-bottom-wrapper {
@@ -124,7 +126,7 @@ input {
 }
 
 </style>
-
+</head>
 
 <body>
 	<div class="main-body">

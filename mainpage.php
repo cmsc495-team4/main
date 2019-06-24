@@ -93,7 +93,7 @@ if (isset($_REQUEST["clear"])) {
 
 <head>
 <meta charset="utf-8"/>
-<title>RITA Main Page</title>
+<title>RITA - Main Page</title>
 <link rel="stylesheet" type="text/css" href="css/mainPageStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
 		<link rel="stylesheet" type="text/css"
