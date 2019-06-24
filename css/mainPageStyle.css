@@ -205,7 +205,7 @@ div.dataTables_filter {
 	
 }
 
-div#maintable_wrapper.dataTables_wrapper {
+.dataTables_wrapper {
 	padding: 4px;
 }
 
