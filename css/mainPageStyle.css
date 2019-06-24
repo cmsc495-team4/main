@@ -194,6 +194,9 @@ button.update {
 	selected {border: 1px;
 }
 
+div.dataTables_length {
+	padding: 3px;
+}
 
 table.animals {
 	border-collapse: collapse;
@@ -204,7 +207,7 @@ table.animals {
 
 tr.animals {
 	transition: all linear 0.5s font-style: normal;
-	background-color: #FFFFFF;
+	/* background-color: #FFFFFF; */
 }
 
 th.animals {
