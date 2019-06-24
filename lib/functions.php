@@ -463,22 +463,22 @@ function displayAnimalTable()
                 $parentPair = $row5["breedingPair"];
 
                 echo "<tr>\n";
-                echo "<td><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
-                echo "<td>" . $animalID . "</td>\n";
-                echo "<td>" . $lastName . $firstName . "</td>\n";
-                echo "<td>" . $tagNumber . "</td>\n";
-                echo "<td>" . $species . "</td>\n";
-                echo "<td>" . $classification . "</td>\n";
-                echo "<td>" . $sex . "</td>\n";
-                echo "<td>" . $strain . "</td>\n";
-                echo "<td>" . $genotype . "</td\n>";
-                echo "<td>" . $litterID . "</td>\n";
-                echo "<td>" . $parentPair . "</td>\n";
-                echo "<td>" . $birth_date . "</td>\n";
-                echo "<td>" . $wean_date . "</td>\n";
-                echo "<td>" . $tag_date . "</td>\n";
-                echo "<td>" . $strDeceased . "</td>\n";
-                echo "<td>" . $strTransferred . "</td>\n";
+                echo "<td style=\"text-align: center;\"><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
+                echo "<td style=\"text-align: center;\">" . $animalID . "</td>\n";
+                echo "<td style=\"text-align: left;\">" . $lastName . $firstName . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $tagNumber . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $species . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $classification . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $sex . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $strain . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $genotype . "</td\n>";
+                echo "<td style=\"text-align: center;\">" . $litterID . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $parentPair . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $birth_date . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $wean_date . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $tag_date . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $strDeceased . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $strTransferred . "</td>\n";
                 echo "</tr>\n";
             }
         }
@@ -558,22 +558,22 @@ function displayAnimalTable()
                 $parentPair = $row5["breedingPair"];
 
                 echo "<tr>\n";
-                echo "<td><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
-                echo "<td>" . $animalID . "</td>\n";
-                echo "<td>" . $lastName . $firstName . "</td>\n";
-                echo "<td>" . $tagNumber . "</td>\n";
-                echo "<td>" . $species . "</td>\n";
-                echo "<td>" . $classification . "</td>\n";
-                echo "<td>" . $sex . "</td>\n";
-                echo "<td>" . $strain . "</td>\n";
-                echo "<td>" . $genotype . "</td\n>";
-                echo "<td>" . $litterID . "</td>\n";
-                echo "<td>" . $parentPair . "</td>\n";
-                echo "<td>" . $birth_date . "</td>\n";
-                echo "<td>" . $wean_date . "</td>\n";
-                echo "<td>" . $tag_date . "</td>\n";
-                echo "<td>" . $strDeceased . "</td>\n";
-                echo "<td>" . $strTransferred . "</td>\n";
+                echo "<td style=\"text-align: center;\"><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
+                echo "<td style=\"text-align: center;\">" . $animalID . "</td>\n";
+                echo "<td style=\"text-align: left;\">" . $lastName . $firstName . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $tagNumber . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $species . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $classification . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $sex . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $strain . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $genotype . "</td\n>";
+                echo "<td style=\"text-align: center;\">" . $litterID . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $parentPair . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $birth_date . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $wean_date . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $tag_date . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $strDeceased . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $strTransferred . "</td>\n";
                 echo "</tr>\n";
             }
         }
