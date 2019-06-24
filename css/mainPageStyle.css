@@ -43,6 +43,7 @@ tr {
 
 body {
 	line-height: 1;
+	min-width:1160px;
 }
 
 blockquote, q {
