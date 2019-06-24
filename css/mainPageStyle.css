@@ -77,7 +77,7 @@ header {
 	border-bottom: 2px solid black;
 	border-left: 1px solid black;
 	border-right: 1px solid black;
-	height: 250px;
+	/* height: 250px; */
 	padding-bottom: 6px;
 	text-shadow: 1px, 1px, 1px, gray;
 }
