@@ -21,6 +21,8 @@ div.logo {
 div.maintable {
 	padding-top: 8px;
 	padding-bottom: 14px;
+	padding-left: 4px;
+	padding-right: 4px;
 }
 
 h2.maintitle {
@@ -218,6 +220,3 @@ th.animals {
 	border: 1px dotted black;
 }
 
-div.maintable {
-	padding: 4px!important;
-}
