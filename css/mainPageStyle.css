@@ -83,6 +83,7 @@ header {
 	border-left: 1px solid black;
 	border-right: 1px solid black;
 	/* height: 250px; */
+	width: 99%;
 	padding-bottom: 6px;
 	text-shadow: 1px, 1px, 1px, gray;
 }
@@ -133,6 +134,7 @@ footer {
 	border-left: 1px solid black;
 	border-right: 1px solid black;
 	height: auto;
+	width: 99%;
 	padding-bottom: 4px;
 }
 
