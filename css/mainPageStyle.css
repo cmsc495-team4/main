@@ -84,7 +84,6 @@ header {
 	border-left: 1px solid black;
 	border-right: 1px solid black;
 	/* height: 250px; */
-	width: 99%;
 	padding-bottom: 6px;
 	text-shadow: 1px, 1px, 1px, gray;
 }
@@ -135,7 +134,6 @@ footer {
 	border-left: 1px solid black;
 	border-right: 1px solid black;
 	height: auto;
-	width: 99%;
 	padding-bottom: 4px;
 }
 
@@ -226,9 +224,6 @@ th.animals {
 	border: 1px dotted black;
 }
 
-form.header-form {
-	width:50%;
-}
 /* @media (max-width: 600px) {
   form.header-form input {
     margin: 10px 0;
