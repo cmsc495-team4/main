@@ -225,7 +225,10 @@ th.animals {
 	border: 1px dotted black;
 }
 
-@media (max-width: 600px) {
+form.header-form {
+	width:50%;
+}
+/* @media (max-width: 600px) {
   form.header-form input {
     margin: 10px 0;
   }
@@ -234,4 +237,4 @@ th.animals {
     flex-direction: column;
     align-items: stretch;
   }
-}
+} */
