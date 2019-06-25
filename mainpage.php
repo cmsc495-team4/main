@@ -85,6 +85,7 @@ if (isset($_POST["clear"])) {
     $breederChecked = "checked";
     $weanlingChecked = "checked";
     $pupChecked = "checked";
+    $strain_name = "";
     $dob = " placeholder=\"mm/dd/yyyy\"";
 }
 ?>
