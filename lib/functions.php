@@ -465,8 +465,8 @@ function displayAnimalTable()
 
                 echo "<tr>\n";
                 echo "<td style=\"text-align: center;\"><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
-                echo "<td style=\"text-align: center;\"><span class=\"tooltip\">" . $animalID . "<span class=\"classic\">" . $comments . "</span></span></td>\n";
-                echo "<td style=\"text-align: left;\"><span class=\"tooltip\">" . $lastName . $firstName . "<span class=\"classic\">" . $comments . "</span></span></td>\n";
+                echo "<td style=\"text-align: center;\"><span class=\"tooltip\">" . $animalID . "<a class=\"tooltip\" href=\"#\">" . $comments . "</span></span></td>\n";
+                echo "<td style=\"text-align: left;\"><span class=\"tooltip\">" . $lastName . $firstName . "<span class=\"classic\">" . $comments . "</span></a></td>\n";
                 echo "<td style=\"text-align: center;\"><span class=\"tooltip\">" . $tagNumber . "<span class=\"classic\">" . $comments . "</span></span></td>\n";
                 echo "<td style=\"text-align: center;\"><span class=\"tooltip\">" . $species . "<span class=\"classic\">" . $comments . "</span></span></td>\n";
                 echo "<td style=\"text-align: center;\"><span class=\"tooltip\">" . $classification . "<span class=\"classic\">" . $comments . "</span></span></td>\n";
