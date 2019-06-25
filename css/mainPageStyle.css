@@ -233,11 +233,11 @@ th.animals {
 	border: 1px dotted black;
 }
 
-.tooltip{
+.row-tooltip{
   display:none;
   border: 1px solid red;
 }
-tr.animals:hover .tooltip{
+tr.animals:hover .row-tooltip{
   display:inline-block;
 }}
 
