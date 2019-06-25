@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `animals` (
 -- Dumping data for table `animals`
 --
 
-INSERT INTO `animals` (`animalID`, species_name, `classification`, `sex`, `entered_date`, `tag_date`, `birth_date`, `wean_date`, `genotype`, `generation`, `location`, `tagNumber`, `deceased`, `transferred`, `comments`, strain_ID) VALUES
+INSERT INTO `animals` (`animalID`, `species_name`, `classification`, `sex`, `entered_date`, `tag_date`, `birth_date`, `wean_date`, `genotype`, `generation`, `location`, `tagNumber`, `deceased`, `transferred`, `comments`, `strain_ID`) VALUES
 (1, 'Mouse', 'breeder', 'Male', '2019-06-05 00:00:00', '2019-12-12', '2019-11-14', '2019-12-05', 'wt', 'F', 'B1C110', 10000, b'0', b'0', 'No notes', 9),
 (2, 'Mouse', 'breeder', 'Female', '2019-06-05 00:00:00', '2019-12-20', '2019-12-01', '2019-11-9', 'het', 'F', 'B1C110', 10010, b'0', b'0', 'No notes', 8),
 (3, 'Mouse', 'weanling', 'Male', '2019-06-05 00:00:00', '2019-02-05', '2019-01-21', '2019-02-12', 'het', '1', 'B1C111', 10100, b'0', b'0', 'No notes', 8),
@@ -117,9 +117,9 @@ INSERT INTO `animals` (`animalID`, species_name, `classification`, `sex`, `enter
 (104, 'Rat', 'breeder', 'Female', '2019-06-05 00:00:00', '2018-06-12', '2019-06-01', '2019-06-21', 'het', '4', 'B1C112', 1256, b'0', b'0', 'none',2),
 (105, 'Rat', 'breeder', 'Male', '2019-06-05 00:00:00', '2019-06-12', '2019-06-08', '2019-06-22', 'wt', '4', 'B1C112', 6425, b'0', b'0', 'none',3),
 (106, 'Rat', 'weanling', 'Female', '2019-06-05 00:00:00', '2018-06-12', '2019-05-31', '2019-06-15', 'het', '5', 'B1C112', 1234, b'0', b'0', 'none',5),
-(107, 'Rat', 'pup', 'Female', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, 'het', '4', NULL, NULL, b'0', b'0', 'none',24),
-(108, 'Rat', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, 'het', '5', NULL, NULL, b'0', b'0', 'none',8),
-(109, 'Rat', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, 'het', '5', NULL, NULL, b'0', b'0', 'No notes',4),
+(107, 'Rat', 'pup', 'Female', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, NULL, '4', NULL, NULL, b'0', b'0', 'none',24),
+(108, 'Rat', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, NULL, '5', NULL, NULL, b'0', b'0', 'none',8),
+(109, 'Rat', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, NULL, '5', NULL, NULL, b'0', b'0', 'No notes',4),
 (110, 'Rat', 'weanling', 'Male', '2019-06-05 00:00:00', '2019-06-12', '2019-04-08', '2019-04-22', 'wt', '4', 'B1C112', 6425, b'0', b'0', 'none',26),
 (111, 'Rat', 'weanling', 'Female', '2019-06-05 00:00:00', '2018-06-12', '2019-04-14', '2019-04-30', 'het', '4', 'B1C112', 1234, b'0', b'0', 'none',2),
 (112, 'Rat', 'breeder', 'Female', '2019-06-05 00:00:00', '2019-06-12', '2018-06-05', '2018-07-05', 'hom', '3', 'B1C112', 2347, b'0', b'0', 'No notes',16),
@@ -129,9 +129,9 @@ INSERT INTO `animals` (`animalID`, species_name, `classification`, `sex`, `enter
 (116, 'Rat', 'breeder', 'Female', '2019-06-05 00:00:00', '2018-06-12', '2019-06-01', '2019-06-21', 'het', '4', 'B1C112', 1256, b'0', b'0', 'none',24),
 (117, 'Mouse', 'breeder', 'Male', '2019-06-05 00:00:00', '2019-06-12', '2019-06-08', '2019-06-22', 'hom', '4', 'B1C112', 6425, b'0', b'0', 'none',21),
 (118, 'Mouse', 'weanling', 'Female', '2019-06-05 00:00:00', '2018-06-12', '2019-05-31', '2019-06-15', 'het', '5', 'B1C112', 1234, b'0', b'0', 'none',9),
-(119, 'Rat', 'pup', 'Female', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, 'het', '4', NULL, NULL, b'0', b'0', 'none',2),
-(120, 'Rat', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, 'het', '5', NULL, NULL, b'0', b'0', 'none',24),
-(121, 'Rat', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, 'het', '5', NULL, NULL, b'0', b'0', 'No notes',24),
+(119, 'Rat', 'pup', 'Female', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, NULL, '4', NULL, NULL, b'0', b'0', 'none',2),
+(120, 'Rat', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, 'NULL', '5', NULL, NULL, b'0', b'0', 'none',24),
+(121, 'Rat', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, NULL, '5', NULL, NULL, b'0', b'0', 'No notes',24),
 (122, 'Mouse', 'weanling', 'Male', '2019-06-05 00:00:00', '2019-06-12', '2019-04-08', '2019-04-22', 'wt', '4', 'B1C113', 6425, b'0', b'0', 'none',10),
 (123, 'Mouse', 'weanling', 'Female', '2019-06-05 00:00:00', '2018-06-12', '2019-04-14', '2019-04-30', 'hom', '4', 'B1C111', 1234, b'0', b'0', 'none',20),
 (124, 'Rat', 'breeder', 'Female', '2019-06-05 00:00:00', '2018-06-12', '2018-12-15', '2019-01-18', 'het', '3', 'B1C111', 4836, b'0', b'0', 'none',22),
@@ -140,18 +140,18 @@ INSERT INTO `animals` (`animalID`, species_name, `classification`, `sex`, `enter
 (127, 'Mouse', 'breeder', 'Male', '2019-06-05 00:00:00', '2019-06-12', '2019-06-08', '2019-06-22', 'wt', '4', 'B1C113', 6425, b'0', b'0', 'none',6),
 (128, 'Mouse', 'weanling', 'Female', '2019-06-05 00:00:00', '2018-06-12', '2019-05-31', '2019-06-15', 'het', '5', 'B1C113', 1234, b'0', b'0', 'none',6),
 (129, 'Mouse', 'breeder', 'Female', '2019-06-05 00:00:00', '2018-06-12', '2019-06-01', '2019-06-21', 'het', '4', 'B1C113', 1256, b'0', b'0', 'none',10),
-(130, 'Mouse', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, 'het', '5', NULL, NULL, b'0', b'0', 'none',12),
-(131, 'Mouse', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, 'hom', '5', NULL, NULL, b'0', b'0', 'No notes',2),
+(130, 'Mouse', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, NULL, '5', NULL, NULL, b'0', b'0', 'none',12),
+(131, 'Mouse', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, NULL, '5', NULL, NULL, b'0', b'0', 'No notes',2),
 (132, 'Rat', 'weanling', 'Male', '2019-06-05 00:00:00', '2019-06-12', '2019-04-08', '2019-04-22', 'wt', '4', 'B1C113', 6425, b'0', b'0', 'none',1),
 (133, 'Rat', 'weanling', 'Female', '2019-06-05 00:00:00', '2018-06-12', '2019-04-14', '2019-04-30', 'het', '4', 'B1C113', 1234, b'0', b'0', 'none',2),
 (134, 'Mouse', 'weanling', 'Female', '2019-06-05 00:00:00', '2018-06-12', '2019-04-14', '2019-04-30', 'het', '4', 'B1C113', 1234, b'0', b'0', 'none',8),
-(135, 'Mouse', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, 'hom', '5', NULL, NULL, b'0', b'0', 'none',25),
-(136, 'Rat', 'pup', 'Female', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, 'het', '5', NULL, NULL, b'0', b'0', 'No notes',1),
-(137, 'Mouse', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, 'het', '5', NULL, NULL, b'0', b'0', 'none',6),
-(138, 'Mouse', 'pup', 'Female', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, 'hom', '5', NULL, NULL, b'0', b'0', 'No notes',6),
-(139, 'Mouse', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, 'het', '5', NULL, NULL, b'0', b'0', 'none',6),
-(140, 'Mouse', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, 'het', '5', NULL, NULL, b'0', b'0', 'No notes',6),
-(141, 'Mouse', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, 'het', '5', NULL, NULL, b'0', b'0', 'No notes',6);
+(135, 'Mouse', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, NULL, '5', NULL, NULL, b'0', b'0', 'none',25),
+(136, 'Rat', 'pup', 'Female', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, NULL, '5', NULL, NULL, b'0', b'0', 'No notes',1),
+(137, 'Mouse', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, NULL, '5', NULL, NULL, b'0', b'0', 'none',6),
+(138, 'Mouse', 'pup', 'Female', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, NULL, '5', NULL, NULL, b'0', b'0', 'No notes',6),
+(139, 'Mouse', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, NULL, '5', NULL, NULL, b'0', b'0', 'none',6),
+(140, 'Mouse', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, NULL, '5', NULL, NULL, b'0', b'0', 'No notes',6),
+(141, 'Mouse', 'pup', 'Male', '2019-06-05 00:00:00', NULL, '2019-06-20', NULL, NULL, '5', NULL, NULL, b'0', b'0', 'No notes',6);,6);
 
 -- --------------------------------------------------------
 
@@ -475,7 +475,22 @@ INSERT INTO `PI_assigned_animals` (`id_PI`, `PI_username`, `PI_strain_ID`, `PI_a
 (64, 'jhatcher', 4, 23),
 (65, 'jhatcher', 4, 24);
 
+--
+-- Table structure for table `species`
+--
 
+DROP TABLE IF EXISTS `species`;
+CREATE TABLE IF NOT EXISTS `species` (
+  `idSpecies` int(11) NOT NULL AUTO_INCREMENT,
+  `species` varchar(11) DEFAULT NULL,
+  PRIMARY KEY (`idSpecies`),
+  KEY `idSpecies` (`idSpecies`),
+  KEY `species` (`species`)
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
+
+INSERT INTO `species` (`idSpecies`, `species`) VALUES
+(1,'Rat'),
+(2,'Mouse');
 -- --------------------------------------------------------
 
 --
@@ -487,6 +502,7 @@ CREATE TABLE IF NOT EXISTS `PI_authorized_strains` (
   `idPI_authorizations` int(11) NOT NULL AUTO_INCREMENT,
   `authPI_username` varchar(64) NOT NULL,
   `authPI_strain_ID` int(11) NOT NULL,
+  `idSpecies` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`idPI_authorizations`),
   KEY `authPI_username_idx` (`authPI_username`),
   KEY `authPI_strain_ID_idx` (`authPI_strain_ID`)
@@ -496,54 +512,54 @@ CREATE TABLE IF NOT EXISTS `PI_authorized_strains` (
 -- Dumping data for table `PI_authorized_strains`
 --
 
-INSERT INTO `PI_authorized_strains` (`idPI_authorizations`, `authPI_username`, `authPI_strain_ID`) VALUES
-(1, 'Hatcher', 1),
-(2, 'Hatcher', 2),
-(3, 'Hatcher', 3),
-(4, 'Hatcher', 4),
-(5, 'Hatcher', 5),
-(6, 'Hatcher', 6),
-(7, 'Hatcher', 7),
-(8, 'Hatcher', 8),
-(9, 'Hatcher', 25),
-(10, 'Hatcher', 26),
-(11, 'Mabry', 6),
-(12, 'Mabry', 10),
-(13, 'Mabry', 11),
-(14, 'Mabry', 12),
-(15, 'Mabry', 25),
-(16, 'Mabry', 26),
-(17, 'Matthew', 13),
-(18, 'Matthew', 14),
-(19, 'Matthew', 15),
-(20, 'Matthew', 2),
-(21, 'Matthew', 3),
-(22, 'Matthew', 16),
-(23, 'Matthew', 25),
-(24, 'Matthew', 26),
-(25, 'Sapp', 1),
-(26, 'Sapp', 2),
-(27, 'Sapp', 3),
-(28, 'Sapp', 17),
-(29, 'Sapp', 18),
-(30, 'Sapp', 19),
-(31, 'Sapp', 25),
-(32, 'Sapp', 26),
-(33, 'Sharma', 6),
-(34, 'Sharma', 10),
-(35, 'Sharma', 20),
-(36, 'Sharma', 21),
-(37, 'Sharma', 2),
-(38, 'Sharma', 22),
-(39, 'Sharma', 25),
-(40, 'Sharma', 26),
-(41, 'Mendel', 23),
-(42, 'Mendel', 10),
-(43, 'Mendel', 2),
-(44, 'Mendel', 24),
-(45, 'Mendel', 25),
-(46, 'Mendel', 26),
-(47, 'Mabry', 8);
+INSERT INTO `PI_authorized_strains` (`idPI_authorizations`, `authPI_username`, `authPI_strain_ID`,`idSpecies`) VALUES
+(1, 'Hatcher', 1, 1),
+(2, 'Hatcher', 2, 1),
+(3, 'Hatcher', 3, 1),
+(4, 'Hatcher', 4, 1),
+(5, 'Hatcher', 5, 1),
+(6, 'Hatcher', 6, 2),
+(7, 'Hatcher', 7, 2),
+(8, 'Hatcher', 8, 2),
+(9, 'Hatcher', 25, NULL),
+(10, 'Hatcher', 26, NULL),
+(11, 'Mabry', 6, 2),
+(12, 'Mabry', 10, 2),
+(13, 'Mabry', 11, 2),
+(14, 'Mabry', 12, 2),
+(15, 'Mabry', 25, NULL),
+(16, 'Mabry', 26, NULL),
+(17, 'Matthew', 13, 1),
+(18, 'Matthew', 14, 1),
+(19, 'Matthew', 15, 1),
+(20, 'Matthew', 2, 1),
+(21, 'Matthew', 3, 1),
+(22, 'Matthew', 16, 1),
+(23, 'Matthew', 25, NULL),
+(24, 'Matthew', 26, NULL),
+(25, 'Sapp', 1, 1),
+(26, 'Sapp', 2, 1),
+(27, 'Sapp', 3, 1),
+(28, 'Sapp', 17, 1),
+(29, 'Sapp', 18, 1),
+(30, 'Sapp', 19, 1),
+(31, 'Sapp', 25, NULL),
+(32, 'Sapp', 26, NULL),
+(33, 'Sharma', 6, 2),
+(34, 'Sharma', 10, 2),
+(35, 'Sharma', 20, 2),
+(36, 'Sharma', 21, 2),
+(37, 'Sharma', 2. 1),
+(38, 'Sharma', 22, 1),
+(39, 'Sharma', 25, NULL),
+(40, 'Sharma', 26, NULL),
+(41, 'Mendel', 23, 2),
+(42, 'Mendel', 10, 2),
+(43, 'Mendel', 2, 1),
+(44, 'Mendel', 24, 1),
+(45, 'Mendel', 25, NULL),
+(46, 'Mendel', 26, NULL),
+(47, 'Mabry', 8, 2);
 
 -- --------------------------------------------------------
 
