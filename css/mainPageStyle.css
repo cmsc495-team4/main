@@ -232,7 +232,7 @@ th.animals {
 	border: 1px dotted black;
 }
 
-tr.row-tooltip {
+.row-tooltip {
 	position: absolute;
     bottom: 100%;  /* This will position the arrow at the top of the tooltip */
     left: 50%;
