@@ -118,8 +118,8 @@ if (isset($_REQUEST["clear"])) {
   $( function() {
     $( document ).tooltip();
     $( ".selector" ).tooltip({
-    	position: { my: "left+15 center", at: "right center" }
-    	show: { effect: "fadeIn", duration: 700 }
+    	position: { my: "left+15 center", at: "right top" }
+    	show: { duration: 400 }
     	});
     	    
   } );
