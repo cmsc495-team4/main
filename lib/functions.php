@@ -463,23 +463,23 @@ function displayAnimalTable()
                 $litterID = $row5["litterID"];
                 $parentPair = $row5["breedingPair"];
 
-                echo "<tr>\n";
+                echo "<tr title=\"Animal Notes: " . $comments . "\">\n";
                 echo "<td style=\"text-align: center;\"><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
-                echo "<td style=\"text-align: center;\"><a class=\"tooltip\" href=\"#\">" . $animalID . "<span class=\"classic\">" . $comments . "</span></a></td>\n";
-                echo "<td style=\"text-align: left;\"><span class=\"tooltip\">" . $lastName . $firstName . "<span class=\"classic\">" . $comments . "</span></span></td>\n";
-                echo "<td style=\"text-align: center;\"><span class=\"tooltip\">" . $tagNumber . "<span class=\"classic\">" . $comments . "</span></span></td>\n";
-                echo "<td style=\"text-align: center;\"><span class=\"tooltip\">" . $species . "<span class=\"classic\">" . $comments . "</span></span></td>\n";
-                echo "<td style=\"text-align: center;\"><span class=\"tooltip\">" . $classification . "<span class=\"classic\">" . $comments . "</span></span></td>\n";
-                echo "<td style=\"text-align: center;\"><span class=\"tooltip\">" . $sex . "<span class=\"classic\">" . $comments . "</span></span></td>\n";
-                echo "<td style=\"text-align: center;\"><span class=\"tooltip\">" . $strain . "<span class=\"classic\">" . $comments . "</span></span></td>\n";
-                echo "<td style=\"text-align: center;\"><span class=\"tooltip\">" . $genotype . "<span class=\"classic\">" . $comments . "</span></span></td>\n";
-                echo "<td style=\"text-align: center;\"><span class=\"tooltip\">" . $litterID . "<span class=\"classic\">" . $comments . "</span></span></td>\n";
-                echo "<td style=\"text-align: center;\"><span class=\"tooltip\">" . $parentPair . "<span class=\"classic\">" . $comments . "</span></span></td>\n";
-                echo "<td style=\"text-align: center;\"><span class=\"tooltip\">" . $birth_date . "<span class=\"classic\">" . $comments . "</span></span></td>\n";
-                echo "<td style=\"text-align: center;\"><span class=\"tooltip\">" . $wean_date . "<span class=\"classic\">" . $comments . "</span></span></td>\n";
-                echo "<td style=\"text-align: center;\"><span class=\"tooltip\">" . $tag_date . "<span class=\"classic\">" . $comments . "</span></span></td>\n";
-                echo "<td style=\"text-align: center;\"><span class=\"tooltip\">" . $strDeceased . "<span class=\"classic\">" . $comments . "</span></span></td>\n";
-                echo "<td style=\"text-align: center;\"><span class=\"tooltip\">" . $strTransferred . "<span class=\"classic\">" . $comments . "</span></span></td>\n";
+                echo "<td style=\"text-align: center;\">" . $animalID . "</td>\n";
+                echo "<td style=\"text-align: left;\">" . $lastName . $firstName . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $tagNumber . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $species . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $classification . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $sex . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $strain . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $genotype . "</td\n>";
+                echo "<td style=\"text-align: center;\">" . $litterID . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $parentPair . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $birth_date . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $wean_date . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $tag_date . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $strDeceased . "</td>\n";
+                echo "<td style=\"text-align: center;\">" . $strTransferred . "</td>\n";
                 echo "</tr>\n";
             }
         }
