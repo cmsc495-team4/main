@@ -420,7 +420,8 @@ function displayAnimalTable()
                 $tag_date = $row["tag_date"];
                 $deceased = $row["deceased"];
                 $transferred = $row["transferred"];
-
+                $comments = $row["comments"];
+                
                 if ($deceased == 1) {
                     $strDeceased = "Yes";
                 } else {
@@ -462,7 +463,7 @@ function displayAnimalTable()
                 $litterID = $row5["litterID"];
                 $parentPair = $row5["breedingPair"];
 
-                echo "<tr>\n";
+                echo "<tr title=\"Notes: " . $comments . "\">\n";
                 echo "<td style=\"text-align: center;\"><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
                 echo "<td style=\"text-align: center;\">" . $animalID . "</td>\n";
                 echo "<td style=\"text-align: left;\">" . $lastName . $firstName . "</td>\n";
@@ -511,6 +512,7 @@ function displayAnimalTable()
                 $transferred = $row["transferred"];
                 $parentPair = $row["breedingPair"];
                 $litterID = $row["litterID"];
+                $comments = $row["comments"];
 
                 if ($deceased == 1) {
                     $strDeceased = "Yes";
