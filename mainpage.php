@@ -117,8 +117,19 @@ if (isset($_REQUEST["clear"])) {
 <script>
   $( function() {
     $( document ).tooltip();
+    $( ".selector" ).tooltip({
+    	position: { my: "left+15 center", at: "right center" }
+    	show: { effect: "fadeIn", duration: 700 }
+    	});
+    	    
   } );
   </script>
+
+
+$( ".selector" ).tooltip({
+  show: { effect: "blind", duration: 800 }
+});
+
 
 <script type="text/javascript"
 	src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.js"></script>
