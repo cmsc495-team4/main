@@ -1,10 +1,12 @@
 <?php
 session_start();
-
+//Check if user has an existing session, else send to login page. Commented out for easy testing
+/*
 if (!isset($_SESSION['user_name'])) {
     header('Location: login.php');
     exit();
 }
+*/
 
 if (isset($_POST['pi_name'])) {
     $last_pi_name = $_POST['pi_name'];
