@@ -220,6 +220,7 @@ tr.animals {
 	transition: all linear 0.5s font-style: normal;
 	text-align: center;
 	vertical-align: middle;
+	  cursor: pointer;
 	
 	/* background-color: #FFFFFF; */
 }
@@ -232,16 +233,13 @@ th.animals {
 	border: 1px dotted black;
 }
 
-.row-tooltip {
-	position: absolute;
-    bottom: 100%;  /* This will position the arrow at the top of the tooltip */
-    left: 50%;
-    margin-left: -10px;    
-    border-width: 10px;
-    border-style: solid; 
-    border-color: transparent transparent black transparent; /* This will make the top border black */
-	
+.tooltip{
+  display:none;
+  border: 1px solid red;
 }
+tr.animals:hover .tooltip{
+  display:inline-block;
+}}
 
 /* @media (max-width: 600px) {
   form.header-form input {

@@ -114,16 +114,16 @@ if (isset($_REQUEST["clear"])) {
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>
-  $( function() {
-    $( document ).tooltip({
-    	position: { my: "center top-120%",  at: "right top",collision: "fitflip"}
-    	show: { duration: 200 }
-    	template: '<div class="tooltip row-tooltip">'
-    	});
+<!-- <script> -->
+//   $( function() {
+//     $( document ).tooltip({
+//     	position: { my: "center top-120%",  at: "right top",collision: "fitflip"}
+//     	show: { duration: 200 }
+//     	template: '<div class="tooltip row-tooltip">'
+//     	});
     	    
-  } );
-  </script>
+//   } );
+<!--    </script> -->
 
 
 
