@@ -298,13 +298,17 @@ $(document).ready( function () {
 					<table class="tb-footer">
 						<tr class="tr-footer">
 							<td class="td-footer"><button class="update" type="submit"
-									name="updateEntry">Update Selected</button></td>
+								name="addLitter">Add Litter</button></td>
+              						<td class="td-footer"><button class="update" type="submit"
+    								name="addAnimal">Add Animal</button></td>
 							<td class="td-footer"><button class="update" type="submit"
-									name="addPup">Add Pups</button></td>
+								name="addBreeder">Add Breeder Pair</button></td>
+             					        <td class="td-footer"><button class="update" type="submit"
+    					   			 name="updateEntry">Update Selected</button></td>
+              						<td class="td-footer"><button class="update" type="submit"
+    								name="updateBreederPair">Update Breeder Pair</button></td>
 							<td class="td-footer"><button class="update" type="submit"
-									name="addBreeder">Add Breeder Pair</button></td>
-							<td class="td-footer"><button class="update" type="submit"
-									name="addBreeder">Add Litter</button></td>
+								name="delte">Delete entry</button></td>
 							<td id="this is an empty cell for spacing">&emsp;&emsp;&emsp;</td>
 							<td>Display Report:</td>
 							<td><select>
