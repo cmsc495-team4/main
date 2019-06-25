@@ -118,7 +118,7 @@ if (isset($_REQUEST["clear"])) {
   $( function() {
     $( document ).tooltip();
     $( ".selector" ).tooltip({
-    	position: { my: "right top+25%", at: "right bottom", collision: "fitflip"}
+    	position: { my: "right top+75%", at: "right bottom", collision: "fitflip"}
     	show: { duration: 400 }
     	});
     	    
