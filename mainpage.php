@@ -256,8 +256,8 @@ $(document).ready( function () {
 	});
 
   //assume newW is a calculated value that I produce with every resize, i.e., the 'available width'
-    $('table.maintable').css('width', newW);
-    $('div.dataTables_scroll').css('width', newW);
+    $('table.maintable').css('width', new);
+    $('div.dataTables_scroll').css('width', new);
     $('#maintable_wrapper div.row').css('margin-left', '0px'); //this simply overcomes an enclosing margin of -15 (something from bootstrap)
 } );
 
