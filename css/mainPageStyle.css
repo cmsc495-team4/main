@@ -233,13 +233,13 @@ th.animals {
 	border: 1px dotted black;
 }
 
-.row-tooltip{
+tr.row-tooltip{
   display:none;
   border: 1px solid red;
 }
-tr.animals:hover .row-tooltip{
+tr:hover .row-tooltip{
   display:inline-block;
-}}
+}
 
 /* @media (max-width: 600px) {
   form.header-form input {
