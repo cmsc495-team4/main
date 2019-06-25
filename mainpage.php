@@ -118,7 +118,7 @@ if (isset($_REQUEST["clear"])) {
   $( function() {
     $( document ).tooltip();
     $( ".selector" ).tooltip({
-    	position: { my: "center bottomr", at: "right top" }
+    	position: { my: "center bottom", at: "right top" }
     	show: { duration: 400 }
     	});
     	    
