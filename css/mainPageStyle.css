@@ -28,6 +28,11 @@ div.maintable {
 	min-width: 1150px;
 }
 
+#maintable_wrapper div.row {
+		tr:nth-child(2)
+	
+}
+
 h2.maintitle {
 	text-align: center;
 	font-family: "Avant Garde", Verdana;
@@ -209,7 +214,6 @@ table.animals {
 	border: 1px solid black;
 	width: auto;
 	min-width:1140px;
-	tr::nth-child(2)
 }
 
 tr.animals {
