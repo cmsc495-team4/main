@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>Add Litter</title>
-	<link rel="stylesheet" type="text/css" href="addPupsStyle.css">
+	<link rel="stylesheet" type="text/css" href="css/addPupsStyle.css">
 </head>
 
 <header>
