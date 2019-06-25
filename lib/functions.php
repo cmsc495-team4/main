@@ -559,7 +559,7 @@ function displayAnimalTable()
                 $litterID = $row5["litterID"];
                 $parentPair = $row5["breedingPair"];
 
-                echo "<tr>\n";
+                echo "<tr title=\"Animal Notes: " . $comments . "\">\n";
                 echo "<td style=\"text-align: center;\"><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
                 echo "<td style=\"text-align: center;\">" . $animalID . "</td>\n";
                 echo "<td style=\"text-align: left;\">" . $lastName . $firstName . "</td>\n";
