@@ -1,4 +1,6 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/addBrPairStyle.css">
@@ -12,6 +14,7 @@
 		error_reporting(E_ALL);
 		require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 	?>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </header>
 
 <body>
@@ -20,20 +23,20 @@
 			<tr>
 				<td>PI:</td>
 				<td>
-					<select>
-						<option value="1">1</option>
+					<select name="pi_name">
+						<?php getInvestigators($last_pi_name); ?>
 					</select>
 				</td>
 				<td>Species:</td>
 				<td>
-					<select>
-						<option value="1">1</option>
+					<select name="species_name">
+						<?php getDropDown("species_name", "animals", $species_name); ?>
 					</select>
 				</td>
 				<td>Strain:</td>
 				<td>
-					<select>
-						<option value="1">1</option>
+					<select name="strain_name">
+						<?php getDropDown("strain_name", "strains", $strain_name); ?>
 					</select>
 				</td>
 			</tr>
