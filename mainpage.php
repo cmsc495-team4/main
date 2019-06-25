@@ -297,23 +297,23 @@ $(document).ready( function () {
 
 					<table class="tb-footer">
 						<tr class="tr-footer">
-							<td class="td-footer"><button class="update" type="submit"
-								name="addLitter">Add Litter</button></td>
-              						<td class="td-footer"><button class="update" type="submit"
+							<td class="td-footer"><button class="update" type="button"
+								name="addLitter" onclick="window.location='addLitter.php'">Add Litter</button></td>
+              						<td class="td-footer"><button class="update" type="button"
     								name="addAnimal">Add Animal</button></td>
-							<td class="td-footer"><button class="update" type="submit"
+							<td class="td-footer"><button class="update" type="button"
 								name="addBreeder">Add Breeder Pair</button></td>
-             					        <td class="td-footer"><button class="update" type="submit"
-    					   			 name="updateEntry">Update Selected</button></td>
-              						<td class="td-footer"><button class="update" type="submit"
+              						<td class="td-footer"><button class="update" type="button"
+    					    			name="updateEntry">Update Selected</button></td>
+              						<td class="td-footer"><button class="update" type="button"
     								name="updateBreederPair">Update Breeder Pair</button></td>
-							<td class="td-footer"><button class="update" type="submit"
+							<td class="td-footer"><button class="update" type="button"
 								name="delte">Delete entry</button></td>
 							<td id="this is an empty cell for spacing">&emsp;&emsp;&emsp;</td>
 							<td>Display Report:</td>
 							<td><select>
-									<option value="survival" selected>- select -</option>
-									<option value="survival">Pup Survivability</option>
+								<option value="survival" selected>- select -</option>
+								<option value="survival">Pup Survivability</option>
 							</select></td>
 							<td><button class="action" type="submit" name="goReport">Go</button></td>
 
