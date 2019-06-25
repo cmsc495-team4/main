@@ -79,7 +79,7 @@ if (isset($_POST['filter'])) {
     $pupChecked = "checked";
 }
 
-if (isset($_REQUEST["clear"])) {
+if (isset($_POST["clear"])) {
     $_POST = array();
     $_REQUEST = array();
     $breederChecked = "checked";
