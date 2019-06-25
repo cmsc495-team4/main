@@ -116,8 +116,7 @@ if (isset($_REQUEST["clear"])) {
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
   $( function() {
-    $( document ).tooltip();
-    $( ".selector" ).tooltip({
+    $( document ).tooltip({
     	position: { my: "left top+75%", at: "right bottom", collision: "fitflip"}
     	show: { duration: 400 }
     	});
