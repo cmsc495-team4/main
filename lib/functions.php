@@ -31,7 +31,7 @@ function getDropDown($fieldName, $tableName, $previousValue)
 
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $query = "SELECT DISTINCT " . $fieldName . " FROM " . $tableName . " ORDER BY " . $fieldName . " ASC";
-    echo "\n--> " . $query . "\n";
+    //echo "\n--> " . $query . "\n";
     $result = $pdo->query($query);
     $result->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -64,7 +64,7 @@ function getDropDown($fieldName, $tableName, $previousValue)
                 if ($val == $previousValue) {
                     $extra = "selected";
                 }
-                if (! in_array($val, $alreadyFound)) { // don't add duplicate values to the list
+                if (! in_array($val, $alreadyFound) && ($val != "")) { // don't add duplicate or blank values to the list
                     if ($key == $fieldName) {
                         echo "<option name=\"" . $fieldName . "\" value=\"" . htmlspecialchars($val) . "\" " . $extra . ">" . htmlspecialchars($val) . "</option>\n";
                     } else {
