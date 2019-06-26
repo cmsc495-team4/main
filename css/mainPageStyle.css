@@ -232,7 +232,7 @@ th.animals {
 background-color: #AFEEEE !important;
 }
 
-table.dataTable tbody tr.even:hover {
+tr.animalList.even:hover {
 background-color: #AFEEEE !important;
 }
 
