@@ -228,11 +228,11 @@ th.animals {
 }
 
 #maintable tbody tr.animalList:nth-child(even):hover td{
-background-color: PaleTurquois !important;
+background-color: #AFEEEE !important;
 }
 
 #maintable tbody tr.animalList:nth-child(odd):hover td {
-background-color: SkyBlue !important;
+background-color: #87CEEB !important;
 }
 /* @media (max-width: 600px) {
   form.header-form input {
