@@ -227,11 +227,11 @@ th.animals {
 	border: 1px dotted black;
 }
 
-table#maintable tbody tr:nth-child(even):hover td{
+table.dataTable.row-border tbody tr:nth-child(even):hover td{
 background-color: PaleTurquois !important;
 }
 
-table#maintable tbody tr:nth-child(odd):hover td {
+table.dataTable.row-border tbody tr:nth-child(odd):hover td {
 background-color: SkyBlue !important;
 }
 /* @media (max-width: 600px) {
