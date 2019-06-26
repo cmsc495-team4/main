@@ -231,6 +231,11 @@ th.animals {
 background-color: #AFEEEE !important;
 }
 
+table.dataTable.stripe tbody tr.even:hover {
+background-color: #AFEEEE !important;
+}
+
+
 #maintable tbody tr.animalList:nth-child(odd):hover td {
 background-color: #87CEEB !important;
 }
