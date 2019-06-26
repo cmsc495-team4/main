@@ -249,6 +249,12 @@ $(document).ready( function () {
     $('#maintable').DataTable({
     		responsive: true
 	});
+    $('table.display tr.even').hover(function(){
+        $(this).css('background-color','#ffa'); 
+     });
+     $('table.display tr.even').mouseout(function(){
+        $(this).css('background-color','#f9f9f9'); 
+     }); 
 
 //   //assume newW is a calculated value that I produce with every resize, i.e., the 'available width'
 //     $('table.maintable').css('width', new);
