@@ -227,6 +227,10 @@ th.animals {
 	border: 1px dotted black;
 }
 
+#maintable tbody tr.selected {
+    color: SkyBlue;
+    background-color: #87CEEB;
+}
 
 /* @media (max-width: 600px) {
   form.header-form input {
