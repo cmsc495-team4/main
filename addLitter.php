@@ -60,7 +60,7 @@
 		</tr>
              	<tr>
               		<td><label for="commentBox">Comments:</label></td>
-       			<td><textarea id="commentBox" name="commentBox" rows="5" cols="33"></textarea></td>
+       			<td><textarea id="commentBox" name="commentBox" rows="5" cols="28"></textarea></td>
  		</tr>
 		<tr>
 		<td><button class="button" type="submit" name="add">Add</button></td></tr>
