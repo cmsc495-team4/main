@@ -231,7 +231,8 @@ th.animals {
 background-color: #AFEEEE !important;
 }
 
-table.dataTable.stripe tbody tr.even:hover {
+table.dataTable.display tbody tr.even > .sorting_1:hover, 
+table.dataTable.order-column.stripe tbody tr.even > .sorting_1:hover {
 background-color: #AFEEEE !important;
 }
 
