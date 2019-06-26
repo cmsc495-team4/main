@@ -232,8 +232,7 @@ th.animals {
 background-color: #AFEEEE !important;
 }
 
-table.dataTable.display tbody tr.even > .sorting_1:hover, 
-table.dataTable.order-column.stripe tbody tr.even > .sorting_1:hover {
+table.dataTable tbody tr.even:hover {
 background-color: #AFEEEE !important;
 }
 
@@ -241,13 +240,3 @@ background-color: #AFEEEE !important;
 #maintable tbody tr.animalList:nth-child(odd):hover td {
 background-color: #87CEEB !important;
 }
-/* @media (max-width: 600px) {
-  form.header-form input {
-    margin: 10px 0;
-  }
-
-  form.header-form {
-    flex-direction: column;
-    align-items: stretch;
-  }
-} */
