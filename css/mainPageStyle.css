@@ -232,8 +232,8 @@ th.animals {
 background-color: #AFEEEE !important;
 }
 
-tr.animalList.even:hover {
-background-color: #AFEEEE !important;
+td.animalList:hover {
+background-color: #FFA !important;
 }
 
 
