@@ -253,13 +253,13 @@ $(document).ready( function () {
         $(this).css('background-color','#ffa'); 
      });
      $('table.display tr.even').mouseout(function(){
-        $(this).css('background-color','#fafafa'); 
+        $(this).css('background-color','#ffffff'); 
      }); 
      $('table.display tr.odd').hover(function(){
          $(this).css('background-color','#ffa'); 
       });
       $('table.display tr.odd').mouseout(function(){
-         $(this).css('background-color','#ddd'); 
+         $(this).css('background-color','#f9f9f9'); 
       }); 
 
 //   //assume newW is a calculated value that I produce with every resize, i.e., the 'available width'
