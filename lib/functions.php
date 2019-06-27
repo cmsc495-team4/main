@@ -211,6 +211,41 @@ function addPups($litterID, $numberPups, $species, $strain, $birthDate)
     $pdo = null;
 }
 
+function addBreedPair($strain, $date, $male, $female, $notes){
+	ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+	//$addedID = "";
+
+    $options = [
+        PDO::ATTR_EMULATE_PREPARES => false, // turn off emulation mode for "real" prepared statements
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // turn on errors in the form of exceptions
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC // make the default fetch be an associative array
+    ];
+    require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+	
+	$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
+	//prepare and call stored procedure
+	$query = $pdo->prepare("CALL addBreedPair(?, ?, ?, ?, ?, ?)");
+	$query->bindParam(1, $male, PDO::PARAM_INT, 11);
+	$query->bindParam(2, $female, PDO::PARAM_INT, 11);
+	$query->bindParam(3, $strain, PDO::PARAM_STR, 45);
+	$query->bindParam(4, $date, PDO::PARAM_STR, 11);
+	$query->bindParam(5, $notes, PDO::PARAM_STR, 512);
+	$query->bindParam(6, $addedID, PDO::PARAM_INT, 11);
+	$return = $query->execute();
+	
+	if($return){
+		echo "Successfully added new breeding pair. New pair #: " . htmlspecialchars($addedID);
+	}
+	else{
+		echo "Addition Failed!!!";
+	}
+	
+	$pdo = null;
+}
+
 function getAnimals()
 {
     ini_set('display_errors', 1);
