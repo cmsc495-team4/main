@@ -97,7 +97,6 @@ if (isset($_POST["clear"])) {
 <meta charset="utf-8" />
 <title>RITA - Main Page</title>
 <link rel="stylesheet" type="text/css" href="css/userDropdown.css">
-
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.css" />
 <link rel="stylesheet" type="text/css"
@@ -118,7 +117,6 @@ if (isset($_POST["clear"])) {
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
- 
 
 
 <script type="text/javascript"
@@ -137,7 +135,6 @@ if (isset($_POST["clear"])) {
 	src="https://cdn.datatables.net/scroller/2.0.0/js/dataTables.scroller.js"></script>
 <script type="text/javascript"
 	src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/sl-1.3.0/datatables.min.js"></script>
 	
 	
 <link rel="stylesheet" type="text/css" href="css/mainPageStyle.css">
@@ -251,7 +248,6 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 $(document).ready( function () {
     $('#maintable').DataTable({
     		responsive: true
-    		select: true
 	});
     $('table.display tr.even').hover(function(){
         $(this).css('background-color','#ffa'); 
