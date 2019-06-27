@@ -83,6 +83,11 @@ if (isset($_POST['filter'])) {
 if (isset($_POST["clear"])) {
     $_POST = array();
     $_REQUEST = array();
+    $last_pi_name = "";
+    $litterID = "";
+    $tagNumber = "";
+    $breedingPair = "";
+    $species_name = "";
     $breederChecked = "checked";
     $weanlingChecked = "checked";
     $pupChecked = "checked";
