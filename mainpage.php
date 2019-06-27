@@ -88,6 +88,7 @@ if (isset($_POST["clear"])) {
     $tagNumber = "";
     $breedingPair = "";
     $species_name = "";
+    $genotype = "";
     $breederChecked = "checked";
     $weanlingChecked = "checked";
     $pupChecked = "checked";
