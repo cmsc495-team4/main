@@ -19,6 +19,23 @@
 		$last_pi_name = "";
 		$species_name = "";
 		$strain_name = "";
+		$message = "";
+		
+		if(isset($_POST['add'])){
+			//var_dump($_POST);
+			if(empty(empty($_POST['strain_name']) ||$_POST['setupDate']) || empty($_POST['maleTag']) || empty($_POST['femaleTag'])) {
+				$message = "Must enter a setup date, Male Tag # and Female Tag #";
+			}
+			else{
+				$strain = $_POST['strain_name'];
+				$date = $_POST['setupDate'];
+				$male = $_POST['maleTag'];
+				$female = $_POST['femaleTag'];
+				$notes = $_POST['commentBox'];
+				$addedID = addBreedPair($strain, $date, $male, $female, $notes);	
+			}
+			$_POST = null;
+		}
 	?>
 	
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -27,7 +44,7 @@
 		//strains dropdown
 		$("[name='pi_name']").change(function(){
 			var pi_name = $(this).val();
-			var fieldTable = ['strain_name', 'strains, PI_authorized_strains', ''];
+			var fieldTable = ['strain_name', 'strains, pi_authorized_strains', ''];
 			var conditions = ['authPI_username', '\'' + pi_name + '\'', 'authPI_strain_ID', 'id_strain'];
 			$.ajax({
 				type: "POST",
@@ -44,7 +61,7 @@
 		$("[name='species_name']").change(function(){
 			var pi_name = $("[name='pi_name']").val();
 			var species_name = $(this).val();
-			var fieldTable = ['animalID', 'animals, PI_assigned_animals', ''];
+			var fieldTable = ['animalID', 'animals, pi_assigned_animals', ''];
 			var conditions = ['animalID', 'PI_animalID', 'PI_username', '\'' + pi_name + '\'', 'species_name', '\'' + species_name + '\'',
 			'classification', '\'breeder\'', 'sex', '\'Male\''];
 			$.ajax({
@@ -62,7 +79,7 @@
 		$("[name='species_name']").change(function(){
 			var pi_name = $("[name='pi_name']").val();
 			var species_name = $(this).val();
-			var fieldTable = ['animalID', 'animals, PI_assigned_animals', ''];
+			var fieldTable = ['animalID', 'animals, pi_assigned_animals', ''];
 			var conditions = ['animalID', 'PI_animalID', 'PI_username', '\'' + pi_name + '\'', 'species_name', '\'' + species_name + '\'',
 			'classification', '\'breeder\'', 'sex', '\'Female\''];
 			$.ajax({
@@ -81,7 +98,13 @@
 </header>
 
 <body>
+	<form action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
 	<div>
+		<?php 
+			if(isset($message)){
+				echo '<label class="text-danger" style="color:red">' . $message . '</label>';
+			}
+		?>
 		<table class="table1">
 			<tr>
 				<td>PI:</td>
@@ -104,55 +127,24 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Pair #:</td>
-				<td>
-					<input type="text" name="pairNum" placeholder="Pair #">
-				</td>
+				
 				<td>Setup Date:</td>
 				<td>
-					<input type="text" name="setupDate" placeholder="mm/dd/yyyy">
+					<input type="date" name="setupDate" placeholder="mm/dd/yyyy">
 				</td>
-				<td>Generation:</td>
-				<td>
-					<input type="text" name="generation" placeholder="Generation">
-				</td>
-			</tr>
-		</table>
-	</div>
-	<div>
-		<table class="table2">
-			<tr>
+				
 				<td>Male Tag #:</td>
 				<td>
 					<select name="maleTag">
-						<option>Male Tag#</option>
+						<option value=''>Male Tag#</option>
 					</select>
 				</td>
+				
 				<td>Female Tag #:</td>
 				<td>
 					<select name="femaleTag">
-						<option>Female Tag#</option>
+						<option value='';>Female Tag#</option>
 					</select>
-				</td>
-			</tr>
-			<tr>
-				<td>Male Strain:</td>
-				<td>
-					<input type="text" name="maleStrain" placeholder="Male Strain">
-				</td>
-				<td>Female Strain:</td>
-				<td>
-					<input type="text" name="femaleStrain" placeholder="Female Strain">
-				</td>
-			</tr>
-			<tr>
-				<td>Male DOB:</td>
-				<td>
-					<input type="text" name="maleDOB" placeholder="mm/dd/yyyy">
-				</td>
-				<td>Female DOB:</td>
-				<td>
-					<input type="text" name="femaleDOB" placeholder="mm/dd/yyyy">
 				</td>
 			</tr>
 		</table>
@@ -169,5 +161,6 @@
 	<div class="buttonDiv">
 		<button class="button" type="submit" name="add">Add</button>
 	</div>
+	</form>
 </body>
 </html>
