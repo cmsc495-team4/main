@@ -97,7 +97,6 @@ if (isset($_POST["clear"])) {
 <meta charset="utf-8" />
 <title>RITA - Main Page</title>
 <link rel="stylesheet" type="text/css" href="css/userDropdown.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/sl-1.3.0/datatables.min.css"/>
 
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.css" />
