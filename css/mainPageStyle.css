@@ -227,16 +227,3 @@ th.animals {
 	padding: 5px;
 	border: 1px dotted black;
 }
-
-#maintable tbody tr.animalList:nth-child(even):hover td{
-background-color: #AFEEEE !important;
-}
-
-td.animalList:hover {
-background-color: #FFA !important;
-}
-
-
-#maintable tbody tr.animalList:nth-child(odd):hover td {
-background-color: #87CEEB !important;
-}
