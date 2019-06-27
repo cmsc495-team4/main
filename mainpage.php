@@ -248,7 +248,6 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 $(document).ready( function () {
     $('#maintable').DataTable({
     		responsive: true
-    		select: false
 	});
     $('table.display tr.even').hover(function(){
         $(this).css('background-color','#ffa'); 
