@@ -323,7 +323,7 @@ $(document).ready( function () {
               						<td class="td-footer"><button class="update" type="button"
     								name="addAnimal">Add Animal</button></td>
 							<td class="td-footer"><button class="update" type="button"
-								name="addBreeder">Add Breeder Pair</button></td>
+								name="addBreeder" onClick = window.location='addBreedingPair.php>Add Breeder Pair</button></td>
               						<td class="td-footer"><button class="update" type="button"
     					    			name="updateEntry">Update Selected</button></td>
               						<td class="td-footer"><button class="update" type="button"
