@@ -53,7 +53,7 @@
 		//strains dropdown
 		$("[name='pi_name']").change(function(){
 			var pi_name = $(this).val();
-			var fieldTable = ['strain_name', 'strains, pi_authorized_strains', ''];
+			var fieldTable = ['strain_name', 'strains, PI_authorized_strains', ''];
 			var conditions = ['authPI_username', '\'' + pi_name + '\'', 'authPI_strain_ID', 'id_strain'];
 			$.ajax({
 				type: "POST",
