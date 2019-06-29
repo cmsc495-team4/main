@@ -232,6 +232,46 @@ function addPups($litterID, $numberPups, $species, $strain, $birthDate)
     $pdo = null;
 }
 
+/*$vals assoc names: species, classification, sex, tagDate, birthDate, weanDate, genotype, litter, location, strain_ID, tagNum, deceased, transfer, notes*/
+function addNewAnimal($vals){
+	ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+
+    $options = [
+        PDO::ATTR_EMULATE_PREPARES => false, // turn off emulation mode for "real" prepared statements
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // turn on errors in the form of exceptions
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC // make the default fetch be an associative array
+    ];
+    require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+	
+	$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
+	
+	//check that tag number not duplicate
+	$queryTag = $pdo->prepare("SELECT COUNT(*) AS count FROM animals WHERE tagNumber = ?");
+	$result = $queryTag->execute([$vals['tagNum']]);
+	$tag = $queryTag->fetch();
+	if($tag['count'] > 0){
+		echo '<label style="color:red">Unable to add animal. Duplicate tag number: ' . $vals['tagNum'] . '</label>';
+	}
+	else{
+	
+	//add to database		
+		$query = $pdo->prepare("CALL addNewAnimal(:species, :class, :sex, :tagDate, :dob, :wean, :geno, :litter, :loc, :strain, :tagNum, :dec, :tran, :notes)");
+		$return = $query->execute([$vals['species'], $vals['classification'], $vals['sex'], $vals['tagDate'], $vals['birthDate'], $vals['weanDate'], $vals['genotype'],
+			$vals['litter'], $vals['location'], $vals['strain_ID'], $vals['tagNum'], $vals['deceased'], $vals['transfer'], $vals['notes']]);
+
+		if($return){
+			echo '<label style="color:green">Animal added successfully.</label>';
+		}
+		else{
+			echo "Addition Failed!!!";
+		}
+	}
+	$pdo = null;
+}
+
 function addBreedPair($strain, $date, $male, $female, $notes){
 	ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
