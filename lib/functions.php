@@ -266,7 +266,7 @@ function addNewAnimal($vals){
 			echo '<label style="color:green">Animal added successfully.</label>';
 		}
 		else{
-			echo "Addition Failed!!!";
+			echo '<label style="color:red">Addition Failed!!!</label>';
 		}
 	}
 	$pdo = null;
@@ -298,10 +298,10 @@ function addBreedPair($strain, $date, $male, $female, $notes){
 	if($return){
 		//gets stored procedure's output
 		$sprocOutput = $pdo->query("SELECT @p_id")->fetch();
-		echo "Successfully added new breeding pair. New pair #: " . htmlspecialchars($sprocOutput['@p_id']);
+		echo '<label style="color:green">Successfully added new breeding pair. New pair #: ' . htmlspecialchars($sprocOutput['@p_id']) . '</label>';
 	}
 	else{
-		echo "Addition Failed!!!";
+		echo '<label style="color:red">Addition Failed!!!</label>';
 	}
 	
 	$pdo = null;
