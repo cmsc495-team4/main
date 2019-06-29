@@ -258,7 +258,6 @@ function addBreedPair($strain, $date, $male, $female, $notes){
 	if($return){
 		//gets stored procedure's output
 		$sprocOutput = $pdo->query("SELECT @p_id")->fetch();
-		var_dump($sprocOutput);
 		echo "Successfully added new breeding pair. New pair #: " . htmlspecialchars($sprocOutput['@p_id']);
 	}
 	else{
