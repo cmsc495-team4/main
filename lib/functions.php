@@ -253,11 +253,11 @@ function addBreedPair($strain, $date, $male, $female, $notes){
 	$query->bindParam(3, $strain, PDO::PARAM_STR, 45);
 	$query->bindParam(4, $date, PDO::PARAM_STR, 11);
 	$query->bindParam(5, $notes, PDO::PARAM_STR, 512);
-	$return = $query->execute();
+	$return = $query->execute()->fetchAll();
 	
 	if($return){
 		//clear prior query buffer
-		return->fetchAll();
+		//$query->fetchAll();
 		//gets stored procedure's output
 		$sprocOutput = $pdo->query("SELECT @p_id;")->fetchAll();
 		echo "Successfully added new breeding pair. New pair #: " . htmlspecialchars($sprocOutput['@p_id']);
