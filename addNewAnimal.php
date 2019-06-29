@@ -34,7 +34,7 @@
 				"genotype" => (!empty($_POST['genotype']) ? $_POST['genotype'] : NULL),
 				"litter" => (!empty($_POST['litter']) ? $_POST['litter'] : NULL),
 				"location" => (!empty($_POST['location']) ? $_POST['location'] : NULL),
-				"strain_ID" => (!empty($_POST['strain']) ? $_POST['strain'] : NULL),
+				"strain_ID" => (!empty($_POST['strain_name']) ? $_POST['strain_name'] : NULL),
 				"tagNum" => (!empty($_POST['tagNum']) ? $_POST['tagNum'] : NULL),
 				"deceased" => (isset($_POST['deceased']) ? true : false),
 				"transfer" => (isset($_POST['transfer']) ? true : false),
