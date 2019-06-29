@@ -141,25 +141,20 @@ function newLitterIncrement(){
   ini_set('display_startup_errors', 1);
   error_reporting(E_ALL);
 
-  $options = [
-      PDO::ATTR_EMULATE_PREPARES => false, // turn off emulation mode for "real" prepared statements
-      PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // turn on errors in the form of exceptions
-      PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC // make the default fetch be an associative array
-  ];
-  require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+  try {
+    require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
 
-  $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 
-  $setup = $pdo->prepare("SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;");
-  $setup->execute();
+    $sql = 'SELECT MAX(litterID) FROM litters';
+    $q = $pdo->query($sql);
+    $q->setFetchMode(PDO::FETCH_ASSOC);
+    $temp = $q->fetch();
+  } catch (PDOException $e) {
 
-  $query = $pdo->prepare("SELECT MAX(litterID) FROM litters"); //get max litterID
-  $query->setFetchMode(PDO::FETCH_ASSOC);
+  }
 
-
-  $newLitterID = intval($query->getText()) + 1;
- 
-  return $newLitterID;
+  return $temp['MAX(litterID)'] + 1;
 }
 
 function checkLitterExists($litterID)
