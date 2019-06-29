@@ -16,9 +16,6 @@
 		error_reporting(E_ALL);
 		require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 		
-		$last_pi_name = "";
-		$species_name = "";
-		$strain_name = "";
 		$message = "";
 		
 		if(isset($_POST['add'])){
@@ -110,7 +107,7 @@
 				<td>PI:</td>
 				<td>
 					<select name="pi_name">
-						<?php getInvestigators($last_pi_name); ?>
+						<?php getInvestigators(""); ?>
 					</select>
 				</td>
 				<td>Species:</td>
