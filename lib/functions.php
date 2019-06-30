@@ -415,7 +415,7 @@ function displayWeanlingReportTable() {
 		echo "---->> startDOBvar: [" . $filterStartDate . "]\n";
 		echo "---->> endDOBvar: [" . $filterEndDate . "]\n";
 		
-		$animalList = "WHERE birth_date BETWEEN '" . $filterStartDate . "' AND '" . $filterEndDate . "'";
+		$animalList = "AND birth_date BETWEEN '" . $filterStartDate . "' AND '" . $filterEndDate . "'";
 	}
 	
     $options = [
@@ -437,7 +437,7 @@ function displayWeanlingReportTable() {
     echo "</thead>
 	<tbody>";
     if ($displayAll) {
-        $query1 = "SELECT * FROM `filtered_return`";
+        $query1 = "SELECT * FROM `filtered_return` WHERE classification='pup'";
         $result = $pdo->query($query1);
         $result->setFetchMode(PDO::FETCH_ASSOC);
         $tableRow = 0;
@@ -486,7 +486,7 @@ function displayWeanlingReportTable() {
             }
         }
     } else {
-        $query1 = "SELECT * FROM `filtered_return` " . $animalList;
+        $query1 = "SELECT * FROM `filtered_return` WHERE classification='pup' " . $animalList;
         echo "\n<br><font style=\"color: red;\">SQL Query Debug --> <strong>" . $query1 . "</strong></font>\n<br><br>";
         // echo var_dump($_POST);
         // echo var_dump($_REQUEST);
