@@ -136,6 +136,27 @@ function getInvestigators($last_pi_name)
     $pdo = null;
 }
 
+//create new litter with null values
+function createNewLitter($litterID)
+{
+  ini_set('display_errors', 1);
+  ini_set('display_startup_errors', 1);
+  error_reporting(E_ALL);
+
+  try {
+    require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $sql = "INSERT INTO litters (litterID) VALUES ($litterID)";
+    $pdo->exec($sql);
+
+  } catch (PDOException $e) {
+    echo $e->getMessage();
+  }
+  $pdo = null;
+}
 function newLitterIncrement(){
   ini_set('display_errors', 1);
   ini_set('display_startup_errors', 1);
@@ -150,11 +171,55 @@ function newLitterIncrement(){
     $q = $pdo->query($sql);
     $q->setFetchMode(PDO::FETCH_ASSOC);
     $temp = $q->fetch();
+    $newLitterID = $temp['MAX(litterID)'] + 1;
+
   } catch (PDOException $e) {
-
+    echo $e->getMessage();
   }
+  $pdo = null;
+  return $newLitterID;
+}
 
-  return $temp['MAX(litterID)'] + 1;
+//gets maleID, desiredStrain from pair number
+function getMaleIDStrainFromPairNum($pairNumber){
+  ini_set('display_errors', 1);
+  ini_set('display_startup_errors', 1);
+  error_reporting(E_ALL);
+try {
+  require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+
+  $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+
+  $sql = 'SELECT maleID, desiredStrain FROM breeding_pairs WHERE pairID = $pairNumber';
+  $q = $pdo->query($sql);
+  $q->setFetchMode(PDO::FETCH_ASSOC);
+  $temp = $q->fetch();
+} catch (PDOException $e) {
+  echo $e->getMessage();
+}
+$pdo = null;
+return $temp;
+}
+
+//gets species,generation, and PI for litter based upon id of parent
+function getLitterValuesFromMaleID($id){
+  ini_set('display_errors', 1);
+  ini_set('display_startup_errors', 1);
+  error_reporting(E_ALL);
+try {
+  require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+
+  $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+
+  $sql = 'SELECT species_name,generation,PI_username FROM animals_join_litters_join_pi WHERE animalID = $id';
+  $q = $pdo->query($sql);
+  $q->setFetchMode(PDO::FETCH_ASSOC);
+  $temp = $q->fetch();
+} catch (PDOException $e) {
+  echo $e->getMessage();
+}
+$pdo = null;
+return $temp;
 }
 
 function checkLitterExists($litterID)
