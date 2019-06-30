@@ -33,12 +33,6 @@
            			<td>
 				<div>
            			<input type="checkbox" name="newLitter" value="newLitter">New Litter
-								<!--If newLitter check box is checked call newLitterIncrement from functions.php to create newLitterID-->
-								<?php
-								if (isset($_POST['newLitter'])) {
-									$litterID = newLitterIncrement();
-								}
-								?>
 					</div>
 				 </td>
 				 <td>
@@ -73,8 +67,17 @@
 			<tr>
 				<td><button class="button" type="submit" name="add">Add</button></td>
 			</tr>
-
-          </form>
-
+			<?php
+// 				if (isset($_POST["add"])) { //if add button is clicked
+// 				//If newLitter check box is checked call newLitterIncrement from functions.php to create newLitterID
+// 					if (isset($_POST["newLitterID"])) {
+// 					$litterID = newLitterIncrement();
+// 					createNewLitter($litterID); //creates new litter with null values
+// 					}else {
+								
+// 					}
+// 				}
+			?>				
+								
       </body>
 </html>
