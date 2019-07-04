@@ -5,9 +5,10 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/addBrPairStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/mainPageStyle.css">
-	//updates strain list based on selected PI
+	
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 		<script type="text/javascript">
+		//updates strain list based on selected PI
 		$(document).ready(function(){
 		//strains dropdown
 		$("[name='pi_name']").change(function(){
