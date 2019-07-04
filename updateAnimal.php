@@ -10,7 +10,7 @@
 		<script type="text/javascript">
 		$(document).ready(function(){
 		//strains dropdown
-		$("[name='pi_name']").change(function(){
+		$("[name='pi']").change(function(){
 			var pi_name = $(this).val();
 			var fieldTable = ['strain_name', 'strains, pi_authorized_strains', ''];
 			var conditions = ['authPI_username', '\'' + pi_name + '\'', 'authPI_strain_ID', 'id_strain'];
@@ -40,12 +40,11 @@
 		
 		$message = "";
 		$change_tag = "";
-		
-		//Currently makes user select animals current tag #. WIll not update unless chosen. Can then choose again
 		if(isset($_POST['getAnimal'])){
 			$change_tag = $_POST['tagNumber'];
 			displayAnimalTable();
 			$message = "All updates will affect animal with Tag #: " . $change_tag;
+			//$message = getStrainIdByName("LongEvans");
 		}
 		
 		if(isset($_POST['update'])){
@@ -53,11 +52,8 @@
 			if(empty($_POST['change_tag'])){
 				$message = "Select animals current Tag # before updating";
 			}else{
-			var_dump($_POST);
-			//$change_tag = $_POST['change_tag'];
-			var_dump($change_tag);
-			$message = "Select Tag # to update" ;
-				//updateAnimal();
+				$message = "Select Tag # to update" ;
+				updateAnimal();
 			}
 		}
 	?>
@@ -123,7 +119,7 @@
 				<td>Strain: ([Re]select PI first)</td>
 				<td>
 					<select name="strain_name">
-						<option>Select PI</option> <!-- ajax created based on selected PI -->
+						<option value = "">Select PI</option> <!-- ajax created based on selected PI -->
 					</select>
 				</td>
 			</tr>
@@ -180,7 +176,7 @@
 				<td>
 					<input type="checkbox" name="transfer">
 					<label for="transfer">Transferred</label>
-					<input type="checkbox" name="deceased" value="true">
+					<input type="checkbox" name="deceased">
 					<label for="deceased">Deceased</label>
 				</td>
 			</tr>
