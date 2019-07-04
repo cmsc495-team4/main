@@ -40,6 +40,8 @@
 		
 		$message = "";
 		$change_tag = "";
+		
+		//Currently makes user select animals current tag #. WIll not update unless chosen. Can then choose again
 		if(isset($_POST['getAnimal'])){
 			$change_tag = $_POST['tagNumber'];
 			displayAnimalTable();
@@ -55,7 +57,7 @@
 			//$change_tag = $_POST['change_tag'];
 			var_dump($change_tag);
 			$message = "Select Tag # to update" ;
-				updateAnimal();
+				//updateAnimal();
 			}
 		}
 	?>
