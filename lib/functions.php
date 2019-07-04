@@ -761,7 +761,8 @@ function pupSurvivabilityReportTable() {
             $result7->setFetchMode(PDO::FETCH_ASSOC);
             $row7 = $result7->fetch(PDO::FETCH_ASSOC);
 			$numberOfDeceasedPups = $row7["cnts"];
-			$survivalPercentage = round(($numberOfDeceasedPups / $numberOfPups),2);
+			$deceasedPercentage = round(($numberOfDeceasedPups / $numberOfPups),2);
+			$survivalPercentage = 100.00 - $deceasedPercentage;
             echo "<td class=\"animalList\" style=\"text-align: left;\">" . $lastName . $firstName . "</td>\n";
             echo "<td class=\"animalList\" style=\"text-align: center;\">" . $species . "</td>\n";
             echo "<td class=\"animalList\" style=\"text-align: center;\">" . $strain . "</td>\n";
