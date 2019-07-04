@@ -5,14 +5,14 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/addBrPairStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/mainPageStyle.css">
-
+	//updates strain list based on selected PI
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function(){
 		//strains dropdown
-		$("[name='pi']").change(function(){
+		$("[name='pi_name']").change(function(){
 			var pi_name = $(this).val();
-			var fieldTable = ['strain_name', 'strains, pi_authorized_strains', ''];
+			var fieldTable = ['strain_name', 'strains, PI_authorized_strains', ''];
 			var conditions = ['authPI_username', '\'' + pi_name + '\'', 'authPI_strain_ID', 'id_strain'];
 			$.ajax({
 				type: "POST",
@@ -40,13 +40,13 @@
 		
 		$message = "";
 		$change_tag = "";
+		//for selecting animal to update
 		if(isset($_POST['getAnimal'])){
 			$change_tag = $_POST['tagNumber'];
 			displayAnimalTable();
 			$message = "All updates will affect animal with Tag #: " . $change_tag;
-			//$message = getStrainIdByName("LongEvans");
 		}
-		
+		//for updating selected animal
 		if(isset($_POST['update'])){
 			//check that a tag number was selected before attempting update
 			if(empty($_POST['change_tag'])){
@@ -106,7 +106,7 @@
 			<tr>
 				<td>PI:</td>
 				<td>
-					<select name="pi">
+					<select name="pi_name">
 						<?php getInvestigators(""); ?>
 					</select>
 				</td>
