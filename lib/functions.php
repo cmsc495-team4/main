@@ -297,7 +297,8 @@ function addPups($litterID, $numberPups, $species, $strain, $birthDate)
     $pdo = null;
 }
 
-/*$vals assoc names: species, classification, sex, tagDate, birthDate, weanDate, genotype, litter, location, strain_ID, tagNum, deceased, transfer, notes*/
+/*Adds a new animal to the database
+$vals assoc names: species, classification, sex, tagDate, birthDate, weanDate, genotype, litter, location, strain_ID, tagNum, deceased, transfer, notes*/
 function addNewAnimal($vals){
 	ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
@@ -335,6 +336,137 @@ function addNewAnimal($vals){
 		}
 	}
 	$pdo = null;
+}
+
+/*
+ Updates animal with posted values (or current if none posted) except when 1) Entered Tag# exists or 2) change of sex, species, or class would
+ invalidate an existing breeding pair. 
+ If litter ID is changed, will also update animal's generation.
+ If PI or Strain changed, will also update PI_assigned_animals table 
+*/
+function updateAnimal(){
+		
+				
+	ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+	$issues = false; //sets to true if any issues found with the update
+
+    $options = [
+        PDO::ATTR_EMULATE_PREPARES => false, // turn off emulation mode for "real" prepared statements
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // turn on errors in the form of exceptions
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC // make the default fetch be an associative array
+    ];
+    require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+	
+	$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
+	
+	//get animal's current field values
+	$queryCur = $pdo->prepare("SELECT * FROM filtered_return WHERE tagNumber = ? LIMIT 1");
+	$queryCur->execute([$_POST['change_tag']]);
+	$cur = $queryCur->fetch();
+	//var_dump($cur);
+	$animalID = $cur['animalID'];
+	
+	//if POST['xx'] value empty, set value to current value, else use POST. Notes are appended	
+	$class = (!isset($_POST['classification']) ? $cur['classification'] : $_POST['classification']);
+	$pi = (empty($_POST['pi']) ? $cur['PI_username'] : $_POST['pi']);
+	$species = (empty($_POST['species_name']) ? $cur['species_name'] : $_POST['species_name']);
+	$sex = (empty($_POST['sex']) ? $cur['sex'] : $_POST['sex']);
+	$tagDate = (empty($_POST['tagDate']) ? $cur['tag_date'] : $_POST['tagDate']);
+	$dob = (empty($_POST['dob']) ? $cur['birth_date'] : $_POST['dob']);
+	$weanDate = (empty($_POST['weanDate']) ? $cur['wean_date'] : $_POST['weanDate']);
+	$genotype = (empty($_POST['genotype']) ? $cur['genotype'] : $_POST['genotype']);
+	$litter = (empty($_POST['litter']) ? $cur['litterID'] : $_POST['litter']);
+	$location = (empty($_POST['location']) ? $cur['location'] : $_POST['location']);
+	$strainID = (empty($_POST['strain_name']) ? $cur['id_strain'] : getStrainIdByName($_POST['strain_name']));
+	$tagNum = (empty($_POST['tagNum']) ? $cur['tagNumber'] : $_POST['tagNum']);
+	//if deceased/transfer not set, then leave as current, else if set then value is true. Convert current from int to boolean first
+	$cur_dec = ($cur['deceased'] ? true : false);
+	$deceased = ((!isset($_POST['deceased'])) ? $cur_dec : true);
+	$cur_tran = ($cur['transferred'] ? true : false);
+	$transfer = ((!isset($_POST['transfer'])) ? $cur_tran : true);
+	//if new notes, append to current notes
+	$notes = (empty($_POST['notes']) ? $cur['comments'] : ($cur['notes'] . "\n" . $_POST['notes']));	
+	
+	
+	//if tag# changed check that tag number not duplicate
+	if($tagNum != $cur['tagNumber']){
+		$issues = true;
+		$queryTag = $pdo->prepare("SELECT COUNT(*) AS count FROM animals WHERE tagNumber = ?");
+		$queryTag->execute([$tagNum]);
+		$tag = $queryTag->fetch();
+		if($tag['count'] > 0){
+			echo '<label style="color:red">Unable to add animal. Duplicate tag number: ' . $tagNum . '</label>';
+		}
+	}			
+				
+			
+	//if changes to sex, species, or classification check that animal isn't part of existing breeding pair
+	if($sex != $cur['sex'] || $species != $cur['species_name'] || ($class != $cur['classification'] && $class != 'breeder')){
+		$queryBr = $pdo->prepare("SELECT COUNT(*) AS count FROM breeding_pairs WHERE maleID = ? OR femaleID = ?");
+		$queryBr->execute([$animalID, $animalID]);
+		$br = $queryBr->fetch();
+		if($br['count'] > 0){
+			$issues = true;
+			echo '<label style="color:red">Unable to update. Animal is part of breeding pair which the updates would invalidate.</label>';
+		}
+		echo '<label style="color:red">Check breeder</label>';
+	}
+	
+	
+	//if no issues, update animal
+	if(!$issues){
+		//if litterID changed, get generation for update
+		$gen = $cur['generation'];
+		if($litter != $cur['litterID']){
+			$queryGen = $pdo->prepare("SELECT offspringGen FROM litters, breeding_pairs WHERE litterID = ? AND breedingPair = pairID LIMIT 1");
+			$queryGen->execute([$litter]);
+			$result = $queryGen->fetch();
+			$gen = $result['offspringGen'];
+		}
+		
+		
+		$queryUpdateA = $pdo->prepare("UPDATE animals SET species_name = ?, classification = ?, sex = ?, entered_date = DEFAULT, tag_date = ?, birth_date = ?, wean_date = ?, genotype = ?, generation = ?, location = ?, strain_ID = ?, tagNumber = ?, deceased = ?, transferred = ?, comments = ? WHERE animalID = ?");
+		$return = $queryUpdateA->execute([$species, $class, $sex, $tagDate, $dob, $weanDate, $genotype, $gen, $location, $strainID, $tagNum, $deceased, $transfer, $notes, $animalID]);
+		if($return){
+			echo '<label style="color:green">Update animals Successful!</label>';
+		}
+		else{
+			echo "Update Failed!!!";
+		}		
+		
+		//if PI and/or strain changed, update PI_assigned_animals table
+		if($pi != $cur['PI_username'] || $strainID != $cur['id_strain']){
+			$queryUpdateB = $pdo->prepare("UPDATE pi_assigned_animals SET PI_username=?, PI_strain_ID=? WHERE pi_animalID = ?");
+			$return = $queryUpdateB->execute([$pi, $strainID, $animalID]);
+			if($return){
+				echo '<label style="color:green">Update pi_assigned_animals Successful!</label>';
+			}
+			else{
+				echo "Update Failed!!!";
+			}
+		}
+	} 
+	else {
+		echo '<label style="color:blue">Update Fail!</label>';
+	}
+}
+
+function getStrainIdByName($sName){
+	$options = [
+        PDO::ATTR_EMULATE_PREPARES => false, // turn off emulation mode for "real" prepared statements
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // turn on errors in the form of exceptions
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC // make the default fetch be an associative array
+    ];
+    require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+	
+	$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
+	$query = $pdo->prepare("SELECT id_strain FROM strains WHERE strain_name = ? LIMIT 1");
+	$query->execute([$sName]);
+	$result = $query->fetch();
+	return $result['id_strain'];
 }
 
 function addBreedPair($strain, $date, $male, $female, $notes){
