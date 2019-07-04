@@ -439,7 +439,7 @@ function updateAnimal(){
 		
 		//if PI and/or strain changed, update PI_assigned_animals table
 		if($pi != $cur['PI_username'] || $strainID != $cur['id_strain']){
-			$queryUpdateB = $pdo->prepare("UPDATE pi_assigned_animals SET PI_username=?, PI_strain_ID=? WHERE pi_animalID = ?");
+			$queryUpdateB = $pdo->prepare("UPDATE PI_assigned_animals SET PI_username=?, PI_strain_ID=? WHERE PI_animalID = ?");
 			$return = $queryUpdateB->execute([$pi, $strainID, $animalID]);
 			if($return){
 				echo '<label style="color:green">Update pi_assigned_animals Successful!</label>';
