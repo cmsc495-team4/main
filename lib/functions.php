@@ -429,11 +429,12 @@ function updateAnimal(){
 			$queryL = $pdo->prepare("SELECT COUNT(*) AS count FROM litters WHERE animalID_pup = ?");
 			$queryL->execute([$animalID]);
 			$exists = $queryL->fetch();
+			
 			//get new litter's breeding pair
 			$qGetPair = $pdo->prepare("SELECT breedingPair FROM litters WHERE litterID = ? LIMIT 1");
 			$qGetPair->execute(['$litter']);
 			$pair = $qGetPair->fetch();
-			if($exists > 0){
+			if($exists['count'] > 0){
 				$queryUL = $pdo->prepare("UPDATE litters SET litterID = ?, breedingPair = ? WHERE animalID_pup = ?");
 				$queryUL->execute([$litter, $pair, $animalID]);
 			}
