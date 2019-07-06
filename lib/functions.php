@@ -415,6 +415,16 @@ function updateAnimal(){
 		echo '<label style="color:red">Check breeder</label>';
 	}
 	
+	//if strain xor pi updated, check that strain is authorized for existing PI or PI is authorized for existing strain
+	if( ($strainID != $cur['desiredStrain']) XOR ($pi != $cur['PI_username']) ){	
+		$queryStr = $pdo->prepare("SELECT COUNT(*) AS count FROM PI_authorized_strains WHERE authPI_username = ? AND authPI_strain_ID = ?");
+		$queryStr->execute([$pi, $strainID]);
+		$auth = $queryStr->fetch();
+		if($auth['count'] < 1){
+			$issues = true;
+			echo "<label style='color:red'>Unable to update. New strain/PI not authorized for existing PI/strain</label>";
+		}
+	}
 	
 	//if no issues, update animal
 	if(!$issues){
