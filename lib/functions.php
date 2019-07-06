@@ -371,7 +371,7 @@ function updateAnimal(){
 	
 	//if POST['xx'] value empty, set value to current value, else use POST. Notes are appended	
 	$class = (!isset($_POST['classification']) ? $cur['classification'] : $_POST['classification']);
-	$pi = (empty($_POST['pi']) ? $cur['PI_username'] : $_POST['pi']);
+	$pi = (empty($_POST['pi_name']) ? $cur['PI_username'] : $_POST['pi_name']);
 	$species = (empty($_POST['species_name']) ? $cur['species_name'] : $_POST['species_name']);
 	$sex = (empty($_POST['sex']) ? $cur['sex'] : $_POST['sex']);
 	$tagDate = (empty($_POST['tagDate']) ? $cur['tag_date'] : $_POST['tagDate']);
