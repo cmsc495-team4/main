@@ -325,9 +325,9 @@ $(document).ready( function () {
 							<td class="td-footer"><button class="update" type="button"
 								name="addBreeder" onclick="window.location='addBreedingPair.php'">Add Breeder Pair</button></td>
               						<td class="td-footer"><button class="update" type="button"
-    					    			name="updateEntry">Update Selected</button></td>
+    					    			name="updateEntry" onclick="window.location='updateAnimal.php'">Update Animal</button></td>
               						<td class="td-footer"><button class="update" type="button"
-    								name="updateBreederPair">Update Breeder Pair</button></td>
+    								name="updateBreederPair" onclick="window.location='updateBrPair.php'">Update Breeder Pair</button></td>
 							<td class="td-footer"><button class="update" type="button"
 								name="delte">Delete entry</button></td>
 							<td id="this is an empty cell for spacing">&emsp;&emsp;&emsp;</td>
