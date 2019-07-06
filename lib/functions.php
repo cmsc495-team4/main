@@ -324,8 +324,8 @@ function addNewAnimal($vals){
 	else{
 	
 	//add to database		
-		$query = $pdo->prepare("CALL addNewAnimal(:species, :class, :sex, :tagDate, :dob, :wean, :geno, :litter, :loc, :strain, :tagNum, :dec, :tran, :notes)");
-		$return = $query->execute([$vals['species'], $vals['classification'], $vals['sex'], $vals['tagDate'], $vals['birthDate'], $vals['weanDate'], $vals['genotype'],
+		$query = $pdo->prepare("CALL addNewAnimal(:pi, :species, :class, :sex, :tagDate, :dob, :wean, :geno, :litter, :loc, :strain, :tagNum, :dec, :tran, :notes)");
+		$return = $query->execute([$vals['pi'], $vals['species'], $vals['classification'], $vals['sex'], $vals['tagDate'], $vals['birthDate'], $vals['weanDate'], $vals['genotype'],
 			$vals['litter'], $vals['location'], $vals['strain_ID'], $vals['tagNum'], $vals['deceased'], $vals['transfer'], $vals['notes']]);
 		
 		if($return){
