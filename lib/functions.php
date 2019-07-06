@@ -432,7 +432,7 @@ function updateAnimal(){
 			
 			//get new litter's breeding pair
 			$qGetPair = $pdo->prepare("SELECT breedingPair FROM litters WHERE litterID = ? LIMIT 1");
-			$qGetPair->execute(['$litter']);
+			$qGetPair->execute([$litter]);
 			$pair = $qGetPair->fetch();
 			if($exists['count'] > 0){
 				$queryUL = $pdo->prepare("UPDATE litters SET litterID = ?, breedingPair = ? WHERE animalID_pup = ?");
