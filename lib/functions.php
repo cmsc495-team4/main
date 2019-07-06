@@ -436,12 +436,12 @@ function updateAnimal(){
 			$pair = $qGetPair->fetch();
 			if($exists['count'] > 0){
 				$queryUL = $pdo->prepare("UPDATE litters SET litterID = ?, breedingPair = ? WHERE animalID_pup = ?");
-				$queryUL->execute([$litter, $pair, $animalID]);
+				$queryUL->execute([$litter, $pair['breedingPair'], $animalID]);
 			}
 			else{
 				 
 				$queryIL = $pdo->prepare("INSERT INTO litters VALUES (NULL, ?, ?, ?)");
-				$queryIL->execute([$litter, $animalID, $pair]);
+				$queryIL->execute([$litter, $animalID, $pair['breedingPair']]);
 			}
 		}
 		
