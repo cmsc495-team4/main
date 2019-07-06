@@ -441,6 +441,7 @@ function updateAnimal(){
 				 
 				$queryIL = $pdo->prepare("INSERT INTO litters VALUES (NULL, ?, ?, ?)");
 				$queryIL->execute([$litter, $animalID, $pair]);
+			}
 		}
 		
 		
