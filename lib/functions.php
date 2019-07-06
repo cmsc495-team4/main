@@ -426,7 +426,7 @@ function updateAnimal(){
 			$result = $queryGen->fetch();
 			$gen = $result['offspringGen'];
 			//check if animal exists in litters table, if so update, else insert
-			$queryL = $pdo->prepare("SELECT COUNT(*) AS count FROM litters WHERE animalID_pup = ?);
+			$queryL = $pdo->prepare("SELECT COUNT(*) AS count FROM litters WHERE animalID_pup = ?");
 			$queryL->execute([$animalID]);
 			$exists = $queryL->fetch();
 			//get new litter's breeding pair
