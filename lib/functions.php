@@ -418,13 +418,29 @@ function updateAnimal(){
 	
 	//if no issues, update animal
 	if(!$issues){
-		//if litterID changed, get generation for update
+		//if litterID changed, get generation for update, and update 
 		$gen = $cur['generation'];
 		if($litter != $cur['litterID']){
 			$queryGen = $pdo->prepare("SELECT offspringGen FROM litters, breeding_pairs WHERE litterID = ? AND breedingPair = pairID LIMIT 1");
 			$queryGen->execute([$litter]);
 			$result = $queryGen->fetch();
 			$gen = $result['offspringGen'];
+			//check if animal exists in litters table, if so update, else insert
+			$queryL = $pdo->prepare("SELECT COUNT(*) AS count FROM litters WHERE animalID_pup = ?);
+			$queryL->execute([$animalID]);
+			$exists = $queryL->fetch();
+			//get new litter's breeding pair
+			$qGetPair = $pdo->prepare("SELECT breedingPair FROM litters WHERE litterID = ? LIMIT 1");
+			$qGetPair->execute(['$litter']);
+			$pair = $qGetPair->fetch();
+			if($exists > 0){
+				$queryUL = $pdo->prepare("UPDATE litters SET litterID = ?, breedingPair = ? WHERE animalID_pup = ?");
+				$queryUL->execute([$litter, $pair, $animalID]);
+			}
+			else{
+				 
+				$queryIL = $pdo->prepare("INSERT INTO litters VALUES (NULL, ?, ?, ?)");
+				$queryIL->execute([$litter, $animalID, $pair]);
 		}
 		
 		
