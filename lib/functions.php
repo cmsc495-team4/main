@@ -327,7 +327,7 @@ function addNewAnimal($vals){
 		$query = $pdo->prepare("CALL addNewAnimal(:species, :class, :sex, :tagDate, :dob, :wean, :geno, :litter, :loc, :strain, :tagNum, :dec, :tran, :notes)");
 		$return = $query->execute([$vals['species'], $vals['classification'], $vals['sex'], $vals['tagDate'], $vals['birthDate'], $vals['weanDate'], $vals['genotype'],
 			$vals['litter'], $vals['location'], $vals['strain_ID'], $vals['tagNum'], $vals['deceased'], $vals['transfer'], $vals['notes']]);
-
+		
 		if($return){
 			echo '<label style="color:green">Animal added successfully.</label>';
 		}
@@ -501,6 +501,110 @@ function addBreedPair($strain, $date, $male, $female, $notes){
 		echo '<label style="color:red">Addition Failed!!!</label>';
 	}
 	
+	$pdo = null;
+}
+
+/*
+Update breeding_pairs table with updated values. Will not update if pair already has litters due to traits assigned to pups by
+pair traits when created. If new male OR new female, check they are same species and same PI. If new male or female ID, then 
+offspringGen may also be updated, depending on new breeder. 
+*/
+function updateBreedPair(){
+	ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    $options = [
+        PDO::ATTR_EMULATE_PREPARES => false, // turn off emulation mode for "real" prepared statements
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // turn on errors in the form of exceptions
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC // make the default fetch be an associative array
+    ];
+    require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+	
+	$issues = false;
+	$getNewGen = false;
+	$prNum = $_POST['prNum'];
+	$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
+	
+	//if pair already had litters, disallow update
+	$queryLit = $pdo->prepare("SELECT COUNT(*) as count FROM litters WHERE breedingPair = ?");
+	$queryLit->execute([$prNum]);
+	$lits = $queryLit->fetch();
+		if($lits['count'] > 0){
+			$issues = true;
+			echo '<label style="color:red">Unable to update. Breeding pair has already had litters. Must add new pair.</label>';
+		}
+	
+	//get current values for pair
+	$queryCur = $pdo->prepare("Select * FROM breeding_pairs WHERE pairID = ?");
+	$queryCur->execute([$prNum]);
+	$cur = $queryCur->fetch();
+	
+	//assign update values
+	$strain = (empty($_POST['strain_name']) ? $cur['desiredStrain'] : $_POST['strain_name']);
+	$date = (empty($_POST['setupDate']) ? $cur['pair_date'] : $_POST['setupDate']);
+	$male = (empty($_POST['maleTag']) ? $cur['maleID'] : $_POST['maleTag']);
+	$female = (empty($_POST['femaleTag']) ? $cur['femaleID'] : $_POST['femaleTag']);
+	$notes = (empty($_POST['commentBox']) ? $cur['notes'] : $cur['notes'] . "\n" . $_POST['commentBox']);
+	if($male != $cur['maleID'] || $female != $cur['femaleID']){
+		$getNewGen = true;
+	}
+	
+	//get male and female's (to update) assigned PI for future use
+	$queryPS = $pdo->prepare("Select PI_username AS pi, species_name AS species FROM filtered_return WHERE animalID = ?");
+	$queryPS->execute([$male]);
+	$resM = $queryPS->fetch();
+	$malePI = $resM['pi'];
+	$maleSp = $resM['species'];
+	
+	$queryPS->execute([$female]);
+	$resF = $queryPS->fetch();
+	$femalePI = $resF['pi'];
+	$femaleSp = $resF['species'];
+	
+	$strainID = getStrainIdByName($strain);
+	//if attempt to update new strain OR 2 new breeders but not both, check strain is/would be authorized for breeders that are/will be in table
+	if( ($strain != $cur['desiredStrain']) XOR (($male != $cur['maleID']) && ($female != $cur['femaleID'])) ){	
+		$queryStr = $pdo->prepare("SELECT COUNT(*) AS count FROM PI_authorized_strains WHERE authPI_username = ? AND authPI_strain_ID = ?");
+		$queryStr->execute([$malePI, $strainID]);
+		$auth = $queryStr->fetch();
+		if($auth['count'] < 1){
+			$issues = true;
+			echo "<label style='color:red'>Unable to update. Strain entered not authorized for pair's PI</label>";
+		}
+	}
+	
+	//if new male only or new female only, check that new pair would be same species and have same PI
+	if($male != $cur['maleID'] XOR $female != $cur['femaleID']){
+		if($maleSp != $femaleSp){
+			$issues = true;
+			echo "<label style='color:red'>Unable to update. New breeder is not same species as existing counterpart</label>";
+		}
+		else if($malePI != $femalePI){
+			echo "<label style='color:red'>Unable to update. New breeder does not have same PI as existing counterpart</label>";			
+		}
+	}
+	
+	if(!$issues){
+		$gen = $cur['offspringGen'];
+		//generation is one more than the min of the breeder's generation
+		if($getNewGen){
+			$queryG = $pdo->prepare("SELECT generation FROM animals WHERE animalID = ?");
+			$queryG->execute([$male]);
+			$mGen = $queryG->fetch();
+			$queryG->execute([$female]);
+			$fGen = $queryG->fetch();
+			$gen = ($mGen > $fGen ? $fGen : $mGen);
+		}
+		$queryU = $pdo->prepare("UPDATE breeding_pairs SET maleID = ?, femaleID = ?, desiredStrain = ?, offspringGen = ?, pair_date = ?, notes = ? WHERE pairID = ?");
+		$return = $queryU->execute([$male, $female, $strain, $gen, $date, $notes, $prNum]);
+		if($return){
+			echo "Successfully updated breeding pair.";
+		}else {
+			echo "Update Failed";
+		}
+	}
+
 	$pdo = null;
 }
 
