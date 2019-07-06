@@ -25,6 +25,7 @@
 			}
 			else{*/
 				$vals = array(
+				"pi" => $_POST['pi_name'],
 				"species" => $_POST['species_name'],
 				"classification" => $_POST['classification'],
 				"sex" => $_POST['sex'],
@@ -81,11 +82,11 @@
 		?>
 		<div style="text-align: center">
 			<input type="radio" id="pup" name="classification" value="pup" checked>
-					<label for="huey">Pup</label>
+					<label for="pup">Pup</label>
 					<input type="radio" id="weanling" name="classification" value="weanling">
-					<label for="huey">Weanling</label>
+					<label for="weanling">Weanling</label>
 					<input type="radio" id="breeder" name="classification" value="breeder">
-					<label for="huey">Breeder</label>
+					<label for="breeder">Breeder</label>
 		</div>
 		<table class="table1">
 			<tr>
