@@ -46,7 +46,7 @@
         </tr>
           <tr>
             <td>Pair:</td>
-  					<td><select name="pairID" required>
+  					<td><select name="pairID" value='pairID'required>
             	  <?php getDropDown("pairID", "breeding_pairs", $breedingPair);
 								?>
 							</select></td>
@@ -74,13 +74,16 @@
 									//If newLitter check box is checked call newLitterIncrement from functions.php to create newLitterID
 									if (isset($_POST["newLitterID"])) {
 										$litterID = newLitterIncrement();
+									}else {
+										$litterID = $_POST['litterID'];
 									}
 										$numPups = $_POST['numPups'];
+										$pairNum = $_POST['pairID'];
 										$dob = $_POST['birth_date'];
 										$comments = $_POST['commentBox'];
-										addPups($litterID,$breedingPair, $numPups, $dob,$comments);
-
+										addPups($litterID,$pairNum, $numPups, $dob,$comments);
 								}
+								$_POST = null;
 								?>
 							</tr>
 
