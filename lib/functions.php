@@ -136,27 +136,6 @@ function getInvestigators($last_pi_name)
     $pdo = null;
 }
 
-//create new litter with null values
-function createNewLitter($litterID)
-{
-  ini_set('display_errors', 1);
-  ini_set('display_startup_errors', 1);
-  error_reporting(E_ALL);
-
-  try {
-    require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
-
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    $sql = "INSERT INTO litters (litterID) VALUES ($litterID)";
-    $pdo->exec($sql);
-
-  } catch (PDOException $e) {
-    echo $e->getMessage();
-  }
-  $pdo = null;
-}
 function newLitterIncrement(){
   ini_set('display_errors', 1);
   ini_set('display_startup_errors', 1);
@@ -178,48 +157,6 @@ function newLitterIncrement(){
   }
   $pdo = null;
   return $newLitterID;
-}
-
-//gets maleID, desiredStrain from pair number
-function getMaleIDStrainFromPairNum($pairNumber){
-  ini_set('display_errors', 1);
-  ini_set('display_startup_errors', 1);
-  error_reporting(E_ALL);
-try {
-  require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
-
-  $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-
-  $sql = 'SELECT maleID, desiredStrain FROM breeding_pairs WHERE pairID = $pairNumber';
-  $q = $pdo->query($sql);
-  $q->setFetchMode(PDO::FETCH_ASSOC);
-  $temp = $q->fetch();
-} catch (PDOException $e) {
-  echo $e->getMessage();
-}
-$pdo = null;
-return $temp;
-}
-
-//gets species,generation, and PI for litter based upon id of parent
-function getLitterValuesFromMaleID($id){
-  ini_set('display_errors', 1);
-  ini_set('display_startup_errors', 1);
-  error_reporting(E_ALL);
-try {
-  require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
-
-  $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-
-  $sql = 'SELECT species_name,generation,PI_username FROM animals_join_litters_join_pi WHERE animalID = $id';
-  $q = $pdo->query($sql);
-  $q->setFetchMode(PDO::FETCH_ASSOC);
-  $temp = $q->fetch();
-} catch (PDOException $e) {
-  echo $e->getMessage();
-}
-$pdo = null;
-return $temp;
 }
 
 function checkLitterExists($litterID)
@@ -249,15 +186,12 @@ function checkLitterExists($litterID)
 
     $pdo = null;
 }
-
-function addPups($litterID, $pairNum, $numberPups,$birthDate,$comments)
+function addPups($litterID, $pairNum, $numberPups,$dateOfBirth,$comments)
 {
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-
-    $failCount = 0;
-
+try {
     $options = [
         PDO::ATTR_EMULATE_PREPARES => false, // turn off emulation mode for "real" prepared statements
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // turn on errors in the form of exceptions
@@ -266,35 +200,47 @@ function addPups($litterID, $pairNum, $numberPups,$birthDate,$comments)
     require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
 
 
-    $litterExists = checkLitterExists($litterID);
-
-    if ($litterExists) {
         $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
 
-        $setup = $pdo->prepare("SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;");
-        $setup->execute();
 
-        $query = $pdo->prepare("INSERT INTO `animals` (`litterID`, `birth_date`.`classification`, `comments`)
-        VALUES (?, ?,'pups','$comments')");
+        $sql1 = 'SELECT maleID, desiredStrain, offspringGen FROM breeding_pairs WHERE pairID = ?';
+        $stmnt = $pdo->prepare($sql1);
+        $stmnt->execute([$pairNum]);
 
-        for ($i = 0; $i < $numberPups; $i ++) {
-            if (! $query->execute([
-                $litterID,
-                $birthDate
-            ])) {
-                $failCount ++;
-            }
+
+          while ($row = $stmnt->fetch(PDO::FETCH_ASSOC)) {
+          $maleID = $row['maleID'];
+          $strain = $row['desiredStrain'];
+          $generation = $row['offspringGen'];
         }
-        if ($failCount > 0) {
-            echo "Error inserting records!";
-        } else {
-            echo "Success - " . htmlspecialchars($numberPups) . " new pups added to the database!";
-        }
-    } else {
-        echo "Error - Duplicate Litter ID";
-    }
 
-    $pdo = null;
+
+        $sql2 = 'SELECT species_name,PI_username FROM animals_join_litters_join_pi WHERE animalID = ?';
+        $stmnt = $pdo->prepare($sql2);
+        $stmnt->execute([$maleID]);
+
+          while ($row = $stmnt->fetch(PDO::FETCH_ASSOC)) {
+          $species = $row['species_name'];
+          $pi = $row['PI_username'];
+
+          }
+        $sql3 = "INSERT INTO litters (litterID,breedingPair) VALUES ($litterID, $pairNum)";
+
+
+        $sql4 = "INSERT INTO `animals` (`species_name`, `classification`, `sex`, `tag_date`, `birth_date`, `wean_date`, `genotype`, `generation`, `location`, `tagNumber`, `deceased`, `transferred`, `comments`, `strain_ID`)
+        VALUES ('$species', 'pup', NULL, NULL, '$dateOfBirth', NULL, NULL, '$generation', 'B1C110', NULL, b'0', b'0', 'No notes', '$strain')";
+
+        for ($i=0; $i < $numberPups ; $i++) {
+          $pdo->exec($sql3);
+          $pdo->exec($sql4);
+       }
+
+       echo "Success - " . htmlspecialchars($numberPups) . " new pups added to the database!";
+
+        }catch (PDOException $e) {
+          echo $e->getMessage();
+        }
+        $pdo = null;
 }
 
 /*Adds a new animal to the database
