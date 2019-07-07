@@ -250,7 +250,7 @@ function checkLitterExists($litterID)
     $pdo = null;
 }
 
-function addPups($litterID, $numberPups, $species, $strain, $birthDate)
+function addPups($litterID, $pairNum, $numberPups,$birthDate,$comments)
 {
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
@@ -265,6 +265,7 @@ function addPups($litterID, $numberPups, $species, $strain, $birthDate)
     ];
     require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
 
+
     $litterExists = checkLitterExists($litterID);
 
     if ($litterExists) {
@@ -273,13 +274,12 @@ function addPups($litterID, $numberPups, $species, $strain, $birthDate)
         $setup = $pdo->prepare("SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;");
         $setup->execute();
 
-        $query = $pdo->prepare("INSERT INTO `animals` (`litterID`, `species`, `strain`, `birth_date`) VALUES (?, ?, ?, ?)");
+        $query = $pdo->prepare("INSERT INTO `animals` (`litterID`, `birth_date`.`classification`, `comments`)
+        VALUES (?, ?,'pups','$comments')");
 
         for ($i = 0; $i < $numberPups; $i ++) {
             if (! $query->execute([
                 $litterID,
-                $species,
-                $strain,
                 $birthDate
             ])) {
                 $failCount ++;
