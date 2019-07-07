@@ -2,14 +2,27 @@
 <html lang="en">
 
 <head>
-	<title></title>
+	<title>RITA - Add Breeding Pair</title>
 	<link rel="stylesheet" type="text/css" href="css/addBrPairStyle.css">
-	
+		<div class="main-body">
+		<center>
+		<div class="logo">
+			<img align="center" class="ritalogo" src="img/ritalogo-1.png"
+				height="97" width="360">
+			<h2 class="maintitle">Rodentia Inventory Tracking Application
+			<br style = "line-height:100px;"></br>
+			ADD BREEDER PAIR FORM</h2>
+			
+
+			
+		</div>
 	
 </head>
 
 <header>
-	<h1>Add Breeder Pair Form</h1>
+<br style = "line-height:30px;"></br>
+
+	
 	<?php
 		ini_set('display_errors', 1);
 		ini_set('display_startup_errors', 1);
@@ -159,5 +172,47 @@
 		<button class="button" type="submit" name="add">Add</button>
 	</div>
 	</form>
+	<br style = “line-height:5500;”>
+		<footer>
+		<img align="left" class="mouselogo" src="img/mouse-1.png" height="117"
+			width="87">
+
+		<form>
+			<fieldset>
+
+				<div class="div-footer">
+
+					<table class="tb-footer">
+						<tr class="tr-footer">
+							<td class="td-footer"><button class="update" type="button"
+								name="addLitter" onclick="window.location='addLitter.php'">Add Litter</button></td>
+              						<td class="td-footer"><button class="update" type="button"
+    								name="addAnimal" onclick="window.location='addNewAnimal.php'">Add Animal</button></td>
+							<td class="td-footer"><button class="update" type="button"
+								name="addBreeder" onclick="window.location='addBreedingPair.php'">Add Breeder Pair</button></td>
+              						<td class="td-footer"><button class="update" type="button"
+    					    			name="updateEntry">Update Selected</button></td>
+              						<td class="td-footer"><button class="update" type="button"
+    								name="updateBreederPair">Update Breeder Pair</button></td>
+							<td class="td-footer"><button class="update" type="button"
+								name="delte">Delete entry</button></td>
+							<td id="this is an empty cell for spacing">&emsp;&emsp;&emsp;</td>
+							<td>Display Report:</td>
+							<td><select>
+								<option value="survival" selected>- select -</option>
+								<option value="survival">Pup Survivability</option>
+							</select></td>
+							<td><button class="action" type="submit" name="goReport">Go</button></td>
+
+						</tr>
+					</table>
+
+				</div>
+			</fieldset>
+
+		</form>
+	</footer>
+	<br>&emsp; © 2019, CMSC495 Team #4
+	</br>
 </body>
 </html>
