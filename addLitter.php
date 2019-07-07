@@ -77,7 +77,7 @@
 									}
 										$numPups = $_POST['numPups'];
 										$dob = $_POST['birth_date'];
-										$comments = $_POST['commentBox']
+										$comments = $_POST['commentBox'];
 										addPups($litterID,$breedingPair, $numPups, $dob,$comments);
 
 								}
