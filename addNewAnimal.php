@@ -2,14 +2,22 @@
 <html lang="en">
 
 <head>
-	<title></title>
+	<title>RITA - Add Animal</title>
 	<link rel="stylesheet" type="text/css" href="css/addBrPairStyle.css">
-	
-	
-</head>
+		<div class="main-body">
+		<center>
+		<div class="logo">
+			<img align="center" class="ritalogo" src="img/ritalogo-1.png"
+				height="97" width="360">
+			</br></br>
+			<h2 class="maintitle">Add New Animal Form
+			<br style = "line-height:100px;"></br></div>
+			
+			
+	</head>
 
 <header>
-	<h1>Add New Animal Form</h1>
+	
 	<?php
 		ini_set('display_errors', 1);
 		ini_set('display_startup_errors', 1);
@@ -25,7 +33,6 @@
 			}
 			else{*/
 				$vals = array(
-				"pi" => $_POST['pi_name'],
 				"species" => $_POST['species_name'],
 				"classification" => $_POST['classification'],
 				"sex" => $_POST['sex'],
@@ -73,6 +80,7 @@
 </header>
 
 <body>
+
 	<form action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
 	<div>
 		<?php 
@@ -82,11 +90,11 @@
 		?>
 		<div style="text-align: center">
 			<input type="radio" id="pup" name="classification" value="pup" checked>
-					<label for="pup">Pup</label>
+					<label for="huey">Pup</label>
 					<input type="radio" id="weanling" name="classification" value="weanling">
-					<label for="weanling">Weanling</label>
+					<label for="huey">Weanling</label>
 					<input type="radio" id="breeder" name="classification" value="breeder">
-					<label for="breeder">Breeder</label>
+					<label for="huey">Breeder</label>
 		</div>
 		<table class="table1">
 			<tr>
