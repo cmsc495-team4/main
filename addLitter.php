@@ -1,6 +1,7 @@
 <html>
 <head>
-	<title>Add Litter</title>
+
+	<title>RITA - Add Litter</title>
 	<link rel="stylesheet" type="text/css" href="css/addPupsStyle.css">
 </head>
 
@@ -25,69 +26,75 @@
 </header>
 
 <body>
+<div class="main-body">
+
+
+		<div class="logo">
+			<img align="left" class="ritalogo" src="img/ritalogo-1.png"
+				height="97" width="360"></br><br style = "line-height:90px;"></br>
+			<h3 class="maintitle">Rodentia Inventory Tracking Application</h3>
+		</div>
+		<img align="left" class="mouselogo" src="img/mouse-1.png"
+				height="117" width="87"> </br>
+			</br>
+			</br>	<center>
+			
   <form action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
 		<fieldset>
 			<legend>Add Litter Form</legend>
 			<table>
-        <tr>
-           <td>
-						 	<div>
-           			<input type="checkbox" name="newLitterID" value="newLitter">New Litter
-           		</div>
+        		<tr>
+           			<td>
+				<div>
+           			<input type="checkbox" name="newLitter" value="newLitter">New Litter
+					</div>
+				 </td>
+				 <td>
+					<div class="newLitter">
+					<label for="litterID">Add to existing Litter:</label>
+					<select name="litterID">
+					<?php getDropDown("litterID", "litters", $litterID); ?>
+					 </select>
+					</div>
 					 </td>
-					 <td>
-						 <div class="newLitter">
-							 <label for="litterID">Add to existing Litter:</label>
-							 <select name="litterID">
-								 <?php getDropDown("litterID", "litters", $litterID); ?>
-								 </select>
-						 </div>
-					 </td>
-        </tr>
-          <tr>
-            <td>Pair:</td>
-  					<td><select name="pairID" value='pairID'required>
-            	  <?php getDropDown("pairID", "breeding_pairs", $breedingPair);
-								?>
+       			 </tr>
+         		 <tr>
+           		 <td>Pair:</td>
+  			<td><select name="pairID">
+            	  		<?php getDropDown("pairID", "breeding_pairs", $breedingPair); ?>
 							</select></td>
-             </tr>
-             <tr>
-               	<td>Date of Birth:</td>
-     						<td><input type="date" name="birth_date" required></td>
-							</tr>
-							<tr>
-								<td>Number of pups:</td>
-							 	<td><input type="text" name="numPups" required></td>
-
-							</tr>
-             <tr>
-               <td><label for="commentBox">Comments:</label></td>
+             		</tr>
+             		<tr>
+               			<td>Date of Birth:</td>
+     				<td><input type="date" name="birth_date"></td>
+			</tr>
+			<tr>
+				<td>Number of pups:</td>
+				<td><input type="text" name="numPups"></td>
+			</tr>
+            		 <tr>
+              			 <td><label for="commentBox">Comments:</label></td>
        				<td>
        					<textarea id="commentBox" name="commentBox" rows="5" cols="33"></textarea>
        				</td>
- 							</tr>
-							<tr>
-								<td><button class="button" type="submit" name="add">Add</button></td>
-
-								<?php
-								if (isset($_POST["add"])) { //if add button is clicked
-									//If newLitter check box is checked call newLitterIncrement from functions.php to create newLitterID
-									if (isset($_POST["newLitterID"])) {
-										$litterID = newLitterIncrement();
-									}else {
-										$litterID = $_POST['litterID'];
-									}
-										$numPups = $_POST['numPups'];
-										$pairNum = $_POST['pairID'];
-										$dob = $_POST['birth_date'];
-										$comments = $_POST['commentBox'];
-										addPups($litterID,$pairNum, $numPups, $dob,$comments);
-								}
-								$_POST = null;
-								?>
-							</tr>
-
-          </form>
-
+ 			</tr>
+			<tr>
+				<td><button class="button" type="submit" name="add">Add</button></td>
+			</tr>
+			<?php
+// 				if (isset($_POST["add"])) { //if add button is clicked
+// 				//If newLitter check box is checked call newLitterIncrement from functions.php to create newLitterID
+// 					if (isset($_POST["newLitterID"])) {
+// 					$litterID = newLitterIncrement();
+// 					createNewLitter($litterID); //creates new litter with null values
+// 					}else {
+								
+// 					}
+// 				}
+			?>	
+</fieldset>			
+	
       </body>
+	  
+	  
 </html>
