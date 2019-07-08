@@ -203,12 +203,12 @@ try {
 		
 	$issues = false;
 	//check that all required fields provided.
-	if(!isset($_POST['pairID']) || !isset($_POST['numPups']) || !isset($_POST['birth_date'])){
+	if(empty($_POST['pairID']) || empty($_POST['numPups']) || empty($_POST['birth_date'])){
 		$issues = true;
 		echo '<label style="color:red">Unable to add litter. Pair, DOB, and/or Number of Pups required.';
 	}
 	//check that litterID selected if newLitter not checked
-	if(!isset($_POST['newLitter']) && !isset($_POST['litterID'])){
+	if(!isset($_POST['newLitter']) && empty($_POST['litterID'])){
 		$issues = true;
 		echo '<label style="color:red">Unable to add litter. Must select either New Litter or existing litter </label>';
 	}
