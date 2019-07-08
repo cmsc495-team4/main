@@ -89,7 +89,7 @@
  					}else {
 						$litterID = $_POST['litterID'];			
  					}
-					createNewLitter($litterID);
+					addPups($litterID);
  				}
 			?>	
 </fieldset>			
