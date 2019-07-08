@@ -70,7 +70,7 @@
 			</tr>
 			<tr>
 				<td>Number of pups:</td>
-				<td><input type="text" name="numPups"></td>
+				<td><input type="text" name="numPups" required></td>
 			</tr>
             		 <tr>
               			 <td><label for="commentBox">Comments:</label></td>
@@ -84,12 +84,12 @@
 			<?php
  				if (isset($_POST["add"])) { //if add button is clicked
  				//If newLitter check box is checked call newLitterIncrement from functions.php to create newLitterID
- 					if (isset($_POST["newLitterID"])) {
- 					$litterID = newLitterIncrement();
- 					createNewLitter($litterID); //creates new litter with null values
+ 					if (isset($_POST["newLitter"])) {
+ 						$litterID = newLitterIncrement();
  					}else {
-								
+						$litterID = $_POST['litterID'];			
  					}
+					createNewLitter($litterID);
  				}
 			?>	
 </fieldset>			
