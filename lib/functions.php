@@ -243,15 +243,15 @@ try {
 			VALUES ('$species', 'pup', NULL, NULL, '$dateOfBirth', NULL, NULL, '$generation', 'B1C110', NULL, b'0', b'0', '$comments', '$strainID')";
 		
         for ($i=0; $i < $numberPups ; $i++) {
-          $pdo->exec($sql3);
-		  //get inserted animal's id
-		  $animalID = $pdo->lastInsertID();
+          	$pdo->exec($sql3);
+		//get inserted animal's id
+		$animalID = $pdo->lastInsertID();
 		  
-		  $sql4 = "INSERT INTO litters (`litterID`, `animalID_pup`, `breedingPair`) VALUES ($litterID, $animalID, $pairNum)";
-		  $sql5 = "INSERT INTO `PI_assigned_animals` (`PI_username`, `PI_strain_ID`, `PI_animalID`)
+		$sql4 = "INSERT INTO litters (`litterID`, `animalID_pup`, `breedingPair`) VALUES ($litterID, $animalID, $pairNum)";
+		$sql5 = "INSERT INTO `PI_assigned_animals` (`PI_username`, `PI_strain_ID`, `PI_animalID`)
 			VALUES ($pi, $strainID, $animalID)";
-          $pdo->exec($sql4);
-		  $pd0->exec($sql5);
+          	$pdo->exec($sql4);
+		$pdo->exec($sql5);
        }
        echo "Success - " . htmlspecialchars($numPups) . " new pups added to the database!";
 	}
