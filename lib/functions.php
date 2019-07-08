@@ -611,6 +611,7 @@ function displayWeanlingReportTable() {
     $litterFilter = "";
     $displayAll = TRUE;
 	
+	
     if (isset($_REQUEST["clear"])) {
         $_POST = array();
         $_REQUEST = array();
@@ -622,11 +623,14 @@ function displayWeanlingReportTable() {
 		
 		$filterStartDate = $_REQUEST["startDate"];
 		$filterEndDate = $_REQUEST["endDate"];
-		echo "---->> startDOBvar: [" . $filterStartDate . "]\n";
-		echo "---->> endDOBvar: [" . $filterEndDate . "]\n";
 		
-		$animalList = "AND birth_date BETWEEN '" . $filterStartDate . "' AND '" . $filterEndDate . "'";
+		if (empty($filterStartDate) && empty($filterEndDate)) { //check to make sure that both dates are not empty
+			$displayAll = TRUE;
+		} else {
+			$animalList = "AND birth_date BETWEEN '" . $filterStartDate . "' AND '" . $filterEndDate . "'";
+		}
 	}
+	
 	
     $options = [
         PDO::ATTR_EMULATE_PREPARES => false, // turn off emulation mode for "real" prepared statements
@@ -696,8 +700,7 @@ function displayWeanlingReportTable() {
             }
         }
     } else {
-        $query1 = "SELECT * FROM `filtered_return` WHERE classification='pup' " . $animalList;
-        echo "\n<br><font style=\"color: red;\">SQL Query Debug --> <strong>" . $query1 . "</strong></font>\n<br><br>";
+        $query1 = "SELECT * FROM filtered_return WHERE classification='pup' " . $animalList;
         // echo var_dump($_POST);
         // echo var_dump($_REQUEST);
         $result = $pdo->query($query1);
@@ -797,11 +800,10 @@ function pupSurvivabilityReportTable() {
 			$parentPair = $row["breedingPair"];
 			$animalID_pup = $row["animalID_pup"];
 			$litterID = $row["litterID"];
-            //$animalID = $row["animalID"];
-            //$strain = $row["strain_name"];
-            //$species = $row["species_name"];
-            //deceased = $row["deceased"];
-            //$comments = $row["comments"];
+			$multipleStrainRef = $parentPair;
+			if ($parentPair <> $multipleStrainRef) {
+				$strain = "";
+			}
               
             $query2 = "SELECT PI_username, PI_strain_ID FROM PI_assigned_animals WHERE PI_animalID=" . $animalID_pup;
             $result2 = $pdo->query($query2);
@@ -821,11 +823,22 @@ function pupSurvivabilityReportTable() {
                 $firstName = "";
             }
 			
-            $query5 = "SELECT species_name, strain_name FROM filtered_return WHERE animalID=" . $animalID_pup;
+			$query3 = "SELECT desiredStrain FROM breeding_pairs WHERE pairID=" . $parentPair;
+            $result3 = $pdo->query($query3);
+            $result3->setFetchMode(PDO::FETCH_ASSOC);
+            $row3 = $result3->fetch(PDO::FETCH_ASSOC);
+			$strainIDnum = $row3["desiredStrain"];
+			
+			$query4 = "SELECT strain_name FROM strains WHERE id_strain=" . $strainIDnum;
+            $result4 = $pdo->query($query4);
+            $result4->setFetchMode(PDO::FETCH_ASSOC);
+            $row4 = $result4->fetch(PDO::FETCH_ASSOC);
+			$strain = $row4["strain_name"];
+			
+            $query5 = "SELECT species_name FROM filtered_return WHERE animalID=" . $animalID_pup;
             $result5 = $pdo->query($query5);
             $result5->setFetchMode(PDO::FETCH_ASSOC);
-            $row5 = $result5->fetch(PDO::FETCH_ASSOC);
-            $strain = $row5["strain_name"];
+            $row5 = $result5->fetch(PDO::FETCH_ASSOC);			
 			$species = $row5["species_name"];
 			
 			$query6 = "SELECT breedingPair, COUNT(*) AS cnt FROM litters WHERE breedingPair=" . $parentPair;
@@ -849,6 +862,7 @@ function pupSurvivabilityReportTable() {
 			echo "<td class=\"animalList\" style=\"text-align: center;\">" . $numberOfDeceasedPups . "</td>\n";
 			echo "<td class=\"animalList\" style=\"text-align: center;\">" . $survivalPercentage . "</td>\n";
             echo "</tr>\n";
+			
         }
     }
     echo "</tbody></table>\n";
