@@ -82,15 +82,15 @@
 				<td><button class="button" type="submit" name="add">Add</button></td>
 			</tr>
 			<?php
-// 				if (isset($_POST["add"])) { //if add button is clicked
-// 				//If newLitter check box is checked call newLitterIncrement from functions.php to create newLitterID
-// 					if (isset($_POST["newLitterID"])) {
-// 					$litterID = newLitterIncrement();
-// 					createNewLitter($litterID); //creates new litter with null values
-// 					}else {
+ 				if (isset($_POST["add"])) { //if add button is clicked
+ 				//If newLitter check box is checked call newLitterIncrement from functions.php to create newLitterID
+ 					if (isset($_POST["newLitterID"])) {
+ 					$litterID = newLitterIncrement();
+ 					createNewLitter($litterID); //creates new litter with null values
+ 					}else {
 								
-// 					}
-// 				}
+ 					}
+ 				}
 			?>	
 </fieldset>			
 	
