@@ -247,9 +247,9 @@ try {
 		//get inserted animal's id
 		$animalID = $pdo->lastInsertID();
 		  
-		$sql4 = "INSERT INTO litters (`litterID`, `animalID_pup`, `breedingPair`) VALUES ($litterID, $animalID, $pairNum)";
+		$sql4 = "INSERT INTO litters (`litterID`, `animalID_pup`, `breedingPair`) VALUES ('$litterID', '$animalID', '$pairNum')";
 		$sql5 = "INSERT INTO `PI_assigned_animals` (`PI_username`, `PI_strain_ID`, `PI_animalID`)
-			VALUES ($pi, $strainID, $animalID)";
+			VALUES ('$pi', '$strainID', '$animalID')";
           	$pdo->exec($sql4);
 		$pdo->exec($sql5);
        }
