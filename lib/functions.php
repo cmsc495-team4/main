@@ -186,7 +186,7 @@ function checkLitterExists($litterID)
 
     $pdo = null;
 }
-function addPups($litterID, $pairNum, $numberPups,$dateOfBirth,$comments)
+function addPups($litterID)
 {
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
@@ -202,6 +202,10 @@ try {
 
         $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
 
+	$pairNumber = $_POST['pairID'];
+	$numberPups = $_POST['numPups'];
+	$dateOfBirth = $_POST['birth_date'];
+	$comments = $_POST['commentBox'];
 
         $sql1 = 'SELECT maleID, desiredStrain, offspringGen FROM breeding_pairs WHERE pairID = ?';
         $stmnt = $pdo->prepare($sql1);
