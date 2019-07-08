@@ -253,7 +253,7 @@ try {
           	$pdo->exec($sql4);
 		$pdo->exec($sql5);
        }
-       echo "Success - " . htmlspecialchars($numPups) . " new pups added to the database!";
+       echo "Success - " . htmlspecialchars($numberPups) . " new pups added to the database!";
 	}
     }catch (PDOException $e) {
         echo $e->getMessage();
