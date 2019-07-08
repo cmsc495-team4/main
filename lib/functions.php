@@ -234,7 +234,7 @@ try {
 		$sql2 = 'SELECT species_name,PI_username FROM filtered_return WHERE animalID = ?';
 		$stmnt = $pdo->prepare($sql2);
 		$stmnt->execute([$maleID]);
-		$row->fetch(PDO::FETCH_ASSOC);
+		$row = $stmnt->fetch(PDO::FETCH_ASSOC);
 			
 		$species = $row['species_name'];
 		$pi = $row['PI_username'];
