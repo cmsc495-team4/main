@@ -186,6 +186,81 @@ function checkLitterExists($litterID)
 
     $pdo = null;
 }
+
+function addPups($litterID)
+{
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+try {
+    $options = [
+        PDO::ATTR_EMULATE_PREPARES => false, // turn off emulation mode for "real" prepared statements
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // turn on errors in the form of exceptions
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC // make the default fetch be an associative array
+    ];
+    require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
+		
+	$issues = false;
+	//check that all required fields provided.
+	if(!isset($_POST['pairID']) || !isset($_POST['numPups']) || !isset($_POST['birth_date'])){
+		$issues = true;
+		echo '<label style="color:red">Unable to add litter. Pair, DOB, and/or Number of Pups required.';
+	}
+	//check that litterID selected if newLitter not checked
+	if(!isset($_POST['newLitter']) && !isset($_POST['litterID'])){
+		$issues = true;
+		echo '<label style="color:red">Unable to add litter. Must select either New Litter or existing litter </label>';
+	}
+	//continue if all required fields provided.
+	if(!$issues){
+		$pairNum = $_POST['pairID'];
+		$numberPups = $_POST['numPups'];
+		$dateOfBirth = $_POST['birth_date'];
+		$comments = $_POST['commentBox'];
+	
+		//get pups' strain and generation. Male parent used to get other data
+        $sql1 = 'SELECT maleID, desiredStrain, offspringGen FROM breeding_pairs WHERE pairID = ?';
+        $stmnt = $pdo->prepare($sql1);
+        $stmnt->execute([$pairNum]);
+        $row = $stmnt->fetch(PDO::FETCH_ASSOC);
+		
+		$maleID = $row['maleID'];
+		$strain_name = $row['desiredStrain'];
+		$strainID = getStrainIdByName($strain_name);
+		$generation = $row['offspringGen'];
+        
+		//get new pups species and litter from the male breeder
+		$sql2 = 'SELECT species_name,PI_username FROM filtered_return WHERE animalID = ?';
+		$stmnt = $pdo->prepare($sql2);
+		$stmnt->execute([$maleID]);
+		$stmnt->fetch(PDO::FETCH_ASSOC);
+			
+		$species = $row['species_name'];
+		$pi = $row['PI_username'];
+				
+		$sql3 = "INSERT INTO `animals` (`species_name`, `classification`, `sex`, `tag_date`, `birth_date`, `wean_date`, `genotype`, `generation`, `location`, `tagNumber`, `deceased`, `transferred`, `comments`, `strain_ID`)
+			VALUES ('$species', 'pup', NULL, NULL, '$dateOfBirth', NULL, NULL, '$generation', 'B1C110', NULL, b'0', b'0', $comments, '$strainID')";
+		
+        for ($i=0; $i < $numberPups ; $i++) {
+          $pdo->exec($sql3);
+		  //get inserted animal's id
+		  $animalID = $pdo->lastInsertID();
+		  
+		  $sql4 = "INSERT INTO litters (`litterID`, `animalID_pup`, `breedingPair`) VALUES ($litterID, $animalID, $pairNum)";
+		  $sql5 = "INSERT INTO `PI_assigned_animals` (`PI_username`, `PI_strain_ID`, `PI_animalID`)
+			VALUES ($pi, $strainID, $animalID)";
+          $pdo->exec($sql4);
+		  $pd0->exec($sql5);
+       }
+       echo "Success - " . htmlspecialchars($numPups) . " new pups added to the database!";
+	}
+    }catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+
+        $pdo = null;
+} 
 function addPups($litterID)
 {
     ini_set('display_errors', 1);
