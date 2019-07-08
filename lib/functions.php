@@ -261,66 +261,7 @@ try {
 
         $pdo = null;
 } 
-function addPups($litterID)
-{
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-try {
-    $options = [
-        PDO::ATTR_EMULATE_PREPARES => false, // turn off emulation mode for "real" prepared statements
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // turn on errors in the form of exceptions
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC // make the default fetch be an associative array
-    ];
-    require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
 
-
-        $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
-
-	$pairNumber = $_POST['pairID'];
-	$numberPups = $_POST['numPups'];
-	$dateOfBirth = $_POST['birth_date'];
-	$comments = $_POST['commentBox'];
-
-        $sql1 = 'SELECT maleID, desiredStrain, offspringGen FROM breeding_pairs WHERE pairID = ?';
-        $stmnt = $pdo->prepare($sql1);
-        $stmnt->execute([$pairNum]);
-
-
-          while ($row = $stmnt->fetch(PDO::FETCH_ASSOC)) {
-          $maleID = $row['maleID'];
-          $strain = $row['desiredStrain'];
-          $generation = $row['offspringGen'];
-        }
-
-
-        $sql2 = 'SELECT species_name,PI_username FROM animals_join_litters_join_pi WHERE animalID = ?';
-        $stmnt = $pdo->prepare($sql2);
-        $stmnt->execute([$maleID]);
-
-          while ($row = $stmnt->fetch(PDO::FETCH_ASSOC)) {
-          $species = $row['species_name'];
-          $pi = $row['PI_username'];
-
-          }
-        $sql3 = "INSERT INTO litters (litterID,breedingPair) VALUES ($litterID, $pairNum)";
-
-
-        $sql4 = "INSERT INTO `animals` (`species_name`, `classification`, `sex`, `tag_date`, `birth_date`, `wean_date`, `genotype`, `generation`, `location`, `tagNumber`, `deceased`, `transferred`, `comments`, `strain_ID`)
-        VALUES ('$species', 'pup', NULL, NULL, '$dateOfBirth', NULL, NULL, '$generation', 'B1C110', NULL, b'0', b'0', 'No notes', '$strain')";
-
-        for ($i=0; $i < $numberPups ; $i++) {
-          $pdo->exec($sql3);
-          $pdo->exec($sql4);
-       }
-
-       echo "Success - " . htmlspecialchars($numberPups) . " new pups added to the database!";
-
-        }catch (PDOException $e) {
-          echo $e->getMessage();
-        }
-        $pdo = null;
-}
 
 /*Adds a new animal to the database
 $vals assoc names: species, classification, sex, tagDate, birthDate, weanDate, genotype, litter, location, strain_ID, tagNum, deceased, transfer, notes*/
