@@ -234,13 +234,13 @@ try {
 		$sql2 = 'SELECT species_name,PI_username FROM filtered_return WHERE animalID = ?';
 		$stmnt = $pdo->prepare($sql2);
 		$stmnt->execute([$maleID]);
-		$stmnt->fetch(PDO::FETCH_ASSOC);
+		$row->fetch(PDO::FETCH_ASSOC);
 			
 		$species = $row['species_name'];
 		$pi = $row['PI_username'];
 				
 		$sql3 = "INSERT INTO `animals` (`species_name`, `classification`, `sex`, `tag_date`, `birth_date`, `wean_date`, `genotype`, `generation`, `location`, `tagNumber`, `deceased`, `transferred`, `comments`, `strain_ID`)
-			VALUES ('$species', 'pup', NULL, NULL, '$dateOfBirth', NULL, NULL, '$generation', 'B1C110', NULL, b'0', b'0', $comments, '$strainID')";
+			VALUES ('$species', 'pup', NULL, NULL, '$dateOfBirth', NULL, NULL, '$generation', 'B1C110', NULL, b'0', b'0', '$comments', '$strainID')";
 		
         for ($i=0; $i < $numberPups ; $i++) {
           $pdo->exec($sql3);
