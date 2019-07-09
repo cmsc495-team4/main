@@ -332,12 +332,16 @@ $(document).ready( function () {
 								name="delete" onclick="deleteConfirm()">Delete entry</button></td>
 							<td id="this is an empty cell for spacing">&emsp;&emsp;&emsp;</td>
 							<td>Display Report:</td>
-							<td><select>
-								<option value="survival" selected>- select -</option>
+							<td><select id="report">
+								<option value="" selected>- select -</option>
 								<option value="survival">Pup Survivability</option>
+								<option value="weaning">Pups to be Weaned</option>
 							</select></td>
-							<td><button class="action" type="submit" name="goReport">Go</button></td>
-
+							<td><button class="action" type="button" id="goReport">Go</button></td>
+							<script>
+								const map = {survival: 'http://495team4.com/SurvivabilityOfPups.php',weaning: 'http://495team4.com/WeanlingReport.php'}
+								document.getElementById('goReport').addEventListener('click', () => location.href = map[document.getElementById('report').value])
+							</script>
 						</tr>
 					</table>
 
