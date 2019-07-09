@@ -27,11 +27,10 @@
 		$message = "";
 		
 		if(isset($_POST['add'])){
-			//var_dump($_POST);
-			/*if(empty(empty($_POST['species_name']) ||$_POST['sex']) || empty($_POST['dob'])) {
-				$message = "Must enter a species, sex, DOB";
+			if(empty($_POST['pi_name']) || empty($_POST['species_name']) || empty($_POST['sex']) || empty($_POST['dob'])) {
+				$message = "All fields with * required";
 			}
-			else{*/
+			else{
 				$vals = array(
 				"species" => $_POST['species_name'],
 				"classification" => $_POST['classification'],
@@ -50,8 +49,8 @@
 				);
 				
 				addNewAnimal($vals);	
-			/*}
-			$_POST = null;*/
+			}
+			$_POST = null;
 		}
 	?>
 	
@@ -148,7 +147,7 @@
 				<td>
 					<input type="date" name="tagDate" placeholder="Tag Date">
 				</td>
-				<td>Sex:</td>
+				<td>Sex:*</td>
 				<td>
 					<select name="sex">
 						<option value="">-select-</option>
