@@ -32,7 +32,7 @@
 </head>
 
 <header>
-	<h1>Add New Animal Form</h1>
+	<h1>Update Animal Form</h1>
 	<?php
 		ini_set('display_errors', 1);
 		ini_set('display_startup_errors', 1);
@@ -40,20 +40,20 @@
 		require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 		
 		$message = "";
-		$change_tag = "";
+		$change_id = "";
 		//for selecting animal to update
 		if(isset($_POST['getAnimal'])){
-			$change_tag = $_POST['tagNumber'];
+			$change_id = $_POST['animalID'];
 			displayAnimalTable();
-			$message = "All updates will affect animal with Tag #: " . $change_tag;
+			$message = "All updates will affect animal with ID (not tag#): " . $change_id;
 		}
 		//for updating selected animal
 		if(isset($_POST['update'])){
 			//check that a tag number was selected before attempting update
-			if(empty($_POST['change_tag'])){
-				$message = "Select animals current Tag # before updating";
+			if(empty($_POST['change_id'])){
+				$message = "Select animals ID before updating";
 			}else{
-				$message = "Select Tag # to update" ;
+				$message = "Select ID to update" ;
 				updateAnimal();
 			}
 		}
@@ -69,8 +69,8 @@
 					<legend>Filter Results</legend>
 						<tr>
 							<td>Tag#:</td>
-							<td><select name="tagNumber"> 
-          	  <?php getDropDown("tagNumber", "animals", $change_tag); ?>
+							<td><select name="animalID"> 
+          	  <?php getDropDown("animalID", "animals", $change_id); ?>
 			</select></td>
 
 							<td class="filter-button"><button class="action" type="submit"
@@ -91,7 +91,7 @@
 				echo '<label class="text-danger" style="color:red; text-align:center; font-size:1.5em;">' . $message . '</label>';
 			}
 		?>
-		<input type="hidden" name="change_tag" value="<?php echo $change_tag ?>">
+		<input type="hidden" name="change_tag" value="<?php echo $change_id ?>">
 		<div style="text-align: center">
 			<input type="radio" id="pup" name="classification" value="pup">
 				<label for="pup">Pup</label>
