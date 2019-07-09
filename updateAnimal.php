@@ -91,7 +91,7 @@
 				echo '<label class="text-danger" style="color:red; text-align:center; font-size:1.5em;">' . $message . '</label>';
 			}
 		?>
-		<input type="hidden" name="change_tag" value="<?php echo $change_id ?>">
+		<input type="hidden" name="change_id" value="<?php echo $change_id ?>">
 		<div style="text-align: center">
 			<input type="radio" id="pup" name="classification" value="pup">
 				<label for="pup">Pup</label>
