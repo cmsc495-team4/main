@@ -27,7 +27,7 @@
 		$message = "";
 		
 		if(isset($_POST['add'])){
-			if(empty($_POST['pi_name']) || empty($_POST['species_name']) || empty($_POST['sex']) || empty($_POST['dob'])) {
+			if(empty($_POST['pi_name']) || empty($_POST['species_name']) || empty($_POST['sex']) || empty($_POST['dob']) || empty($_POST['strain_name'])) {
 				$message = "All fields with * required";
 			}
 			else{
@@ -90,11 +90,11 @@
 		?>
 		<div style="text-align: center">
 			<input type="radio" id="pup" name="classification" value="pup" checked>
-					<label for="huey">Pup</label>
+					<label for="pup">Pup</label>
 					<input type="radio" id="weanling" name="classification" value="weanling">
-					<label for="huey">Weanling</label>
+					<label for="weanling">Weanling</label>
 					<input type="radio" id="breeder" name="classification" value="breeder">
-					<label for="huey">Breeder</label>
+					<label for="breeder">Breeder</label>
 		</div>
 		<table class="table1">
 			<tr>
@@ -113,7 +113,7 @@
 						<?php getDropDown("species_name", "animals", $species_name); ?>
 					</select>
 				</td>
-				<td>Strain:</td>
+				<td>Strain:*</td>
 				<td>
 					<select name="strain_name">
 						<option>Select PI</option> <!-- ajax created based on selected PI -->
