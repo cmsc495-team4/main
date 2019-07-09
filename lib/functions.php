@@ -214,28 +214,27 @@ try {
 	}
 	
 	//If adding to existing litter, get breeding pair. New litter requires selected pair ID
-		if(isset($_POST['newLitter'])){
-			if(empty($_POST['pairID'])) {
-				$issues = true;
-				echo '<label style="color:red">Unable to add litter. Breeding Pair required for New Litter </label>';
-			} else {
-				$pairNum = $_POST['pairID'];
-			}
+	$pairNum = "";
+	if(isset($_POST['newLitter'])){
+		if(empty($_POST['pairID'])) {
+			$issues = true;
+			echo '<label style="color:red">Unable to add litter. Breeding Pair required for New Litter </label>';
 		} else {
-			$sql0 = "SELECT breedingPair FROM litters WHERE litterID = ?";
-			$stmnt = $pdo->prepare($sql0);
-			$stmnt->execute([$litterID]);
-			$row = $stmnt->fetch(PDO::FETCH_ASSOC);
-			$pairNum = $row['breedingPair'];			
+			$pairNum = $_POST['pairID'];
 		}
+	} else {
+		$sql0 = "SELECT breedingPair FROM litters WHERE litterID = ?";
+		$stmnt = $pdo->prepare($sql0);
+		$stmnt->execute([$litterID]);
+		$row = $stmnt->fetch(PDO::FETCH_ASSOC);
+		$pairNum = $row['breedingPair'];			
+	}
 	
 	//continue if all required fields provided.
 	if(!$issues){
 		$numberPups = $_POST['numPups'];
 		$dateOfBirth = $_POST['birth_date'];
-		$comments = $_POST['commentBox'];
-		$pairNum = "";
-		
+		$comments = $_POST['commentBox'];		
 	
 		//get pups' strain and generation. Male parent used to get other data
         $sql1 = 'SELECT maleID, desiredStrain, offspringGen FROM breeding_pairs WHERE pairID = ?';
