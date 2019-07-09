@@ -32,6 +32,7 @@
 			}
 			else{
 				$vals = array(
+				"pi" => $_POST['pi_name'],
 				"species" => $_POST['species_name'],
 				"classification" => $_POST['classification'],
 				"sex" => $_POST['sex'],
