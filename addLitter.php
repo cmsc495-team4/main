@@ -58,12 +58,12 @@
 					</div>
 					 </td>
        			 </tr>
-			<div class="newLitter" style="display:none">
          		 <tr>
-				<td>Pair:</td>
-  			<td><select name="pairID">
+				 <td><div class="newLitter" style="display:none">Pair:</div></td>
+  			<td><div class="newLitter" style="display:none">
+				<select name="pairID">
             	  		<?php getDropDown("pairID", "breeding_pairs", $breedingPair); ?>
-							</select></td>
+				</select></div></td>
              		</tr>
 			</div>
              		<tr>
