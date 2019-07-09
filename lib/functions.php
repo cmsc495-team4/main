@@ -219,7 +219,7 @@ try {
 		$comments = $_POST['commentBox'];
 		$pairNum = "";
 		//If adding to existing litter, get breeding pair
-		if(isset[$_POST['newLitter']){
+		if(isset([$_POST['newLitter'])){
 			$pairNum = $_POST['pairID'];
 		} else {
 			$sql0 = "SELECT breedingPair FROM litters WHERE litterID = ?";
