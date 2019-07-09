@@ -279,6 +279,29 @@ try {
         $pdo = null;
 } 
 
+function deleteAnimal($id){
+  ini_set('display_errors', 1);
+  ini_set('display_startup_errors', 1);
+  error_reporting(E_ALL);
+  try {
+      $options = [
+          PDO::ATTR_EMULATE_PREPARES => false, // turn off emulation mode for "real" prepared statements
+          PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // turn on errors in the form of exceptions
+          PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC // make the default fetch be an associative array
+      ];
+      require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+
+          $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
+
+          $sql = 'DELETE FROM animals WHERE animalID = ?';
+          $stmnt = $pdo->prepare($sql);
+          $stmnt->execute([$id]);
+
+        }catch (PDOException $e) {
+          echo $e->getMessage();
+        }
+        $pdo = null;
+}
 
 /*Adds a new animal to the database
 $vals assoc names: species, classification, sex, tagDate, birthDate, weanDate, genotype, litter, location, strain_ID, tagNum, deceased, transfer, notes*/
