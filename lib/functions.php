@@ -887,13 +887,14 @@ function pupSurvivabilityReportTable() {
             $result3 = $pdo->query($query3);
             $result3->setFetchMode(PDO::FETCH_ASSOC);
             $row3 = $result3->fetch(PDO::FETCH_ASSOC);
-			$strainIDnum = $row3["desiredStrain"];
+			//$strainIDnum = $row3["desiredStrain"];
+		$strain = $row3["desiredStrain"];
 			
-			$query4 = "SELECT strain_name FROM strains WHERE id_strain=" . $strainIDnum;
-            $result4 = $pdo->query($query4);
-            $result4->setFetchMode(PDO::FETCH_ASSOC);
-            $row4 = $result4->fetch(PDO::FETCH_ASSOC);
-			$strain = $row4["strain_name"];
+			//$query4 = "SELECT strain_name FROM strains WHERE id_strain=" . $strainIDnum;
+            //$result4 = $pdo->query($query4);
+            //$result4->setFetchMode(PDO::FETCH_ASSOC);
+            //$row4 = $result4->fetch(PDO::FETCH_ASSOC);
+			//$strain = $row4["strain_name"];
 			
             $query5 = "SELECT species_name FROM filtered_return WHERE animalID=" . $animalID_pup;
             $result5 = $pdo->query($query5);
