@@ -166,7 +166,7 @@
 				</td>
 				<td>Litter ID</td>
 				<td>
-					<select name="litter">
+					<select name="litter" hidden>
 						<?php getDropDown("litterID", "litters", "") ?>
 					</select>
 				</td>
