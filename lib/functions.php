@@ -329,10 +329,10 @@ function updateAnimal(){
 	$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
 	
 	//get animal's current field values
-	$queryCur = $pdo->prepare("SELECT * FROM filtered_return WHERE tagNumber = ? LIMIT 1");
-	$queryCur->execute([$_POST['change_tag']]);
+	$queryCur = $pdo->prepare("SELECT * FROM filtered_return WHERE animalID = ? LIMIT 1");
+	$queryCur->execute([$_POST['change_id']]);
 	$cur = $queryCur->fetch();
-	//var_dump($cur);
+	//var_dump($cur); change_tag
 	$animalID = $cur['animalID'];
 	
 	//if POST['xx'] value empty, set value to current value, else use POST. Notes are appended	
