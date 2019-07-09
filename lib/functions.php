@@ -915,6 +915,16 @@ function displayAnimalTable()
         }
     }
 
+    if(isset($_REQUEST["animalID"])) { //added for update animal form
+	$displayAll = FALSE;
+	    
+	$filterAnimalId = $_REQUEST["animalID"];
+	if (empty($animalList)) {
+	    $animalList = "WHERE animalID=" . $filterAnimalId;
+	} else {
+	    $animalList = $animalList . " AND animalID=" . $filterAnimalId;
+    }
+	
     if (! empty($_REQUEST["pairID"])) {
         $displayAll = FALSE;
 
