@@ -59,7 +59,7 @@
 					 </td>
        			 </tr>
          		 <tr>
-				 <td><div class="newLitter" style="display:none">Pair:</div></td>
+				 <td><div class="newLitter" style="display:none">Breeding Pair:</div></td>
   			<td><div class="newLitter" style="display:none">
 				<select name="pairID">
             	  		<?php getDropDown("pairID", "breeding_pairs", $breedingPair); ?>
