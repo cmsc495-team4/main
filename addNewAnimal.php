@@ -164,7 +164,7 @@
 						<?php getDropDown("genotype_name", "genotypes", "") ?>
 					</select>
 				</td>
-				<td><label hidden>Litter ID</label></td>
+				<td><label hidden>Litter ID</label></td> <!-- litter for future use -->
 				<td>
 					<select name="litter" hidden>
 						<?php getDropDown("litterID", "litters", "") ?>
