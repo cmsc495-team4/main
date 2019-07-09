@@ -923,6 +923,7 @@ function displayAnimalTable()
 	    $animalList = "WHERE animalID=" . $filterAnimalId;
 	} else {
 	    $animalList = $animalList . " AND animalID=" . $filterAnimalId;
+	}
     }
 	
     if (! empty($_REQUEST["pairID"])) {
