@@ -59,10 +59,12 @@
 					 </td>
        			 </tr>
          		 <tr>
+			<div class="newLitter" hidden>
            		 <td>Pair:</td>
   			<td><select name="pairID">
             	  		<?php getDropDown("pairID", "breeding_pairs", $breedingPair); ?>
 							</select></td>
+			</div>
              		</tr>
              		<tr>
                			<td>Date of Birth:</td>
