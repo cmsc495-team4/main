@@ -58,14 +58,14 @@
 					</div>
 					 </td>
        			 </tr>
-         		 <tr>
 			<div class="newLitter" style="display:none">
+         		 <tr>
 				<td>Pair:</td>
   			<td><select name="pairID">
             	  		<?php getDropDown("pairID", "breeding_pairs", $breedingPair); ?>
 							</select></td>
-			</div>
              		</tr>
+			</div>
              		<tr>
                			<td>Date of Birth:</td>
      				<td><input type="date" name="birth_date"></td>
