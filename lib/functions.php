@@ -214,10 +214,20 @@ try {
 	}
 	//continue if all required fields provided.
 	if(!$issues){
-		$pairNum = $_POST['pairID'];
 		$numberPups = $_POST['numPups'];
 		$dateOfBirth = $_POST['birth_date'];
 		$comments = $_POST['commentBox'];
+		$pairNum = "";
+		//If adding to existing litter, get breeding pair
+		if(isset[$_POST['newLitter']){
+			$pairNum = $_POST['pairID'];
+		} else {
+			$sql0 = "SELECT breedingPair FROM litters WHERE litterID = ?";
+			$stmnt = $pdo->prepare($sql0);
+			$stmnt->execute([$litterID]);
+			$row = $stmnt->fetch(PDO::FETCH_ASSOC);
+			$pairNum = $row['breedingPair'];			
+		}
 	
 		//get pups' strain and generation. Male parent used to get other data
         $sql1 = 'SELECT maleID, desiredStrain, offspringGen FROM breeding_pairs WHERE pairID = ?';
