@@ -68,7 +68,7 @@
 				<table style="margin: auto">
 					<legend>Filter Results</legend>
 						<tr>
-							<td>Tag#:</td>
+							<td>Animal ID:</td>
 							<td><select name="animalID"> 
           	  <?php getDropDown("animalID", "animals", $change_id); ?>
 			</select></td>
