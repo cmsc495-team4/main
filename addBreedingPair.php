@@ -118,7 +118,6 @@
 	<form action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
 	<fieldset>
 		<legend>Add Breeding Pair</legend>
-	<div>
 		<?php 
 			addUserButton();
 			if(isset($message)){
@@ -167,30 +166,22 @@
 					</select>
 				</td>
 			</tr>
-		</table>
-	</div>
-	<div>
-		<table class="table3">
+		
 			<tr>
 				<td>Comments:</td>
 				<td>
 					<textarea id="commentBox" name="commentBox" rows="5" cols="33"></textarea>
 				</td>
-		</table>
-	</div>
-	<div class="buttonDiv">
-		<button class="button" type="submit" name="add">Add</button>
-	</div>
+			</tr>
+			<tr>
+				<td><button class="button" type="submit" name="add">Add</button></td>
+			</tr>
 	</form>
 		</fieldset>
 	<br style = “line-height:5500;”>
-		<footer>
-		<img align="left" class="mouselogo" src="img/mouse-1.png" height="117"
-			width="87">
-
-		
+	<footer>	
 	</footer>
-	<br>&emsp; © 2019, CMSC495 Team #4
+	<br><label style="text-align:center">&emsp; © 2019, CMSC495 Team #4</label>
 	</br>
 </body>
 </html>
