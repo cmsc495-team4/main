@@ -40,7 +40,7 @@
 		if(isset($_POST['add'])){
 			//var_dump($_POST);
 			if(empty(empty($_POST['strain_name']) ||$_POST['setupDate']) || empty($_POST['maleTag']) || empty($_POST['femaleTag'])) {
-				$message = "Must enter a setup date, Male Tag # and Female Tag #";
+				$message = "All fields required";
 			}
 			else{
 				$strain = $_POST['strain_name'];
