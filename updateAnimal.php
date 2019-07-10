@@ -40,20 +40,20 @@
 		require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 		
 		$message = "";
-		$change_id = "";
+		$change_tag = "";
 		//for selecting animal to update
 		if(isset($_POST['getAnimal'])){
-			$change_id = $_POST['animalID'];
+			$change_tag = $_POST['tagNumber'];
 			displayAnimalTable();
-			$message = "All updates will affect animal with ID (not tag#): " . $change_id;
+			$message = "All updates will affect animal with Tag #: " . $change_tag;
 		}
 		//for updating selected animal
 		if(isset($_POST['update'])){
 			//check that a tag number was selected before attempting update
-			if(empty($_POST['change_id'])){
-				$message = "Select animals ID before updating";
+			if(empty($_POST['change_tag'])){
+				$message = "Select animals current Tag # before updating";
 			}else{
-				$message = "Select ID to update" ;
+				$message = "Select Tag # to update" ;
 				updateAnimal();
 			}
 		}
@@ -68,9 +68,9 @@
 				<table style="margin: auto">
 					<legend>Filter Results</legend>
 						<tr>
-							<td>Animal ID:</td>
-							<td><select name="animalID"> 
-          	  <?php getDropDown("animalID", "animals", $change_id); ?>
+							<td>Tag#:</td>
+							<td><select name="tagNumber"> 
+          	  <?php getDropDown("tagNumber", "animals", $change_tag); ?>
 			</select></td>
 
 							<td class="filter-button"><button class="action" type="submit"
@@ -91,7 +91,7 @@
 				echo '<label class="text-danger" style="color:red; text-align:center; font-size:1.5em;">' . $message . '</label>';
 			}
 		?>
-		<input type="hidden" name="change_id" value="<?php echo $change_id ?>">
+		<input type="hidden" name="change_tag" value="<?php echo $change_tag ?>">
 		<div style="text-align: center">
 			<input type="radio" id="pup" name="classification" value="pup">
 				<label for="pup">Pup</label>
@@ -105,19 +105,19 @@
 				<td></td>	
 			</tr>
 			<tr>
-				<td>PI:</td>
+				<td>PI:*</td>
 				<td>
 					<select name="pi_name">
 						<?php getInvestigators(""); ?>
 					</select>
 				</td>
-				<td>Species:</td>
+				<td>Species:*</td>
 				<td>
 					<select name="species_name">
 						<?php getDropDown("species_name", "animals", $species_name); ?>
 					</select>
 				</td>
-				<td>Strain: ([Re]select PI first)</td>
+				<td>Strain:* ([Re]select PI first)</td>
 				<td>
 					<select name="strain_name">
 						<option value = "">Select PI</option> <!-- ajax created based on selected PI -->
@@ -126,7 +126,7 @@
 			</tr>
 			<tr>
 				
-				<td>DOB:</td>
+				<td>DOB:*</td>
 				<td>
 					<input type="date" name="dob" placeholder="mm/dd/yyyy">
 				</td>
@@ -152,7 +152,7 @@
 				<td>
 					<input type="date" name="tagDate" placeholder="Tag Date">
 				</td>
-				<td>Sex:</td>
+				<td>Sex:*</td>
 				<td>
 					<select name="sex">
 						<option value="">-select-</option>
