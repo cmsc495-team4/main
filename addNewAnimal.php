@@ -22,8 +22,9 @@
 			<h2 class="maintitle">Add New Animal Form
 			<br style = "line-height:100px;"></br></div>
 			
-			
-	</head>
+	<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
+	addDropDown();
+</head>
 
 <header>
 	
