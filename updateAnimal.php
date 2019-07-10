@@ -144,7 +144,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Tag #:</td>
+				<td>Tag #:*</td>
 				<td>
 					<input type="text" name="tagNum" placeholder="Tag #">
 				</td>
