@@ -253,7 +253,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 	<script>
 $(document).ready( function () {
     $('#maintable').DataTable({
-    		responsive: true;
+    		responsive: true,
     		order: [[ 2, 'asc' ], [ 1, 'asc' ]]
 	});
     $('table.display tr.even').hover(function(){
