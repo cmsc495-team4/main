@@ -15,6 +15,15 @@
 	<link rel="stylesheet" type="text/css" href="css/addBrPairStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
 	
+	<div class="main-body">
+	<center>
+	<div class="logo">
+		<img align="center" class="ritalogo" src="img/ritalogo-1.png"
+			height="97" width="360">
+		</br></br>
+		<h2 class="maintitle">Add Breeding Pair Form
+		<br style = "line-height:100px;"></br></div>
+	
 </head>
 
 <header>
@@ -101,12 +110,14 @@
 <body>
 	<form action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
 	<div>
+		</br></br>
 		<?php 
 			addUserButton();
 			if(isset($message)){
-				echo '<label class="text-danger" style="color:red">' . $message . '</label>';
+				echo '<label class="text-danger" style="color:red display:block; text-align:center;">' . $message . '</label>';
 			}
 		?>
+	</br></br>
 		<table class="tableID" style="margin:auto">
 			<tr style=" background:gray">
 				<td>Pair#:</td>
