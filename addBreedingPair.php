@@ -16,13 +16,13 @@
 	<link rel="stylesheet" type="text/css" href="css/addBrPairStyle.css">
 	
 	<div class="main-body">
-		<div class="logo">
-			<img align="center" class="ritalogo" src="img/ritalogo-1.png"
-				height="97" width="360"></br><br style = "line-height:90px;"></br>
-			<h3 class="maintitle">Rodentia Inventory Tracking Application</h3>
-		</div>
-			</br>
-			</br>	<center>
+	<center>
+	<div class="logo">
+		<img align="center" class="ritalogo" src="img/ritalogo-1.png"
+			height="97" width="360">
+		</br></br>
+		<h2 class="maintitle">Add Breeding Pair Form
+		<br style = "line-height:100px;"></br></div>
 </head>
 
 <header>
