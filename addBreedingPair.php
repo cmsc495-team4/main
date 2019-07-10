@@ -124,7 +124,7 @@
 				echo '<label class="text-danger" style="color:red">' . $message . '</label>';
 			}
 		?>
-		<table class="table1">
+		<table>
 			<tr>
 				<td>PI:</td>
 				<td>
@@ -177,7 +177,8 @@
 				<td><button class="button" type="submit" name="add">Add</button></td>
 			</tr>
 	</form>
-		</fieldset>
+	</fieldset>
+		</table>
 	<br style = “line-height:5500;”>
 	
 	<br><label style="text-align:center">&emsp; © 2019, CMSC495 Team #4</label>
