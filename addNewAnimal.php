@@ -34,7 +34,6 @@
 		error_reporting(E_ALL);
 		require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 		
-		addUserButton();
 		$message = "";
 		
 		if(isset($_POST['add'])){
@@ -95,6 +94,7 @@
 	<form action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
 	<div>
 		<?php 
+			addUserButton();
 			if(isset($message)){
 				echo '<label class="text-danger" style="color:red">' . $message . '</label>';
 			}
