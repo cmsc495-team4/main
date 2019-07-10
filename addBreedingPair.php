@@ -13,7 +13,7 @@
 <head>
 	<title>RITA - Add Breeding Pair</title>
 	<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
-	<link rel="stylesheet" type="text/css" href="css/addBrPairStyle.css">	
+	<link rel="stylesheet" type="text/css" href="css/addPupsStyle.css">	
 </head>
 
 <header>
