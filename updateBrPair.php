@@ -21,7 +21,7 @@
 		<img align="center" class="ritalogo" src="img/ritalogo-1.png"
 			height="97" width="360">
 		</br></br>
-		<h2 class="maintitle">Add Breeding Pair Form
+		
 		<br style = "line-height:100px;"></br></div>
 	
 </head>
