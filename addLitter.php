@@ -1,3 +1,12 @@
+<?php 
+	session_start();
+	//Check if user has an existing session, else send to login page.
+	if (!isset($_SESSION['user_name'])) {
+    		header('Location: login.php');
+    		exit();
+	}
+?>
+
 <html>
 <head>
 
