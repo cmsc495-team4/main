@@ -85,7 +85,7 @@
 			}); 
 		} );
 	</script>
-	<?php pupSurvivabilityReportTable() 
+	<?php pupSurvivabilityReportTable(); 
 	addUserButton();
 	?>
 </body>
