@@ -394,7 +394,7 @@ function updateAnimal(){
 	$cur_tran = ($cur['transferred'] ? true : false);
 	$transfer = ((!isset($_POST['transfer'])) ? $cur_tran : true);
 	//if new notes, append to current notes
-	$notes = (empty($_POST['notes']) ? $cur['comments'] : ($cur['notes'] . "\n" . $_POST['notes']));	
+	$notes = (empty($_POST['commentBox']) ? $cur['comments'] : ($cur['comments'] . "\n" . $_POST['commentBox']));	
 	
 	
 	//if tag# changed check that tag number not duplicate
