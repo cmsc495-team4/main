@@ -23,7 +23,7 @@
 			<br style = "line-height:100px;"></br></div>
 			
 	<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
-	<?php addUserButton(); ?>
+	
 </head>
 
 <header>
@@ -34,6 +34,7 @@
 		error_reporting(E_ALL);
 		require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 		
+		addUserButton();
 		$message = "";
 		
 		if(isset($_POST['add'])){
