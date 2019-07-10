@@ -42,7 +42,8 @@
 </head>
 
 <header>
-	<h1>Update Animal Form</h1>
+	<title>Update Animal Form</title>
+	</br></br>
 	<?php
 		ini_set('display_errors', 1);
 		ini_set('display_startup_errors', 1);
@@ -54,7 +55,9 @@
 		//for selecting animal to update
 		if(isset($_POST['getAnimal'])){
 			$change_id = $_POST['animalID'];
+			echo "<div class='maintable'>";
 			displayAnimalTable();
+			echo "</div>";
 			$message = "All updates will affect animal with ID (not tag#): " . $change_id;
 		}
 		//for updating selected animal
