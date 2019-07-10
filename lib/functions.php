@@ -483,9 +483,6 @@ function updateAnimal(){
 			}
 		}
 	} 
-	else {
-		echo '<label style="color:blue">Update Fail!</label>';
-	}
 }
 
 function getStrainIdByName($sName){
