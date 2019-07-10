@@ -254,7 +254,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 $(document).ready( function () {
     $('#maintable').DataTable({
     		responsive: true
-    		order: [[ 1, "asc" ]]
+    		order: [[ 2, 'asc' ], [ 1, 'asc' ]]
 	});
     $('table.display tr.even').hover(function(){
         $(this).css('background-color','#ffa'); 
