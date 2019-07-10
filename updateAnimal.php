@@ -54,7 +54,9 @@
 		//for selecting animal to update
 		if(isset($_POST['getAnimal'])){
 			$change_id = $_POST['animalID'];
+			<div class="animals">
 			displayAnimalTable();
+			</div>
 			$message = "All updates will affect animal with ID (not tag#): " . $change_id;
 		}
 		//for updating selected animal
@@ -96,12 +98,14 @@
 <body>
 	<form action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
 	<div>
+		</br></br>
 		<?php 
 			addUserButton();
 			if(isset($message)){
 				echo '<label class="text-danger" style="color:red; display:block; text-align:center; font-size:1.5em;">' . $message . '</label>';
 			}
 		?>
+		</br></br>
 		<input type="hidden" name="change_id" value="<?php echo $change_id ?>">
 		<div style="text-align: center">
 			<input type="radio" id="pup" name="classification" value="pup">
