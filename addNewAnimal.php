@@ -113,7 +113,7 @@
 						<?php getDropDown("species_name", "animals", $species_name); ?>
 					</select>
 				</td>
-				<td>Strain:*</td>
+				<td>Strain:* ([Re]select PI first)*</td>
 				<td>
 					<select name="strain_name">
 						<option>Select PI</option> <!-- ajax created based on selected PI -->
