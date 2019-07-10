@@ -194,7 +194,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
             </select></td>
 							<td>Genotype:</td>
 							<td><select name="genotype_name">
-          	  <?php getDropDown("genotype_name", "genotypes", $genotype); ?>
+          	  <?php getDropDown("genotype", "animals", $genotype); ?>
 			</select></td>
 
 							<td>
