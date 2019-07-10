@@ -54,9 +54,9 @@
 		//for selecting animal to update
 		if(isset($_POST['getAnimal'])){
 			$change_id = $_POST['animalID'];
-			<div class="animals">
+			echo "<div class="animals">";
 			displayAnimalTable();
-			</div>
+			echo "</div>";
 			$message = "All updates will affect animal with ID (not tag#): " . $change_id;
 		}
 		//for updating selected animal
