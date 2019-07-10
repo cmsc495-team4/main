@@ -179,8 +179,7 @@
 	</form>
 		</fieldset>
 	<br style = “line-height:5500;”>
-	<footer>	
-	</footer>
+	
 	<br><label style="text-align:center">&emsp; © 2019, CMSC495 Team #4</label>
 	</br>
 </body>
