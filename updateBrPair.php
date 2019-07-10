@@ -13,7 +13,7 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/addBrPairStyle.css">
-	
+	<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
 	
 </head>
 
@@ -102,6 +102,7 @@
 	<form action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
 	<div>
 		<?php 
+			addUserButton();
 			if(isset($message)){
 				echo '<label class="text-danger" style="color:red">' . $message . '</label>';
 			}
