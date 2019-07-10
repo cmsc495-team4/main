@@ -1298,7 +1298,7 @@ function displayAnimalTable()
     $pdo = null;
 }
 
-addUserButton(){
+function addUserButton(){
 	echo "<div class='dropdown'>";
 		echo "<button class='dropbtn'>User &#9660</button>";
 		echo "<div class='dropdown-content'>;
