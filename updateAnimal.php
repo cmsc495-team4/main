@@ -99,7 +99,7 @@
 		<?php 
 			addUserButton();
 			if(isset($message)){
-				echo '<label class="text-danger" style="color:red; text-align:center; font-size:1.5em;">' . $message . '</label>';
+				echo '<label class="text-danger" style="color:red; display:block; text-align:center; font-size:1.5em;">' . $message . '</label>';
 			}
 		?>
 		<input type="hidden" name="change_id" value="<?php echo $change_id ?>">
