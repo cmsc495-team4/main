@@ -362,7 +362,7 @@ $(document).ready( function () {
 
 	    function deleteConfirm(){
 	      var txt;
-	      var r = confirm("Are you sure you want to delete\nYes or No");
+	      var r = confirm("Are you sure you want to delete\nPress Ok to delete, cancel to return.");
 	      if (r == true) {
 		if (selectedValue) {
 		  $.ajax({
