@@ -57,6 +57,7 @@
 		src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.js"></script>
 		
 	<link rel="stylesheet" type="text/css" href="css/SurvivabilityOfPups.css">
+	<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
 	
 </head>
 
@@ -84,6 +85,8 @@
 			}); 
 		} );
 	</script>
-	<?php pupSurvivabilityReportTable() ?>
+	<?php pupSurvivabilityReportTable() 
+	addUserButton();
+	?>
 </body>
 </html>
