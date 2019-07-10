@@ -120,7 +120,7 @@
 						<?php getInvestigators(""); ?>
 					</select>
 				</td>
-				<td>Species:*</td>
+				<td>Species:</td>
 				<td>
 					<select name="species_name">
 						<?php getDropDown("species_name", "animals", $species_name); ?>
