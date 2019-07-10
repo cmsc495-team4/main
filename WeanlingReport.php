@@ -84,6 +84,7 @@
 		src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.js"></script>
 		
 	<link rel="stylesheet" type="text/css" href="css/WeanlingReport.css">
+	<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
 	
 </head>
 
@@ -134,6 +135,8 @@
 			}); 
 		} );
 	</script>
-	<?php displayWeanlingReportTable() ?>
+	<?php displayWeanlingReportTable();
+	addUserButton();
+	?>
 </body>
 </html>
