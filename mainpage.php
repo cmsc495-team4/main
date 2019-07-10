@@ -328,7 +328,7 @@ $(document).ready( function () {
     					    			name="updateEntry" onclick="window.location='updateAnimal.php'">Update Animal</button></td>
               						<td class="td-footer"><button class="update" type="button"
     								name="updateBreederPair" onclick="window.location='updateBrPair.php'">Update Breeder Pair</button></td>
-							<td class="td-footer"><button class="update" type="button"
+							<td class="td-footer"><button class="button" type="submit"
 								name="delete" onclick="deleteConfirm()">Delete entry</button></td>
 							<td id="this is an empty cell for spacing">&emsp;&emsp;&emsp;</td>
 							<td>Display Report:</td>
@@ -351,26 +351,31 @@ $(document).ready( function () {
 		</form>
 	</footer>
 	  <script type="text/javascript">
-    	var selectedValue;
-   	 $(document).ready(function () {
-    	$("input[type='radio']").on('change', function () {
-        selectedValue = $("input[name='rowselect']:checked").val();
 
-      });
-    });
-    function deleteConfirm(){
-      var txt;
-      var r = confirm("Are you sure you want to delete\nYes or No");
-      if (r == true) {
-        if (selectedValue) {
+	    var selectedValue;
+	    $(document).ready(function () {
+	    $("input[type='radio']").on('change', function () {
+	      selectedValue = $("input[name='rowselect']:checked").val();
 
-        }else {
-          alert("Select an animal.");
-        }
-      } else {
+	      });
+	    });
 
-      }
-    }
+	    function deleteConfirm(){
+	      var txt;
+	      var r = confirm("Are you sure you want to delete\nYes or No");
+	      if (r == true) {
+		if (selectedValue) {
+		  $.ajax({
+		    url: "deleteAnimal.php",
+		    method: "POST",
+		    data: { "selectedValue": selectedValue }
+		  })
+		  alert("Animal Deleted")
+		}else {
+		  alert("Select an animal.");
+		}
+	      }
+	    }
   </script>
 	<br>&emsp; © 2019, CMSC495 Team #4
 	</br>
