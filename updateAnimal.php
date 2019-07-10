@@ -14,6 +14,7 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/addBrPairStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/mainPageStyle.css">
+	<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
 	
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 		<script type="text/javascript">
@@ -96,6 +97,7 @@
 	<form action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
 	<div>
 		<?php 
+			addUserButton();
 			if(isset($message)){
 				echo '<label class="text-danger" style="color:red; text-align:center; font-size:1.5em;">' . $message . '</label>';
 			}
