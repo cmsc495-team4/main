@@ -137,7 +137,6 @@ input {
 			<h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
 		</div>
 		<div class="login">
-			<h2>Login</h2>
 			<img align="center" class="mouselogo" src="img/mouse-1.png"
 				height="117" width="87"> </br>
 			</br>
