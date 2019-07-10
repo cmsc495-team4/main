@@ -3,7 +3,7 @@
 	$selectedValue = (int)$_POST['selectedValue'];
 
   require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
-
-	deleteAnimal($selectedValue);
+	echo $selectedValue;
+	//deleteAnimal($selectedValue);
 
  ?>
