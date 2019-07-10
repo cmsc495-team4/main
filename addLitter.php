@@ -12,6 +12,7 @@
 
 	<title>RITA - Add Litter</title>
 	<link rel="stylesheet" type="text/css" href="css/addPupsStyle.css">
+	<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
 </head>
 
 <header>
@@ -35,6 +36,7 @@
 </header>
 
 <body>
+<?php addUserButton() ?>
 <div class="main-body">
 
 
