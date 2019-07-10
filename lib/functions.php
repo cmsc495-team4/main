@@ -1100,7 +1100,7 @@ function displayAnimalTable()
     echo "<table id=\"maintable\" class=\"display compact\">\n";
     echo "<thead>";
     echo "<tr class=\"animalList\">
-    		<th class=\"animals\">Select</th> <th class=\"animals\">ID</th> <th class=\"animals\">Investigator</th> <th class=\"animals\">Tag<br>Number</th> 
+    		<th class=\"animals\">ID</th> <th class=\"animals\">Investigator</th> <th class=\"animals\">Tag<br>Number</th> 
     		<th class=\"animals\">Species</th> <th class=\"animals\">Class</th> <th class=\"animals\">Sex</th> <th class=\"animals\">Strain</th> <th class=\"animals\">Genotype</th> 
     		<th class=\"animals\">Litter<br>ID</th> <th class=\"animals\">Parent<br>Pair</th> <th class=\"animals\">Birth<br>Date</th> <th class=\"animals\">Wean<br>Date</th> 
     		<th class=\"animals\">Tag<br>Date</th> <th class=\"animals\">Deceased</th> <th class=\"animals\">Transferred</th> 
@@ -1175,7 +1175,7 @@ function displayAnimalTable()
                 $parentPair = $row5["breedingPair"];
 
                 echo "<tr class=\"animalList\" title=\"Animal Notes: " . $comments . "\">\n";
-                echo "<td class=\"animalList\" style=\"text-align: center;\"><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
+                //echo "<td class=\"animalList\" style=\"text-align: center;\"><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
                 echo "<td class=\"animalList\" style=\"text-align: center;\">" . $animalID . "</td>\n";
                 echo "<td class=\"animalList\" style=\"text-align: left;\">" . $lastName . $firstName . "</td>\n";
                 echo "<td class=\"animalList\" style=\"text-align: center;\">" . $tagNumber . "</td>\n";
@@ -1271,7 +1271,7 @@ function displayAnimalTable()
                 $parentPair = $row5["breedingPair"];
 
                 echo "<tr class=\"animalList\" title=\"Animal Notes: " . $comments . "\">\n";
-                echo "<td class=\"animalList\" style=\"text-align: center;\"><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
+                //echo "<td class=\"animalList\" style=\"text-align: center;\"><input type=\"radio\" name=\"rowselect\" value=\"" . htmlspecialchars($animalID) . "\"></td>\n";
                 echo "<td class=\"animalList\" style=\"text-align: center;\">" . $animalID . "</td>\n";
                 echo "<td class=\"animalList\" style=\"text-align: left;\">" . $lastName . $firstName . "</td>\n";
                 echo "<td class=\"animalList\" style=\"text-align: center;\">" . $tagNumber . "</td>\n";
