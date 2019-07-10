@@ -114,7 +114,7 @@
 				<td></td>	
 			</tr>
 			<tr>
-				<td>PI:*</td>
+				<td>PI:</td>
 				<td>
 					<select name="pi_name">
 						<?php getInvestigators(""); ?>
@@ -126,7 +126,7 @@
 						<?php getDropDown("species_name", "animals", $species_name); ?>
 					</select>
 				</td>
-				<td>Strain:* ([Re]select PI first)</td>
+				<td>Strain: ([Re]select PI first)</td>
 				<td>
 					<select name="strain_name">
 						<option value = "">Select PI</option> <!-- ajax created based on selected PI -->
@@ -135,7 +135,7 @@
 			</tr>
 			<tr>
 				
-				<td>DOB:*</td>
+				<td>DOB:</td>
 				<td>
 					<input type="date" name="dob" placeholder="mm/dd/yyyy">
 				</td>
@@ -153,7 +153,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Tag #:*</td>
+				<td>Tag #:</td>
 				<td>
 					<input type="text" name="tagNum" placeholder="Tag #">
 				</td>
@@ -161,7 +161,7 @@
 				<td>
 					<input type="date" name="tagDate" placeholder="Tag Date">
 				</td>
-				<td>Sex:*</td>
+				<td>Sex:</td>
 				<td>
 					<select name="sex">
 						<option value="">-select-</option>
