@@ -5,6 +5,12 @@
 	error_reporting(E_ALL);
 	
 	require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
+
+	//Check if user has an existing session, else send to login page.	
+	if (!isset($_SESSION['user_name'])) {
+    		header('Location: login.php');
+    		exit();
+	}
 ?>
 
 <!DOCTYPE html>
