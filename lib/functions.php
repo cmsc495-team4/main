@@ -1297,4 +1297,18 @@ function displayAnimalTable()
     echo "</div>";
     $pdo = null;
 }
+
+addUserButton(){
+	echo"<div class="dropdown">";
+		echo"<button class="dropbtn">User &#9660</button>";
+		echo"<div class="dropdown-content">;
+			echo"<a href="mainpage.php">Main Page</a>";
+    			if ($_SESSION['role'] == "Admin"){
+        			echo "<a href="register.php">Create User</a>";
+			}
+			echo"<a href="logout.php">Logout</a>";
+		echo"</div>";
+	echo"</div>";
+	echo"</div>";	
+}
 ?>
