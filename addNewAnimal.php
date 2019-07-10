@@ -23,7 +23,7 @@
 			<br style = "line-height:100px;"></br></div>
 			
 	<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
-	addUserButton();
+	<?php addUserButton(); ?>
 </head>
 
 <header>
