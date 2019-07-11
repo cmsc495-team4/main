@@ -71,7 +71,7 @@
 		$("[name='species_name']").change(function(){
 			var pi_name = $("[name='pi_name']").val();
 			var species_name = $(this).val();
-			var fieldTable = ['animalID', 'animals, PI_assigned_animals', ''];
+			var fieldTable = ['tagNumber', 'animals, PI_assigned_animals', ''];
 			var conditions = ['animalID', 'PI_animalID', 'PI_username', '\'' + pi_name + '\'', 'species_name', '\'' + species_name + '\'',
 			'classification', '\'breeder\'', 'sex', '\'Male\''];
 			$.ajax({
@@ -89,7 +89,7 @@
 		$("[name='species_name']").change(function(){
 			var pi_name = $("[name='pi_name']").val();
 			var species_name = $(this).val();
-			var fieldTable = ['animalID', 'animals, PI_assigned_animals', ''];
+			var fieldTable = ['tagNumber', 'animals, PI_assigned_animals', ''];
 			var conditions = ['animalID', 'PI_animalID', 'PI_username', '\'' + pi_name + '\'', 'species_name', '\'' + species_name + '\'',
 			'classification', '\'breeder\'', 'sex', '\'Female\''];
 			$.ajax({
