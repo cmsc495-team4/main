@@ -67,10 +67,7 @@
 <div class="main-body">
 
 
-		<img align="left" class="mouselogo" src="img/mouse-1.png"
-				height="117" width="87"> </br>
-			</br>
-			</br>	<center>
+				<center>
 			
   <form action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
 		<fieldset>
@@ -140,7 +137,9 @@
       </body>
 	<footer>
 	
-	
+			<img align="left" class="mouselogo" src="img/mouse-1.png" height="117"
+			width="87">
+
 	</footer>  
 	  
 </html>
