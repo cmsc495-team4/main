@@ -389,7 +389,8 @@ $(document).ready( function () {
 
 	    function updateSelected(){
 		if (selectedUpdateValue) {
-		  $.ajax({"updateAnimal.php",
+		  $.ajax({
+		    url: "updateAnimal.php",
 		    method: "POST",
 		    data: { "selectedUpdateValue": selectedUpdateValue }
 		  })
