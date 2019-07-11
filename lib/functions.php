@@ -447,7 +447,7 @@ function updateAnimal()
             $issues = true;
             echo '<label style="color:red">Unable to update. Animal is part of breeding pair which the updates would invalidate.</label>';
         }
-        echo '<label style="color:red">Check breeder</label>';
+        //echo '<label style="color:red">Check breeder</label>';
     }
     
     // if pi updated, check that PI is authorized to use existing strain
