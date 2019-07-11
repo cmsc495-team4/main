@@ -677,7 +677,7 @@ function getAnimal($selectedUpdateValue)
 		echo $selectedUpdateValue . "\n\n";
         $result = $pdo->query($query1);
         $result->setFetchMode(PDO::FETCH_ASSOC);
-            	var_dump($result);
+            	//var_dump($result);
 
         $tableRow = 0;
 
