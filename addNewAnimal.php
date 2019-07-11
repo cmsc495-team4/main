@@ -12,7 +12,7 @@
 
 <head>
 	<title>RITA - Add Animal</title>
-	<link rel="stylesheet" type="text/css" href="css/addBrPairStyle.css">
+	<link rel="stylesheet" type="text/css" href="css/mainPageStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
 	<div class="main-body">
 	<center>
@@ -87,10 +87,39 @@
 		
 		});
 	</script>
-	
+	  <form style="float:left" action="http://495team4.com/mainpage.php" method="POST">
+  <button class="button" type="submit" name="home" style="margin-left:16px; margin-top:16px"> Home </button>
+</form>
+
+		<div class="logo">
+			<img class="ritalogo" src="img/ritalogo-1.png" height="97"
+				width="360">
+			<h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
+		</div>
+
 </header>
 
 <body>
+<style>
+.fixed-bottom-wrapper {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	z-index: -1;
+	padding-bottom: 8px;
+}
+
+.fixed-bottom-wrapper img {
+	display: table;
+	opacity: 0.33;
+	position: relative;
+	margin: auto;
+	width: 315px;
+	height: 216px;
+	z-index: -1;
+}
+</style>
+
 
 	<form action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
 	<div>
