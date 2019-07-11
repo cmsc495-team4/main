@@ -67,7 +67,6 @@
 <div class="main-body">
 
 
-				<center>
 			
   <form action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
 		<fieldset style="margin-top: 16px" >
