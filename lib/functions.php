@@ -661,6 +661,26 @@ function getAnimal($selectedUpdateValue)
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
+	
+	global $animalID, 
+                $tagNumber,
+                $sex,
+                $strain,
+                $species,
+                $classification,
+                $genotype,
+                $birth_date,
+                $wean_date,
+                $tag_date,,
+                $deceased,
+                $transferred,
+                $comments,
+                $responsible_PI,
+                $strain_ID,
+                $firstName,
+                $lastName,
+                $litterID,
+                parentPair;
 
 
     $options = [
@@ -684,19 +704,19 @@ function getAnimal($selectedUpdateValue)
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             if (! empty($row)) {
             	var_dump($row);
-                global $animalID = $row["animalID"];
-                global $tagNumber = $row["tagNumber"];
-                global $sex = $row["sex"];
-                global $strain = $row["strain_name"];
-                global $species = $row["species_name"];
-                global $classification = $row["classification"];
-                global $genotype = $row["genotype"];
-                global $birth_date = $row["birth_date"];
-                global $wean_date = $row["wean_date"];
-                global $tag_date = $row["tag_date"];
-                global $deceased = $row["deceased"];
-                global $transferred = $row["transferred"];
-                global $comments = $row["comments"];
+                $animalID = $row["animalID"];
+                $tagNumber = $row["tagNumber"];
+                $sex = $row["sex"];
+                $strain = $row["strain_name"];
+                $species = $row["species_name"];
+                $classification = $row["classification"];
+                $genotype = $row["genotype"];
+                $birth_date = $row["birth_date"];
+                $wean_date = $row["wean_date"];
+                $tag_date = $row["tag_date"];
+                $deceased = $row["deceased"];
+                $transferred = $row["transferred"];
+                $comments = $row["comments"];
                 
                 if ($deceased == 1) {
                     $strDeceased = "Yes";
@@ -715,8 +735,8 @@ function getAnimal($selectedUpdateValue)
                 $result2->setFetchMode(PDO::FETCH_ASSOC);
                 $row2 = $result2->fetch(PDO::FETCH_ASSOC);
 
-                global $responsible_PI = $row2["PI_username"];
-                global $strain_ID = $row2["PI_strain_ID"];
+                $responsible_PI = $row2["PI_username"];
+                $strain_ID = $row2["PI_strain_ID"];
 
                 if (! empty($responsible_PI)) {
                     $query3 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
@@ -724,11 +744,11 @@ function getAnimal($selectedUpdateValue)
                     $result3->setFetchMode(PDO::FETCH_ASSOC);
                     $row3 = $result3->fetch(PDO::FETCH_ASSOC);
 
-                    global $firstName = $row3["first_name"];
-                    global $lastName = $row3["last_name"] . ", ";
+                    $firstName = $row3["first_name"];
+                    $lastName = $row3["last_name"] . ", ";
                 } else {
-                    global $lastName = "Unassigned";
-                    global $firstName = "";
+                    $lastName = "Unassigned";
+                    $firstName = "";
                 }
 
                 $query5 = "SELECT litterID, breedingPair FROM litters WHERE animalID_pup=" . $animalID;
@@ -736,8 +756,8 @@ function getAnimal($selectedUpdateValue)
                 $result5->setFetchMode(PDO::FETCH_ASSOC);
                 $row5 = $result5->fetch(PDO::FETCH_ASSOC);
 
-                global $litterID = $row5["litterID"];
-                global $parentPair = $row5["breedingPair"];
+                $litterID = $row5["litterID"];
+                $parentPair = $row5["breedingPair"];
                 
 		}
 	}
