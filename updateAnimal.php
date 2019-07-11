@@ -48,7 +48,26 @@
 		ini_set('display_startup_errors', 1);
 		error_reporting(E_ALL);
 		require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
-		
+		$animalID = "";
+        $tagNumber = "";
+        $sex = "";
+        $strain = "";
+        $species = "";
+        $classification = ""; 
+        $genotype = ""; 
+        $birth_date = "";
+        $wean_date = ""; 
+        $tag_date = "";
+        $strDeceased = ""; 
+        $strTransferred = ""; 
+        $comments = ""; 
+		$deceased = "";
+		$transferred = "";
+		$responsible_PI = "";
+		$firstName = "";
+		$lastName = "";
+		$litterID = "";
+		$parentPair = "";
 		$selectedUpdateValue = (int)$_POST['selectedUpdateValue'];
 
 		$message = "";
