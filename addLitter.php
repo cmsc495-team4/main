@@ -11,7 +11,7 @@
 <head>
 
 	<title>RITA - Add Litter</title>
-	<link rel="stylesheet" type="text/css" href="css/addPupsStyle.css">
+	<link rel="stylesheet" type="text/css" href="css/mainPageStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
 </head>
 
