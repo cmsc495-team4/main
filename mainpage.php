@@ -395,7 +395,7 @@ $(document).ready( function () {
 		  $.ajax({
 		    url: "updateAnimal.php", 
 		    method: "POST",
-		    data: { "selectedUpdateValue": selectedUpdateValue }
+		    data: { "selectedUpdateValue": selectedUpdateValue },
 		    success: function(data){
             var win = window.open();
             win.document.write(data);
