@@ -70,7 +70,7 @@
 				<center>
 			
   <form action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
-		<fieldset>
+		<fieldset style="padding-top: 8px" >
 			<legend>Add Litter Form</legend>
 			<table>
         		<tr>
