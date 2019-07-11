@@ -512,7 +512,7 @@ function getIdByTag($tag){
 	$query = $pdo->prepare("SELECT animalID FROM animals WHERE tagNumber = ? LIMIT 1");
 	$query->execute([$tag]);
 	$result = $query->fetch();
-	return $result['tagNumber'];
+	return $result['animalID'];
 }
 
 
