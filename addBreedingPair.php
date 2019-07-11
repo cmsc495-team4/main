@@ -1,51 +1,50 @@
-<?php 
-	session_start();
-	//Check if user has an existing session, else send to login page.
-	if (!isset($_SESSION['user_name'])) {
-    		header('Location: login.php');
-    		exit();
-	}
+<?php
+session_start();
+// Check if user has an existing session, else send to login page.
+if (! isset($_SESSION['user_name'])) {
+    header('Location: login.php');
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<title>RITA - Add Breeding Pair</title>
-	<link rel="stylesheet" type="text/css" href="css/mainPageStyle.css">
-	<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
-	
+<title>RITA - Add Breeding Pair</title>
+<link rel="stylesheet" type="text/css" href="css/mainPageStyle.css">
+<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
+
 </head>
 
 <header>
 	
 	<?php
-		ini_set('display_errors', 1);
-		ini_set('display_startup_errors', 1);
-		error_reporting(E_ALL);
-		require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
-		
-		$message = "";
-		
-		if(isset($_POST['add'])){
-			//var_dump($_POST);
-			if(empty(empty($_POST['strain_name']) ||$_POST['setupDate']) || empty($_POST['maleTag']) || empty($_POST['femaleTag'])) {
-				$message = "All fields required";
-			}
-			else{
-				$strain = $_POST['strain_name'];
-				$date = $_POST['setupDate'];
-				$male = getIdByTag($_POST['maleTag']);
-				$female = getIdByTag($_POST['femaleTag']);
-				$notes = $_POST['commentBox'];
-				$addedID = addBreedPair($strain, $date, $male, $female, $notes);	
-			}
-			$_POST = null;
-		}
-	?>
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
+
+$message = "";
+
+if (isset($_POST['add'])) {
+    // var_dump($_POST);
+    if (empty(empty($_POST['strain_name']) || $_POST['setupDate']) || empty($_POST['maleTag']) || empty($_POST['femaleTag'])) {
+        $message = "All fields required";
+    } else {
+        $strain = $_POST['strain_name'];
+        $date = $_POST['setupDate'];
+        $male = getIdByTag($_POST['maleTag']);
+        $female = getIdByTag($_POST['femaleTag']);
+        $notes = $_POST['commentBox'];
+        $addedID = addBreedPair($strain, $date, $male, $female, $notes);
+    }
+    $_POST = null;
+}
+?>
 	
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-		<script type="text/javascript">
+	<script type="text/javascript">
 		$(document).ready(function(){
 		//strains dropdown
 		$("[name='pi_name']").change(function(){
@@ -100,26 +99,27 @@
 		});
 		});
 	</script>
-	  <form style="float:left" action="http://495team4.com/mainpage.php" method="POST">
-  <button class="button" type="submit" name="home" style="margin-left:16px; margin-top:16px"> Home </button>
-</form>
+	<form style="float: left" action="http://495team4.com/mainpage.php"
+		method="POST">
+		<button class="button" type="submit" name="home"
+			style="margin-left: 16px; margin-top: 16px">Home</button>
+	</form>
 
-			<div class="logo">
-			<img class="ritalogo" src="img/ritalogo-1.png" height="97"
-				width="360">
-			<h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
-		</div>
+	<div class="logo">
+		<img class="ritalogo" src="img/ritalogo-1.png" height="97" width="360">
+		<h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
+	</div>
 
 
 </header>
 
 <body>
-		<?php 
-			addUserButton();
-			if(isset($message)){
-				echo '<label class="text-danger" style="color:red">' . $message . '</label>';
-			}
-		?>
+		<?php
+addUserButton();
+if (isset($message)) {
+    echo '<label class="text-danger" style="color:red">' . $message . '</label>';
+}
+?>
 
 <style>
 .fixed-bottom-wrapper {
@@ -141,77 +141,70 @@
 }
 </style>
 
-<div class="main-body">
-&nbsp;<p></p>
-<h3 class="subtitle">Add Breeding Pair</h3>
+	<div class="main-body">
+		&nbsp;
+		<p></p>
+		<h3 class="subtitle">Add Breeding Pair</h3>
 
-	<form style="margin-top:8px" action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
-	<fieldset>
-		<legend>Add Breeding Pair</legend>
-		<center>
-		<table class="table1">
-			<tr>
-				<td>PI:</td>
-				<td>
-					<select name="pi_name">
+		<form style="margin-top: 8px" action="<?php $_SERVER['REQUEST_URI']?>"
+			method="POST">
+			<fieldset>
+				<legend>Add Breeding Pair</legend>
+				<center>
+					<table class="table1">
+						<tr>
+							<td>PI:</td>
+							<td><select name="pi_name">
 						<?php getInvestigators(""); ?>
-					</select>
-				</td>
-				<td>Species:</td>
-				<td>
-					<select name="species_name">
+					</select></td>
+							<td>Species:</td>
+							<td><select name="species_name">
 						<?php getDropDown("species_name", "animals", $species_name); ?>
-					</select>
-				</td>
-				<td>Strain:</td>
-				<td>
-					<select name="strain_name">
-						<option>Select PI</option> <!-- ajax created based on selected PI -->
-					</select>
-				</td>
-			</tr>
-			<tr>
-				
-				<td>Setup Date:</td>
-				<td>
-					<input type="date" name="setupDate" placeholder="mm/dd/yyyy">
-				</td>
-				
-				<td>Male Tag #:</td>
-				<td>
-					<select name="maleTag">
-						<option value=''>Male Tag#</option>
-					</select>
-				</td>
-				
-				<td>Female Tag #:</td>
-				<td>
-					<select name="femaleTag">
-						<option value='';>Female Tag#</option>
-					</select>
-				</td>
-			</tr>
-		</table>
-		<table class="table3">
-			<tr>
-				<td>Comments:</td>
-				<td>
-					<textarea id="commentBox" name="commentBox" rows="5" cols="33"></textarea>
-				</td>
-		</table>
-	<div class="buttonDiv">
-		<button class="button" type="submit" name="add">Add</button>
-	</div>
-	</center>
+					</select></td>
+							<td>Strain:</td>
+							<td><select name="strain_name">
+									<option>Select PI</option>
+									<!-- ajax created based on selected PI -->
+							</select></td>
+						</tr>
+						<tr>
+
+							<td>Setup Date:</td>
+							<td><input type="date" name="setupDate" placeholder="mm/dd/yyyy">
+							</td>
+
+							<td>Male Tag #:</td>
+							<td><select name="maleTag">
+									<option value=''>Male Tag#</option>
+							</select></td>
+
+							<td>Female Tag #:</td>
+							<td><select name="femaleTag">
+									<option value='';>Female Tag#</option>
+							</select></td>
+						</tr>
+					</table>
+					<table class="table3">
+						<tr>
+							<td>Comments:</td>
+							<td><textarea id="commentBox" name="commentBox" rows="5"
+									cols="33"></textarea></td>
+					
+					</table>
+					<div class="buttonDiv">
+						<button class="button" type="submit" name="add">Add</button>
+					</div>
+				</center>
 			</fieldset>
 
-	</form>
-				<div class="fixed-bottom-wrapper">
-		<img align="center" class="rodents" src="img/rodentsv3.png"> </br>
-		<center> <br>
-		&emsp; © 2019, CMSC495 Team #4</br></center>
+		</form>
+		<div class="fixed-bottom-wrapper">
+			<img align="center" class="rodents" src="img/rodentsv3.png"> </br>
+			<center>
+				<br> &emsp; © 2019, CMSC495 Team #4</br>
+			</center>
 
-	</div>
+		</div>
 	</div>
 	</br>&nbsp;
 	</br>
