@@ -396,6 +396,10 @@ $(document).ready( function () {
 		    url: "updateAnimal.php", 
 		    method: "POST",
 		    data: { "selectedUpdateValue": selectedUpdateValue }
+		    success: function(data){
+            var win = window.open();
+            win.document.write(data);
+
 		  })
 		}else {
 		  alert("Select an Animal to Update!");
