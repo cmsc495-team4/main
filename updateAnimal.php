@@ -49,8 +49,8 @@
 		error_reporting(E_ALL);
 		require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 		
-		$change_id = (int)$_POST['selectedUpdateValue'];
-		echo $change_id;
+		$selectedValue = (int)$_POST['selectedUpdateValue'];
+
 		$message = "";
 		$change_id = "";
 		//for selecting animal to update
@@ -84,7 +84,7 @@
 						<tr>
 							<td>Animal ID:</td>
 							<td><select name="animalID"> 
-          	  <?php getDropDown("animalID", "animals", $change_id); ?>
+          	  <?php getDropDown("animalID", "animals", $selectedUpdateValue); ?>
 			</select></td>
 
 							<td class="filter-button"><button class="action" type="submit"
@@ -125,7 +125,7 @@
 				<td>PI:</td>
 				<td>
 					<select name="pi_name">
-						<?php getInvestigators(""); ?>
+						<?php getInvestigators($responsible_PI); ?>
 					</select>
 				</td>
 				<td>Species:</td>
@@ -145,12 +145,12 @@
 				
 				<td>DOB:</td>
 				<td>
-					<input type="date" name="dob" placeholder="mm/dd/yyyy">
+					<input type="date" name="dob" value="<?php echo $birth_date ?>">
 				</td>
 				
 				<td>Wean Date:</td>
 				<td>
-					<input type="date" name="weanDate" placeholder="mm/dd/yyyy">
+					<input type="date" name="weanDate" value="<?php echo $wean_date ?>">
 				</td>
 				
 				<td>Location:</td>
@@ -163,18 +163,16 @@
 			<tr>
 				<td>Tag #:</td>
 				<td>
-					<input type="text" name="tagNum" placeholder="Tag #">
+					<input type="text" name="tagNum" value="<?php echo $tagNumber ?>">
 				</td>
 				<td>Tag Date:</td>
 				<td>
-					<input type="date" name="tagDate" placeholder="Tag Date">
+					<input type="date" name="tagDate" value="<?php echo $tag_date ?>">
 				</td>
 				<td>Sex:</td>
 				<td>
 					<select name="sex">
-						<option value="">-select-</option>
-						<option value="Male">Male</option>
-						<option value="Female">Female</option>
+						<?php getDropDown("sex", "animals", $sex); ?>
 					</select>
 				</td>
 			</tr>
@@ -182,13 +180,13 @@
 				<td>Genotype</td>
 				<td>
 					<select name="genotype">
-						<?php getDropDown("genotype_name", "genotypes", "") ?>
+						<?php getDropDown("genotype_name", "genotypes", $genotype) ?>
 					</select>
 				</td>
 				<td>Litter ID</td>
 				<td>
 					<select name="litter">
-						<?php getDropDown("litterID", "litters", "") ?>
+						<?php getDropDown("litterID", "litters", $litterID) ?>
 					</select>
 				</td>
 				<td>
