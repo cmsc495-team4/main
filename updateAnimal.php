@@ -50,7 +50,7 @@
 		require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 		
 		$change_id = (int)$_POST['selectedUpdateValue'];
-
+		echo $change_id;
 		$message = "";
 		$change_id = "";
 		//for selecting animal to update
