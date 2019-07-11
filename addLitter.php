@@ -55,11 +55,11 @@
 
 .fixed-bottom-wrapper img {
 	display: table;
-	opacity: 0.5;
+	opacity: 0.33;
 	position: relative;
 	margin: auto;
-	width: 50%;
-	height: 50%;
+	width: auto;
+	height: auto;
 	z-index: -1;
 }
 </style>
