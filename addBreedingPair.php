@@ -12,17 +12,9 @@
 
 <head>
 	<title>RITA - Add Breeding Pair</title>
+	<link rel="stylesheet" type="text/css" href="css/mainPageStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
-	<link rel="stylesheet" type="text/css" href="css/addBrPairStyle.css">
 	
-	<div class="main-body">
-	<center>
-	<div class="logo">
-		<img align="center" class="ritalogo" src="img/ritalogo-1.png"
-			height="97" width="360">
-		</br></br>
-		<h2 class="maintitle">Add Breeding Pair Form
-		<br style = "line-height:100px;"></br></div>
 </head>
 
 <header>
@@ -110,10 +102,45 @@
 		});
 		});
 	</script>
-	
+	  <form style="float:left" action="http://495team4.com/mainpage.php" method="POST">
+  <button class="button" type="submit" name="home" style="margin-left:16px; margin-top:16px"> Home </button>
+</form>
+
+			<div class="logo">
+			<img class="ritalogo" src="img/ritalogo-1.png" height="97"
+				width="360">
+			<h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
+		</div>
+
+
 </header>
 
 <body>
+
+<style>
+.fixed-bottom-wrapper {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	z-index: -1;
+	padding-bottom: 8px;
+}
+
+.fixed-bottom-wrapper img {
+	display: table;
+	opacity: 0.33;
+	position: relative;
+	margin: auto;
+	width: 315px;
+	height: 216px;
+	z-index: -1;
+}
+</style>
+
+<div class="main-body">
+&nbsp;<p></p>
+<h3 class="subtitle">Add Breeding Pair</h3>
+
 	<form action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
 	<fieldset>
 		<legend>Add Breeding Pair</legend>
@@ -180,16 +207,18 @@
 	<div class="buttonDiv">
 		<button class="button" type="submit" name="add">Add</button>
 	</div>
-	</form>
-		</fieldset>
-	<br style = “line-height:5500;”>
-		<footer>
-		<img align="left" class="mouselogo" src="img/mouse-1.png" height="117"
-			width="87">
+			</fieldset>
 
-		
-	</footer>
-	<br>&emsp; © 2019, CMSC495 Team #4
+	</form>
+				<div class="fixed-bottom-wrapper">
+		<img align="center" class="rodents" src="img/rodentsv3.png"> </br>
+		<center> <br>
+		&emsp; © 2019, CMSC495 Team #4</br></center>
+
+	</div>
+	</div>
+	</br>&nbsp;
 	</br>
+
 </body>
 </html>
