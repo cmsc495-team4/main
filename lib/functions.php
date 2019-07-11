@@ -671,7 +671,7 @@ function getAnimal($selectedUpdateValue)
                 $genotype,
                 $birth_date,
                 $wean_date,
-                $tag_date,,
+                $tag_date,
                 $deceased,
                 $transferred,
                 $comments,
