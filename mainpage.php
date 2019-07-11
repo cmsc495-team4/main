@@ -255,7 +255,7 @@ $(document).ready( function () {
     $('#maintable').DataTable({
     		responsive: true,
     		"paging": false,
-    		order: [[ 2, 'asc' ], [ 1, 'asc' ]]
+    		order: [[ 1, 'asc' ], [ 2, 'asc' ]]
 	});
     $('table.display tr.even').hover(function(){
         $(this).css('background-color','#ffa'); 
