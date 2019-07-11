@@ -22,7 +22,7 @@
   error_reporting(E_ALL);
   require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
   ?>
-  <form action="http://495team4.com/mainpage.php" method="POST">
+  <form style="float:left" action="http://495team4.com/mainpage.php" method="POST">
   <button class="button" type="submit" name="home" style="margin-left:16px; margin-top:16px"> Home </button>
 </form>
 	<!--script to toggle add to existing dropdown: will disappear if new litter box is checked-->
