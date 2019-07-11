@@ -397,7 +397,7 @@ $(document).ready( function () {
 		    method: "POST",
 		    data: { "selectedUpdateValue": selectedUpdateValue },
 		    success: function(data){
-            var win = window.open(,"_self");
+            var win = window.open('?','_self');
             win.document.write(data);
 			}
 		  })
