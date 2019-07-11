@@ -674,7 +674,7 @@ function getAnimal($selectedUpdateValue)
 
 
         $query1 = "SELECT * FROM `filtered_return` WHERE animalID=" . $selectedUpdateValue;
-
+		echo $query1 . "\n";
         $result = $pdo->query($query1);
         $result->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -682,6 +682,7 @@ function getAnimal($selectedUpdateValue)
 
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             if (! empty($row)) {
+            	var_dump($row);
                 $animalID = $row["animalID"];
                 $tagNumber = $row["tagNumber"];
                 $sex = $row["sex"];
