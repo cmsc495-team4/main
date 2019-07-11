@@ -1,9 +1,9 @@
 <?php
-session_start();
+session_start ();
 // Check if user has an existing session, else send to login page.
-if (! isset($_SESSION['user_name'])) {
-    header('Location: login.php');
-    exit();
+if (! isset ( $_SESSION ['user_name'] )) {
+	header ( 'Location: login.php' );
+	exit ();
 }
 ?>
 
@@ -16,13 +16,15 @@ if (! isset($_SESSION['user_name'])) {
 </head>
 
 <header>
-  <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
+
+<?php
+ini_set ( 'display_errors', 1 );
+ini_set ( 'display_startup_errors', 1 );
+error_reporting ( E_ALL );
+require $_SERVER ['DOCUMENT_ROOT'] . "/lib/functions.php";
 ?>
-  <form style="float: left" action="http://495team4.com/mainpage.php"
+
+	<form style="float: left" action="http://495team4.com/mainpage.php"
 		method="POST">
 		<button class="button" type="submit" name="home"
 			style="margin-left: 16px; margin-top: 16px">Home</button>
@@ -81,15 +83,15 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 							<td>
 								<div>
 									<input type="checkbox" name="newLitter" value="newLitter">New
-									Litter
+									Litter</input>
 								</div>
 							</td>
 							<td>
 								<div class="newLitter">
-									<label for="litterID">Add to existing Litter:</label> <select
-										name="litterID">
-					<?php getDropDown("litterID", "litters", $litterID); ?>
-					 </select>
+									<label for="litterID">Add to existing Litter:</label> 
+									<select	name="litterID">
+										<?php getDropDown("litterID", "litters", $litterID); ?>
+					 				</select>
 								</div>
 							</td>
 						</tr>
@@ -97,8 +99,8 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 							<td><div class="newLitter" style="display: none">Breeding Pair:</div></td>
 							<td><div class="newLitter" style="display: none">
 									<select name="pairID">
-            	  		<?php getDropDown("pairID", "breeding_pairs", $breedingPair); ?>
-				</select>
+										<?php getDropDown("pairID", "breeding_pairs", $breedingPair); ?>
+									</select>
 								</div></td>
 						</tr>
 						</div>
@@ -118,20 +120,22 @@ require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 						<tr>
 							<td><button class="button" type="submit" name="add">Add</button></td>
 						</tr>
-			<?php
-if (isset($_POST["add"])) { // if add button is clicked
-                            // If newLitter check box is checked call newLitterIncrement from functions.php to create newLitterID
-    if (isset($_POST["newLitter"])) {
-        $litterID = newLitterIncrement();
-    } else {
-        $litterID = $_POST['litterID'];
-    }
-    addPups($litterID);
+<?php
+if (isset ( $_POST ["add"] )) { // if add button is clicked
+                            // If newLitter check box is checked call
+                            // newLitterIncrement from functions.php to create
+                            // newLitterID
+	if (isset ( $_POST ["newLitter"] )) {
+		$litterID = newLitterIncrement ();
+	} else {
+		$litterID = $_POST ['litterID'];
+	}
+	addPups ( $litterID );
 }
 ?>	
-			</center>
+
 					</table>
-			
+				</center>
 			</fieldset>
 		</form>
 		<div class="fixed-bottom-wrapper">
