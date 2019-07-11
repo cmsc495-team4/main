@@ -590,8 +590,8 @@ function updateBreedPair(){
 	//assign update values
 	$strain = (empty($_POST['strain_name']) ? $cur['desiredStrain'] : $_POST['strain_name']);
 	$date = (empty($_POST['setupDate']) ? $cur['pair_date'] : $_POST['setupDate']);
-	$male = (empty($_POST['maleTag']) ? $cur['maleID'] : $_POST['maleTag']);
-	$female = (empty($_POST['femaleTag']) ? $cur['femaleID'] : $_POST['femaleTag']);
+	$maleTag = (empty($_POST['maleTag']) ? $cur['maleID'] : getIdByTag($_POST['maleTag']));
+	$femaleTag = (empty($_POST['femaleTag']) ? $cur['femaleID'] : getIdByTag($_POST['femaleTag']));
 	$notes = (empty($_POST['commentBox']) ? $cur['notes'] : $cur['notes'] . "\n" . $_POST['commentBox']);
 	if($male != $cur['maleID'] || $female != $cur['femaleID']){
 		$getNewGen = true;
