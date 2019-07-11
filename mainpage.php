@@ -327,7 +327,7 @@ $(document).ready( function () {
 							<td class="td-footer"><button class="update" type="button"
 								name="addBreeder" onclick="window.location='addBreedingPair.php'">Add Breeder Pair</button></td>
               						<td class="td-footer"><button class="update" type="button"
-    					    			name="updateEntry" onclick="updateSelected()">Update Animal</button></td>
+    					    			name="updateEntry" onclick="window.location='updateAnimal.php'">Update Animal</button></td>
               						<td class="td-footer"><button class="update" type="button"
     								name="updateBreederPair" onclick="window.location='updateBrPair.php'">Update Breeder Pair</button></td>
 							<td class="td-footer"><button class="button" type="submit"
