@@ -326,7 +326,7 @@ $(document).ready( function () {
 							<td class="td-footer"><button class="update" type="button"
 								name="addBreeder" onclick="window.location='addBreedingPair.php'">Add Breeder Pair</button></td>
               						<td class="td-footer"><button class="update" type="button"
-    					    			name="updateEntry" onclick="window.location='updateAnimal.php'">Update Animal</button></td>
+    					    			name="updateEntry" onclick="updateSelected()">Update Animal</button></td>
               						<td class="td-footer"><button class="update" type="button"
     								name="updateBreederPair" onclick="window.location='updateBrPair.php'">Update Breeder Pair</button></td>
 							<td class="td-footer"><button class="button" type="submit"
@@ -378,6 +378,27 @@ $(document).ready( function () {
 	      }
 	    }
   </script>
+  	  <script type="text/javascript">
+
+	    var selectedUpdateValue;
+	    $(document).ready(function () {
+	    $("input[type='radio']").on('change', function () {
+	      selectedUpdateValue = $("input[name='rowselect']:checked").val();
+	      });
+	    });
+
+	    function updateSelected(){
+		if (selectedUpdateValue) {
+		  $.ajax({"updateAnimal.php",
+		    method: "POST",
+		    data: { "selectedUpdateValue": selectedUpdateValue }
+		  })
+		}else {
+		  alert("Select an Animal to Update!");
+		}
+	    }
+  </script>
+
 	<br>&emsp; © 2019, CMSC495 Team #4
 	</br>
 </body>

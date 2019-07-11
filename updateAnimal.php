@@ -49,7 +49,7 @@
 		error_reporting(E_ALL);
 		require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 		
-		$change_id = (int)$_POST['selectedValue'];
+		$change_id = (int)$_POST['selectedUpdateValue'];
 
 		$message = "";
 		$change_id = "";
