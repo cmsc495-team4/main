@@ -43,6 +43,26 @@
 
 <body>
 <?php addUserButton() ?>
+
+<style>
+.fixed-bottom-wrapper {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	z-index: -1;
+	padding-bottom: 8px;
+}
+
+.fixed-bottom-wrapper img {
+	display: table;
+	position: relative;
+	margin: auto;
+	width: auto;
+	height: auto;
+	z-index: -1;
+}
+</style>
+
 <div class="main-body">
 
 
@@ -107,8 +127,19 @@
  				}
 			?>	
 </fieldset>			
-	
+		<div class="fixed-bottom-wrapper">
+		<img align="center" class="rodents" src="img/rodentsv3.png"> </br>
+		<center> <br>
+		&emsp; © 2019, CMSC495 Team #4</br></center>
+	</div>
+	</div>
+	</br>&nbsp;
+	</br>
+
       </body>
-	  
+	<footer>
+	
+	
+	</footer>  
 	  
 </html>
