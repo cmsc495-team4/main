@@ -12,7 +12,6 @@
 
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/addBrPairStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/mainPageStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
 	
@@ -50,11 +49,13 @@
 		error_reporting(E_ALL);
 		require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 		
+		$change_id = (int)$_POST['selectedValue'];
+
 		$message = "";
 		$change_id = "";
 		//for selecting animal to update
 		if(isset($_POST['getAnimal'])){
-			$change_id = $_POST['animalID'];
+			//$change_id = $_POST['animalID'];
 			echo "<table class='animals' style='margin:auto'>";
 			displayAnimalTable();
 			echo "</table>";
