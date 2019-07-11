@@ -718,6 +718,7 @@ function getAnimal($selectedUpdateValue)
                 $transferred = $row["transferred"];
                 $litterID = $row["litterID"];
                 $comments = $row["comments"];
+                $location = $row["location"];
                 
                 if ($deceased == 1) {
                     $strDeceased = "Yes";

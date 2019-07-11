@@ -68,6 +68,7 @@
 		$lastName = "";
 		$litterID = "";
 		$parentPair = "";
+		$location = "";
 		$selectedUpdateValue = (int)$_POST['selectedUpdateValue'];
 
 		$message = "";
