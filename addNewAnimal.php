@@ -225,7 +225,7 @@
 		</table>
 	</div>
 	<div class="buttonDiv">
-		<button class="button" type="submit" name="add">Add</button>
+		<button class="button" type="submit" name="add">Add Animal</button>
 	</div>
 	</center>
 	</form>
