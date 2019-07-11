@@ -145,9 +145,10 @@
 &nbsp;<p></p>
 <h3 class="subtitle">Add Breeding Pair</h3>
 
-	<form action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
+	<form style="margin-top:8px" action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
 	<fieldset>
 		<legend>Add Breeding Pair</legend>
+		<center>
 		<table class="table1">
 			<tr>
 				<td>PI:</td>
@@ -201,6 +202,7 @@
 	<div class="buttonDiv">
 		<button class="button" type="submit" name="add">Add</button>
 	</div>
+	</center>
 			</fieldset>
 
 	</form>
