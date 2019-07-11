@@ -612,6 +612,7 @@ function updateBreedPair(){
 			echo "<label style='color:red'>Unable to update. New breeder is not same species as existing counterpart</label>";
 		}
 		else if($malePI != $femalePI){
+			$issues = true;
 			echo "<label style='color:red'>Unable to update. New breeder does not have same PI as existing counterpart</label>";			
 		}
 	}
