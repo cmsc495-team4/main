@@ -625,7 +625,7 @@ function updateBreedPair(){
 			$mGen = $queryG->fetch();
 			$queryG->execute([$female]);
 			$fGen = $queryG->fetch();
-			$gen = ($mGen > $fGen ? $fGen : $mGen);
+			$gen = ($mGen['generation'] > $fGen['generation'] ? $fGen['generation'] : $mGen['generation']) + 1;
 		}
 		$queryU = $pdo->prepare("UPDATE breeding_pairs SET maleID = ?, femaleID = ?, desiredStrain = ?, offspringGen = ?, pair_date = ?, notes = ? WHERE pairID = ?");
 		$return = $queryU->execute([$male, $female, $strain, $gen, $date, $notes, $prNum]);
