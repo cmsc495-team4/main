@@ -72,7 +72,7 @@
 			}
 		}
 		
-		getAnimal();
+		getAnimal($selectedUpdateValue);
 	?>
 	
 
