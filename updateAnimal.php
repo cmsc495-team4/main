@@ -92,7 +92,7 @@
 		}
 		
 		getAnimal($selectedUpdateValue);
-		var_dump($species);
+		echo "--> " . $species;
 	?>
 	
 
