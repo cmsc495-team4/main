@@ -127,24 +127,20 @@
 			</table>
 </fieldset>		
 </form>
-	
+				<div class="fixed-bottom-wrapper">
+		<img align="center" class="rodents" src="img/rodentsv3.png"> </br>
+		<center> <br>
+		&emsp; © 2019, CMSC495 Team #4</br></center>
+
 	</div>
 	</div>
 	</br>&nbsp;
 	</br>
 
       </body>
-	<footer>
 	
-				<img align="left" class="mouselogo" src="img/mouse-1.png" height="117"
-			width="87">
-
-			<div class="fixed-bottom-wrapper">
-		<img align="center" class="rodents" src="img/rodentsv3.png"> </br>
-		<center> <br>
-		&emsp; © 2019, CMSC495 Team #4</br></center>
 
 
-	</footer>  
+
 	  
 </html>
