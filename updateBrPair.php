@@ -170,7 +170,7 @@
 			</tr>
 		</table>
 	</div>
-	<div>
+	<div><center>
 		<table class="table3">
 			<tr>
 				<td>Comments:</td>
