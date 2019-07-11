@@ -39,7 +39,7 @@
 		if(isset($_POST['add'])){
 			//var_dump($_POST);
 			if(empty($_POST['prNum'])) {
-				$message = "Must select a Bredding Pair # to update";
+				$message = "Must select a Breeding Pair # to update";
 			}
 			else{
 				updateBreedPair();
