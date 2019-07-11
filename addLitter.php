@@ -32,11 +32,11 @@
 			$("." + inputValue).toggle();
 		});
 	});</script>
-
+	
 		<div class="logo">
-			<img align="left" class="ritalogo" src="img/ritalogo-1.png"
-				height="97" width="360"></br><br style = "line-height:90px;"></br>
-			<h3 class="maintitle">Rodentia Inventory Tracking Application</h3>
+			<img class="ritalogo" src="img/ritalogo-1.png" height="97"
+				width="360">
+			<h2 class="maintitle">Rodentia Inventory Tracking Application</h2>
 		</div>
 
 </header>
