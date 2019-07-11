@@ -23,7 +23,7 @@
   require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
   ?>
   <form action="http://495team4.com/mainpage.php" method="POST">
-  <button class="button" type="submit" name="home">Home</button>
+  <button class="button" type="submit" name="home" style="margin-left:16px; margin-top:16px"><- Home</button>
 </form>
 	<!--script to toggle add to existing dropdown: will disappear if new litter box is checked-->
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
