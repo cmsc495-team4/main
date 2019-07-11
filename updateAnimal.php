@@ -178,7 +178,7 @@
 				<td>Location:</td>
 				<td>
 					<select name="location">
-						<?php getDropDown("location_name", "location", $location); ?>
+						<?php getDropDown("location", "animals", $location); ?>
 					</select>
 				</td>
 			</tr>
