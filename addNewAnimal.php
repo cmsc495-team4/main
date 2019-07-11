@@ -91,7 +91,10 @@
 
 </header>
 
-<body>
+<body class="mainbody">
+&nbsp;<p></p>
+<h3 class="subtitle">Add New Animal</h3>
+
 <style>
 .fixed-bottom-wrapper {
 	position: fixed;
