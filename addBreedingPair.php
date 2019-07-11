@@ -29,7 +29,7 @@ $message = "";
 
 if (isset($_POST['add'])) {
     // var_dump($_POST);
-    if (empty(empty($_POST['strain_name']) || $_POST['setupDate']) || empty($_POST['maleTag']) || empty($_POST['femaleTag'])) {
+    if (empty($_POST['strain_name']) || empty($_POST['setupDate']) || empty($_POST['maleTag']) || empty($_POST['femaleTag'])) {
         $message = "All fields required";
     } else {
         $strain = $_POST['strain_name'];
