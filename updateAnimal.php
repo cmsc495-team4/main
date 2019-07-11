@@ -71,6 +71,8 @@
 				updateAnimal();
 			}
 		}
+		
+		getAnimal();
 	?>
 	
 

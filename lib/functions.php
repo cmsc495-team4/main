@@ -656,25 +656,87 @@ function updateBreedPair(){
 	$pdo = null;
 }
 
-function getAnimals()
+function getAnimal()
 {
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
-    if (isset($_REQUEST["Filter"])) { // retrieve the form data by using the element's name attributes value as key
-        $displayAll = FALSE;
-        $filterPI = $_REQUEST["pi_name"];
-        $filterBreeder = $_REQUEST["breedingPair"];
-        $filterSpecies = $_REQUEST["species_name"];
-        $filterPair = $_REQUEST["strain_name"];
-        $filterTagNumber = $_REQUEST["tagNumber"];
-        $filterLitter = $_REQUEST["litterID"];
-        $filterDOB = $_REQUEST["birth_date"];
-        $filterBreeder = $_REQUEST["breeder"];
-        $filterPup = $_REQUEST["pup"];
-        $filterWeanling = $_REQUEST["weanling"];
-    }
+
+    $options = [
+        PDO::ATTR_EMULATE_PREPARES => false, // turn off emulation mode for "real" prepared statements
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // turn on errors in the form of exceptions
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC // make the default fetch be an associative array
+    ];
+    require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
+
+
+        $query1 = "SELECT * FROM `filtered_return` WHERE animalID=" . $selectedUpdateValue;
+
+        $result = $pdo->query($query1);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+
+        $tableRow = 0;
+
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            if (! empty($row)) {
+                $animalID = $row["animalID"];
+                $tagNumber = $row["tagNumber"];
+                $sex = $row["sex"];
+                $strain = $row["strain_name"];
+                $species = $row["species_name"];
+                $classification = $row["classification"];
+                $genotype = $row["genotype"];
+                $birth_date = $row["birth_date"];
+                $wean_date = $row["wean_date"];
+                $tag_date = $row["tag_date"];
+                $deceased = $row["deceased"];
+                $transferred = $row["transferred"];
+                $comments = $row["comments"];
+                
+                if ($deceased == 1) {
+                    $strDeceased = "Yes";
+                } else {
+                    $strDeceased = "No";
+                }
+
+                if ($transferred == 1) {
+                    $strTransferred = "Yes";
+                } else {
+                    $strTransferred = "No";
+                }
+
+                $query2 = "SELECT PI_username, PI_strain_ID FROM PI_assigned_animals WHERE PI_animalID=" . $animalID;
+                $result2 = $pdo->query($query2);
+                $result2->setFetchMode(PDO::FETCH_ASSOC);
+                $row2 = $result2->fetch(PDO::FETCH_ASSOC);
+
+                $responsible_PI = $row2["PI_username"];
+                $strain_ID = $row2["PI_strain_ID"];
+
+                if (! empty($responsible_PI)) {
+                    $query3 = "SELECT first_name, last_name FROM user WHERE username='" . $responsible_PI . "'";
+                    $result3 = $pdo->query($query3);
+                    $result3->setFetchMode(PDO::FETCH_ASSOC);
+                    $row3 = $result3->fetch(PDO::FETCH_ASSOC);
+
+                    $firstName = $row3["first_name"];
+                    $lastName = $row3["last_name"] . ", ";
+                } else {
+                    $lastName = "Unassigned";
+                    $firstName = "";
+                }
+
+                $query5 = "SELECT litterID, breedingPair FROM litters WHERE animalID_pup=" . $animalID;
+                $result5 = $pdo->query($query5);
+                $result5->setFetchMode(PDO::FETCH_ASSOC);
+                $row5 = $result5->fetch(PDO::FETCH_ASSOC);
+
+                $litterID = $row5["litterID"];
+                $parentPair = $row5["breedingPair"];
+                
 }
 
 function displayWeanlingReportTable() {
