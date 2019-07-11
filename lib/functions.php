@@ -737,7 +737,8 @@ function getAnimal()
                 $litterID = $row5["litterID"];
                 $parentPair = $row5["breedingPair"];
                 
-}
+		}
+	}
 
 function displayWeanlingReportTable() {
     ini_set('display_errors', 1);
