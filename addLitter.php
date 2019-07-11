@@ -55,6 +55,7 @@
 
 .fixed-bottom-wrapper img {
 	display: table;
+	opacity: 0.5;
 	position: relative;
 	margin: auto;
 	width: auto;
