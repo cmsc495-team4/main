@@ -680,6 +680,7 @@ function getAnimal($selectedUpdateValue)
                 $firstName,
                 $lastName,
                 $litterID,
+                $location,
                 $parentPair;
 
 
@@ -697,7 +698,6 @@ function getAnimal($selectedUpdateValue)
 		echo $selectedUpdateValue . "\n\n";
         $result = $pdo->query($query1);
         $result->setFetchMode(PDO::FETCH_ASSOC);
-            	//var_dump($result);
 
         $tableRow = 0;
 
