@@ -391,7 +391,7 @@ $(document).ready( function () {
 	    function updateSelected(){
 		if (typeof selectedUpdateValue !== 'undefined') {
 		  $.ajax({
-		    url: "updateAnimal.php",
+		    url: "updateAnimal.php", 
 		    method: "POST",
 		    data: { "selectedUpdateValue": selectedUpdateValue }
 		  })
