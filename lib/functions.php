@@ -500,6 +500,22 @@ function getStrainIdByName($sName){
 	return $result['id_strain'];
 }
 
+function getIdByTag($tag){
+	$options = [
+        PDO::ATTR_EMULATE_PREPARES => false, // turn off emulation mode for "real" prepared statements
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // turn on errors in the form of exceptions
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC // make the default fetch be an associative array
+    ];
+    require $_SERVER['DOCUMENT_ROOT'] . "/lib/dbconfig.php";
+	
+	$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, $options);
+	$query = $pdo->prepare("SELECT animalID FROM animals WHERE tagNumber = ? LIMIT 1");
+	$query->execute([$tag]);
+	$result = $query->fetch();
+	return $result['tagNumber'];
+}
+
+
 function addBreedPair($strain, $date, $male, $female, $notes){
 	ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
