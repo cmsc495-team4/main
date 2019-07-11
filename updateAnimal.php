@@ -153,7 +153,7 @@
 				<td>Species:</td>
 				<td>
 					<select name="species_name">
-						<?php getDropDown("species_name", "animals", $species_name); ?>
+						<?php getDropDown("species_name", "animals", $species); ?>
 					</select>
 				</td>
 				<td>Strain: ([Re]select PI first)</td>
@@ -178,7 +178,7 @@
 				<td>Location:</td>
 				<td>
 					<select name="location">
-						<?php getDropDown("location_name", "location", ""); ?>
+						<?php getDropDown("location_name", "location", $location); ?>
 					</select>
 				</td>
 			</tr>
@@ -225,7 +225,7 @@
 			<tr>
 				<td>Comments:</td>
 				<td>
-					<textarea id="commentBox" name="commentBox" rows="5" cols="33"></textarea>
+					<textarea id="commentBox" name="commentBox" rows="5" cols="33" value="<?php echo $comments ?>"></textarea>
 				</td>
 		</table>
 	</div>

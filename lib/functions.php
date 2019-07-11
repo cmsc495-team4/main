@@ -716,6 +716,7 @@ function getAnimal($selectedUpdateValue)
                 $tag_date = $row["tag_date"];
                 $deceased = $row["deceased"];
                 $transferred = $row["transferred"];
+                $litterID = $row["litterID"];
                 $comments = $row["comments"];
                 
                 if ($deceased == 1) {
