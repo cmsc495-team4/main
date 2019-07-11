@@ -388,6 +388,7 @@ $(document).ready( function () {
 	    });
 
 	    function updateSelected(){
+	    alert(selectedUpdateVAlue);
 		if (selectedUpdateValue) {
 		  $.ajax({
 		    url: "updateAnimal.php",
