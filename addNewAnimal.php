@@ -113,7 +113,9 @@
 </style>
 
 
-	<form action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
+	<form style="padding:8px" action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
+	<fieldset>
+	<legend> Add Animal </legend>
 	<div>
 		<?php 
 			addUserButton();
@@ -129,7 +131,8 @@
 					<input type="radio" id="breeder" name="classification" value="breeder">
 					<label for="breeder">Breeder</label>
 		</div>
-		<table class="table1">
+		<center>
+		<table>
 			<tr>
 				<td></td>	
 			</tr>
@@ -224,6 +227,7 @@
 	<div class="buttonDiv">
 		<button class="button" type="submit" name="add">Add</button>
 	</div>
+	</center>
 	</form>
 	
 					<div class="fixed-bottom-wrapper">
