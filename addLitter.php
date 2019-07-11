@@ -58,8 +58,8 @@
 	opacity: 0.33;
 	position: relative;
 	margin: auto;
-	width: auto;
-	height: auto;
+	width: 315px;
+	height: 216px;
 	z-index: -1;
 }
 </style>
