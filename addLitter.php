@@ -33,6 +33,12 @@
 		});
 	});</script>
 
+		<div class="logo">
+			<img align="left" class="ritalogo" src="img/ritalogo-1.png"
+				height="97" width="360"></br><br style = "line-height:90px;"></br>
+			<h3 class="maintitle">Rodentia Inventory Tracking Application</h3>
+		</div>
+
 </header>
 
 <body>
@@ -40,11 +46,6 @@
 <div class="main-body">
 
 
-		<div class="logo">
-			<img align="left" class="ritalogo" src="img/ritalogo-1.png"
-				height="97" width="360"></br><br style = "line-height:90px;"></br>
-			<h3 class="maintitle">Rodentia Inventory Tracking Application</h3>
-		</div>
 		<img align="left" class="mouselogo" src="img/mouse-1.png"
 				height="117" width="87"> </br>
 			</br>
