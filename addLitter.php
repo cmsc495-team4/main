@@ -124,7 +124,9 @@
 					addPups($litterID);
  				}
 			?>	
+			</table>
 </fieldset>		
+</form>
 			<img align="left" class="mouselogo" src="img/mouse-1.png" height="117"
 			width="87">
 	
