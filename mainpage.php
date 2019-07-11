@@ -378,6 +378,7 @@ $(document).ready( function () {
 	      }
 	    }
   </script>
+  
   	  <script type="text/javascript">
 
 	    var selectedUpdateValue;
@@ -388,7 +389,7 @@ $(document).ready( function () {
 	    });
 
 	    function updateSelected(){
-	    alert(selectedUpdateVAlue);
+	    alert(selectedUpdateValue);
 		if (selectedUpdateValue) {
 		  $.ajax({
 		    url: "updateAnimal.php",
