@@ -18,8 +18,6 @@
 </head>
 
 <header>
-<br style = "line-height:30px;"></br>
-
 	
 	<?php
 		ini_set('display_errors', 1);
