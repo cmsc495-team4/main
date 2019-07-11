@@ -178,7 +178,7 @@
 					<textarea id="commentBox" name="commentBox" rows="5" cols="33"></textarea>
 				</td>
 		</table>
-	</div>
+	</div><center>
 	<div class="buttonDiv">
 		<button class="button" type="submit" name="add">Update</button>
 	</div>
