@@ -739,6 +739,7 @@ function getAnimal()
                 
 		}
 	}
+}
 
 function displayWeanlingReportTable() {
     ini_set('display_errors', 1);
