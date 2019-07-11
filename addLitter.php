@@ -65,8 +65,8 @@
 </style>
 
 <div class="main-body">
-
-<h3 class="subtitle" style="text-align:center">Add New Litter</h3>
+&nbsp;<p></p>
+<h3 class="subtitle">Add New Litter</h3>
 			
   <form action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
 		<fieldset style="margin-top: 16px" >
