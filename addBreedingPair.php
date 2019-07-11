@@ -114,6 +114,12 @@
 </header>
 
 <body>
+		<?php 
+			addUserButton();
+			if(isset($message)){
+				echo '<label class="text-danger" style="color:red">' . $message . '</label>';
+			}
+		?>
 
 <style>
 .fixed-bottom-wrapper {
@@ -142,12 +148,6 @@
 	<form action="<?php $_SERVER['REQUEST_URI']?>" method="POST">
 	<fieldset>
 		<legend>Add Breeding Pair</legend>
-		<?php 
-			addUserButton();
-			if(isset($message)){
-				echo '<label class="text-danger" style="color:red">' . $message . '</label>';
-			}
-		?>
 		<table class="table1">
 			<tr>
 				<td>PI:</td>
