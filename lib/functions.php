@@ -447,7 +447,7 @@ function updateAnimal()
             $issues = true;
             echo '<label style="color:red">Unable to update. Animal is part of breeding pair which the updates would invalidate.</label>';
         }
-        echo '<label style="color:red">Check breeder</label>';
+        //echo '<label style="color:red">Check breeder</label>';
     }
     
     // if pi updated, check that PI is authorized to use existing strain
@@ -1082,7 +1082,7 @@ function pupSurvivabilityReportTable()
             $result7->setFetchMode(PDO::FETCH_ASSOC);
             $row7 = $result7->fetch(PDO::FETCH_ASSOC);
             $numberOfDeceasedPups = $row7["cnts"];
-            $deceasedPercentage = round(($numberOfDeceasedPups / $numberOfPups), 2);
+            $deceasedPercentage = round(($numberOfDeceasedPups / $numberOfPups)*100, 2);
             $survivalPercentage = 100.00 - $deceasedPercentage;
             echo "<td class=\"animalList\" style=\"text-align: left;\">" . $lastName . $firstName . "</td>\n";
             echo "<td class=\"animalList\" style=\"text-align: center;\">" . $species . "</td>\n";
