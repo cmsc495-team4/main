@@ -389,8 +389,9 @@ $(document).ready( function () {
 	    });
 
 	    function updateSelected(){
-	    alert(selectedUpdateValue);
 		if (selectedUpdateValue !== 'undefined') {
+			    alert(selectedUpdateValue);
+
 		  $.ajax({
 		    url: "updateAnimal.php", 
 		    method: "POST",
