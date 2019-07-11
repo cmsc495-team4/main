@@ -12,6 +12,7 @@
 
 <head>
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/addBrPairStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/mainPageStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/userDropdown.css">
 	
@@ -48,34 +49,12 @@
 		ini_set('display_startup_errors', 1);
 		error_reporting(E_ALL);
 		require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
-		$animalID = "";
-        $tagNumber = "";
-        $sex = "";
-        $strain = "";
-        $species = "";
-        $classification = ""; 
-        $genotype = ""; 
-        $birth_date = "";
-        $wean_date = ""; 
-        $tag_date = "";
-        $strDeceased = ""; 
-        $strTransferred = ""; 
-        $comments = ""; 
-		$deceased = "";
-		$transferred = "";
-		$responsible_PI = "";
-		$firstName = "";
-		$lastName = "";
-		$litterID = "";
-		$parentPair = "";
-		$location = "";
-		$selectedUpdateValue = (int)$_POST['selectedUpdateValue'];
-
+		
 		$message = "";
 		$change_id = "";
 		//for selecting animal to update
 		if(isset($_POST['getAnimal'])){
-			//$change_id = $_POST['animalID'];
+			$change_id = $_POST['animalID'];
 			echo "<table class='animals' style='margin:auto'>";
 			displayAnimalTable();
 			echo "</table>";
@@ -91,9 +70,6 @@
 				updateAnimal();
 			}
 		}
-		
-		getAnimal($selectedUpdateValue);
-		echo "--> " . $species;
 	?>
 	
 
@@ -107,7 +83,7 @@
 						<tr>
 							<td>Animal ID:</td>
 							<td><select name="animalID"> 
-          	  <?php getDropDown("animalID", "animals", $selectedUpdateValue); ?>
+          	  <?php getDropDown("animalID", "animals", $change_id); ?>
 			</select></td>
 
 							<td class="filter-button"><button class="action" type="submit"
@@ -148,13 +124,13 @@
 				<td>PI:</td>
 				<td>
 					<select name="pi_name">
-						<?php getInvestigators($responsible_PI); ?>
+						<?php getInvestigators(""); ?>
 					</select>
 				</td>
 				<td>Species:</td>
 				<td>
 					<select name="species_name">
-						<?php getDropDown("species_name", "animals", $species); ?>
+						<?php getDropDown("species_name", "animals", $species_name); ?>
 					</select>
 				</td>
 				<td>Strain: ([Re]select PI first)</td>
@@ -168,34 +144,36 @@
 				
 				<td>DOB:</td>
 				<td>
-					<input type="date" name="dob" value="<?php echo $birth_date ?>">
+					<input type="date" name="dob" placeholder="mm/dd/yyyy">
 				</td>
 				
 				<td>Wean Date:</td>
 				<td>
-					<input type="date" name="weanDate" value="<?php echo $wean_date ?>">
+					<input type="date" name="weanDate" placeholder="mm/dd/yyyy">
 				</td>
 				
 				<td>Location:</td>
 				<td>
 					<select name="location">
-						<?php getDropDown("location", "animals", $location); ?>
+						<?php getDropDown("location_name", "location", ""); ?>
 					</select>
 				</td>
 			</tr>
 			<tr>
 				<td>Tag #:</td>
 				<td>
-					<input type="text" name="tagNum" value="<?php echo $tagNumber ?>">
+					<input type="text" name="tagNum" placeholder="Tag #">
 				</td>
 				<td>Tag Date:</td>
 				<td>
-					<input type="date" name="tagDate" value="<?php echo $tag_date ?>">
+					<input type="date" name="tagDate" placeholder="Tag Date">
 				</td>
 				<td>Sex:</td>
 				<td>
 					<select name="sex">
-						<?php getDropDown("sex", "animals", $sex); ?>
+						<option value="">-select-</option>
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
 					</select>
 				</td>
 			</tr>
@@ -203,13 +181,13 @@
 				<td>Genotype</td>
 				<td>
 					<select name="genotype">
-						<?php getDropDown("genotype_name", "genotypes", $genotype) ?>
+						<?php getDropDown("genotype_name", "genotypes", "") ?>
 					</select>
 				</td>
 				<td>Litter ID</td>
 				<td>
 					<select name="litter">
-						<?php getDropDown("litterID", "litters", $litterID) ?>
+						<?php getDropDown("litterID", "litters", "") ?>
 					</select>
 				</td>
 				<td>
@@ -226,7 +204,7 @@
 			<tr>
 				<td>Comments:</td>
 				<td>
-					<textarea id="commentBox" name="commentBox" rows="5" cols="33" value="<?php echo $comments ?>"></textarea>
+					<textarea id="commentBox" name="commentBox" rows="5" cols="33"></textarea>
 				</td>
 		</table>
 	</div>
