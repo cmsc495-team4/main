@@ -680,7 +680,7 @@ function getAnimal($selectedUpdateValue)
                 $firstName,
                 $lastName,
                 $litterID,
-                parentPair;
+                $parentPair;
 
 
     $options = [
