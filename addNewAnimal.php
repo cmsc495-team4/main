@@ -233,5 +233,16 @@
 		<button class="button" type="submit" name="add">Add</button>
 	</div>
 	</form>
+	
+					<div class="fixed-bottom-wrapper">
+		<img align="center" class="rodents" src="img/rodentsv3.png"> </br>
+		<center> <br>
+		&emsp; © 2019, CMSC495 Team #4</br></center>
+
+	</div>
+	</div>
+	</br>&nbsp;
+	</br>
+
 </body>
 </html>
